@@ -1,0 +1,731 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This CellML file was generated on 27/11/2006 at 03:07:24 using:
+
+COR (0.9.31.407)
+Copyright 2002-2006 Oxford Cardiac Electrophysiology Group
+http://COR.physiol.ox.ac.uk/ - COR@physiol.ox.ac.uk
+
+CellML 1.0 was used to generate this cellular model
+http://www.CellML.org/
+-->
+<model name="noble_model_1962" cmeta:id="noble_model_1962" xmlns="http://www.cellml.org/cellml/1.0#" xmlns:cellml="http://www.cellml.org/cellml/1.0#" xmlns:cmeta="http://www.cellml.org/metadata/1.0#">
+   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+      <rdf:Description rdf:about="#noble_model_1962">
+         <is-self-excitatory xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</is-self-excitatory>
+         <named-attribute xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">
+            <rdf:Description>
+               <name rdf:datatype="http://www.w3.org/2000/10/XMLSchema#string">SuggestedCycleLength</name>
+               <value rdf:datatype="http://www.w3.org/2000/10/XMLSchema#double">1000</value>
+            </rdf:Description>
+         </named-attribute>
+      </rdf:Description>
+   </rdf:RDF>
+   <units name="millisecond">
+      <unit units="second" prefix="milli"/>
+   </units>
+   <units name="per_millisecond">
+      <unit units="millisecond" exponent="-1"/>
+   </units>
+   <units name="millivolt">
+      <unit units="volt" prefix="milli"/>
+   </units>
+   <units name="per_millivolt">
+      <unit units="volt" prefix="milli" exponent="-1"/>
+   </units>
+   <units name="per_millivolt_millisecond">
+      <unit units="millivolt" exponent="-1"/>
+      <unit units="millisecond" exponent="-1"/>
+   </units>
+   <units name="milliS_per_cm2">
+      <unit units="siemens" prefix="milli"/>
+      <unit units="metre" prefix="centi" exponent="-2"/>
+   </units>
+   <units name="microF_per_cm2">
+      <unit units="farad" prefix="micro"/>
+      <unit units="metre" prefix="centi" exponent="-2"/>
+   </units>
+   <units name="microA_per_cm2">
+      <unit units="ampere" prefix="micro"/>
+      <unit units="metre" prefix="centi" exponent="-2"/>
+   </units>
+   <component name="environment">
+      <variable name="time" public_interface="out" units="millisecond" cmeta:id="time">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#time">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#time"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>	  
+   </component>
+   <component name="membrane">
+	  <variable name="V" units="millivolt" initial_value="-87" public_interface="out" cmeta:id="membrane_voltage">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_voltage">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_voltage"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>	  
+      <variable name="Cm" units="microF_per_cm2" initial_value="12" cmeta:id="membrane_capacitance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_capacitance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_capacitance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>	  
+      <variable name="time" units="millisecond" public_interface="in"/>
+      <variable name="i_Na" units="microA_per_cm2" public_interface="in"/>
+      <variable name="i_K" units="microA_per_cm2" public_interface="in"/>
+      <variable name="i_Leak" units="microA_per_cm2" public_interface="in"/>
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+         <apply>
+            <eq/>
+            <apply>
+               <diff/>
+               <bvar>
+                  <ci>time</ci>
+               </bvar>
+               <ci>V</ci>
+            </apply>
+            <apply>
+               <divide/>
+               <apply>
+                  <minus/>
+                  <apply>
+                     <plus/>
+                     <ci>i_Na</ci>
+                     <ci>i_K</ci>
+                     <ci>i_Leak</ci>
+                  </apply>
+               </apply>
+               <ci>Cm</ci>
+            </apply>
+         </apply>
+      </math>
+   </component>
+   <component name="sodium_channel">
+	  <variable name="i_Na" units="microA_per_cm2" public_interface="out" cmeta:id="membrane_fast_sodium_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_fast_sodium_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>	  
+      <variable name="g_Na_max" units="milliS_per_cm2" initial_value="400" cmeta:id="membrane_fast_sodium_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_fast_sodium_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>	  
+      <variable name="g_Na" units="milliS_per_cm2"/>
+      <variable name="shift_INa_inact" units="millivolt" initial_value="0" private_interface="out" cmeta:id="membrane_fast_sodium_current_shift_inactivation">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_fast_sodium_current_shift_inactivation">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current_shift_inactivation"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+	  <variable name="perc_reduced_inact_for_IpNa" units="dimensionless" initial_value="0" private_interface="out" cmeta:id="membrane_fast_sodium_current_reduced_inactivation">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_fast_sodium_current_reduced_inactivation">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current_reduced_inactivation"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>	  
+      <variable name="E_Na" units="millivolt" initial_value="40"/>
+      <variable name="time" units="millisecond" public_interface="in" private_interface="out"/>
+      <variable name="V" units="millivolt" public_interface="in" private_interface="out"/>
+      <variable name="m" units="dimensionless" private_interface="in"/>
+      <variable name="h" units="dimensionless" private_interface="in"/>
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+         <apply>
+            <eq/>
+            <ci>g_Na</ci>
+            <apply>
+               <times/>
+               <apply>
+                  <power/>
+                  <ci>m</ci>
+                  <cn cellml:units="dimensionless">3</cn>
+               </apply>
+               <ci>h</ci>
+               <ci>g_Na_max</ci>
+            </apply>
+         </apply>
+         <apply>
+            <eq/>
+            <ci>i_Na</ci>
+            <apply>
+               <times/>
+               <apply>
+                  <plus/>
+                  <ci>g_Na</ci>
+                  <cn cellml:units="milliS_per_cm2">0.14</cn>
+               </apply>
+               <apply>
+                  <minus/>
+                  <ci>V</ci>
+                  <ci>E_Na</ci>
+               </apply>
+            </apply>
+         </apply>
+      </math>
+   </component>
+   <component name="sodium_channel_m_gate">
+	  <variable name="m" units="dimensionless" initial_value="0.01" public_interface="out" cmeta:id="membrane_fast_sodium_current_m_gate">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_fast_sodium_current_m_gate">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current_m_gate"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>	  
+      <variable name="alpha_m" units="per_millisecond"/>
+      <variable name="beta_m" units="per_millisecond"/>
+      <variable name="V" units="millivolt" public_interface="in"/>
+      <variable name="time" units="millisecond" public_interface="in"/>
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+         <apply>
+            <eq/>
+            <ci>alpha_m</ci>
+            <apply>
+               <divide/>
+               <apply>
+                  <times/>
+                  <cn cellml:units="per_millivolt_millisecond">0.1</cn>
+                  <apply>
+                     <minus/>
+                     <apply>
+                        <minus/>
+                        <ci>V</ci>
+                     </apply>
+                     <cn cellml:units="millivolt">48</cn>
+                  </apply>
+               </apply>
+               <apply>
+                  <minus/>
+                  <apply>
+                     <exp/>
+                     <apply>
+                        <divide/>
+                        <apply>
+                           <minus/>
+                           <apply>
+                              <minus/>
+                              <ci>V</ci>
+                           </apply>
+                           <cn cellml:units="millivolt">48</cn>
+                        </apply>
+                        <cn cellml:units="millivolt">15</cn>
+                     </apply>
+                  </apply>
+                  <cn cellml:units="dimensionless">1</cn>
+               </apply>
+            </apply>
+         </apply>
+         <apply>
+            <eq/>
+            <ci>beta_m</ci>
+            <apply>
+               <divide/>
+               <apply>
+                  <times/>
+                  <cn cellml:units="per_millivolt_millisecond">0.12</cn>
+                  <apply>
+                     <plus/>
+                     <ci>V</ci>
+                     <cn cellml:units="millivolt">8</cn>
+                  </apply>
+               </apply>
+               <apply>
+                  <minus/>
+                  <apply>
+                     <exp/>
+                     <apply>
+                        <divide/>
+                        <apply>
+                           <plus/>
+                           <ci>V</ci>
+                           <cn cellml:units="millivolt">8</cn>
+                        </apply>
+                        <cn cellml:units="millivolt">5</cn>
+                     </apply>
+                  </apply>
+                  <cn cellml:units="dimensionless">1</cn>
+               </apply>
+            </apply>
+         </apply>
+         <apply>
+            <eq/>
+            <apply>
+               <diff/>
+               <bvar>
+                  <ci>time</ci>
+               </bvar>
+               <ci>m</ci>
+            </apply>
+            <apply>
+               <minus/>
+               <apply>
+                  <times/>
+                  <ci>alpha_m</ci>
+                  <apply>
+                     <minus/>
+                     <cn cellml:units="dimensionless">1</cn>
+                     <ci>m</ci>
+                  </apply>
+               </apply>
+               <apply>
+                  <times/>
+                  <ci>beta_m</ci>
+                  <ci>m</ci>
+               </apply>
+            </apply>
+         </apply>
+      </math>
+   </component>
+   <component name="sodium_channel_h_gate">
+	  <variable name="h" units="dimensionless" initial_value="0.8" public_interface="out" cmeta:id="membrane_fast_sodium_current_h_gate">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_fast_sodium_current_h_gate">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current_h_gate"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>	  
+      <variable name="alpha_h" units="per_millisecond"/>
+      <variable name="beta_h" units="per_millisecond"/>
+      <variable name="h_inf" units="dimensionless"/>
+	  <variable name="tau_h" units="millisecond" cmeta:id="membrane_fast_sodium_current_h_gate_tau">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_fast_sodium_current_h_gate_tau">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current_h_gate_tau"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>	  	  
+      <variable name="shift_INa_inact" units="millivolt" public_interface="in"/>
+	  <variable name="perc_reduced_inact_for_IpNa" units="dimensionless" public_interface="in"/>	  
+      <variable name="V" units="millivolt" public_interface="in"/>
+      <variable name="time" units="millisecond" public_interface="in"/>
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+         <apply>
+            <eq/>
+            <ci>alpha_h</ci>
+            <apply>
+               <times/>
+               <cn cellml:units="per_millisecond">0.17</cn>
+               <apply>
+                  <exp/>
+                  <apply>
+                     <divide/>
+                     <apply>
+                        <times/>
+                        <apply>
+                           <minus/>
+                           <cn cellml:units="dimensionless">1</cn>
+                        </apply>
+                        <apply>
+                           <minus/>
+                           <apply>
+                              <plus/>
+                              <ci>V</ci>
+                              <cn cellml:units="millivolt">90</cn>
+                           </apply>
+                           <ci>shift_INa_inact</ci>
+                        </apply>
+                     </apply>
+                     <cn cellml:units="millivolt">20</cn>
+                  </apply>
+               </apply>
+            </apply>
+         </apply>
+         <apply>
+            <eq/>
+            <ci>beta_h</ci>
+            <apply>
+               <divide/>
+               <cn cellml:units="per_millisecond">1</cn>
+               <apply>
+                  <plus/>
+                  <cn cellml:units="dimensionless">1</cn>
+                  <apply>
+                     <exp/>
+                     <apply>
+                        <divide/>
+                        <apply>
+                           <times/>
+                           <apply>
+                              <minus/>
+                              <cn cellml:units="dimensionless">1</cn>
+                           </apply>
+                           <apply>
+                              <minus/>
+                              <apply>
+                                 <plus/>
+                                 <ci>V</ci>
+                                 <cn cellml:units="millivolt">42</cn>
+                              </apply>
+                              <ci>shift_INa_inact</ci>
+                           </apply>
+                        </apply>
+                        <cn cellml:units="millivolt">10</cn>
+                     </apply>
+                  </apply>
+               </apply>
+            </apply>
+         </apply>
+         <apply>
+            <eq/>
+            <ci>h_inf</ci>
+            <apply>
+               <plus/>
+               <apply>
+                  <divide/>
+                  <apply>
+                     <times/>
+                     <ci>alpha_h</ci>
+                     <apply>
+                        <minus/>
+                        <cn cellml:units="dimensionless">1</cn>
+                        <apply>
+                           <divide/>
+                           <ci>perc_reduced_inact_for_IpNa</ci>
+                           <cn cellml:units="dimensionless">100</cn>
+                        </apply>
+                     </apply>
+                  </apply>
+                  <apply>
+                     <plus/>
+                     <ci>alpha_h</ci>
+                     <ci>beta_h</ci>
+                  </apply>
+               </apply>
+               <apply>
+                  <divide/>
+                  <ci>perc_reduced_inact_for_IpNa</ci>
+                  <cn cellml:units="dimensionless">100</cn>
+               </apply>
+            </apply>
+         </apply>
+         <apply>
+            <eq/>
+            <ci>tau_h</ci>
+            <apply>
+               <divide/>
+               <cn cellml:units="dimensionless">1</cn>
+               <apply>
+                  <plus/>
+                  <ci>alpha_h</ci>
+                  <ci>beta_h</ci>
+               </apply>
+            </apply>
+         </apply>
+         <apply>
+            <eq/>
+            <apply>
+               <diff/>
+               <bvar>
+                  <ci>time</ci>
+               </bvar>
+               <ci>h</ci>
+            </apply>
+            <apply>
+               <divide/>
+               <apply>
+                  <minus/>
+                  <ci>h_inf</ci>
+                  <ci>h</ci>
+               </apply>
+               <ci>tau_h</ci>
+            </apply>
+         </apply>
+      </math>
+   </component>
+   <component name="potassium_channel">
+	  <variable name="i_K" units="microA_per_cm2" public_interface="out" cmeta:id="membrane_delayed_rectifier_potassium_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_delayed_rectifier_potassium_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_delayed_rectifier_potassium_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>	  
+      <variable name="g_K1" units="milliS_per_cm2"/>
+      <variable name="g_K2" units="milliS_per_cm2"/>
+      <variable name="G_K" units="milliS_per_cm2" initial_value="1.2" cmeta:id="membrane_delayed_rectifier_potassium_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_delayed_rectifier_potassium_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_delayed_rectifier_potassium_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>	  
+      <variable name="time" units="millisecond" public_interface="in" private_interface="out"/>
+      <variable name="V" units="millivolt" public_interface="in" private_interface="out"/>
+      <variable name="n" units="dimensionless" private_interface="in"/>
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+         <apply>
+            <eq/>
+            <ci>i_K</ci>
+            <apply>
+               <times/>
+               <apply>
+                  <plus/>
+                  <ci>g_K1</ci>
+                  <ci>g_K2</ci>
+               </apply>
+               <apply>
+                  <plus/>
+                  <ci>V</ci>
+                  <cn cellml:units="millivolt">100</cn>
+               </apply>
+            </apply>
+         </apply>
+         <apply>
+            <eq/>
+            <ci>g_K1</ci>
+            <apply>
+               <plus/>
+               <apply>
+                  <times/>
+                  <ci>G_K</ci>
+                  <apply>
+                     <exp/>
+                     <apply>
+                        <divide/>
+                        <apply>
+                           <minus/>
+                           <apply>
+                              <minus/>
+                              <ci>V</ci>
+                           </apply>
+                           <cn cellml:units="millivolt">90</cn>
+                        </apply>
+                        <cn cellml:units="millivolt">50</cn>
+                     </apply>
+                  </apply>
+               </apply>
+               <apply>
+                  <times/>
+                  <cn cellml:units="milliS_per_cm2">0.015</cn>
+                  <apply>
+                     <exp/>
+                     <apply>
+                        <divide/>
+                        <apply>
+                           <plus/>
+                           <ci>V</ci>
+                           <cn cellml:units="millivolt">90</cn>
+                        </apply>
+                        <cn cellml:units="millivolt">60</cn>
+                     </apply>
+                  </apply>
+               </apply>
+            </apply>
+         </apply>
+         <apply>
+            <eq/>
+            <ci>g_K2</ci>
+            <apply>
+               <times/>
+               <ci>G_K</ci>
+               <apply>
+                  <power/>
+                  <ci>n</ci>
+                  <cn cellml:units="dimensionless">4</cn>
+               </apply>
+            </apply>
+         </apply>
+      </math>
+   </component>
+   <component name="potassium_channel_n_gate">
+      <variable name="n" units="dimensionless" initial_value="0.01" public_interface="out"/>
+      <variable name="alpha_n" units="per_millisecond"/>
+      <variable name="beta_n" units="per_millisecond"/>
+      <variable name="V" units="millivolt" public_interface="in"/>
+      <variable name="time" units="millisecond" public_interface="in"/>
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+         <apply>
+            <eq/>
+            <ci>alpha_n</ci>
+            <apply>
+               <divide/>
+               <apply>
+                  <times/>
+                  <cn cellml:units="per_millivolt_millisecond">0.0001</cn>
+                  <apply>
+                     <minus/>
+                     <apply>
+                        <minus/>
+                        <ci>V</ci>
+                     </apply>
+                     <cn cellml:units="millivolt">50</cn>
+                  </apply>
+               </apply>
+               <apply>
+                  <minus/>
+                  <apply>
+                     <exp/>
+                     <apply>
+                        <divide/>
+                        <apply>
+                           <minus/>
+                           <apply>
+                              <minus/>
+                              <ci>V</ci>
+                           </apply>
+                           <cn cellml:units="millivolt">50</cn>
+                        </apply>
+                        <cn cellml:units="millivolt">10</cn>
+                     </apply>
+                  </apply>
+                  <cn cellml:units="dimensionless">1</cn>
+               </apply>
+            </apply>
+         </apply>
+         <apply>
+            <eq/>
+            <ci>beta_n</ci>
+            <apply>
+               <times/>
+               <cn cellml:units="per_millisecond">0.002</cn>
+               <apply>
+                  <exp/>
+                  <apply>
+                     <divide/>
+                     <apply>
+                        <minus/>
+                        <apply>
+                           <minus/>
+                           <ci>V</ci>
+                        </apply>
+                        <cn cellml:units="millivolt">90</cn>
+                     </apply>
+                     <cn cellml:units="millivolt">80</cn>
+                  </apply>
+               </apply>
+            </apply>
+         </apply>
+         <apply>
+            <eq/>
+            <apply>
+               <diff/>
+               <bvar>
+                  <ci>time</ci>
+               </bvar>
+               <ci>n</ci>
+            </apply>
+            <apply>
+               <minus/>
+               <apply>
+                  <times/>
+                  <ci>alpha_n</ci>
+                  <apply>
+                     <minus/>
+                     <cn cellml:units="dimensionless">1</cn>
+                     <ci>n</ci>
+                  </apply>
+               </apply>
+               <apply>
+                  <times/>
+                  <ci>beta_n</ci>
+                  <ci>n</ci>
+               </apply>
+            </apply>
+         </apply>
+      </math>
+   </component>
+   <component name="leakage_current">
+      <variable name="i_Leak" units="microA_per_cm2" public_interface="out"/>
+      <variable name="g_L" units="milliS_per_cm2" initial_value="0.075"/>
+      <variable name="E_L" units="millivolt" initial_value="-60"/>
+      <variable name="time" units="millisecond" public_interface="in"/>
+      <variable name="V" units="millivolt" public_interface="in"/>
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+         <apply>
+            <eq/>
+            <ci>i_Leak</ci>
+            <apply>
+               <times/>
+               <ci>g_L</ci>
+               <apply>
+                  <minus/>
+                  <ci>V</ci>
+                  <ci>E_L</ci>
+               </apply>
+            </apply>
+         </apply>
+      </math>
+   </component>
+   <group>
+      <relationship_ref relationship="containment"/>
+      <component_ref component="membrane">
+         <component_ref component="sodium_channel">
+            <component_ref component="sodium_channel_m_gate"/>
+            <component_ref component="sodium_channel_h_gate"/>
+         </component_ref>
+         <component_ref component="potassium_channel">
+            <component_ref component="potassium_channel_n_gate"/>
+         </component_ref>
+         <component_ref component="leakage_current"/>
+      </component_ref>
+   </group>
+   <group>
+      <relationship_ref relationship="encapsulation"/>
+      <component_ref component="sodium_channel">
+         <component_ref component="sodium_channel_m_gate"/>
+         <component_ref component="sodium_channel_h_gate"/>
+      </component_ref>
+      <component_ref component="potassium_channel">
+         <component_ref component="potassium_channel_n_gate"/>
+      </component_ref>
+   </group>
+   <connection>
+      <map_components component_1="membrane" component_2="environment"/>
+      <map_variables variable_1="time" variable_2="time"/>
+   </connection>
+   <connection>
+      <map_components component_1="sodium_channel" component_2="environment"/>
+      <map_variables variable_1="time" variable_2="time"/>
+   </connection>
+   <connection>
+      <map_components component_1="potassium_channel" component_2="environment"/>
+      <map_variables variable_1="time" variable_2="time"/>
+   </connection>
+   <connection>
+      <map_components component_1="leakage_current" component_2="environment"/>
+      <map_variables variable_1="time" variable_2="time"/>
+   </connection>
+   <connection>
+      <map_components component_1="membrane" component_2="sodium_channel"/>
+      <map_variables variable_1="V" variable_2="V"/>
+      <map_variables variable_1="i_Na" variable_2="i_Na"/>
+   </connection>
+   <connection>
+      <map_components component_1="membrane" component_2="potassium_channel"/>
+      <map_variables variable_1="V" variable_2="V"/>
+      <map_variables variable_1="i_K" variable_2="i_K"/>
+   </connection>
+   <connection>
+      <map_components component_1="membrane" component_2="leakage_current"/>
+      <map_variables variable_1="V" variable_2="V"/>
+      <map_variables variable_1="i_Leak" variable_2="i_Leak"/>
+   </connection>
+   <connection>
+      <map_components component_1="sodium_channel" component_2="sodium_channel_m_gate"/>
+      <map_variables variable_1="m" variable_2="m"/>
+      <map_variables variable_1="time" variable_2="time"/>
+      <map_variables variable_1="V" variable_2="V"/>
+   </connection>
+   <connection>
+      <map_components component_1="sodium_channel" component_2="sodium_channel_h_gate"/>
+      <map_variables variable_1="h" variable_2="h"/>
+      <map_variables variable_1="time" variable_2="time"/>
+      <map_variables variable_1="V" variable_2="V"/>
+      <map_variables variable_1="shift_INa_inact" variable_2="shift_INa_inact"/>
+      <map_variables variable_1="perc_reduced_inact_for_IpNa" variable_2="perc_reduced_inact_for_IpNa"/>
+   </connection>
+   <connection>
+      <map_components component_1="potassium_channel" component_2="potassium_channel_n_gate"/>
+      <map_variables variable_1="n" variable_2="n"/>
+      <map_variables variable_1="time" variable_2="time"/>
+      <map_variables variable_1="V" variable_2="V"/>
+   </connection>
+</model>
