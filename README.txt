@@ -11,15 +11,16 @@ However, you can also make use of the Subversion svn:externals functionality
 the cellml folder appear to be within your own project too.  From the
 command line, the relevant incantation will look something like:
 
-cd Chaste/projects/MyProject
+cd Chaste/projects/MyProject 
+(or cd Chaste/projects/MyProject/src if you want them all converting automatically)
 svn propset svn:externals "cellml https://chaste.cs.ox.ac.uk/svn/chaste/projects/cellml/cellml" .
 svn up
 
 (Note the "." at the end of the svn propset line - this is important!)
 
-Models which are not called *.cellml, for example *.cellml_invalid, did not
-convert properly for some reason when they were last checked.  They have not
-necessarily been tried with the latest code version.
+Models which did not convert properly for some reason when they were last
+checked are in the "dont_convert" folder (which isn't checked out by the above command).
+They have not necessarily been tried with the latest code version.
 
 The CellML files originated from Alan Garny/Penny Noble/Gary Mirams's
 repository as of r72 of that repository.  They are mostly the excitable
