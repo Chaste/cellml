@@ -643,13 +643,14 @@ Properties and ionic mechanisms of action potential adaptation, restitution, and
             </rdf:Description>
          </rdf:RDF>
       </variable>
-      <variable name="gKs" units="mS_per_uF" cmeta:id="membrane_slow_delayed_rectifier_potassium_current_conductance">
+      <variable name="gKs" units="mS_per_uF"/>
+      <variable name="gKs_max" units="mS_per_uF" initial_value="0.0826" cmeta:id="membrane_slow_delayed_rectifier_potassium_current_conductance">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#membrane_slow_delayed_rectifier_potassium_current_conductance">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_slow_delayed_rectifier_potassium_current_conductance"/>
             </rdf:Description>
          </rdf:RDF>
-      </variable>	 		  
+      </variable>              		  
       <variable name="C1" units="dimensionless" initial_value="0.476653873938053"/>
       <variable name="C2" units="dimensionless" initial_value="0.2551771850026437"/>
       <variable name="C3" units="dimensionless" initial_value="0.05122852186842027"/>
@@ -703,7 +704,7 @@ Properties and ionic mechanisms of action potential adaptation, restitution, and
             <ci>gKs</ci>
             <apply>
                <times/>
-               <cn cellml:units="mS_per_uF">0.0826</cn>
+               <ci>gKs_max</ci>
                <apply>
                   <plus/>
                   <cn cellml:units="dimensionless">1</cn>
@@ -4711,7 +4712,13 @@ Properties and ionic mechanisms of action potential adaptation, restitution, and
    </component>
    <component xmlns="http://www.cellml.org/cellml/1.0#" name="Ito1">
       <variable name="Ito1" units="uA_per_uF" public_interface="out"/>
-      <variable name="gto1" units="mS_per_uF" initial_value="0.4975"/>
+      <variable name="gto1" units="mS_per_uF" initial_value="0.4975" cmeta:id="membrane_transient_outward_current_conductance">
+        <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_transient_outward_current_conductance">
+                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_transient_outward_current_conductance"/>
+            </rdf:Description>
+        </rdf:RDF>
+      </variable>      
       <variable name="rto1" units="dimensionless"/>
       <variable name="EK" units="mV" public_interface="in"/>
       <variable name="time" units="ms" public_interface="in" private_interface="out"/>
@@ -5071,6 +5078,7 @@ Properties and ionic mechanisms of action potential adaptation, restitution, and
       <variable name="PCl" units="L_per_F_ms" initial_value="9e-7"/>
       <variable name="zCl" units="dimensionless" initial_value="-1"/>
       <variable name="Ito2_max" units="uA_per_uF"/>
+      <variable name="Ito2_max_scaling_factor" units="dimensionless" initial_value="1.0"/>
       <variable name="KCa_ito2" units="dimensionless"/>
       <variable name="kCa_ito2" units="mM_per_ms" initial_value="0.4"/>
       <variable name="time" units="ms" public_interface="in" private_interface="out"/>
@@ -5089,6 +5097,7 @@ Properties and ionic mechanisms of action potential adaptation, restitution, and
             <apply>
                <times/>
                <ci>Ito2_max</ci>
+               <ci>Ito2_max_scaling_factor</ci>
                <ci>i2f</ci>
                <ci>KCa_ito2</ci>
             </apply>

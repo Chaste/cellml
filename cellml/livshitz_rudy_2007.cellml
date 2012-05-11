@@ -1988,16 +1988,16 @@ The complete original paper reference is cited below:
       <variable units="mM" public_interface="in" name="Ca_i"/>
       <variable units="ms" public_interface="in" name="time"/>
       <variable units="mV" public_interface="in" name="EKs"/>
-      <variable units="mS_per_uF" name="GKsmax" initial_value="0.433"/>
-      <variable units="dimensionless" name="xs1" initial_value="0.0285147332973946"/>
-      <variable units="dimensionless" name="xs2" initial_value="0.0764114040188678"/>
-      <variable name="gks" units="mS_per_uF" cmeta:id="membrane_slow_delayed_rectifier_potassium_current_conductance">
+      <variable units="mS_per_uF" name="GKsmax" initial_value="0.433" cmeta:id="membrane_slow_delayed_rectifier_potassium_current_conductance">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#membrane_slow_delayed_rectifier_potassium_current_conductance">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_slow_delayed_rectifier_potassium_current_conductance"/>
             </rdf:Description>
          </rdf:RDF>
-      </variable>	
+      </variable>   
+      <variable units="dimensionless" name="xs1" initial_value="0.0285147332973946"/>
+      <variable units="dimensionless" name="xs2" initial_value="0.0764114040188678"/>
+      <variable name="gks" units="mS_per_uF" />
       <variable units="dimensionless" name="xss"/>
       <variable units="ms" name="tauxs"/>
 	  <variable name="iks" units="uA_per_uF" public_interface="out" cmeta:id="membrane_slow_delayed_rectifier_potassium_current">

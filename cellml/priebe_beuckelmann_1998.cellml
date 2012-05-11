@@ -9,7 +9,7 @@ http://COR.physiol.ox.ac.uk/ - COR@physiol.ox.ac.uk
 CellML 1.0 was used to generate this model
 http://www.CellML.org/
 -->
-<model name="priebe_beuckelmann_1998_version01" cmeta:id="priebe_beuckelmann_1998_version01" xmlns="http://www.cellml.org/cellml/1.0#" xmlns:cellml="http://www.cellml.org/cellml/1.0#" xmlns:cmeta="http://www.cellml.org/metadata/1.0#">
+<model name="priebe_beuckelmann_1998" cmeta:id="priebe_beuckelmann_1998_version01" xmlns="http://www.cellml.org/cellml/1.0#" xmlns:cellml="http://www.cellml.org/cellml/1.0#" xmlns:cmeta="http://www.cellml.org/metadata/1.0#">
    <units name="ms">
       <unit units="second" prefix="milli"/>
    </units>
@@ -1322,13 +1322,14 @@ http://www.CellML.org/
             </rdf:Description>
          </rdf:RDF>
       </variable>		  
-      <variable name="g_to_max" units="mS_per_uF" cmeta:id="membrane_transient_outward_current_conductance">
+      <variable name="g_to_max" units="mS_per_uF"/>
+      <variable name="g_to_max_factor" units="dimensionless" initial_value="1.0" cmeta:id="membrane_transient_outward_current_conductance">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#membrane_transient_outward_current_conductance">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_transient_outward_current_conductance"/>
             </rdf:Description>
          </rdf:RDF>
-      </variable>		
+      </variable>       	
       <variable name="E_to" units="mV"/>
       <variable name="Nai" units="mM" public_interface="in"/>
       <variable name="Nao" units="mM" public_interface="in"/>
@@ -1344,19 +1345,22 @@ http://www.CellML.org/
          <apply>
             <eq/>
             <ci>g_to_max</ci>
-            <piecewise>
-               <piece>
-                  <cn cellml:units="mS_per_uF">0.3</cn>
-                  <apply>
-                     <eq/>
-                     <ci>failing</ci>
-                     <cn cellml:units="dimensionless">0</cn>
-                  </apply>
-               </piece>
-               <otherwise>
-                  <cn cellml:units="mS_per_uF">0.191</cn>
-               </otherwise>
-            </piecewise>
+            <apply><times/>
+                <ci>g_to_max_factor</ci>
+                <piecewise>
+                   <piece>
+                      <cn cellml:units="mS_per_uF">0.3</cn>
+                      <apply>
+                         <eq/>
+                         <ci>failing</ci>
+                         <cn cellml:units="dimensionless">0</cn>
+                      </apply>
+                   </piece>
+                   <otherwise>
+                      <cn cellml:units="mS_per_uF">0.191</cn>
+                   </otherwise>
+                </piecewise>
+            </apply>
          </apply>
          <apply>
             <eq/>
