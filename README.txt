@@ -26,3 +26,14 @@ The CellML files originated from Alan Garny/Penny Noble/Gary Mirams's
 repository as of r72 of that repository.  They are mostly the excitable
 models that are packaged with COR, with additional models from the CellML
 electrophysiology models repository as of around January 2011.
+
+If you want to add options to the ConvertCellModels.py script (for example to
+provide access to all of the metadata tagged variables in all the models) 
+then you can now (as of r15865) include lines like this in your project
+'SConscript' file:
+
+# Change some flags just for this project
+env = SConsTools.CloneEnv(env)
+env['PYCML_EXTRA_ARGS'] = ['--expose-annotated-variables']
+
+This must come before the DoProjectSConscript() call. 
