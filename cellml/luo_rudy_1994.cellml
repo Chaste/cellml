@@ -238,21 +238,21 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
      
-    <variable initial_value="1e3" name="stimPeriod" units="dimensionless" cmeta:id="membrane_stimulus_current_period">
+    <variable initial_value="1e3" name="stimPeriod" units="ms" cmeta:id="membrane_stimulus_current_period">
       <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
         <rdf:Description rdf:about="#membrane_stimulus_current_period">
           <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current_period"/>
         </rdf:Description>
       </rdf:RDF>
     </variable>
-    <variable initial_value="0.5" name="stimDuration" units="dimensionless" cmeta:id="membrane_stimulus_current_duration">
+    <variable initial_value="0.5" name="stimDuration" units="ms" cmeta:id="membrane_stimulus_current_duration">
       <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
         <rdf:Description rdf:about="#membrane_stimulus_current_duration">
           <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current_duration"/>
         </rdf:Description>
       </rdf:RDF>
     </variable>
-    <variable initial_value="0.5" name="stimCurrent" units="dimensionless" cmeta:id="membrane_stimulus_current_amplitude">
+    <variable initial_value="0.5" name="stimCurrent" units="uA_per_mm2" cmeta:id="membrane_stimulus_current_amplitude">
       <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
         <rdf:Description rdf:about="#membrane_stimulus_current_amplitude">
           <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current_amplitude"/>
@@ -274,7 +274,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
             </apply>
           </piece>
           <otherwise>
-            <cn cellml:units="dimensionless">0.0</cn>
+            <cn cellml:units="uA_per_mm2">0.0</cn>
           </otherwise>
         </piecewise>
       </apply>

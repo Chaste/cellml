@@ -230,7 +230,13 @@ LabHEART: an interactive computer model of rabbit ventricular myocyte ion channe
     <variable units="kelvin" public_interface="out" name="T" initial_value="310.0"/>
     <variable units="coulomb_per_mole" public_interface="out" name="F" initial_value="96845.0"/>
     
-    <variable units="microF" name="C" initial_value="1.0"/>
+    <variable units="microF" name="C" initial_value="1.0" cmeta:id="membrane_capacitance">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+        <rdf:Description rdf:about="#membrane_capacitance">
+          <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_capacitance"/>
+        </rdf:Description>
+      </rdf:RDF>
+    </variable>
     <variable units="microA_per_microF" name="I_stim" initial_value="-100.0" cmeta:id="membrane_stimulus_current">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#membrane_stimulus_current">
@@ -355,7 +361,7 @@ LabHEART: an interactive computer model of rabbit ventricular myocyte ion channe
   </component>
      
   <component name="fast_sodium_current_m_gate">
-    <variable units="dimensionless" public_interface="out" name="m"/>
+    <variable units="dimensionless" public_interface="out" initial_value="0" name="m"/>
         
     <variable units="per_millisecond" name="alpha_m"/>
     <variable units="per_millisecond" name="beta_m"/>
@@ -448,7 +454,7 @@ LabHEART: an interactive computer model of rabbit ventricular myocyte ion channe
   </component>
   
   <component name="fast_sodium_current_h_gate">
-    <variable units="dimensionless" public_interface="out" name="h"/>
+    <variable units="dimensionless" public_interface="out" initial_value="0.75" name="h"/>
         
     <variable units="per_millisecond" name="alpha_h"/>
     <variable units="per_millisecond" name="beta_h"/>
@@ -591,7 +597,7 @@ LabHEART: an interactive computer model of rabbit ventricular myocyte ion channe
   </component>
   
   <component name="fast_sodium_current_j_gate">
-    <variable units="dimensionless" public_interface="out" name="j"/>
+    <variable units="dimensionless" public_interface="out" initial_value="0.75"  name="j"/>
         
     <variable units="per_millisecond" name="alpha_j"/>
     <variable units="per_millisecond" name="beta_j"/>
@@ -1120,7 +1126,7 @@ LabHEART: an interactive computer model of rabbit ventricular myocyte ion channe
   </component>
   
   <component name="L_type_Ca_channel_d_gate">
-    <variable units="dimensionless" public_interface="out" name="d"/> 
+    <variable units="dimensionless" public_interface="out" initial_value="0" name="d"/> 
 
     <variable units="per_millisecond" name="alpha_d"/>
     <variable units="per_millisecond" name="beta_d"/>
@@ -1254,7 +1260,7 @@ LabHEART: an interactive computer model of rabbit ventricular myocyte ion channe
   </component>
   
   <component name="L_type_Ca_channel_f_gate">
-    <variable units="dimensionless" public_interface="out" name="f"/> 
+    <variable units="dimensionless" initial_value="1" public_interface="out" name="f"/> 
 
     <variable units="per_millisecond" name="alpha_f"/>
     <variable units="per_millisecond" name="beta_f"/>
@@ -1504,7 +1510,7 @@ LabHEART: an interactive computer model of rabbit ventricular myocyte ion channe
   </component>
   
   <component name="T_type_Ca_channel_b_gate">
-    <variable units="dimensionless" public_interface="out" name="b"/>
+    <variable units="dimensionless" public_interface="out" initial_value="0.00136737866785149" name="b"/>
     
     <variable units="dimensionless" name="b_infinity"/>
     <variable units="millisecond" name="tau_b"/>
@@ -1593,7 +1599,7 @@ LabHEART: an interactive computer model of rabbit ventricular myocyte ion channe
   </component>
   
   <component name="T_type_Ca_channel_g_gate">
-    <variable units="dimensionless" public_interface="out" name="g"/>
+    <variable units="dimensionless" initial_value="0.98881442877378" public_interface="out" name="g"/>
     
     <variable units="dimensionless" name="g_infinity"/>
     <variable units="millisecond" name="tau_g"/>

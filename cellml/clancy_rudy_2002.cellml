@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<model xmlns="http://www.cellml.org/cellml/1.0#" xmlns:cmeta="http://www.cellml.org/metadata/1.0#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqs="http://www.cellml.org/bqs/1.0#" xmlns:cellml="http://www.cellml.org/cellml/1.0#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" cmeta:id="clancy_rudy_2002" name="clancy_rudy_2002">
+<model xmlns="http://www.cellml.org/cellml/1.0#" 
+   xmlns:cmeta="http://www.cellml.org/metadata/1.0#" 
+   xmlns:dc="http://purl.org/dc/elements/1.1/" 
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+   xmlns:bqs="http://www.cellml.org/bqs/1.0#" 
+   xmlns:cellml="http://www.cellml.org/cellml/1.0#" 
+   xmlns:dcterms="http://purl.org/dc/terms/" 
+   xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" cmeta:id="clancy_rudy_2002" name="clancy_rudy_2002">
 <documentation xmlns="http://cellml.org/tmp-documentation">
 <article>
   <articleinfo>
@@ -152,7 +159,13 @@ Na<superscript>+</superscript> Channel Mutation That Causes Both Brugada and Lon
       <variable name="R" units="joule_per_kilomole_kelvin" initial_value="8314" public_interface="out"/>
       <variable name="T" units="kelvin" initial_value="310" public_interface="out"/>
       <variable name="F" units="coulomb_per_mole" initial_value="96485" public_interface="out"/>
-      <variable name="Cm" units="microF" initial_value="0.001"/>
+      <variable name="Cm" units="microF" initial_value="0.001" cmeta:id="membrane_capacitance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_capacitance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_capacitance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="I_st" units="microA_per_microF" cmeta:id="membrane_stimulus_current">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#membrane_stimulus_current">
@@ -186,7 +199,7 @@ Na<superscript>+</superscript> Channel Mutation That Causes Both Brugada and Lon
          </rdf:RDF>
       </variable>
       <variable name="stim_end" units="second" initial_value="9"/>
-      <variable name="stim_period" units="dimensionless" initial_value="1" cmeta:id="membrane_stimulus_current_period">
+      <variable name="stim_period" units="second" initial_value="1" cmeta:id="membrane_stimulus_current_period">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#membrane_stimulus_current_period">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current_period"/>

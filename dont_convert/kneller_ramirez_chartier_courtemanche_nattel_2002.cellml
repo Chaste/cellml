@@ -154,17 +154,130 @@ The complete original paper reference is cited below:
     all or most of the other components, in this case just "time".
   -->
   <component name="environment">
-    <variable units="millisecond" public_interface="out" name="time"/>
+    <variable units="millisecond" public_interface="out" name="time" cmeta:id="time">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+        <rdf:Description rdf:about="#time">
+          <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#time"/>
+        </rdf:Description>
+      </rdf:RDF>
+    </variable>
   </component>
   
   <component name="membrane">
-    <variable units="millivolt" public_interface="out" name="V" initial_value="-82.72"/>
+    <variable units="millivolt" public_interface="out" name="V" initial_value="-82.72" cmeta:id="membrane_voltage">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+        <rdf:Description rdf:about="#membrane_voltage">
+          <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_voltage"/>
+        </rdf:Description>
+      </rdf:RDF>
+    </variable>
     <variable units="joule_per_mole_kelvin" public_interface="out" name="R" initial_value="8.3143"/>
     <variable units="kelvin" public_interface="out" name="T" initial_value="310.0"/>
     <variable units="coulomb_per_millimole" public_interface="out" name="F" initial_value="96.4867"/>
     
-    <variable units="picoF" name="Cm" initial_value="100.0"/>
-    <variable units="picoA" name="i_stim" initial_value="-2900.0"/>
+    <variable units="picoF" name="Cm" initial_value="100.0" cmeta:id="membrane_capacitance">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+        <rdf:Description rdf:about="#membrane_capacitance">
+          <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_capacitance"/>
+        </rdf:Description>
+      </rdf:RDF>
+    </variable>
+    <variable units="picoA" name="i_stim" cmeta:id="membrane_stimulus_current">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+        <rdf:Description rdf:about="#membrane_stimulus_current">
+          <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current"/>
+        </rdf:Description>
+      </rdf:RDF>
+    </variable>
+    <variable name="stim_start" units="millisecond" initial_value="0" cmeta:id="membrane_stimulus_current_offset">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+        <rdf:Description rdf:about="#membrane_stimulus_current_offset">
+          <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current_offset"/>
+        </rdf:Description>
+      </rdf:RDF>
+    </variable>
+    <variable name="stim_period" units="millisecond" initial_value="1000" cmeta:id="membrane_stimulus_current_period">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+        <rdf:Description rdf:about="#membrane_stimulus_current_period">
+          <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current_period"/>
+        </rdf:Description>
+      </rdf:RDF>
+    </variable>
+    <variable name="stim_duration" units="millisecond" initial_value="2" cmeta:id="membrane_stimulus_current_duration">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+        <rdf:Description rdf:about="#membrane_stimulus_current_duration">
+          <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current_duration"/>
+        </rdf:Description>
+      </rdf:RDF>
+    </variable>
+    <variable name="stim_amplitude" units="picoA" initial_value="-2900" cmeta:id="membrane_stimulus_current_amplitude">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+        <rdf:Description rdf:about="#membrane_stimulus_current_amplitude">
+          <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current_amplitude"/>
+        </rdf:Description>
+      </rdf:RDF>
+    </variable>
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <apply>
+        <eq/>
+        <ci>i_stim</ci>
+        <piecewise>
+          <piece>
+            <ci>stim_amplitude</ci>
+            <apply>
+              <and/>
+              <apply>
+                <geq/>
+                <apply>
+                  <minus/>
+                  <ci>time</ci>
+                  <apply>
+                    <times/>
+                    <apply>
+                      <floor/>
+                      <apply>
+                        <divide/>
+                        <ci>time</ci>
+                        <ci>stim_period</ci>
+                      </apply>
+                    </apply>
+                    <ci>stim_period</ci>
+                  </apply>
+                </apply>
+                <ci>stim_start</ci>
+              </apply>
+              <apply>
+                <leq/>
+                <apply>
+                  <minus/>
+                  <ci>time</ci>
+                  <apply>
+                    <times/>
+                    <apply>
+                      <floor/>
+                      <apply>
+                        <divide/>
+                        <ci>time</ci>
+                        <ci>stim_period</ci>
+                      </apply>
+                    </apply>
+                    <ci>stim_period</ci>
+                  </apply>
+                </apply>
+                <apply>
+                  <plus/>
+                  <ci>stim_start</ci>
+                  <ci>stim_duration</ci>
+                </apply>
+              </apply>
+            </apply>
+          </piece>
+          <otherwise>
+            <cn cellml:units="picoA">0</cn>
+          </otherwise>
+        </piecewise>
+      </apply>
+    </math>
     
     <variable units="millisecond" public_interface="in" name="time"/>
     <variable units="picoA" public_interface="in" name="i_Na"/>
