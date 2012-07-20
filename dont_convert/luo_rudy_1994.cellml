@@ -30,6 +30,8 @@ CHANGES:
 <model xmlns="http://www.cellml.org/cellml/1.0#"   
   xmlns:cellml="http://www.cellml.org/cellml/1.0#"   
   xmlns:cmeta="http://www.cellml.org/metadata/1.0#"
+  xmlns:bqs="http://www.cellml.org/bqs/1.0#" 
+  xmlns:ns7="http://www.cellml.org/metadata/simulation/1.0#" 
   cmeta:id="luo_rudy_1994" name="luo_rudy_1994">
   
 <documentation xmlns="http://cellml.org/tmp-documentation">
@@ -207,7 +209,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
     <variable name="i_NaK" public_interface="in" units="uA_per_mm2"/>
     <variable name="i_ns_Ca" public_interface="in" units="uA_per_mm2"/>
     
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="dV_dt_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="dV_dt_eq">
         <eq/>
         <ci>dV_dt</ci>
@@ -278,7 +280,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
 
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="membrane_voltage_diff_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="membrane_voltage_diff_eq">
         <eq/>
         <apply>
@@ -312,7 +314,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
     <variable name="h" private_interface="in" units="dimensionless"/>
     <variable name="j" private_interface="in" units="dimensionless"/>
     
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="i_Na_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="i_Na_calculation">
         <eq/>
         <ci> i_Na </ci>
@@ -335,7 +337,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
     
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="E_Na_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="E_Na_calculation">
         <eq/>
         <ci> E_Na </ci>
@@ -372,7 +374,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
     <variable name="V" public_interface="in" units="mV"/>
     <variable name="time" public_interface="in" units="ms"/>
    
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="alpha_m_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="alpha_m_calculation">
         <eq/>
         <ci> alpha_m </ci>
@@ -407,7 +409,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
       
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="beta_m_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="beta_m_calculation">
         <eq/>
         <ci> beta_m </ci>
@@ -429,7 +431,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
       
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="dm_dt_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="dm_dt">
         <eq/>
         <apply>
@@ -469,7 +471,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
     <variable name="V" public_interface="in" units="mV"/>
     <variable name="time" public_interface="in" units="ms"/>
     
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="alpha_h_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="alpha_h_calculation">
         <eq/>
         <ci> alpha_h </ci>
@@ -504,7 +506,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
      
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="beta_h_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="beta_h_calculation">
         <eq/>
         <ci> beta_h </ci>
@@ -573,7 +575,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
       
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="dh_dt_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="dh_dt">
         <eq/>
         <apply>
@@ -613,7 +615,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
     <variable name="V" public_interface="in" units="mV"/>
     <variable name="time" public_interface="in" units="ms"/>
     
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="alpha_j_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="alpha_j_calculation">
         <eq/>
         <ci> alpha_j </ci>
@@ -686,7 +688,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
      
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="beta_j_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="beta_j_calculation">
         <eq/>
         <ci> beta_j </ci>
@@ -766,7 +768,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
     
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="dj_dt_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="dj_dt">
         <eq/>
         <apply>
@@ -832,7 +834,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
     <variable name="f" private_interface="in" units="dimensionless"/>
     <variable name="f_Ca" private_interface="in" units="dimensionless"/>
     
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="i_CaCa_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="i_CaCa_calculation">
         <eq/>
         <ci> i_CaCa </ci>
@@ -846,7 +848,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
       
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="i_CaNa_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="i_CaNa_calculation">
         <eq/>
         <ci> i_CaNa </ci>
@@ -860,7 +862,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
       
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="i_CaK_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="i_CaK_calculation">
         <eq/>
         <ci> i_CaK </ci>
@@ -874,7 +876,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
      
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="I_CaCa_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="I_CaCa_calculation">
         <eq/>
         <ci> I_CaCa </ci>
@@ -961,7 +963,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
      
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="I_CaNa_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="I_CaNa_calculation">
         <eq/>
         <ci> I_CaNa </ci>
@@ -1048,7 +1050,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
       
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="I_CaK_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="I_CaK_calculation">
         <eq/>
         <ci> I_CaK </ci>
@@ -1135,7 +1137,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
       
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="i_Ca_L_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="i_Ca_L_calculation">
         <eq/>
         <ci> i_Ca_L </ci>
@@ -1159,7 +1161,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
     <variable name="V" public_interface="in" units="mV"/>
     <variable name="time" public_interface="in" units="ms"/>
     
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="alpha_d_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="alpha_d_calculation">
         <eq/>
         <ci> alpha_d </ci>
@@ -1171,7 +1173,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
 
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="d_infinity_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="d_infinity_calculation">
         <eq/>
         <ci> d_infinity </ci>
@@ -1201,7 +1203,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
 
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="tau_d_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="tau_d_calculation">
         <eq/>
         <ci> tau_d </ci>
@@ -1243,7 +1245,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
       
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="beta_d_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="beta_d_calculation">
         <eq/>
         <ci> beta_d </ci>
@@ -1259,7 +1261,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
      
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="dd_dt_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="dd_dt">
         <eq/>
         <apply>
@@ -1301,7 +1303,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
     <variable name="V" public_interface="in" units="mV"/>
     <variable name="time" public_interface="in" units="ms"/>
    
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="alpha_f_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="alpha_f_calculation">
         <eq/>
         <ci> alpha_f </ci>
@@ -1313,7 +1315,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
       
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="f_infinity_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="f_infinity_calculation">
         <eq/>
         <ci> f_infinity </ci>
@@ -1363,7 +1365,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
       
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="tau_f_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="tau_f_calculation">
         <eq/>
         <ci> tau_f </ci>
@@ -1401,7 +1403,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
     
-	<math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="beta_f_calculation_eq">
+	<math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="beta_f_calculation">
         <eq/>
         <ci> beta_f </ci>
@@ -1417,7 +1419,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
      
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="df_dt_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="df_dt">
         <eq/>
         <apply>
@@ -1457,7 +1459,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
     <variable name="time" public_interface="in" units="ms"/>
     <variable name="Cai" public_interface="in" units="mM"/>
     
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="f_Ca_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="f_Ca_calculation">
         <eq/>
         <ci> f_Ca </ci>
@@ -1503,7 +1505,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
     <variable name="X" private_interface="in" units="dimensionless"/>
     <variable name="Xi" private_interface="in" units="dimensionless"/>
    
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="g_K_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="g_K_calculation">
         <eq/>
         <ci> g_K </ci>
@@ -1522,7 +1524,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
     
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="E_K_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="E_K_calculation">
         <eq/>
         <ci> E_K </ci>
@@ -1565,7 +1567,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
      
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="i_K_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="i_K_calculation">
         <eq/>
         <ci> i_K </ci>
@@ -1597,7 +1599,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
     <variable name="V" public_interface="in" units="mV"/>
     <variable name="time" public_interface="in" units="ms"/>
    
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="alpha_X_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="alpha_X_calculation">
         <eq/>
         <ci> alpha_X </ci>
@@ -1632,7 +1634,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
       
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="beta_X_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="beta_X_calculation">
         <eq/>
         <ci> beta_X </ci>
@@ -1667,7 +1669,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
      
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="dX_dt_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="dX_dt">
         <eq/>
         <apply>
@@ -1704,7 +1706,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
     <variable name="V" public_interface="in" units="mV"/>
     <variable name="time" public_interface="in" units="ms"/>
     
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="Xi_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="Xi_calculation">
         <eq/>
         <ci> Xi </ci>
@@ -1749,7 +1751,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
     
     <variable name="K1_infinity" private_interface="in" units="dimensionless"/>
     
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="g_K1_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="g_K1_calculation">
         <eq/>
         <ci> g_K1 </ci>
@@ -1768,7 +1770,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
      
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="E_K1_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="E_K1_calculation">
         <eq/>
         <ci> E_K1 </ci>
@@ -1795,7 +1797,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
     
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="i_K1_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="i_K1_calculation">
         <eq/>
         <ci> i_K1 </ci>
@@ -1822,7 +1824,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
     <variable name="time" public_interface="in" units="ms"/>
     <variable name="E_K1" public_interface="in" units="mV"/>
     
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="alpha_K1_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="alpha_K1_calculation">
         <eq/>
         <ci> alpha_K1 </ci>
@@ -1853,7 +1855,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
       
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="beta_K1_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="beta_K1_calculation">
         <eq/>
         <ci> beta_K1 </ci>
@@ -1922,7 +1924,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
      
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="K1_infinity_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="K1_infinity_calculation">
         <eq/>
         <ci> K1_infinity </ci>
@@ -1950,7 +1952,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
     <variable name="V" public_interface="in" units="mV"/>
     <variable name="E_K1" public_interface="in" units="mV"/>
     
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="E_Kp_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="E_Kp_calculation">
         <eq/>
         <ci> E_Kp </ci>
@@ -1958,7 +1960,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
     
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="Kp_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="Kp_calculation">
         <eq/>
         <ci> Kp </ci>
@@ -1985,7 +1987,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
      
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="i_Kp_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="i_Kp_calculation">
         <eq/>
         <ci> i_Kp </ci>
@@ -2012,7 +2014,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
     <variable name="time" public_interface="in" units="ms"/>
     <variable name="Cai" public_interface="in" units="mM"/>   
  
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="i_p_Ca_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="i_p_Ca_calculation">
         <eq/>
         <ci> i_p_Ca </ci>
@@ -2043,7 +2045,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
     <variable name="V" public_interface="in" units="mV"/>
     <variable name="E_Na" public_interface="in" units="mV"/> 
     
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="E_NaN_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="E_NaN_calculation">
         <eq/>
         <ci> E_NaN </ci>
@@ -2051,7 +2053,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
      
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="i_Na_b_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="i_Na_b_calculation">
         <eq/>
         <ci> i_Na_b </ci>
@@ -2082,7 +2084,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
     <variable name="Cai" public_interface="in" units="mM"/>
     <variable name="Cao" public_interface="in" units="mM"/>
     
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="E_CaN_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="E_CaN_calculation">
         <eq/>
         <ci> E_CaN </ci>
@@ -2113,7 +2115,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
       
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="i_Ca_b_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="i_Ca_b_calculation">
         <eq/>
         <ci> i_Ca_b </ci>
@@ -2241,7 +2243,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
  
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="i_NaK_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="i_NaK_calculation">
         <eq/>
         <ci> i_NaK </ci>
@@ -2309,7 +2311,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
     <variable name="Vns" units="mV"/>
     <variable name="EnsCa" units="mV"/>
     
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="EnsCa_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="EnsCa_calculation">
         <eq/>
         <ci> EnsCa </ci>
@@ -2344,7 +2346,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
 
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="Vns_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="Vns_calculation">
         <eq/>
         <ci>Vns</ci>
@@ -2356,7 +2358,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
  
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="i_ns_Na_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="i_ns_Na_calculation">
         <eq/>
         <ci> i_ns_Na </ci>
@@ -2384,7 +2386,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
  
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="i_ns_K_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="i_ns_K_calculation">
         <eq/>
         <ci> i_ns_K </ci>
@@ -2412,7 +2414,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
 
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="i_ns_Ca_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="i_ns_Ca_calculation">
         <eq/>
         <ci> i_ns_Ca </ci>
@@ -2424,7 +2426,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
     
-	<math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="I_ns_Na_calculation_eq">
+	<math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="I_ns_Na_calculation">
         <eq/>
         <ci> I_ns_Na </ci>
@@ -2511,7 +2513,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
 
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="I_ns_K_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="I_ns_K_calculation">
         <eq/>
         <ci> I_ns_K </ci>
@@ -2618,8 +2620,8 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
     <variable name="Cai" public_interface="in" units="mM"/>
     <variable name="Cao" public_interface="in" units="mM"/>
     
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="Na_Ca_exchanger_eq">
-      <apply id="Na_Ca_exchanger">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <apply>
         <eq/>
         <ci> i_NaCa </ci>
         <apply>
@@ -2775,7 +2777,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
     <variable name="Ca_JSR" public_interface="in" units="mM"/>
     <variable name="Ca_NSR" public_interface="in" units="mM"/>
     
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="i_rel_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="i_rel_calculation">
         <eq/>
         <ci> i_rel </ci>
@@ -2791,7 +2793,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
      
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="G_rel_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="G_rel_calculation">
         <eq/>
         <ci> G_rel </ci>
@@ -2845,7 +2847,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
       
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="G_rel_peak_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="G_rel_peak_calculation">
         <eq/>
         <ci> G_rel_peak </ci>
@@ -2865,7 +2867,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
     
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="i_up_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="i_up_calculation">
         <eq/>
         <ci> i_up </ci>
@@ -2885,7 +2887,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
      
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="i_leak_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="i_leak_calcualtion">
         <eq/>
         <ci> i_leak </ci>
@@ -2897,7 +2899,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
       
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="K_leak_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="K_leak_calculation">
         <eq/>
         <ci> K_leak </ci>
@@ -2909,7 +2911,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
     
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="i_tr_calculation_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="i_tr_calculation">
         <eq/>
         <ci> i_tr </ci>
@@ -2962,7 +2964,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
     <variable name="i_leak" public_interface="in" units="mM_per_ms"/>   
     <variable name="i_up" public_interface="in" units="mM_per_ms"/>
      
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="sodium_diff_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="sodium_diff_eq">
         <eq/>
         <apply>
@@ -3007,7 +3009,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
      
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="calcium_internal_diff_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="calcium_internal_diff_eq">
         <eq/>
         <apply>
@@ -3071,7 +3073,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
     
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="potassium_internal_diff_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="potassium_internal_diff_eq">
         <eq/>
         <apply>
@@ -3115,7 +3117,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
     
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="calcium_JSR_diff_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="calcium_JSR_diff_eq">
         <eq/>
         <apply>
@@ -3144,7 +3146,7 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
       </apply>
     </math>
     
-    <math xmlns="http://www.w3.org/1998/Math/MathML" cmeta:id="calcium_NSR_diff_eq">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply id="calcium_NSR_diff_eq">
         <eq/>
         <apply>
