@@ -3135,6 +3135,7 @@ A Mathematical Model of Action Potential Heterogeneity in Adult Rat Left Ventric
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#cytosolic_sodium_concentration">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_sodium_concentration"/>
+               <range-low xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">0</range-low>
             </rdf:Description>
          </rdf:RDF>
       </variable>
@@ -3142,6 +3143,7 @@ A Mathematical Model of Action Potential Heterogeneity in Adult Rat Left Ventric
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#cytosolic_calcium_concentration">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_calcium_concentration"/>
+               <range-low xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">0</range-low>
             </rdf:Description>
          </rdf:RDF>
       </variable>
@@ -3149,6 +3151,7 @@ A Mathematical Model of Action Potential Heterogeneity in Adult Rat Left Ventric
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#cytosolic_potassium_concentration">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_potassium_concentration"/>
+               <range-low xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">0</range-low>
             </rdf:Description>
          </rdf:RDF>
       </variable>
@@ -3156,6 +3159,7 @@ A Mathematical Model of Action Potential Heterogeneity in Adult Rat Left Ventric
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#diadicspace_calcium_concentration">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#diadicspace_calcium_concentration"/>
+               <range-low xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">0</range-low>
             </rdf:Description>
          </rdf:RDF>
       </variable>
@@ -3170,6 +3174,7 @@ A Mathematical Model of Action Potential Heterogeneity in Adult Rat Left Ventric
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#JSR_calcium_concentration">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#JSR_calcium_concentration"/>
+               <range-low xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">0</range-low>
             </rdf:Description>
          </rdf:RDF>
       </variable>		  
