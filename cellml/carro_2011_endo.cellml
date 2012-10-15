@@ -398,7 +398,13 @@ http://www.cellml.org/
       <variable name="E_Na_junc" units="millivolt" public_interface="in"/>
       <variable name="F_junc" units="dimensionless" public_interface="in"/>
       <variable name="F_sl" units="dimensionless" public_interface="in"/>
-      <variable name="G_Na" units="milliS_per_microF" initial_value="18.86" public_interface="out"/>
+      <variable name="G_Na" units="milliS_per_microF" initial_value="18.86" public_interface="out" cmeta:id="membrane_fast_sodium_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_fast_sodium_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="V" units="millivolt" public_interface="in"/>
       <variable name="m" units="dimensionless" initial_value="2.176608e-3" public_interface="out"/>
       <variable name="m_ss" units="dimensionless" public_interface="out"/>
@@ -2169,7 +2175,13 @@ http://www.cellml.org/
       <variable name="Ibar_K" units="picoA_per_picoF" public_interface="out"/>
       <variable name="Ibar_Na_j" units="picoA_per_picoF" public_interface="out"/>
       <variable name="Ibar_Na_sl" units="picoA_per_picoF" public_interface="out"/>
-      <variable name="p_Ca" units="litre_per_farad_millisecond" initial_value="1.9887e-4" public_interface="out"/>
+      <variable name="p_Ca" units="litre_per_farad_millisecond" initial_value="1.9887e-4" public_interface="out" cmeta:id="membrane_L_type_calcium_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_L_type_calcium_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_L_type_calcium_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="p_Na" units="litre_per_farad_millisecond" initial_value="3.0375e-9" public_interface="out"/>
       <variable name="p_K" units="litre_per_farad_millisecond" initial_value="5.4675e-8" public_interface="out"/>
       <variable name="I_Ca_junc" units="picoA_per_picoF" public_interface="out"/>
