@@ -1186,7 +1186,13 @@ http://www.cellml.org/
       <variable name="Ahf" units="dimensionless" initial_value="0.99"/>
       <variable name="hf" units="dimensionless" initial_value="1"/>
       <variable name="hs" units="dimensionless" initial_value="1"/>
-      <variable name="h" units="dimensionless"/>
+      <variable name="h" units="dimensionless" cmeta:id="membrane_fast_sodium_current_h_gate">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_fast_sodium_current_h_gate">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current_h_gate"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="GNa" units="milliS_per_microF" initial_value="75" cmeta:id="membrane_fast_sodium_current_conductance">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#membrane_fast_sodium_current_conductance">
@@ -1196,7 +1202,13 @@ http://www.cellml.org/
       </variable>
       <variable name="jss" units="dimensionless"/>
       <variable name="tj" units="millisecond"/>
-      <variable name="j" units="dimensionless" initial_value="1"/>
+      <variable name="j" units="dimensionless" initial_value="1" cmeta:id="membrane_fast_sodium_current_j_gate">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_fast_sodium_current_j_gate">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current_j_gate"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="hssp" units="dimensionless"/>
       <variable name="thsp" units="millisecond"/>
       <variable name="hsp" units="dimensionless" initial_value="1"/>
