@@ -412,7 +412,13 @@ http://www.cellml.org/
       <variable name="a_h" units="dimensionless" public_interface="out"/>
       <variable name="b_h" units="dimensionless" public_interface="out"/>
       <variable name="tau_h" units="millisecond" public_interface="out"/>
-      <variable name="h" units="dimensionless" initial_value="7.126555e-1" public_interface="out"/>
+      <variable name="h" units="dimensionless" initial_value="7.126555e-1" public_interface="out" cmeta:id="membrane_fast_sodium_current_h_gate">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_fast_sodium_current_h_gate">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current_h_gate"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="h_ss" units="dimensionless" public_interface="out"/>
       <variable name="a_j" units="dimensionless" public_interface="out"/>
       <variable name="b_j" units="dimensionless" public_interface="out"/>
