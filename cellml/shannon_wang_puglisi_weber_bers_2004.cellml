@@ -2280,17 +2280,17 @@ http://www.cellml.org/
       </math>
    </component>
    <component name="Itos">
-	  <variable name="i_tos" units="microA_per_microF" public_interface="out" cmeta:id="membrane_transient_outward_current">
+	  <variable name="i_tos" units="microA_per_microF" public_interface="out" cmeta:id="membrane_slow_transient_outward_current">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-            <rdf:Description rdf:about="#membrane_transient_outward_current">
-               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_transient_outward_current"/>
+            <rdf:Description rdf:about="#membrane_slow_transient_outward_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_slow_transient_outward_current"/>
             </rdf:Description>
          </rdf:RDF>
       </variable>			  
-      <variable name="G_tos" units="milliS_per_microF" initial_value="0.06" cmeta:id="membrane_transient_outward_current_conductance">
+      <variable name="G_tos" units="milliS_per_microF" initial_value="0.06" cmeta:id="membrane_slow_transient_outward_current_conductance">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-            <rdf:Description rdf:about="#membrane_transient_outward_current_conductance">
-               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_transient_outward_current_conductance"/>
+            <rdf:Description rdf:about="#membrane_slow_transient_outward_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_slow_transient_outward_current_conductance"/>
             </rdf:Description>
          </rdf:RDF>
       </variable>		
@@ -2578,7 +2578,13 @@ http://www.cellml.org/
    </component>
    <component name="Itof">
       <variable name="i_tof" units="microA_per_microF" public_interface="out"/>
-      <variable name="G_tof" units="milliS_per_microF" initial_value="0.02"/>
+      <variable name="G_tof" units="milliS_per_microF" initial_value="0.02" cmeta:id="membrane_fast_transient_outward_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_fast_transient_outward_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_transient_outward_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>             
       <variable name="V" units="millivolt" public_interface="in" private_interface="out"/>
       <variable name="time" units="millisecond" public_interface="in" private_interface="out"/>
       <variable name="E_K" units="millivolt" public_interface="in"/>
