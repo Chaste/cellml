@@ -1,7 +1,7 @@
 This project contains highly annotated CellML versions of a large number of
 cardiac electrophysiology cell-level models, for use with Chaste.  They were
 originally incorporated in the FunctionalCuration project (see
-https://chaste.cs.ox.ac.uk/cgi-bin/trac.cgi/wiki/FunctionalCuration). 
+https://chaste.cs.ox.ac.uk/trac/wiki/FunctionalCuration). 
 However, since they are of more general utility they have now been collected
 into their own location.
 
