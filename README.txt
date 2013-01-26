@@ -37,3 +37,6 @@ env = SConsTools.CloneEnv(env)
 env['PYCML_EXTRA_ARGS'] = ['--expose-annotated-variables']
 
 This must come before the DoProjectSConscript() call. 
+
+If for any reason you need to (re)generate a .out file for analytic jacobians,
+a couple of python scripts are in this folder that may help with this process.

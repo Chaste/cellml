@@ -1,0 +1,1593 @@
+    |\^/|     Maple 15 (X86 64 LINUX)
+._|\|   |/|_. Copyright (c) Maplesoft, a division of Waterloo Maple Inc. 2011
+ \  MAPLE  /  All rights reserved. Maple is a trademark of
+ <____ ____>  Waterloo Maple Inc.
+      |       Type ? for help.
+1
+"FULL JACOBIAN"
+var_membrane__FCell := var_membrane__FCellConstant*var_membrane__dCell/(1+.7744\
+9999999999997*exp(-10.16949152*var_membrane__dCell+6.949152541))
+var_membrane__Cm := var_membrane__CmCentre+var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))*(var_membrane__CmPeriphery-var_membrane__CmCentre)
+var_membrane__time := var_environment__time
+var_sodium_current__Na_o := var_ionic_concentrations__Na_o
+var_reversal_and_equilibrium_potentials__R := var_membrane__R
+var_reversal_and_equilibrium_potentials__Na_o := var_ionic_concentrations__Na_o
+var_reversal_and_equilibrium_potentials__T := var_membrane__T
+var_reversal_and_equilibrium_potentials__Na_i := var_ionic_concentrations__Na_i
+var_reversal_and_equilibrium_potentials__F := var_membrane__F
+var_reversal_and_equilibrium_potentials__E_Na := var_membrane__R*
+var_membrane__T/var_membrane__F*ln(var_ionic_concentrations__Na_o/
+var_ionic_concentrations__Na_i)
+var_sodium_current__E_Na := var_membrane__R*var_membrane__T/var_membrane__F*ln(
+var_ionic_concentrations__Na_o/var_ionic_concentrations__Na_i)
+var_sodium_current__m := var_sodium_current_m_gate__m
+var_sodium_current__V := var_membrane__V
+var_sodium_current_h_gate__V := var_membrane__V
+var_sodium_current_h_gate__F_Na := .95180000000000001e-1*exp(-.\
+63060000000000005e-1*var_membrane__V-2.169264000)/(1+1.6619999999999999*exp(-.2\
+2509999999999999*var_membrane__V-14.33887000))+.86929999999999993e-1
+var_sodium_current_h_gate__h := (.9130700000-.95180000000000001e-1*exp(-.\
+63060000000000005e-1*var_membrane__V-2.169264000)/(1+1.6619999999999999*exp(-.2\
+2509999999999999*var_membrane__V-14.33887000)))*var_sodium_current_h_gate__h1+(
+.95180000000000001e-1*exp(-.63060000000000005e-1*var_membrane__V-2.169264000)/(
+1+1.6619999999999999*exp(-.22509999999999999*var_membrane__V-14.33887000))+.\
+86929999999999993e-1)*var_sodium_current_h_gate__h2
+var_sodium_current__h := (.9130700000-.95180000000000001e-1*exp(-.\
+63060000000000005e-1*var_membrane__V-2.169264000)/(1+1.6619999999999999*exp(-.2\
+2509999999999999*var_membrane__V-14.33887000)))*var_sodium_current_h_gate__h1+(
+.95180000000000001e-1*exp(-.63060000000000005e-1*var_membrane__V-2.169264000)/(
+1+1.6619999999999999*exp(-.22509999999999999*var_membrane__V-14.33887000))+.\
+86929999999999993e-1)*var_sodium_current_h_gate__h2
+var_sodium_current__F := var_membrane__F
+var_sodium_current__FCell := var_membrane__FCellConstant*var_membrane__dCell/(1
++.77449999999999997*exp(-10.16949152*var_membrane__dCell+6.949152541))
+var_sodium_current__g_Na := var_sodium_current__g_Na_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(var_sodium_current__g_Na_Periphery-
+var_sodium_current__g_Na_Centre)
+var_sodium_current__T := var_membrane__T
+var_sodium_current__R := var_membrane__R
+var_sodium_current__i_Na := (var_sodium_current__g_Na_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(var_sodium_current__g_Na_Periphery-
+var_sodium_current__g_Na_Centre))*var_sodium_current_m_gate__m^3*((.9130700000-
+.95180000000000001e-1*exp(-.63060000000000005e-1*var_membrane__V-2.169264000)/(
+1+1.6619999999999999*exp(-.22509999999999999*var_membrane__V-14.33887000)))*
+var_sodium_current_h_gate__h1+(.95180000000000001e-1*exp(-.63060000000000005e-1
+*var_membrane__V-2.169264000)/(1+1.6619999999999999*exp(-.22509999999999999*
+var_membrane__V-14.33887000))+.86929999999999993e-1)*
+var_sodium_current_h_gate__h2)*var_ionic_concentrations__Na_o*var_membrane__F^2
+/var_membrane__R/var_membrane__T*(exp((var_membrane__V-var_membrane__R*
+var_membrane__T/var_membrane__F*ln(var_ionic_concentrations__Na_o/
+var_ionic_concentrations__Na_i))*var_membrane__F/var_membrane__R/
+var_membrane__T)-1)/(exp(var_membrane__V*var_membrane__F/var_membrane__R/
+var_membrane__T)-1)*var_membrane__V
+var_membrane__i_Na := (var_sodium_current__g_Na_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(var_sodium_current__g_Na_Periphery-
+var_sodium_current__g_Na_Centre))*var_sodium_current_m_gate__m^3*((.9130700000-
+.95180000000000001e-1*exp(-.63060000000000005e-1*var_membrane__V-2.169264000)/(
+1+1.6619999999999999*exp(-.22509999999999999*var_membrane__V-14.33887000)))*
+var_sodium_current_h_gate__h1+(.95180000000000001e-1*exp(-.63060000000000005e-1
+*var_membrane__V-2.169264000)/(1+1.6619999999999999*exp(-.22509999999999999*
+var_membrane__V-14.33887000))+.86929999999999993e-1)*
+var_sodium_current_h_gate__h2)*var_ionic_concentrations__Na_o*var_membrane__F^2
+/var_membrane__R/var_membrane__T*(exp((var_membrane__V-var_membrane__R*
+var_membrane__T/var_membrane__F*ln(var_ionic_concentrations__Na_o/
+var_ionic_concentrations__Na_i))*var_membrane__F/var_membrane__R/
+var_membrane__T)-1)/(exp(var_membrane__V*var_membrane__F/var_membrane__R/
+var_membrane__T)-1)*var_membrane__V
+var_L_type_Ca_channel__FCell := var_membrane__FCellConstant*var_membrane__dCell
+/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+6.949152541))
+var_L_type_Ca_channel__g_Ca_L := var_L_type_Ca_channel__g_Ca_L_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_L_type_Ca_channel__g_Ca_L_Periphery-var_L_type_Ca_channel__g_Ca_L_Centre)
+var_L_type_Ca_channel__d_L := var_L_type_Ca_channel_d_gate__d_L
+var_L_type_Ca_channel__f_L := var_L_type_Ca_channel_f_gate__f_L
+var_L_type_Ca_channel__V := var_membrane__V
+var_L_type_Ca_channel__i_Ca_L := (var_L_type_Ca_channel__g_Ca_L_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_L_type_Ca_channel__g_Ca_L_Periphery-var_L_type_Ca_channel__g_Ca_L_Centre))*
+(var_L_type_Ca_channel_f_gate__f_L*var_L_type_Ca_channel_d_gate__d_L+.\
+60000000000000001e-2/(1+exp(-1/6*var_membrane__V-2.350000000)))*(
+var_membrane__V-var_L_type_Ca_channel__E_Ca_L)
+var_membrane__i_Ca_L := (var_L_type_Ca_channel__g_Ca_L_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_L_type_Ca_channel__g_Ca_L_Periphery-var_L_type_Ca_channel__g_Ca_L_Centre))*
+(var_L_type_Ca_channel_f_gate__f_L*var_L_type_Ca_channel_d_gate__d_L+.\
+60000000000000001e-2/(1+exp(-1/6*var_membrane__V-2.350000000)))*(
+var_membrane__V-var_L_type_Ca_channel__E_Ca_L)
+var_T_type_Ca_channel__FCell := var_membrane__FCellConstant*var_membrane__dCell
+/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+6.949152541))
+var_T_type_Ca_channel__g_Ca_T := var_T_type_Ca_channel__g_Ca_T_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_T_type_Ca_channel__g_Ca_T_Periphery-var_T_type_Ca_channel__g_Ca_T_Centre)
+var_T_type_Ca_channel__d_T := var_T_type_Ca_channel_d_gate__d_T
+var_T_type_Ca_channel__V := var_membrane__V
+var_T_type_Ca_channel__f_T := var_T_type_Ca_channel_f_gate__f_T
+var_T_type_Ca_channel__i_Ca_T := (var_T_type_Ca_channel__g_Ca_T_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_T_type_Ca_channel__g_Ca_T_Periphery-var_T_type_Ca_channel__g_Ca_T_Centre))*
+var_T_type_Ca_channel_d_gate__d_T*var_T_type_Ca_channel_f_gate__f_T*(
+var_membrane__V-var_T_type_Ca_channel__E_Ca_T)
+var_membrane__i_Ca_T := (var_T_type_Ca_channel__g_Ca_T_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_T_type_Ca_channel__g_Ca_T_Periphery-var_T_type_Ca_channel__g_Ca_T_Centre))*
+var_T_type_Ca_channel_d_gate__d_T*var_T_type_Ca_channel_f_gate__f_T*(
+var_membrane__V-var_T_type_Ca_channel__E_Ca_T)
+var_four_AP_sensitive_currents__FCell := var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))
+var_four_AP_sensitive_currents__g_to := 
+var_four_AP_sensitive_currents__g_to_Centre+var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))*(var_four_AP_sensitive_currents__g_to_Periphery-
+var_four_AP_sensitive_currents__g_to_Centre)
+var_four_AP_sensitive_currents__V := var_membrane__V
+var_four_AP_sensitive_currents__q := var_four_AP_sensitive_currents_q_gate__q
+var_reversal_and_equilibrium_potentials__K_o := var_ionic_concentrations__K_o
+var_reversal_and_equilibrium_potentials__K_i := var_ionic_concentrations__K_i
+var_reversal_and_equilibrium_potentials__E_K := var_membrane__R*var_membrane__T
+/var_membrane__F*ln(var_ionic_concentrations__K_o/var_ionic_concentrations__K_i
+)
+var_four_AP_sensitive_currents__E_K := var_membrane__R*var_membrane__T/
+var_membrane__F*ln(var_ionic_concentrations__K_o/var_ionic_concentrations__K_i)
+var_four_AP_sensitive_currents__r := var_four_AP_sensitive_currents_r_gate__r
+var_four_AP_sensitive_currents__i_to := (
+var_four_AP_sensitive_currents__g_to_Centre+var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))*(var_four_AP_sensitive_currents__g_to_Periphery-
+var_four_AP_sensitive_currents__g_to_Centre))*
+var_four_AP_sensitive_currents_q_gate__q*
+var_four_AP_sensitive_currents_r_gate__r*(var_membrane__V-var_membrane__R*
+var_membrane__T/var_membrane__F*ln(var_ionic_concentrations__K_o/
+var_ionic_concentrations__K_i))
+var_membrane__i_to := (var_four_AP_sensitive_currents__g_to_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_four_AP_sensitive_currents__g_to_Periphery-
+var_four_AP_sensitive_currents__g_to_Centre))*
+var_four_AP_sensitive_currents_q_gate__q*
+var_four_AP_sensitive_currents_r_gate__r*(var_membrane__V-var_membrane__R*
+var_membrane__T/var_membrane__F*ln(var_ionic_concentrations__K_o/
+var_ionic_concentrations__K_i))
+var_four_AP_sensitive_currents__g_sus := 
+var_four_AP_sensitive_currents__g_sus_Centre+var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))*(var_four_AP_sensitive_currents__g_sus_Periphery-
+var_four_AP_sensitive_currents__g_sus_Centre)
+var_four_AP_sensitive_currents__i_sus := (
+var_four_AP_sensitive_currents__g_sus_Centre+var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))*(var_four_AP_sensitive_currents__g_sus_Periphery-
+var_four_AP_sensitive_currents__g_sus_Centre))*
+var_four_AP_sensitive_currents_r_gate__r*(var_membrane__V-var_membrane__R*
+var_membrane__T/var_membrane__F*ln(var_ionic_concentrations__K_o/
+var_ionic_concentrations__K_i))
+var_membrane__i_sus := (var_four_AP_sensitive_currents__g_sus_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_four_AP_sensitive_currents__g_sus_Periphery-
+var_four_AP_sensitive_currents__g_sus_Centre))*
+var_four_AP_sensitive_currents_r_gate__r*(var_membrane__V-var_membrane__R*
+var_membrane__T/var_membrane__F*ln(var_ionic_concentrations__K_o/
+var_ionic_concentrations__K_i))
+var_rapid_delayed_rectifying_potassium_current__P_as := 
+var_rapid_delayed_rectifying_potassium_current_P_as_gate__P_as
+var_rapid_delayed_rectifying_potassium_current__P_af := 
+var_rapid_delayed_rectifying_potassium_current_P_af_gate__P_af
+var_rapid_delayed_rectifying_potassium_current__P_a := .59999999999999998*
+var_rapid_delayed_rectifying_potassium_current_P_af_gate__P_af+.400000000000000\
+02*var_rapid_delayed_rectifying_potassium_current_P_as_gate__P_as
+var_rapid_delayed_rectifying_potassium_current__P_i := 
+var_rapid_delayed_rectifying_potassium_current_P_i_gate__P_i
+var_rapid_delayed_rectifying_potassium_current__V := var_membrane__V
+var_rapid_delayed_rectifying_potassium_current__E_K := var_membrane__R*
+var_membrane__T/var_membrane__F*ln(var_ionic_concentrations__K_o/
+var_ionic_concentrations__K_i)
+var_rapid_delayed_rectifying_potassium_current__FCell := 
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))
+var_rapid_delayed_rectifying_potassium_current__g_K_r := 
+var_rapid_delayed_rectifying_potassium_current__g_K_r_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_rapid_delayed_rectifying_potassium_current__g_K_r_Periphery-
+var_rapid_delayed_rectifying_potassium_current__g_K_r_Centre)
+var_rapid_delayed_rectifying_potassium_current__i_K_r := (
+var_rapid_delayed_rectifying_potassium_current__g_K_r_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_rapid_delayed_rectifying_potassium_current__g_K_r_Periphery-
+var_rapid_delayed_rectifying_potassium_current__g_K_r_Centre))*(.59999999999999\
+998*var_rapid_delayed_rectifying_potassium_current_P_af_gate__P_af+.40000000000\
+000002*var_rapid_delayed_rectifying_potassium_current_P_as_gate__P_as)*
+var_rapid_delayed_rectifying_potassium_current_P_i_gate__P_i*(var_membrane__V-
+var_membrane__R*var_membrane__T/var_membrane__F*ln(
+var_ionic_concentrations__K_o/var_ionic_concentrations__K_i))
+var_membrane__i_K_r := (
+var_rapid_delayed_rectifying_potassium_current__g_K_r_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_rapid_delayed_rectifying_potassium_current__g_K_r_Periphery-
+var_rapid_delayed_rectifying_potassium_current__g_K_r_Centre))*(.59999999999999\
+998*var_rapid_delayed_rectifying_potassium_current_P_af_gate__P_af+.40000000000\
+000002*var_rapid_delayed_rectifying_potassium_current_P_as_gate__P_as)*
+var_rapid_delayed_rectifying_potassium_current_P_i_gate__P_i*(var_membrane__V-
+var_membrane__R*var_membrane__T/var_membrane__F*ln(
+var_ionic_concentrations__K_o/var_ionic_concentrations__K_i))
+var_slow_delayed_rectifying_potassium_current__xs := 
+var_slow_delayed_rectifying_potassium_current_xs_gate__xs
+var_slow_delayed_rectifying_potassium_current__FCell := 
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))
+var_slow_delayed_rectifying_potassium_current__g_K_s := 
+var_slow_delayed_rectifying_potassium_current__g_K_s_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_slow_delayed_rectifying_potassium_current__g_K_s_Periphery-
+var_slow_delayed_rectifying_potassium_current__g_K_s_Centre)
+var_slow_delayed_rectifying_potassium_current__V := var_membrane__V
+var_reversal_and_equilibrium_potentials__E_K_s := var_membrane__R*
+var_membrane__T/var_membrane__F*ln((var_ionic_concentrations__K_o+.\
+29999999999999999e-1*var_ionic_concentrations__Na_o)/(
+var_ionic_concentrations__K_i+.29999999999999999e-1*
+var_ionic_concentrations__Na_i))
+var_slow_delayed_rectifying_potassium_current__E_K_s := var_membrane__R*
+var_membrane__T/var_membrane__F*ln((var_ionic_concentrations__K_o+.\
+29999999999999999e-1*var_ionic_concentrations__Na_o)/(
+var_ionic_concentrations__K_i+.29999999999999999e-1*
+var_ionic_concentrations__Na_i))
+var_slow_delayed_rectifying_potassium_current__i_K_s := (
+var_slow_delayed_rectifying_potassium_current__g_K_s_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_slow_delayed_rectifying_potassium_current__g_K_s_Periphery-
+var_slow_delayed_rectifying_potassium_current__g_K_s_Centre))*
+var_slow_delayed_rectifying_potassium_current_xs_gate__xs^2*(var_membrane__V-
+var_membrane__R*var_membrane__T/var_membrane__F*ln((
+var_ionic_concentrations__K_o+.29999999999999999e-1*
+var_ionic_concentrations__Na_o)/(var_ionic_concentrations__K_i+.\
+29999999999999999e-1*var_ionic_concentrations__Na_i)))
+var_membrane__i_K_s := (
+var_slow_delayed_rectifying_potassium_current__g_K_s_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_slow_delayed_rectifying_potassium_current__g_K_s_Periphery-
+var_slow_delayed_rectifying_potassium_current__g_K_s_Centre))*
+var_slow_delayed_rectifying_potassium_current_xs_gate__xs^2*(var_membrane__V-
+var_membrane__R*var_membrane__T/var_membrane__F*ln((
+var_ionic_concentrations__K_o+.29999999999999999e-1*
+var_ionic_concentrations__Na_o)/(var_ionic_concentrations__K_i+.\
+29999999999999999e-1*var_ionic_concentrations__Na_i)))
+var_hyperpolarisation_activated_current__FCell := var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))
+var_hyperpolarisation_activated_current__g_f_Na := 
+var_hyperpolarisation_activated_current__g_f_Na_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_hyperpolarisation_activated_current__g_f_Na_Periphery-
+var_hyperpolarisation_activated_current__g_f_Na_Centre)
+var_hyperpolarisation_activated_current__E_Na := var_membrane__R*
+var_membrane__T/var_membrane__F*ln(var_ionic_concentrations__Na_o/
+var_ionic_concentrations__Na_i)
+var_hyperpolarisation_activated_current__y := 
+var_hyperpolarisation_activated_current_y_gate__y
+var_hyperpolarisation_activated_current__V := var_membrane__V
+var_hyperpolarisation_activated_current__i_f_Na := (
+var_hyperpolarisation_activated_current__g_f_Na_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_hyperpolarisation_activated_current__g_f_Na_Periphery-
+var_hyperpolarisation_activated_current__g_f_Na_Centre))*
+var_hyperpolarisation_activated_current_y_gate__y*(var_membrane__V-
+var_membrane__R*var_membrane__T/var_membrane__F*ln(
+var_ionic_concentrations__Na_o/var_ionic_concentrations__Na_i))
+var_membrane__i_f_Na := (var_hyperpolarisation_activated_current__g_f_Na_Centre
++var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.\
+16949152*var_membrane__dCell+6.949152541))*(
+var_hyperpolarisation_activated_current__g_f_Na_Periphery-
+var_hyperpolarisation_activated_current__g_f_Na_Centre))*
+var_hyperpolarisation_activated_current_y_gate__y*(var_membrane__V-
+var_membrane__R*var_membrane__T/var_membrane__F*ln(
+var_ionic_concentrations__Na_o/var_ionic_concentrations__Na_i))
+var_hyperpolarisation_activated_current__E_K := var_membrane__R*var_membrane__T
+/var_membrane__F*ln(var_ionic_concentrations__K_o/var_ionic_concentrations__K_i
+)
+var_hyperpolarisation_activated_current__g_f_K := 
+var_hyperpolarisation_activated_current__g_f_K_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_hyperpolarisation_activated_current__g_f_K_Periphery-
+var_hyperpolarisation_activated_current__g_f_K_Centre)
+var_hyperpolarisation_activated_current__i_f_K := (
+var_hyperpolarisation_activated_current__g_f_K_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_hyperpolarisation_activated_current__g_f_K_Periphery-
+var_hyperpolarisation_activated_current__g_f_K_Centre))*
+var_hyperpolarisation_activated_current_y_gate__y*(var_membrane__V-
+var_membrane__R*var_membrane__T/var_membrane__F*ln(
+var_ionic_concentrations__K_o/var_ionic_concentrations__K_i))
+var_membrane__i_f_K := (var_hyperpolarisation_activated_current__g_f_K_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_hyperpolarisation_activated_current__g_f_K_Periphery-
+var_hyperpolarisation_activated_current__g_f_K_Centre))*
+var_hyperpolarisation_activated_current_y_gate__y*(var_membrane__V-
+var_membrane__R*var_membrane__T/var_membrane__F*ln(
+var_ionic_concentrations__K_o/var_ionic_concentrations__K_i))
+var_sodium_background_current__V := var_membrane__V
+var_sodium_background_current__E_Na := var_membrane__R*var_membrane__T/
+var_membrane__F*ln(var_ionic_concentrations__Na_o/
+var_ionic_concentrations__Na_i)
+var_sodium_background_current__FCell := var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))
+var_sodium_background_current__g_b_Na := 
+var_sodium_background_current__g_b_Na_Centre+var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))*(var_sodium_background_current__g_b_Na_Periphery-
+var_sodium_background_current__g_b_Na_Centre)
+var_sodium_background_current__i_b_Na := (
+var_sodium_background_current__g_b_Na_Centre+var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))*(var_sodium_background_current__g_b_Na_Periphery-
+var_sodium_background_current__g_b_Na_Centre))*(var_membrane__V-var_membrane__R
+*var_membrane__T/var_membrane__F*ln(var_ionic_concentrations__Na_o/
+var_ionic_concentrations__Na_i))
+var_membrane__i_b_Na := (var_sodium_background_current__g_b_Na_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_sodium_background_current__g_b_Na_Periphery-
+var_sodium_background_current__g_b_Na_Centre))*(var_membrane__V-var_membrane__R
+*var_membrane__T/var_membrane__F*ln(var_ionic_concentrations__Na_o/
+var_ionic_concentrations__Na_i))
+var_reversal_and_equilibrium_potentials__Ca_i := var_ionic_concentrations__Ca_i
+var_reversal_and_equilibrium_potentials__Ca_o := var_ionic_concentrations__Ca_o
+var_reversal_and_equilibrium_potentials__E_Ca := 1/2*var_membrane__R*
+var_membrane__T/var_membrane__F*ln(var_ionic_concentrations__Ca_o/
+var_ionic_concentrations__Ca_i)
+var_calcium_background_current__E_Ca := 1/2*var_membrane__R*var_membrane__T/
+var_membrane__F*ln(var_ionic_concentrations__Ca_o/
+var_ionic_concentrations__Ca_i)
+var_calcium_background_current__FCell := var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))
+var_calcium_background_current__g_b_Ca := 
+var_calcium_background_current__g_b_Ca_Centre+var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))*(var_calcium_background_current__g_b_Ca_Periphery-
+var_calcium_background_current__g_b_Ca_Centre)
+var_calcium_background_current__V := var_membrane__V
+var_calcium_background_current__i_b_Ca := (
+var_calcium_background_current__g_b_Ca_Centre+var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))*(var_calcium_background_current__g_b_Ca_Periphery-
+var_calcium_background_current__g_b_Ca_Centre))*(var_membrane__V-1/2*
+var_membrane__R*var_membrane__T/var_membrane__F*ln(
+var_ionic_concentrations__Ca_o/var_ionic_concentrations__Ca_i))
+var_membrane__i_b_Ca := (var_calcium_background_current__g_b_Ca_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_calcium_background_current__g_b_Ca_Periphery-
+var_calcium_background_current__g_b_Ca_Centre))*(var_membrane__V-1/2*
+var_membrane__R*var_membrane__T/var_membrane__F*ln(
+var_ionic_concentrations__Ca_o/var_ionic_concentrations__Ca_i))
+var_potassium_background_current__E_K := var_membrane__R*var_membrane__T/
+var_membrane__F*ln(var_ionic_concentrations__K_o/var_ionic_concentrations__K_i)
+var_potassium_background_current__FCell := var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))
+var_potassium_background_current__g_b_K := 
+var_potassium_background_current__g_b_K_Centre+var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))*(var_potassium_background_current__g_b_K_Periphery-
+var_potassium_background_current__g_b_K_Centre)
+var_potassium_background_current__V := var_membrane__V
+var_potassium_background_current__i_b_K := (
+var_potassium_background_current__g_b_K_Centre+var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))*(var_potassium_background_current__g_b_K_Periphery-
+var_potassium_background_current__g_b_K_Centre))*(var_membrane__V-
+var_membrane__R*var_membrane__T/var_membrane__F*ln(
+var_ionic_concentrations__K_o/var_ionic_concentrations__K_i))
+var_membrane__i_b_K := (var_potassium_background_current__g_b_K_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_potassium_background_current__g_b_K_Periphery-
+var_potassium_background_current__g_b_K_Centre))*(var_membrane__V-
+var_membrane__R*var_membrane__T/var_membrane__F*ln(
+var_ionic_concentrations__K_o/var_ionic_concentrations__K_i))
+var_sodium_calcium_exchanger__V := var_membrane__V
+var_sodium_calcium_exchanger__Ca_i := var_ionic_concentrations__Ca_i
+var_sodium_calcium_exchanger__Na_i := var_ionic_concentrations__Na_i
+var_sodium_calcium_exchanger__Na_o := var_ionic_concentrations__Na_o
+var_sodium_calcium_exchanger__Ca_o := var_ionic_concentrations__Ca_o
+var_sodium_calcium_exchanger__FCell := var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))
+var_sodium_calcium_exchanger__k_NaCa := 
+var_sodium_calcium_exchanger__k_NaCa_Centre+var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))*(var_sodium_calcium_exchanger__k_NaCa_Periphery-
+var_sodium_calcium_exchanger__k_NaCa_Centre)
+var_sodium_calcium_exchanger__i_NaCa := (
+var_sodium_calcium_exchanger__k_NaCa_Centre+var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))*(var_sodium_calcium_exchanger__k_NaCa_Periphery-
+var_sodium_calcium_exchanger__k_NaCa_Centre))*(var_ionic_concentrations__Na_i^3
+*var_ionic_concentrations__Ca_o*exp(.37429999999999998e-1*var_membrane__V*
+var_sodium_calcium_exchanger__gamma_NaCa)-var_ionic_concentrations__Na_o^3*
+var_ionic_concentrations__Ca_i*exp(.37429999999999998e-1*var_membrane__V*(
+var_sodium_calcium_exchanger__gamma_NaCa-1)))/(1+
+var_sodium_calcium_exchanger__d_NaCa*(var_ionic_concentrations__Ca_i*
+var_ionic_concentrations__Na_o^3+var_ionic_concentrations__Ca_o*
+var_ionic_concentrations__Na_i^3))
+var_membrane__i_NaCa := (var_sodium_calcium_exchanger__k_NaCa_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_sodium_calcium_exchanger__k_NaCa_Periphery-
+var_sodium_calcium_exchanger__k_NaCa_Centre))*(var_ionic_concentrations__Na_i^3
+*var_ionic_concentrations__Ca_o*exp(.37429999999999998e-1*var_membrane__V*
+var_sodium_calcium_exchanger__gamma_NaCa)-var_ionic_concentrations__Na_o^3*
+var_ionic_concentrations__Ca_i*exp(.37429999999999998e-1*var_membrane__V*(
+var_sodium_calcium_exchanger__gamma_NaCa-1)))/(1+
+var_sodium_calcium_exchanger__d_NaCa*(var_ionic_concentrations__Ca_i*
+var_ionic_concentrations__Na_o^3+var_ionic_concentrations__Ca_o*
+var_ionic_concentrations__Na_i^3))
+var_sodium_potassium_pump__V := var_membrane__V
+var_sodium_potassium_pump__FCell := var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))
+var_sodium_potassium_pump__i_p_max := var_sodium_potassium_pump__i_p_max_Centre
++var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.\
+16949152*var_membrane__dCell+6.949152541))*(
+var_sodium_potassium_pump__i_p_max_Periphery-
+var_sodium_potassium_pump__i_p_max_Centre)
+var_sodium_potassium_pump__K_o := var_ionic_concentrations__K_o
+var_sodium_potassium_pump__Na_i := var_ionic_concentrations__Na_i
+var_sodium_potassium_pump__i_p := 1.6000000000000001*(
+var_sodium_potassium_pump__i_p_max_Centre+var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))*(var_sodium_potassium_pump__i_p_max_Periphery-
+var_sodium_potassium_pump__i_p_max_Centre))*var_ionic_concentrations__Na_i^3/(
+var_sodium_potassium_pump__K_m_Na+var_ionic_concentrations__Na_i)^3*
+var_ionic_concentrations__K_o^2/(var_sodium_potassium_pump__K_m_K+
+var_ionic_concentrations__K_o)^2/(1.5+exp(-1/40*var_membrane__V-3/2))
+var_membrane__i_p := 1.6000000000000001*(
+var_sodium_potassium_pump__i_p_max_Centre+var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))*(var_sodium_potassium_pump__i_p_max_Periphery-
+var_sodium_potassium_pump__i_p_max_Centre))*var_ionic_concentrations__Na_i^3/(
+var_sodium_potassium_pump__K_m_Na+var_ionic_concentrations__Na_i)^3*
+var_ionic_concentrations__K_o^2/(var_sodium_potassium_pump__K_m_K+
+var_ionic_concentrations__K_o)^2/(1.5+exp(-1/40*var_membrane__V-3/2))
+var_persistent_calcium_current__Ca_i := var_ionic_concentrations__Ca_i
+var_persistent_calcium_current__FCell := var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))
+var_persistent_calcium_current__i_Ca_p_max := 
+var_persistent_calcium_current__i_Ca_p_max_Centre+var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))*(var_persistent_calcium_current__i_Ca_p_max_Periphery-
+var_persistent_calcium_current__i_Ca_p_max_Centre)
+var_persistent_calcium_current__i_Ca_p := (
+var_persistent_calcium_current__i_Ca_p_max_Centre+var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))*(var_persistent_calcium_current__i_Ca_p_max_Periphery-
+var_persistent_calcium_current__i_Ca_p_max_Centre))*
+var_ionic_concentrations__Ca_i/(var_ionic_concentrations__Ca_i+.\
+40000000000000002e-3)
+var_membrane__i_Ca_p := (var_persistent_calcium_current__i_Ca_p_max_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_persistent_calcium_current__i_Ca_p_max_Periphery-
+var_persistent_calcium_current__i_Ca_p_max_Centre))*
+var_ionic_concentrations__Ca_i/(var_ionic_concentrations__Ca_i+.\
+40000000000000002e-3)
+var_sodium_current__time := var_environment__time
+var_sodium_current_m_gate__V := var_membrane__V
+var_sodium_current_m_gate__m_infinity := (1/(1+exp(-.1831501832*var_membrane__V
+-5.553113555)))^(1/3)
+var_sodium_current_m_gate__tau_m := .62469999999999995e-3/(.83221659999999997*
+exp(-.33566000000000001*var_membrane__V-19.03400309)+.62739999999999996*exp(.\
+82299999999999998e-1*var_membrane__V+5.350578130))+.45689999999999998e-4
+var_sodium_current_m_gate__time := var_environment__time
+var_sodium_current_h_gate__h1_infinity := 1/(1+exp(.1562500000*var_membrane__V+
+10.32812500))
+var_sodium_current_h_gate__h2_infinity := 1/(1+exp(.1562500000*var_membrane__V+
+10.32812500))
+var_sodium_current_h_gate__tau_h1 := .37170000000000002e-5*exp(-.28149999999999\
+997*var_membrane__V-4.816465000)/(1+.37320000000000001e-2*exp(-.342600000000000\
+02*var_membrane__V-12.93657600))+.59770000000000005e-3
+var_sodium_current_h_gate__tau_h2 := .31860000000000002e-7*exp(-.62190000000000\
+001*var_membrane__V-11.69172000)/(1+.71890000000000005e-4*exp(-.668300000000000\
+01*var_membrane__V-22.76898100))+.35560000000000001e-2
+var_sodium_current_h_gate__time := var_environment__time
+var_L_type_Ca_channel__time := var_environment__time
+var_L_type_Ca_channel_d_gate__FCell := var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))
+var_L_type_Ca_channel_d_gate__V := var_membrane__V
+var_L_type_Ca_channel_d_gate__alpha_d_L := -28.390000000000001*(var_membrane__V
++35)/(exp(-.4000000000*var_membrane__V-14.00000000)-1)-84.900000000000006*
+var_membrane__V/(exp(-.20799999999999999*var_membrane__V)-1)
+var_L_type_Ca_channel_d_gate__beta_d_L := 11.43*(var_membrane__V-5)/(exp(.40000\
+000000000002*var_membrane__V-2.000000000)-1)
+var_L_type_Ca_channel_d_gate__d_L_infinity := 1/(1+exp(-1/6*var_membrane__V-3.7\
+16666667-.1333333333*var_membrane__FCellConstant*var_membrane__dCell/(1+.774499\
+99999999997*exp(-10.16949152*var_membrane__dCell+6.949152541))))
+var_L_type_Ca_channel_d_gate__tau_d_L := 2/(-28.390000000000001*(
+var_membrane__V+35)/(exp(-.4000000000*var_membrane__V-14.00000000)-1)-84.900000\
+000000006*var_membrane__V/(exp(-.20799999999999999*var_membrane__V)-1)+11.43*(
+var_membrane__V-5)/(exp(.40000000000000002*var_membrane__V-2.000000000)-1))
+var_L_type_Ca_channel_d_gate__time := var_environment__time
+var_L_type_Ca_channel_f_gate__FCell := var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))
+var_L_type_Ca_channel_f_gate__V := var_membrane__V
+var_L_type_Ca_channel_f_gate__alpha_f_L := 3.75*(var_membrane__V+28)/(exp(1/4*
+var_membrane__V+7)-1)
+var_L_type_Ca_channel_f_gate__beta_f_L := 30/(1+exp(-1/4*var_membrane__V-7))
+var_L_type_Ca_channel_f_gate__f_L_infinity := 1/(1+exp(1/5*var_membrane__V+9))
+var_L_type_Ca_channel_f_gate__tau_f_L := (1.2-.20000000000000001*
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541)))/(3.75*(var_membrane__V+28)/(exp(1/4*
+var_membrane__V+7)-1)+30/(1+exp(-1/4*var_membrane__V-7)))
+var_L_type_Ca_channel_f_gate__time := var_environment__time
+var_T_type_Ca_channel__time := var_environment__time
+var_T_type_Ca_channel_d_gate__V := var_membrane__V
+var_T_type_Ca_channel_d_gate__alpha_d_T := 1068*exp(1/30*var_membrane__V+.87666\
+66667)
+var_T_type_Ca_channel_d_gate__beta_d_T := 1068*exp(-1/30*var_membrane__V-.87666\
+66667)
+var_T_type_Ca_channel_d_gate__d_T_infinity := 1/(1+exp(-.1470588235*
+var_membrane__V-5.441176470))
+var_T_type_Ca_channel_d_gate__tau_d_T := 1/(1068*exp(1/30*var_membrane__V+.8766\
+666667)+1068*exp(-1/30*var_membrane__V-.8766666667))
+var_T_type_Ca_channel_d_gate__time := var_environment__time
+var_T_type_Ca_channel_f_gate__FCell := var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))
+var_T_type_Ca_channel_f_gate__V := var_membrane__V
+var_T_type_Ca_channel_f_gate__alpha_f_T := 15.300000000000001*exp(-.1200480192e\
+-1*var_membrane__V-.8523409363-.8403361344e-2*var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541)))
+var_T_type_Ca_channel_f_gate__beta_f_T := 15*exp(.6501950585e-1*var_membrane__V
++4.616384915)
+var_T_type_Ca_channel_f_gate__f_T_infinity := 1/(1+exp(1/9*var_membrane__V+71/9
+))
+var_T_type_Ca_channel_f_gate__tau_f_T := 1/(15.300000000000001*exp(-.1200480192\
+e-1*var_membrane__V-.8523409363-.8403361344e-2*var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541)))+15*exp(.6501950585e-1*var_membrane__V+4.616384915))
+var_T_type_Ca_channel_f_gate__time := var_environment__time
+var_four_AP_sensitive_currents__time := var_environment__time
+var_four_AP_sensitive_currents_q_gate__FCell := var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))
+var_four_AP_sensitive_currents_q_gate__V := var_membrane__V
+var_four_AP_sensitive_currents_q_gate__q_infinity := 1/(1+exp(.7633587786e-1*
+var_membrane__V+4.532061069))
+var_four_AP_sensitive_currents_q_gate__tau_q := .1010333333e-1+.6516666666e-1/(
+.56859999999999999*exp(-.81610000000000002e-1*var_membrane__V-3.182790000-.8161\
+000000*var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*
+exp(-10.16949152*var_membrane__dCell+6.949152541)))+.71740000000000004*exp((.27\
+189999999999998-.1719*var_membrane__FCellConstant*var_membrane__dCell/(1+.77449\
+999999999997*exp(-10.16949152*var_membrane__dCell+6.949152541)))*(
+var_membrane__V+40.93+10*var_membrane__FCellConstant*var_membrane__dCell/(1+.77\
+449999999999997*exp(-10.16949152*var_membrane__dCell+6.949152541)))))
+var_four_AP_sensitive_currents_q_gate__time := var_environment__time
+var_four_AP_sensitive_currents_r_gate__V := var_membrane__V
+var_four_AP_sensitive_currents_r_gate__r_infinity := 1/(1+exp(-.5076142132e-1*
+var_membrane__V+.5548223350))
+var_four_AP_sensitive_currents_r_gate__tau_r := .2977500000e-2+.1959500000e-1/(
+1.0369999999999999*exp(.90120000000000006e-1*var_membrane__V+2.758573200)+.3689\
+9999999999999*exp(-.11899999999999999*var_membrane__V-2.836960000))
+var_four_AP_sensitive_currents_r_gate__time := var_environment__time
+var_rapid_delayed_rectifying_potassium_current__time := var_environment__time
+var_rapid_delayed_rectifying_potassium_current_P_af_gate__V := var_membrane__V
+var_rapid_delayed_rectifying_potassium_current_P_af_gate__P_af_infinity := 1/(1
++exp(-.9433962264e-1*var_membrane__V-1.339622641))
+var_rapid_delayed_rectifying_potassium_current_P_af_gate__tau_P_af := 1/(37.200\
+000000000003*exp(.6289308176e-1*var_membrane__V-.5660377358)+.95999999999999996
+*exp(-.4444444444e-1*var_membrane__V+.4000000000))
+var_rapid_delayed_rectifying_potassium_current_P_af_gate__time := 
+var_environment__time
+var_rapid_delayed_rectifying_potassium_current_P_as_gate__P_af_infinity := 1/(1
++exp(-.9433962264e-1*var_membrane__V-1.339622641))
+var_rapid_delayed_rectifying_potassium_current_P_as_gate__P_as_infinity := 1/(1
++exp(-.9433962264e-1*var_membrane__V-1.339622641))
+var_rapid_delayed_rectifying_potassium_current_P_as_gate__V := var_membrane__V
+var_rapid_delayed_rectifying_potassium_current_P_as_gate__tau_P_as := 1/(4.2000\
+000000000002*exp(1/17*var_membrane__V-9/17)+.14999999999999999*exp(-.4629629630\
+e-1*var_membrane__V+.4166666667))
+var_rapid_delayed_rectifying_potassium_current_P_as_gate__time := 
+var_environment__time
+var_rapid_delayed_rectifying_potassium_current_P_i_gate__V := var_membrane__V
+var_rapid_delayed_rectifying_potassium_current_P_i_gate__P_i_infinity := 1/(1+
+exp(.9900990099e-1*var_membrane__V+1.841584158))
+var_rapid_delayed_rectifying_potassium_current_P_i_gate__time := 
+var_environment__time
+var_slow_delayed_rectifying_potassium_current__time := var_environment__time
+var_slow_delayed_rectifying_potassium_current_xs_gate__V := var_membrane__V
+var_slow_delayed_rectifying_potassium_current_xs_gate__alpha_xs := 14/(1+exp(-1
+/9*var_membrane__V+40/9))
+var_slow_delayed_rectifying_potassium_current_xs_gate__beta_xs := exp(-1/45*
+var_membrane__V)
+var_slow_delayed_rectifying_potassium_current_xs_gate__time := 
+var_environment__time
+var_hyperpolarisation_activated_current__time := var_environment__time
+var_hyperpolarisation_activated_current_y_gate__V := var_membrane__V
+var_hyperpolarisation_activated_current_y_gate__alpha_y := exp(-.3755163350e-1*
+var_membrane__V-2.963199399)
+var_hyperpolarisation_activated_current_y_gate__beta_y := exp(.4705882353e-1*
+var_membrane__V+3.535529412)
+var_hyperpolarisation_activated_current_y_gate__time := var_environment__time
+d_dt_membrane__V := -1/(var_membrane__CmCentre+var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))*(var_membrane__CmPeriphery-var_membrane__CmCentre))*((
+var_sodium_current__g_Na_Centre+var_membrane__FCellConstant*var_membrane__dCell
+/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+6.949152541))*(
+var_sodium_current__g_Na_Periphery-var_sodium_current__g_Na_Centre))*
+var_sodium_current_m_gate__m^3*((.9130700000-.95180000000000001e-1*exp(-.\
+63060000000000005e-1*var_membrane__V-2.169264000)/(1+1.6619999999999999*exp(-.2\
+2509999999999999*var_membrane__V-14.33887000)))*var_sodium_current_h_gate__h1+(
+.95180000000000001e-1*exp(-.63060000000000005e-1*var_membrane__V-2.169264000)/(
+1+1.6619999999999999*exp(-.22509999999999999*var_membrane__V-14.33887000))+.\
+86929999999999993e-1)*var_sodium_current_h_gate__h2)*
+var_ionic_concentrations__Na_o*var_membrane__F^2/var_membrane__R/
+var_membrane__T*(exp((var_membrane__V-var_membrane__R*var_membrane__T/
+var_membrane__F*ln(var_ionic_concentrations__Na_o/
+var_ionic_concentrations__Na_i))*var_membrane__F/var_membrane__R/
+var_membrane__T)-1)/(exp(var_membrane__V*var_membrane__F/var_membrane__R/
+var_membrane__T)-1)*var_membrane__V+(var_L_type_Ca_channel__g_Ca_L_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_L_type_Ca_channel__g_Ca_L_Periphery-var_L_type_Ca_channel__g_Ca_L_Centre))*
+(var_L_type_Ca_channel_f_gate__f_L*var_L_type_Ca_channel_d_gate__d_L+.\
+60000000000000001e-2/(1+exp(-1/6*var_membrane__V-2.350000000)))*(
+var_membrane__V-var_L_type_Ca_channel__E_Ca_L)+(
+var_T_type_Ca_channel__g_Ca_T_Centre+var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))*(var_T_type_Ca_channel__g_Ca_T_Periphery-
+var_T_type_Ca_channel__g_Ca_T_Centre))*var_T_type_Ca_channel_d_gate__d_T*
+var_T_type_Ca_channel_f_gate__f_T*(var_membrane__V-
+var_T_type_Ca_channel__E_Ca_T)+(var_four_AP_sensitive_currents__g_to_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_four_AP_sensitive_currents__g_to_Periphery-
+var_four_AP_sensitive_currents__g_to_Centre))*
+var_four_AP_sensitive_currents_q_gate__q*
+var_four_AP_sensitive_currents_r_gate__r*(var_membrane__V-var_membrane__R*
+var_membrane__T/var_membrane__F*ln(var_ionic_concentrations__K_o/
+var_ionic_concentrations__K_i))+(var_four_AP_sensitive_currents__g_sus_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_four_AP_sensitive_currents__g_sus_Periphery-
+var_four_AP_sensitive_currents__g_sus_Centre))*
+var_four_AP_sensitive_currents_r_gate__r*(var_membrane__V-var_membrane__R*
+var_membrane__T/var_membrane__F*ln(var_ionic_concentrations__K_o/
+var_ionic_concentrations__K_i))+(
+var_rapid_delayed_rectifying_potassium_current__g_K_r_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_rapid_delayed_rectifying_potassium_current__g_K_r_Periphery-
+var_rapid_delayed_rectifying_potassium_current__g_K_r_Centre))*(.59999999999999\
+998*var_rapid_delayed_rectifying_potassium_current_P_af_gate__P_af+.40000000000\
+000002*var_rapid_delayed_rectifying_potassium_current_P_as_gate__P_as)*
+var_rapid_delayed_rectifying_potassium_current_P_i_gate__P_i*(var_membrane__V-
+var_membrane__R*var_membrane__T/var_membrane__F*ln(
+var_ionic_concentrations__K_o/var_ionic_concentrations__K_i))+(
+var_slow_delayed_rectifying_potassium_current__g_K_s_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_slow_delayed_rectifying_potassium_current__g_K_s_Periphery-
+var_slow_delayed_rectifying_potassium_current__g_K_s_Centre))*
+var_slow_delayed_rectifying_potassium_current_xs_gate__xs^2*(var_membrane__V-
+var_membrane__R*var_membrane__T/var_membrane__F*ln((
+var_ionic_concentrations__K_o+.29999999999999999e-1*
+var_ionic_concentrations__Na_o)/(var_ionic_concentrations__K_i+.\
+29999999999999999e-1*var_ionic_concentrations__Na_i)))+(
+var_hyperpolarisation_activated_current__g_f_Na_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_hyperpolarisation_activated_current__g_f_Na_Periphery-
+var_hyperpolarisation_activated_current__g_f_Na_Centre))*
+var_hyperpolarisation_activated_current_y_gate__y*(var_membrane__V-
+var_membrane__R*var_membrane__T/var_membrane__F*ln(
+var_ionic_concentrations__Na_o/var_ionic_concentrations__Na_i))+(
+var_hyperpolarisation_activated_current__g_f_K_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_hyperpolarisation_activated_current__g_f_K_Periphery-
+var_hyperpolarisation_activated_current__g_f_K_Centre))*
+var_hyperpolarisation_activated_current_y_gate__y*(var_membrane__V-
+var_membrane__R*var_membrane__T/var_membrane__F*ln(
+var_ionic_concentrations__K_o/var_ionic_concentrations__K_i))+(
+var_sodium_background_current__g_b_Na_Centre+var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))*(var_sodium_background_current__g_b_Na_Periphery-
+var_sodium_background_current__g_b_Na_Centre))*(var_membrane__V-var_membrane__R
+*var_membrane__T/var_membrane__F*ln(var_ionic_concentrations__Na_o/
+var_ionic_concentrations__Na_i))+(var_calcium_background_current__g_b_Ca_Centre
++var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.\
+16949152*var_membrane__dCell+6.949152541))*(
+var_calcium_background_current__g_b_Ca_Periphery-
+var_calcium_background_current__g_b_Ca_Centre))*(var_membrane__V-1/2*
+var_membrane__R*var_membrane__T/var_membrane__F*ln(
+var_ionic_concentrations__Ca_o/var_ionic_concentrations__Ca_i))+(
+var_potassium_background_current__g_b_K_Centre+var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))*(var_potassium_background_current__g_b_K_Periphery-
+var_potassium_background_current__g_b_K_Centre))*(var_membrane__V-
+var_membrane__R*var_membrane__T/var_membrane__F*ln(
+var_ionic_concentrations__K_o/var_ionic_concentrations__K_i))+(
+var_sodium_calcium_exchanger__k_NaCa_Centre+var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))*(var_sodium_calcium_exchanger__k_NaCa_Periphery-
+var_sodium_calcium_exchanger__k_NaCa_Centre))*(var_ionic_concentrations__Na_i^3
+*var_ionic_concentrations__Ca_o*exp(.37429999999999998e-1*var_membrane__V*
+var_sodium_calcium_exchanger__gamma_NaCa)-var_ionic_concentrations__Na_o^3*
+var_ionic_concentrations__Ca_i*exp(.37429999999999998e-1*var_membrane__V*(
+var_sodium_calcium_exchanger__gamma_NaCa-1)))/(1+
+var_sodium_calcium_exchanger__d_NaCa*(var_ionic_concentrations__Ca_i*
+var_ionic_concentrations__Na_o^3+var_ionic_concentrations__Ca_o*
+var_ionic_concentrations__Na_i^3))+1.6000000000000001*(
+var_sodium_potassium_pump__i_p_max_Centre+var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))*(var_sodium_potassium_pump__i_p_max_Periphery-
+var_sodium_potassium_pump__i_p_max_Centre))*var_ionic_concentrations__Na_i^3/(
+var_sodium_potassium_pump__K_m_Na+var_ionic_concentrations__Na_i)^3*
+var_ionic_concentrations__K_o^2/(var_sodium_potassium_pump__K_m_K+
+var_ionic_concentrations__K_o)^2/(1.5+exp(-1/40*var_membrane__V-3/2))+(
+var_persistent_calcium_current__i_Ca_p_max_Centre+var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))*(var_persistent_calcium_current__i_Ca_p_max_Periphery-
+var_persistent_calcium_current__i_Ca_p_max_Centre))*
+var_ionic_concentrations__Ca_i/(var_ionic_concentrations__Ca_i+.\
+40000000000000002e-3))
+d_dt_sodium_current_m_gate__m := ((1/(1+exp(-.1831501832*var_membrane__V-5.5531\
+13555)))^(1/3)-var_sodium_current_m_gate__m)/(.62469999999999995e-3/(.832216599\
+99999997*exp(-.33566000000000001*var_membrane__V-19.03400309)+.6273999999999999\
+6*exp(.82299999999999998e-1*var_membrane__V+5.350578130))+.45689999999999998e-4
+)
+d_dt_sodium_current_h_gate__h1 := (1/(1+exp(.1562500000*var_membrane__V+10.3281\
+2500))-var_sodium_current_h_gate__h1)/(.37170000000000002e-5*exp(-.281499999999\
+99997*var_membrane__V-4.816465000)/(1+.37320000000000001e-2*exp(-.3426000000000\
+0002*var_membrane__V-12.93657600))+.59770000000000005e-3)
+d_dt_sodium_current_h_gate__h2 := (1/(1+exp(.1562500000*var_membrane__V+10.3281\
+2500))-var_sodium_current_h_gate__h2)/(.31860000000000002e-7*exp(-.621900000000\
+00001*var_membrane__V-11.69172000)/(1+.71890000000000005e-4*exp(-.6683000000000\
+0001*var_membrane__V-22.76898100))+.35560000000000001e-2)
+d_dt_L_type_Ca_channel_d_gate__d_L := 1/2*(1/(1+exp(-1/6*var_membrane__V-3.7166\
+66667-.1333333333*var_membrane__FCellConstant*var_membrane__dCell/(1+.774499999\
+99999997*exp(-10.16949152*var_membrane__dCell+6.949152541))))-
+var_L_type_Ca_channel_d_gate__d_L)*(-28.390000000000001*(var_membrane__V+35)/(
+exp(-.4000000000*var_membrane__V-14.00000000)-1)-84.900000000000006*
+var_membrane__V/(exp(-.20799999999999999*var_membrane__V)-1)+11.43*(
+var_membrane__V-5)/(exp(.40000000000000002*var_membrane__V-2.000000000)-1))
+d_dt_L_type_Ca_channel_f_gate__f_L := (1/(1+exp(1/5*var_membrane__V+9))-
+var_L_type_Ca_channel_f_gate__f_L)/(1.2-.20000000000000001*
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541)))*(3.75*(var_membrane__V+28)/(exp(1/4*
+var_membrane__V+7)-1)+30/(1+exp(-1/4*var_membrane__V-7)))
+d_dt_T_type_Ca_channel_d_gate__d_T := (1/(1+exp(-.1470588235*var_membrane__V-5.\
+441176470))-var_T_type_Ca_channel_d_gate__d_T)*(1068*exp(1/30*var_membrane__V+.\
+8766666667)+1068*exp(-1/30*var_membrane__V-.8766666667))
+d_dt_T_type_Ca_channel_f_gate__f_T := (1/(1+exp(1/9*var_membrane__V+71/9))-
+var_T_type_Ca_channel_f_gate__f_T)*(15.300000000000001*exp(-.1200480192e-1*
+var_membrane__V-.8523409363-.8403361344e-2*var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541)))+15*exp(.6501950585e-1*var_membrane__V+4.616384915))
+d_dt_four_AP_sensitive_currents_q_gate__q := (1/(1+exp(.7633587786e-1*
+var_membrane__V+4.532061069))-var_four_AP_sensitive_currents_q_gate__q)/(.\
+1010333333e-1+.6516666666e-1/(.56859999999999999*exp(-.81610000000000002e-1*
+var_membrane__V-3.182790000-.8161000000*var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541)))+.71740000000000004*exp((.27189999999999998-.1719*
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541)))*(var_membrane__V+40.93+10*
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))))))
+d_dt_four_AP_sensitive_currents_r_gate__r := (1/(1+exp(-.5076142132e-1*
+var_membrane__V+.5548223350))-var_four_AP_sensitive_currents_r_gate__r)/(.\
+2977500000e-2+.1959500000e-1/(1.0369999999999999*exp(.90120000000000006e-1*
+var_membrane__V+2.758573200)+.36899999999999999*exp(-.11899999999999999*
+var_membrane__V-2.836960000)))
+d_dt_rapid_delayed_rectifying_potassium_current_P_af_gate__P_af := (1/(1+exp(-.\
+9433962264e-1*var_membrane__V-1.339622641))-
+var_rapid_delayed_rectifying_potassium_current_P_af_gate__P_af)*(37.20000000000\
+0003*exp(.6289308176e-1*var_membrane__V-.5660377358)+.95999999999999996*exp(-.\
+4444444444e-1*var_membrane__V+.4000000000))
+d_dt_rapid_delayed_rectifying_potassium_current_P_as_gate__P_as := (1/(1+exp(-.\
+9433962264e-1*var_membrane__V-1.339622641))-
+var_rapid_delayed_rectifying_potassium_current_P_as_gate__P_as)*(4.200000000000\
+0002*exp(1/17*var_membrane__V-9/17)+.14999999999999999*exp(-.4629629630e-1*
+var_membrane__V+.4166666667))
+d_dt_rapid_delayed_rectifying_potassium_current_P_i_gate__P_i := (1/(1+exp(.\
+9900990099e-1*var_membrane__V+1.841584158))-
+var_rapid_delayed_rectifying_potassium_current_P_i_gate__P_i)/
+var_rapid_delayed_rectifying_potassium_current_P_i_gate__tau_P_i
+d_dt_slow_delayed_rectifying_potassium_current_xs_gate__xs := 14/(1+exp(-1/9*
+var_membrane__V+40/9))*(1-
+var_slow_delayed_rectifying_potassium_current_xs_gate__xs)-exp(-1/45*
+var_membrane__V)*var_slow_delayed_rectifying_potassium_current_xs_gate__xs
+d_dt_hyperpolarisation_activated_current_y_gate__y := exp(-.3755163350e-1*
+var_membrane__V-2.963199399)*(1-
+var_hyperpolarisation_activated_current_y_gate__y)-exp(.4705882353e-1*
+var_membrane__V+3.535529412)*var_hyperpolarisation_activated_current_y_gate__y
+"--1--var_membrane__V--"
+"--2--var_sodium_current_m_gate__m--"
+"--3--var_sodium_current_h_gate__h1--"
+"--4--var_sodium_current_h_gate__h2--"
+"--5--var_L_type_Ca_channel_d_gate__d_L--"
+"--6--var_L_type_Ca_channel_f_gate__f_L--"
+"--7--var_T_type_Ca_channel_d_gate__d_T--"
+"--8--var_T_type_Ca_channel_f_gate__f_T--"
+"--9--var_four_AP_sensitive_currents_q_gate__q--"
+"--10--var_four_AP_sensitive_currents_r_gate__r--"
+"--11--var_rapid_delayed_rectifying_potassium_current_P_af_gate__P_af--"
+"--12--var_rapid_delayed_rectifying_potassium_current_P_as_gate__P_as--"
+"--13--var_rapid_delayed_rectifying_potassium_current_P_i_gate__P_i--"
+"--14--var_slow_delayed_rectifying_potassium_current_xs_gate__xs--"
+"--15--var_hyperpolarisation_activated_current_y_gate__y--"
+jacobian := matrix([[-1/(var_membrane__CmCentre+var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))*(var_membrane__CmPeriphery-var_membrane__CmCentre))*((
+var_sodium_current__g_Na_Centre+var_membrane__FCellConstant*var_membrane__dCell
+/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+6.949152541))*(
+var_sodium_current__g_Na_Periphery-var_sodium_current__g_Na_Centre))*
+var_sodium_current_m_gate__m^3*((.6002050800e-2*exp(-.63060000000000005e-1*
+var_membrane__V-2.169264000)/(1+1.6619999999999999*exp(-.22509999999999999*
+var_membrane__V-14.33887000))-.3560837992e-1*exp(-.63060000000000005e-1*
+var_membrane__V-2.169264000)/(1+1.6619999999999999*exp(-.22509999999999999*
+var_membrane__V-14.33887000))^2*exp(-.22509999999999999*var_membrane__V-14.3388\
+7000))*var_sodium_current_h_gate__h1+(-.6002050800e-2*exp(-.63060000000000005e-\
+1*var_membrane__V-2.169264000)/(1+1.6619999999999999*exp(-.22509999999999999*
+var_membrane__V-14.33887000))+.3560837992e-1*exp(-.63060000000000005e-1*
+var_membrane__V-2.169264000)/(1+1.6619999999999999*exp(-.22509999999999999*
+var_membrane__V-14.33887000))^2*exp(-.22509999999999999*var_membrane__V-14.3388\
+7000))*var_sodium_current_h_gate__h2)*var_ionic_concentrations__Na_o*
+var_membrane__F^2/var_membrane__R/var_membrane__T*(exp((var_membrane__V-
+var_membrane__R*var_membrane__T/var_membrane__F*ln(
+var_ionic_concentrations__Na_o/var_ionic_concentrations__Na_i))*var_membrane__F
+/var_membrane__R/var_membrane__T)-1)/(exp(var_membrane__V*var_membrane__F/
+var_membrane__R/var_membrane__T)-1)*var_membrane__V+(
+var_sodium_current__g_Na_Centre+var_membrane__FCellConstant*var_membrane__dCell
+/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+6.949152541))*(
+var_sodium_current__g_Na_Periphery-var_sodium_current__g_Na_Centre))*
+var_sodium_current_m_gate__m^3*((.9130700000-.95180000000000001e-1*exp(-.\
+63060000000000005e-1*var_membrane__V-2.169264000)/(1+1.6619999999999999*exp(-.2\
+2509999999999999*var_membrane__V-14.33887000)))*var_sodium_current_h_gate__h1+(
+.95180000000000001e-1*exp(-.63060000000000005e-1*var_membrane__V-2.169264000)/(
+1+1.6619999999999999*exp(-.22509999999999999*var_membrane__V-14.33887000))+.\
+86929999999999993e-1)*var_sodium_current_h_gate__h2)*
+var_ionic_concentrations__Na_o*var_membrane__F^3/var_membrane__R^2/
+var_membrane__T^2*exp((var_membrane__V-var_membrane__R*var_membrane__T/
+var_membrane__F*ln(var_ionic_concentrations__Na_o/
+var_ionic_concentrations__Na_i))*var_membrane__F/var_membrane__R/
+var_membrane__T)/(exp(var_membrane__V*var_membrane__F/var_membrane__R/
+var_membrane__T)-1)*var_membrane__V-(var_sodium_current__g_Na_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(var_sodium_current__g_Na_Periphery-
+var_sodium_current__g_Na_Centre))*var_sodium_current_m_gate__m^3*((.9130700000-
+.95180000000000001e-1*exp(-.63060000000000005e-1*var_membrane__V-2.169264000)/(
+1+1.6619999999999999*exp(-.22509999999999999*var_membrane__V-14.33887000)))*
+var_sodium_current_h_gate__h1+(.95180000000000001e-1*exp(-.63060000000000005e-1
+*var_membrane__V-2.169264000)/(1+1.6619999999999999*exp(-.22509999999999999*
+var_membrane__V-14.33887000))+.86929999999999993e-1)*
+var_sodium_current_h_gate__h2)*var_ionic_concentrations__Na_o*var_membrane__F^3
+/var_membrane__R^2/var_membrane__T^2*(exp((var_membrane__V-var_membrane__R*
+var_membrane__T/var_membrane__F*ln(var_ionic_concentrations__Na_o/
+var_ionic_concentrations__Na_i))*var_membrane__F/var_membrane__R/
+var_membrane__T)-1)/(exp(var_membrane__V*var_membrane__F/var_membrane__R/
+var_membrane__T)-1)^2*var_membrane__V*exp(var_membrane__V*var_membrane__F/
+var_membrane__R/var_membrane__T)+(var_sodium_current__g_Na_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(var_sodium_current__g_Na_Periphery-
+var_sodium_current__g_Na_Centre))*var_sodium_current_m_gate__m^3*((.9130700000-
+.95180000000000001e-1*exp(-.63060000000000005e-1*var_membrane__V-2.169264000)/(
+1+1.6619999999999999*exp(-.22509999999999999*var_membrane__V-14.33887000)))*
+var_sodium_current_h_gate__h1+(.95180000000000001e-1*exp(-.63060000000000005e-1
+*var_membrane__V-2.169264000)/(1+1.6619999999999999*exp(-.22509999999999999*
+var_membrane__V-14.33887000))+.86929999999999993e-1)*
+var_sodium_current_h_gate__h2)*var_ionic_concentrations__Na_o*var_membrane__F^2
+/var_membrane__R/var_membrane__T*(exp((var_membrane__V-var_membrane__R*
+var_membrane__T/var_membrane__F*ln(var_ionic_concentrations__Na_o/
+var_ionic_concentrations__Na_i))*var_membrane__F/var_membrane__R/
+var_membrane__T)-1)/(exp(var_membrane__V*var_membrane__F/var_membrane__R/
+var_membrane__T)-1)+.1000000000e-2*(var_L_type_Ca_channel__g_Ca_L_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_L_type_Ca_channel__g_Ca_L_Periphery-var_L_type_Ca_channel__g_Ca_L_Centre))/
+(1+exp(-1/6*var_membrane__V-2.350000000))^2*exp(-1/6*var_membrane__V-2.35000000\
+0)*(var_membrane__V-var_L_type_Ca_channel__E_Ca_L)+(
+var_L_type_Ca_channel__g_Ca_L_Centre+var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))*(var_L_type_Ca_channel__g_Ca_L_Periphery-
+var_L_type_Ca_channel__g_Ca_L_Centre))*(var_L_type_Ca_channel_f_gate__f_L*
+var_L_type_Ca_channel_d_gate__d_L+.60000000000000001e-2/(1+exp(-1/6*
+var_membrane__V-2.350000000)))+(var_T_type_Ca_channel__g_Ca_T_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_T_type_Ca_channel__g_Ca_T_Periphery-var_T_type_Ca_channel__g_Ca_T_Centre))*
+var_T_type_Ca_channel_d_gate__d_T*var_T_type_Ca_channel_f_gate__f_T+(
+var_four_AP_sensitive_currents__g_to_Centre+var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))*(var_four_AP_sensitive_currents__g_to_Periphery-
+var_four_AP_sensitive_currents__g_to_Centre))*
+var_four_AP_sensitive_currents_q_gate__q*
+var_four_AP_sensitive_currents_r_gate__r+(
+var_four_AP_sensitive_currents__g_sus_Centre+var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))*(var_four_AP_sensitive_currents__g_sus_Periphery-
+var_four_AP_sensitive_currents__g_sus_Centre))*
+var_four_AP_sensitive_currents_r_gate__r+(
+var_rapid_delayed_rectifying_potassium_current__g_K_r_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_rapid_delayed_rectifying_potassium_current__g_K_r_Periphery-
+var_rapid_delayed_rectifying_potassium_current__g_K_r_Centre))*(.59999999999999\
+998*var_rapid_delayed_rectifying_potassium_current_P_af_gate__P_af+.40000000000\
+000002*var_rapid_delayed_rectifying_potassium_current_P_as_gate__P_as)*
+var_rapid_delayed_rectifying_potassium_current_P_i_gate__P_i+(
+var_slow_delayed_rectifying_potassium_current__g_K_s_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_slow_delayed_rectifying_potassium_current__g_K_s_Periphery-
+var_slow_delayed_rectifying_potassium_current__g_K_s_Centre))*
+var_slow_delayed_rectifying_potassium_current_xs_gate__xs^2+(
+var_hyperpolarisation_activated_current__g_f_Na_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_hyperpolarisation_activated_current__g_f_Na_Periphery-
+var_hyperpolarisation_activated_current__g_f_Na_Centre))*
+var_hyperpolarisation_activated_current_y_gate__y+(
+var_hyperpolarisation_activated_current__g_f_K_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_hyperpolarisation_activated_current__g_f_K_Periphery-
+var_hyperpolarisation_activated_current__g_f_K_Centre))*
+var_hyperpolarisation_activated_current_y_gate__y+
+var_sodium_background_current__g_b_Na_Centre+var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))*(var_sodium_background_current__g_b_Na_Periphery-
+var_sodium_background_current__g_b_Na_Centre)+
+var_calcium_background_current__g_b_Ca_Centre+var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))*(var_calcium_background_current__g_b_Ca_Periphery-
+var_calcium_background_current__g_b_Ca_Centre)+
+var_potassium_background_current__g_b_K_Centre+var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))*(var_potassium_background_current__g_b_K_Periphery-
+var_potassium_background_current__g_b_K_Centre)+(
+var_sodium_calcium_exchanger__k_NaCa_Centre+var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))*(var_sodium_calcium_exchanger__k_NaCa_Periphery-
+var_sodium_calcium_exchanger__k_NaCa_Centre))*(.37429999999999998e-1*
+var_ionic_concentrations__Na_i^3*var_ionic_concentrations__Ca_o*
+var_sodium_calcium_exchanger__gamma_NaCa*exp(.37429999999999998e-1*
+var_membrane__V*var_sodium_calcium_exchanger__gamma_NaCa)-
+var_ionic_concentrations__Na_o^3*var_ionic_concentrations__Ca_i*(.\
+37429999999999998e-1*var_sodium_calcium_exchanger__gamma_NaCa-.\
+37429999999999998e-1)*exp(.37429999999999998e-1*var_membrane__V*(
+var_sodium_calcium_exchanger__gamma_NaCa-1)))/(1+
+var_sodium_calcium_exchanger__d_NaCa*(var_ionic_concentrations__Ca_i*
+var_ionic_concentrations__Na_o^3+var_ionic_concentrations__Ca_o*
+var_ionic_concentrations__Na_i^3))+.4000000000e-1*(
+var_sodium_potassium_pump__i_p_max_Centre+var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))*(var_sodium_potassium_pump__i_p_max_Periphery-
+var_sodium_potassium_pump__i_p_max_Centre))*var_ionic_concentrations__Na_i^3/(
+var_sodium_potassium_pump__K_m_Na+var_ionic_concentrations__Na_i)^3*
+var_ionic_concentrations__K_o^2/(var_sodium_potassium_pump__K_m_K+
+var_ionic_concentrations__K_o)^2/(1.5+exp(-1/40*var_membrane__V-3/2))^2*exp(-1/
+40*var_membrane__V-3/2)), -3/(var_membrane__CmCentre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(var_membrane__CmPeriphery-
+var_membrane__CmCentre))*(var_sodium_current__g_Na_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(var_sodium_current__g_Na_Periphery-
+var_sodium_current__g_Na_Centre))*var_sodium_current_m_gate__m^2*((.9130700000-
+.95180000000000001e-1*exp(-.63060000000000005e-1*var_membrane__V-2.169264000)/(
+1+1.6619999999999999*exp(-.22509999999999999*var_membrane__V-14.33887000)))*
+var_sodium_current_h_gate__h1+(.95180000000000001e-1*exp(-.63060000000000005e-1
+*var_membrane__V-2.169264000)/(1+1.6619999999999999*exp(-.22509999999999999*
+var_membrane__V-14.33887000))+.86929999999999993e-1)*
+var_sodium_current_h_gate__h2)*var_ionic_concentrations__Na_o*var_membrane__F^2
+/var_membrane__R/var_membrane__T*(exp((var_membrane__V-var_membrane__R*
+var_membrane__T/var_membrane__F*ln(var_ionic_concentrations__Na_o/
+var_ionic_concentrations__Na_i))*var_membrane__F/var_membrane__R/
+var_membrane__T)-1)/(exp(var_membrane__V*var_membrane__F/var_membrane__R/
+var_membrane__T)-1)*var_membrane__V, -1/(var_membrane__CmCentre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(var_membrane__CmPeriphery-
+var_membrane__CmCentre))*(var_sodium_current__g_Na_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(var_sodium_current__g_Na_Periphery-
+var_sodium_current__g_Na_Centre))*var_sodium_current_m_gate__m^3*(.9130700000-.\
+95180000000000001e-1*exp(-.63060000000000005e-1*var_membrane__V-2.169264000)/(1
++1.6619999999999999*exp(-.22509999999999999*var_membrane__V-14.33887000)))*
+var_ionic_concentrations__Na_o*var_membrane__F^2/var_membrane__R/
+var_membrane__T*(exp((var_membrane__V-var_membrane__R*var_membrane__T/
+var_membrane__F*ln(var_ionic_concentrations__Na_o/
+var_ionic_concentrations__Na_i))*var_membrane__F/var_membrane__R/
+var_membrane__T)-1)/(exp(var_membrane__V*var_membrane__F/var_membrane__R/
+var_membrane__T)-1)*var_membrane__V, -1/(var_membrane__CmCentre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(var_membrane__CmPeriphery-
+var_membrane__CmCentre))*(var_sodium_current__g_Na_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(var_sodium_current__g_Na_Periphery-
+var_sodium_current__g_Na_Centre))*var_sodium_current_m_gate__m^3*(.\
+95180000000000001e-1*exp(-.63060000000000005e-1*var_membrane__V-2.169264000)/(1
++1.6619999999999999*exp(-.22509999999999999*var_membrane__V-14.33887000))+.\
+86929999999999993e-1)*var_ionic_concentrations__Na_o*var_membrane__F^2/
+var_membrane__R/var_membrane__T*(exp((var_membrane__V-var_membrane__R*
+var_membrane__T/var_membrane__F*ln(var_ionic_concentrations__Na_o/
+var_ionic_concentrations__Na_i))*var_membrane__F/var_membrane__R/
+var_membrane__T)-1)/(exp(var_membrane__V*var_membrane__F/var_membrane__R/
+var_membrane__T)-1)*var_membrane__V, -1/(var_membrane__CmCentre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(var_membrane__CmPeriphery-
+var_membrane__CmCentre))*(var_L_type_Ca_channel__g_Ca_L_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_L_type_Ca_channel__g_Ca_L_Periphery-var_L_type_Ca_channel__g_Ca_L_Centre))*
+var_L_type_Ca_channel_f_gate__f_L*(var_membrane__V-
+var_L_type_Ca_channel__E_Ca_L), -1/(var_membrane__CmCentre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(var_membrane__CmPeriphery-
+var_membrane__CmCentre))*(var_L_type_Ca_channel__g_Ca_L_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_L_type_Ca_channel__g_Ca_L_Periphery-var_L_type_Ca_channel__g_Ca_L_Centre))*
+var_L_type_Ca_channel_d_gate__d_L*(var_membrane__V-
+var_L_type_Ca_channel__E_Ca_L), -1/(var_membrane__CmCentre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(var_membrane__CmPeriphery-
+var_membrane__CmCentre))*(var_T_type_Ca_channel__g_Ca_T_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_T_type_Ca_channel__g_Ca_T_Periphery-var_T_type_Ca_channel__g_Ca_T_Centre))*
+var_T_type_Ca_channel_f_gate__f_T*(var_membrane__V-
+var_T_type_Ca_channel__E_Ca_T), -1/(var_membrane__CmCentre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(var_membrane__CmPeriphery-
+var_membrane__CmCentre))*(var_T_type_Ca_channel__g_Ca_T_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_T_type_Ca_channel__g_Ca_T_Periphery-var_T_type_Ca_channel__g_Ca_T_Centre))*
+var_T_type_Ca_channel_d_gate__d_T*(var_membrane__V-
+var_T_type_Ca_channel__E_Ca_T), -1/(var_membrane__CmCentre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(var_membrane__CmPeriphery-
+var_membrane__CmCentre))*(var_four_AP_sensitive_currents__g_to_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_four_AP_sensitive_currents__g_to_Periphery-
+var_four_AP_sensitive_currents__g_to_Centre))*
+var_four_AP_sensitive_currents_r_gate__r*(var_membrane__V-var_membrane__R*
+var_membrane__T/var_membrane__F*ln(var_ionic_concentrations__K_o/
+var_ionic_concentrations__K_i)), -1/(var_membrane__CmCentre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(var_membrane__CmPeriphery-
+var_membrane__CmCentre))*((var_four_AP_sensitive_currents__g_to_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_four_AP_sensitive_currents__g_to_Periphery-
+var_four_AP_sensitive_currents__g_to_Centre))*
+var_four_AP_sensitive_currents_q_gate__q*(var_membrane__V-var_membrane__R*
+var_membrane__T/var_membrane__F*ln(var_ionic_concentrations__K_o/
+var_ionic_concentrations__K_i))+(var_four_AP_sensitive_currents__g_sus_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_four_AP_sensitive_currents__g_sus_Periphery-
+var_four_AP_sensitive_currents__g_sus_Centre))*(var_membrane__V-var_membrane__R
+*var_membrane__T/var_membrane__F*ln(var_ionic_concentrations__K_o/
+var_ionic_concentrations__K_i))), -.59999999999999998/(var_membrane__CmCentre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(var_membrane__CmPeriphery-
+var_membrane__CmCentre))*(
+var_rapid_delayed_rectifying_potassium_current__g_K_r_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_rapid_delayed_rectifying_potassium_current__g_K_r_Periphery-
+var_rapid_delayed_rectifying_potassium_current__g_K_r_Centre))*
+var_rapid_delayed_rectifying_potassium_current_P_i_gate__P_i*(var_membrane__V-
+var_membrane__R*var_membrane__T/var_membrane__F*ln(
+var_ionic_concentrations__K_o/var_ionic_concentrations__K_i)), -.40000000000000\
+002/(var_membrane__CmCentre+var_membrane__FCellConstant*var_membrane__dCell/(1+
+.77449999999999997*exp(-10.16949152*var_membrane__dCell+6.949152541))*(
+var_membrane__CmPeriphery-var_membrane__CmCentre))*(
+var_rapid_delayed_rectifying_potassium_current__g_K_r_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_rapid_delayed_rectifying_potassium_current__g_K_r_Periphery-
+var_rapid_delayed_rectifying_potassium_current__g_K_r_Centre))*
+var_rapid_delayed_rectifying_potassium_current_P_i_gate__P_i*(var_membrane__V-
+var_membrane__R*var_membrane__T/var_membrane__F*ln(
+var_ionic_concentrations__K_o/var_ionic_concentrations__K_i)), -1/(
+var_membrane__CmCentre+var_membrane__FCellConstant*var_membrane__dCell/(1+.7744\
+9999999999997*exp(-10.16949152*var_membrane__dCell+6.949152541))*(
+var_membrane__CmPeriphery-var_membrane__CmCentre))*(
+var_rapid_delayed_rectifying_potassium_current__g_K_r_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_rapid_delayed_rectifying_potassium_current__g_K_r_Periphery-
+var_rapid_delayed_rectifying_potassium_current__g_K_r_Centre))*(.59999999999999\
+998*var_rapid_delayed_rectifying_potassium_current_P_af_gate__P_af+.40000000000\
+000002*var_rapid_delayed_rectifying_potassium_current_P_as_gate__P_as)*(
+var_membrane__V-var_membrane__R*var_membrane__T/var_membrane__F*ln(
+var_ionic_concentrations__K_o/var_ionic_concentrations__K_i)), -2/(
+var_membrane__CmCentre+var_membrane__FCellConstant*var_membrane__dCell/(1+.7744\
+9999999999997*exp(-10.16949152*var_membrane__dCell+6.949152541))*(
+var_membrane__CmPeriphery-var_membrane__CmCentre))*(
+var_slow_delayed_rectifying_potassium_current__g_K_s_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_slow_delayed_rectifying_potassium_current__g_K_s_Periphery-
+var_slow_delayed_rectifying_potassium_current__g_K_s_Centre))*
+var_slow_delayed_rectifying_potassium_current_xs_gate__xs*(var_membrane__V-
+var_membrane__R*var_membrane__T/var_membrane__F*ln((
+var_ionic_concentrations__K_o+.29999999999999999e-1*
+var_ionic_concentrations__Na_o)/(var_ionic_concentrations__K_i+.\
+29999999999999999e-1*var_ionic_concentrations__Na_i))), -1/(
+var_membrane__CmCentre+var_membrane__FCellConstant*var_membrane__dCell/(1+.7744\
+9999999999997*exp(-10.16949152*var_membrane__dCell+6.949152541))*(
+var_membrane__CmPeriphery-var_membrane__CmCentre))*((
+var_hyperpolarisation_activated_current__g_f_Na_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_hyperpolarisation_activated_current__g_f_Na_Periphery-
+var_hyperpolarisation_activated_current__g_f_Na_Centre))*(var_membrane__V-
+var_membrane__R*var_membrane__T/var_membrane__F*ln(
+var_ionic_concentrations__Na_o/var_ionic_concentrations__Na_i))+(
+var_hyperpolarisation_activated_current__g_f_K_Centre+
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))*(
+var_hyperpolarisation_activated_current__g_f_K_Periphery-
+var_hyperpolarisation_activated_current__g_f_K_Centre))*(var_membrane__V-
+var_membrane__R*var_membrane__T/var_membrane__F*ln(
+var_ionic_concentrations__K_o/var_ionic_concentrations__K_i)))], [.6105006107e-\
+1/(1/(1+exp(-.1831501832*var_membrane__V-5.553113555)))^(2/3)/(1+exp(-.18315018\
+32*var_membrane__V-5.553113555))^2*exp(-.1831501832*var_membrane__V-5.553113555
+)/(.62469999999999995e-3/(.83221659999999997*exp(-.33566000000000001*
+var_membrane__V-19.03400309)+.62739999999999996*exp(.82299999999999998e-1*
+var_membrane__V+5.350578130))+.45689999999999998e-4)+.62469999999999995e-3*((1/
+(1+exp(-.1831501832*var_membrane__V-5.553113555)))^(1/3)-
+var_sodium_current_m_gate__m)/(.62469999999999995e-3/(.83221659999999997*exp(-.\
+33566000000000001*var_membrane__V-19.03400309)+.62739999999999996*exp(.\
+82299999999999998e-1*var_membrane__V+5.350578130))+.45689999999999998e-4)^2/(.8\
+3221659999999997*exp(-.33566000000000001*var_membrane__V-19.03400309)+.62739999\
+999999996*exp(.82299999999999998e-1*var_membrane__V+5.350578130))^2*(-.27934182\
+40*exp(-.33566000000000001*var_membrane__V-19.03400309)+.5163502000e-1*exp(.\
+82299999999999998e-1*var_membrane__V+5.350578130)), -1/(.62469999999999995e-3/(
+.83221659999999997*exp(-.33566000000000001*var_membrane__V-19.03400309)+.627399\
+99999999996*exp(.82299999999999998e-1*var_membrane__V+5.350578130))+.\
+45689999999999998e-4), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [-.1562500000/(1
++exp(.1562500000*var_membrane__V+10.32812500))^2*exp(.1562500000*
+var_membrane__V+10.32812500)/(.37170000000000002e-5*exp(-.28149999999999997*
+var_membrane__V-4.816465000)/(1+.37320000000000001e-2*exp(-.34260000000000002*
+var_membrane__V-12.93657600))+.59770000000000005e-3)-(1/(1+exp(.1562500000*
+var_membrane__V+10.32812500))-var_sodium_current_h_gate__h1)/(.\
+37170000000000002e-5*exp(-.28149999999999997*var_membrane__V-4.816465000)/(1+.\
+37320000000000001e-2*exp(-.34260000000000002*var_membrane__V-12.93657600))+.\
+59770000000000005e-3)^2*(-.1046335500e-5*exp(-.28149999999999997*
+var_membrane__V-4.816465000)/(1+.37320000000000001e-2*exp(-.34260000000000002*
+var_membrane__V-12.93657600))+.4752493754e-8*exp(-.28149999999999997*
+var_membrane__V-4.816465000)/(1+.37320000000000001e-2*exp(-.34260000000000002*
+var_membrane__V-12.93657600))^2*exp(-.34260000000000002*var_membrane__V-12.9365\
+7600)), 0, -1/(.37170000000000002e-5*exp(-.28149999999999997*var_membrane__V-4.\
+816465000)/(1+.37320000000000001e-2*exp(-.34260000000000002*var_membrane__V-12.\
+93657600))+.59770000000000005e-3), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [-.1562\
+500000/(1+exp(.1562500000*var_membrane__V+10.32812500))^2*exp(.1562500000*
+var_membrane__V+10.32812500)/(.31860000000000002e-7*exp(-.62190000000000001*
+var_membrane__V-11.69172000)/(1+.71890000000000005e-4*exp(-.66830000000000001*
+var_membrane__V-22.76898100))+.35560000000000001e-2)-(1/(1+exp(.1562500000*
+var_membrane__V+10.32812500))-var_sodium_current_h_gate__h2)/(.\
+31860000000000002e-7*exp(-.62190000000000001*var_membrane__V-11.69172000)/(1+.\
+71890000000000005e-4*exp(-.66830000000000001*var_membrane__V-22.76898100))+.\
+35560000000000001e-2)^2*(-.1981373400e-7*exp(-.62190000000000001*
+var_membrane__V-11.69172000)/(1+.71890000000000005e-4*exp(-.66830000000000001*
+var_membrane__V-22.76898100))+.1530684612e-11*exp(-.62190000000000001*
+var_membrane__V-11.69172000)/(1+.71890000000000005e-4*exp(-.66830000000000001*
+var_membrane__V-22.76898100))^2*exp(-.66830000000000001*var_membrane__V-22.7689\
+8100)), 0, 0, -1/(.31860000000000002e-7*exp(-.62190000000000001*var_membrane__V
+-11.69172000)/(1+.71890000000000005e-4*exp(-.66830000000000001*var_membrane__V-\
+22.76898100))+.35560000000000001e-2), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [1/12/(
+1+exp(-1/6*var_membrane__V-3.716666667-.1333333333*var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541))))^2*exp(-1/6*var_membrane__V-3.716666667-.1333333333*
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541)))*(-28.390000000000001*(
+var_membrane__V+35)/(exp(-.4000000000*var_membrane__V-14.00000000)-1)-84.900000\
+000000006*var_membrane__V/(exp(-.20799999999999999*var_membrane__V)-1)+11.43*(
+var_membrane__V-5)/(exp(.40000000000000002*var_membrane__V-2.000000000)-1))+1/2
+*(1/(1+exp(-1/6*var_membrane__V-3.716666667-.1333333333*
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))))-var_L_type_Ca_channel_d_gate__d_L)*
+(-28.390000000000001/(exp(-.4000000000*var_membrane__V-14.00000000)-1)-11.35600\
+000*(var_membrane__V+35)/(exp(-.4000000000*var_membrane__V-14.00000000)-1)^2*
+exp(-.4000000000*var_membrane__V-14.00000000)-84.900000000000006/(exp(-.2079999\
+9999999999*var_membrane__V)-1)-17.65920000*var_membrane__V/(exp(-.2079999999999\
+9999*var_membrane__V)-1)^2*exp(-.20799999999999999*var_membrane__V)+11.43/(exp(
+.40000000000000002*var_membrane__V-2.000000000)-1)-4.572000000*(var_membrane__V
+-5)/(exp(.40000000000000002*var_membrane__V-2.000000000)-1)^2*exp(.400000000000\
+00002*var_membrane__V-2.000000000)), 0, 0, 0, 14.19500000*(var_membrane__V+35)/
+(exp(-.4000000000*var_membrane__V-14.00000000)-1)+42.45000000*var_membrane__V/(
+exp(-.20799999999999999*var_membrane__V)-1)-5.715000000*(var_membrane__V-5)/(
+exp(.40000000000000002*var_membrane__V-2.000000000)-1), 0, 0, 0, 0, 0, 0, 0, 0,
+0, 0], [-1/5/(1+exp(1/5*var_membrane__V+9))^2*exp(1/5*var_membrane__V+9)/(1.2-.\
+20000000000000001*var_membrane__FCellConstant*var_membrane__dCell/(1+.774499999\
+99999997*exp(-10.16949152*var_membrane__dCell+6.949152541)))*(3.75*(
+var_membrane__V+28)/(exp(1/4*var_membrane__V+7)-1)+30/(1+exp(-1/4*
+var_membrane__V-7)))+(1/(1+exp(1/5*var_membrane__V+9))-
+var_L_type_Ca_channel_f_gate__f_L)/(1.2-.20000000000000001*
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541)))*(3.75/(exp(1/4*var_membrane__V+7)-1)
+-.9375000000*(var_membrane__V+28)/(exp(1/4*var_membrane__V+7)-1)^2*exp(1/4*
+var_membrane__V+7)+15/2/(1+exp(-1/4*var_membrane__V-7))^2*exp(-1/4*
+var_membrane__V-7)), 0, 0, 0, 0, -1/(1.2-.20000000000000001*
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541)))*(3.75*(var_membrane__V+28)/(exp(1/4*
+var_membrane__V+7)-1)+30/(1+exp(-1/4*var_membrane__V-7))), 0, 0, 0, 0, 0, 0, 0,
+0, 0], [.1470588235/(1+exp(-.1470588235*var_membrane__V-5.441176470))^2*exp(-.1\
+470588235*var_membrane__V-5.441176470)*(1068*exp(1/30*var_membrane__V+.87666666\
+67)+1068*exp(-1/30*var_membrane__V-.8766666667))+(1/(1+exp(-.1470588235*
+var_membrane__V-5.441176470))-var_T_type_Ca_channel_d_gate__d_T)*(178/5*exp(1/
+30*var_membrane__V+.8766666667)-178/5*exp(-1/30*var_membrane__V-.8766666667)),
+0, 0, 0, 0, 0, -1068*exp(1/30*var_membrane__V+.8766666667)-1068*exp(-1/30*
+var_membrane__V-.8766666667), 0, 0, 0, 0, 0, 0, 0, 0], [-1/9/(1+exp(1/9*
+var_membrane__V+71/9))^2*exp(1/9*var_membrane__V+71/9)*(15.300000000000001*exp(
+-.1200480192e-1*var_membrane__V-.8523409363-.8403361344e-2*
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541)))+15*exp(.6501950585e-1*
+var_membrane__V+4.616384915))+(1/(1+exp(1/9*var_membrane__V+71/9))-
+var_T_type_Ca_channel_f_gate__f_T)*(-.1836734694*exp(-.1200480192e-1*
+var_membrane__V-.8523409363-.8403361344e-2*var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541)))+.9752925878*exp(.6501950585e-1*var_membrane__V+4.616384915)), 0,
+0, 0, 0, 0, 0, -15.300000000000001*exp(-.1200480192e-1*var_membrane__V-.8523409\
+363-.8403361344e-2*var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999\
+999999997*exp(-10.16949152*var_membrane__dCell+6.949152541)))-15*exp(.\
+6501950585e-1*var_membrane__V+4.616384915), 0, 0, 0, 0, 0, 0, 0], [-.7633587786\
+e-1/(1+exp(.7633587786e-1*var_membrane__V+4.532061069))^2*exp(.7633587786e-1*
+var_membrane__V+4.532061069)/(.1010333333e-1+.6516666666e-1/(.56859999999999999
+*exp(-.81610000000000002e-1*var_membrane__V-3.182790000-.8161000000*
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541)))+.71740000000000004*exp((.27189999999\
+999998-.1719*var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999\
+997*exp(-10.16949152*var_membrane__dCell+6.949152541)))*(var_membrane__V+40.93+
+10*var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-\
+10.16949152*var_membrane__dCell+6.949152541))))))+.6516666666e-1*(1/(1+exp(.\
+7633587786e-1*var_membrane__V+4.532061069))-
+var_four_AP_sensitive_currents_q_gate__q)/(.1010333333e-1+.6516666666e-1/(.5685\
+9999999999999*exp(-.81610000000000002e-1*var_membrane__V-3.182790000-.816100000\
+0*var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10\
+.16949152*var_membrane__dCell+6.949152541)))+.71740000000000004*exp((.271899999\
+99999998-.1719*var_membrane__FCellConstant*var_membrane__dCell/(1+.774499999999\
+99997*exp(-10.16949152*var_membrane__dCell+6.949152541)))*(var_membrane__V+40.9\
+3+10*var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(
+-10.16949152*var_membrane__dCell+6.949152541))))))^2/(.56859999999999999*exp(-.\
+81610000000000002e-1*var_membrane__V-3.182790000-.8161000000*
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541)))+.71740000000000004*exp((.27189999999\
+999998-.1719*var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999\
+997*exp(-10.16949152*var_membrane__dCell+6.949152541)))*(var_membrane__V+40.93+
+10*var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-\
+10.16949152*var_membrane__dCell+6.949152541)))))^2*(-.4640344600e-1*exp(-.\
+81610000000000002e-1*var_membrane__V-3.182790000-.8161000000*
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541)))+.71740000000000004*(.2719000000-.171\
+9*var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10\
+.16949152*var_membrane__dCell+6.949152541)))*exp((.27189999999999998-.1719*
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541)))*(var_membrane__V+40.93+10*
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541))))), 0, 0, 0, 0, 0, 0, 0, -1/(.\
+1010333333e-1+.6516666666e-1/(.56859999999999999*exp(-.81610000000000002e-1*
+var_membrane__V-3.182790000-.8161000000*var_membrane__FCellConstant*
+var_membrane__dCell/(1+.77449999999999997*exp(-10.16949152*var_membrane__dCell+
+6.949152541)))+.71740000000000004*exp((.27189999999999998-.1719*
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541)))*(var_membrane__V+40.93+10*
+var_membrane__FCellConstant*var_membrane__dCell/(1+.77449999999999997*exp(-10.1\
+6949152*var_membrane__dCell+6.949152541)))))), 0, 0, 0, 0, 0, 0], [.5076142132e\
+-1/(1+exp(-.5076142132e-1*var_membrane__V+.5548223350))^2*exp(-.5076142132e-1*
+var_membrane__V+.5548223350)/(.2977500000e-2+.1959500000e-1/(1.0369999999999999
+*exp(.90120000000000006e-1*var_membrane__V+2.758573200)+.36899999999999999*exp(
+-.11899999999999999*var_membrane__V-2.836960000)))+.1959500000e-1*(1/(1+exp(-.\
+5076142132e-1*var_membrane__V+.5548223350))-
+var_four_AP_sensitive_currents_r_gate__r)/(.2977500000e-2+.1959500000e-1/(1.036\
+9999999999999*exp(.90120000000000006e-1*var_membrane__V+2.758573200)+.368999999\
+99999999*exp(-.11899999999999999*var_membrane__V-2.836960000)))^2/(1.0369999999\
+999999*exp(.90120000000000006e-1*var_membrane__V+2.758573200)+.3689999999999999\
+9*exp(-.11899999999999999*var_membrane__V-2.836960000))^2*(.9345444000e-1*exp(.\
+90120000000000006e-1*var_membrane__V+2.758573200)-.4391100000e-1*exp(-.11899999\
+999999999*var_membrane__V-2.836960000)), 0, 0, 0, 0, 0, 0, 0, 0, -1/(.\
+2977500000e-2+.1959500000e-1/(1.0369999999999999*exp(.90120000000000006e-1*
+var_membrane__V+2.758573200)+.36899999999999999*exp(-.11899999999999999*
+var_membrane__V-2.836960000))), 0, 0, 0, 0, 0], [.9433962264e-1/(1+exp(-.\
+9433962264e-1*var_membrane__V-1.339622641))^2*exp(-.9433962264e-1*
+var_membrane__V-1.339622641)*(37.200000000000003*exp(.6289308176e-1*
+var_membrane__V-.5660377358)+.95999999999999996*exp(-.4444444444e-1*
+var_membrane__V+.4000000000))+(1/(1+exp(-.9433962264e-1*var_membrane__V-1.33962\
+2641))-var_rapid_delayed_rectifying_potassium_current_P_af_gate__P_af)*(2.33962\
+2641*exp(.6289308176e-1*var_membrane__V-.5660377358)-.4266666666e-1*exp(-.\
+4444444444e-1*var_membrane__V+.4000000000)), 0, 0, 0, 0, 0, 0, 0, 0, 0, -37.200\
+000000000003*exp(.6289308176e-1*var_membrane__V-.5660377358)-.95999999999999996
+*exp(-.4444444444e-1*var_membrane__V+.4000000000), 0, 0, 0, 0], [.9433962264e-1
+/(1+exp(-.9433962264e-1*var_membrane__V-1.339622641))^2*exp(-.9433962264e-1*
+var_membrane__V-1.339622641)*(4.2000000000000002*exp(1/17*var_membrane__V-9/17)
++.14999999999999999*exp(-.4629629630e-1*var_membrane__V+.4166666667))+(1/(1+exp
+(-.9433962264e-1*var_membrane__V-1.339622641))-
+var_rapid_delayed_rectifying_potassium_current_P_as_gate__P_as)*(.2470588235*
+exp(1/17*var_membrane__V-9/17)-.6944444445e-2*exp(-.4629629630e-1*
+var_membrane__V+.4166666667)), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -4.200000000000000\
+2*exp(1/17*var_membrane__V-9/17)-.14999999999999999*exp(-.4629629630e-1*
+var_membrane__V+.4166666667), 0, 0, 0], [-.9900990099e-1/(1+exp(.9900990099e-1*
+var_membrane__V+1.841584158))^2*exp(.9900990099e-1*var_membrane__V+1.841584158)
+/var_rapid_delayed_rectifying_potassium_current_P_i_gate__tau_P_i, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0, -1/
+var_rapid_delayed_rectifying_potassium_current_P_i_gate__tau_P_i, 0, 0], [14/9/
+(1+exp(-1/9*var_membrane__V+40/9))^2*(1-
+var_slow_delayed_rectifying_potassium_current_xs_gate__xs)*exp(-1/9*
+var_membrane__V+40/9)+1/45*exp(-1/45*var_membrane__V)*
+var_slow_delayed_rectifying_potassium_current_xs_gate__xs, 0, 0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0, -14/(1+exp(-1/9*var_membrane__V+40/9))-exp(-1/45*var_membrane__V
+), 0], [-.3755163350e-1*exp(-.3755163350e-1*var_membrane__V-2.963199399)*(1-
+var_hyperpolarisation_activated_current_y_gate__y)-.4705882353e-1*exp(.\
+4705882353e-1*var_membrane__V+3.535529412)*
+var_hyperpolarisation_activated_current_y_gate__y, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+, 0, 0, 0, -exp(-.3755163350e-1*var_membrane__V-2.963199399)-exp(.4705882353e-1
+*var_membrane__V+3.535529412)]])
+J := t1 = var_membrane__FCellConstant*var_membrane__dCell, t4 = exp(-10.1694915\
+2*var_membrane__dCell+6.949152541), t7 = 1/(1+.77449999999999997*t4), t12 = 1/(
+var_membrane__CmCentre+t1*t7*(var_membrane__CmPeriphery-var_membrane__CmCentre)
+), t16 = var_sodium_current__g_Na_Centre+t1*t7*(
+var_sodium_current__g_Na_Periphery-var_sodium_current__g_Na_Centre), t17 = 
+var_sodium_current_m_gate__m^2, t18 = t17*var_sodium_current_m_gate__m, t19 = 
+t16*t18, t22 = exp(-.6306000000e-1*var_membrane__V-2.169264000), t25 = exp(-.22\
+51000000*var_membrane__V-14.33887000), t27 = 1+1.6619999999999999*t25, t29 = 
+t22/t27, t31 = t27^2, t36 = .6002050800e-2*t29-.3560837992e-1*t22/t31*t25, t41
+= var_membrane__F^2, t44 = 1/var_membrane__R, t45 = 1/var_membrane__T, t46 = 
+t44*t45, t47 = var_membrane__R*var_membrane__T, t48 = 1/var_membrane__F, t51 =
+ln(var_ionic_concentrations__Na_o/var_ionic_concentrations__Na_i), t54 = 
+var_membrane__V-t47*t48*t51, t57 = exp(t54*var_membrane__F*t46), t58 = t57-1, 
+t61 = exp(var_membrane__V*var_membrane__F*t46), t62 = t61-1, t63 = 1/t62, t65 =
+t58*t63*var_membrane__V, t69 = .9130700000-.9518000000e-1*t29, t72 = .\
+95180000000000001e-1*t29+.86929999999999993e-1, t74 = t69*
+var_sodium_current_h_gate__h1+t72*var_sodium_current_h_gate__h2, t75 = t74*
+var_ionic_concentrations__Na_o, t78 = t19*t75*t41*var_membrane__F, t79 = 
+var_membrane__R^2, t81 = var_membrane__T^2, t83 = 1/t79/t81, t89 = t62^2, t96 =
+t41*t44, t104 = var_L_type_Ca_channel__g_Ca_L_Centre+t1*t7*(
+var_L_type_Ca_channel__g_Ca_L_Periphery-var_L_type_Ca_channel__g_Ca_L_Centre),
+t105 = 1/6*var_membrane__V, t107 = exp(-t105-2.350000000), t108 = 1+t107, t109
+= t108^2, t112 = var_membrane__V-var_L_type_Ca_channel__E_Ca_L, t124 = 
+var_T_type_Ca_channel__g_Ca_T_Centre+t1*t7*(
+var_T_type_Ca_channel__g_Ca_T_Periphery-var_T_type_Ca_channel__g_Ca_T_Centre),
+t130 = var_four_AP_sensitive_currents__g_to_Centre+t1*t7*(
+var_four_AP_sensitive_currents__g_to_Periphery-
+var_four_AP_sensitive_currents__g_to_Centre), t131 = t130*
+var_four_AP_sensitive_currents_q_gate__q, t136 = 
+var_four_AP_sensitive_currents__g_sus_Centre+t1*t7*(
+var_four_AP_sensitive_currents__g_sus_Periphery-
+var_four_AP_sensitive_currents__g_sus_Centre), t141 = 
+var_rapid_delayed_rectifying_potassium_current__g_K_r_Centre+t1*t7*(
+var_rapid_delayed_rectifying_potassium_current__g_K_r_Periphery-
+var_rapid_delayed_rectifying_potassium_current__g_K_r_Centre), t144 = .59999999\
+999999998*var_rapid_delayed_rectifying_potassium_current_P_af_gate__P_af+.40000\
+000000000002*var_rapid_delayed_rectifying_potassium_current_P_as_gate__P_as, 
+t151 = var_slow_delayed_rectifying_potassium_current__g_K_s_Centre+t1*t7*(
+var_slow_delayed_rectifying_potassium_current__g_K_s_Periphery-
+var_slow_delayed_rectifying_potassium_current__g_K_s_Centre), t152 = 
+var_slow_delayed_rectifying_potassium_current_xs_gate__xs^2, t157 = 
+var_hyperpolarisation_activated_current__g_f_Na_Centre+t1*t7*(
+var_hyperpolarisation_activated_current__g_f_Na_Periphery-
+var_hyperpolarisation_activated_current__g_f_Na_Centre), t162 = 
+var_hyperpolarisation_activated_current__g_f_K_Centre+t1*t7*(
+var_hyperpolarisation_activated_current__g_f_K_Periphery-
+var_hyperpolarisation_activated_current__g_f_K_Centre), t177 = 
+var_ionic_concentrations__Na_i^2, t178 = t177*var_ionic_concentrations__Na_i, 
+t179 = var_ionic_concentrations__Ca_o*t178, t182 = exp(.37429999999999998e-1*
+var_membrane__V*var_sodium_calcium_exchanger__gamma_NaCa), t186 = 
+var_ionic_concentrations__Na_o^2, t188 = var_ionic_concentrations__Ca_i*t186*
+var_ionic_concentrations__Na_o, t194 = exp(.37429999999999998e-1*
+var_membrane__V*(var_sodium_calcium_exchanger__gamma_NaCa-1)), t209 = 
+var_sodium_potassium_pump__K_m_Na+var_ionic_concentrations__Na_i, t210 = t209^2
+, t214 = var_ionic_concentrations__K_o^2, t216 = (
+var_sodium_potassium_pump__K_m_K+var_ionic_concentrations__K_o)^2, t221 = exp(-\
+1/40*var_membrane__V-3/2), t223 = (1.5+t221)^2, t229 = t151*t152+t157*
+var_hyperpolarisation_activated_current_y_gate__y+t162*
+var_hyperpolarisation_activated_current_y_gate__y+
+var_sodium_background_current__g_b_Na_Centre+t1*t7*(
+var_sodium_background_current__g_b_Na_Periphery-
+var_sodium_background_current__g_b_Na_Centre)+
+var_calcium_background_current__g_b_Ca_Centre+t1*t7*(
+var_calcium_background_current__g_b_Ca_Periphery-
+var_calcium_background_current__g_b_Ca_Centre)+
+var_potassium_background_current__g_b_K_Centre+t1*t7*(
+var_potassium_background_current__g_b_K_Periphery-
+var_potassium_background_current__g_b_K_Centre)+(
+var_sodium_calcium_exchanger__k_NaCa_Centre+t1*t7*(
+var_sodium_calcium_exchanger__k_NaCa_Periphery-
+var_sodium_calcium_exchanger__k_NaCa_Centre))*(.37429999999999998e-1*t179*
+var_sodium_calcium_exchanger__gamma_NaCa*t182-t188*(.37429999999999998e-1*
+var_sodium_calcium_exchanger__gamma_NaCa-.37429999999999998e-1)*t194)/(1+
+var_sodium_calcium_exchanger__d_NaCa*(t188+t179))+.4000000000e-1*(
+var_sodium_potassium_pump__i_p_max_Centre+t1*t7*(
+var_sodium_potassium_pump__i_p_max_Periphery-
+var_sodium_potassium_pump__i_p_max_Centre))*t178/t210/t209*t214/t216/t223*t221,
+t232 = t12*t16, t237 = t96*t45*t65, t248 = t12*t104, t253 = t12*t124, t254 = 
+var_membrane__V-var_T_type_Ca_channel__E_Ca_T, t262 = ln(
+var_ionic_concentrations__K_o/var_ionic_concentrations__K_i), t265 = 
+var_membrane__V-t47*t48*t262, t272 = t12*t141, t274 = t272*
+var_rapid_delayed_rectifying_potassium_current_P_i_gate__P_i*t265, t286 = ln((
+var_ionic_concentrations__K_o+.29999999999999999e-1*
+var_ionic_concentrations__Na_o)/(var_ionic_concentrations__K_i+.\
+29999999999999999e-1*var_ionic_concentrations__Na_i)), t299 = exp(-.1831501832*
+var_membrane__V-5.553113555), t300 = 1+t299, t302 = (1/t300)^(1/3), t303 = t302
+^2, t305 = t300^2, t310 = exp(-.3356600000*var_membrane__V-19.03400309), t314 =
+exp(.82299999999999998e-1*var_membrane__V+5.350578130), t316 = .832216599999999\
+97*t310+.62739999999999996*t314, t319 = .62469999999999995e-3/t316+.\
+45689999999999998e-4, t320 = 1/t319, t325 = t319^2, t328 = t316^2, t339 = exp(.\
+1562500000*var_membrane__V+10.32812500), t340 = 1+t339, t341 = t340^2, t343 = 1
+/t341*t339, t346 = exp(-.2815000000*var_membrane__V-4.816465000), t349 = exp(-.\
+3426000000*var_membrane__V-12.93657600), t351 = 1+.37320000000000001e-2*t349, 
+t353 = t346/t351, t355 = .37170000000000002e-5*t353+.59770000000000005e-3, t356
+= 1/t355, t359 = 1/t340, t361 = t355^2, t365 = t351^2, t375 = exp(-.6219000000*
+var_membrane__V-11.69172000), t378 = exp(-.6683000000*var_membrane__V-22.768981\
+00), t380 = 1+.71890000000000005e-4*t378, t382 = t375/t380, t384 = .\
+31860000000000002e-7*t382+.35560000000000001e-2, t385 = 1/t384, t389 = t384^2,
+t393 = t380^2, t401 = t1*t7, t404 = exp(-t105-3.716666667-.1333333333*t401), 
+t405 = 1+t404, t406 = t405^2, t409 = var_membrane__V+35, t412 = exp(-.400000000\
+0*var_membrane__V-14.00000000), t413 = t412-1, t414 = 1/t413, t415 = t409*t414,
+t418 = exp(-.2080000000*var_membrane__V), t419 = t418-1, t420 = 1/t419, t421 =
+var_membrane__V*t420, t423 = var_membrane__V-5, t426 = exp(.40000000000000002*
+var_membrane__V-2.000000000), t427 = t426-1, t428 = 1/t427, t429 = t423*t428, 
+t437 = t413^2, t443 = t419^2, t449 = t427^2, t464 = exp(1/5*var_membrane__V+9),
+t465 = 1+t464, t466 = t465^2, t471 = 1/(1.2-.2000000000*t401), t472 = 
+var_membrane__V+28, t474 = 1/4*var_membrane__V+7, t475 = exp(t474), t476 = t475
+-1, t477 = 1/t476, t480 = exp(-t474), t481 = 1+t480, t485 = t471*(3.75*t472*
+t477+30/t481), t492 = t476^2, t497 = t481^2, t506 = exp(-.1470588235*
+var_membrane__V-5.441176470), t507 = 1+t506, t508 = t507^2, t512 = 1/30*
+var_membrane__V+.8766666667, t513 = exp(t512), t514 = exp(-t512), t515 = t513+
+t514, t523 = 1/9*var_membrane__V, t525 = exp(t523+71/9), t526 = 1+t525, t527 =
+t526^2, t533 = exp(-.1200480192e-1*var_membrane__V-.8523409363-.8403361344e-2*
+t401), t537 = exp(.6501950585e-1*var_membrane__V+4.616384915), t539 = 15.300000\
+000000001*t533+15*t537, t551 = exp(.7633587786e-1*var_membrane__V+4.532061069),
+t552 = 1+t551, t553 = t552^2, t559 = exp(-.8161000000e-1*var_membrane__V-3.1827\
+90000-.8161000000*t401), t561 = .1719*t401, t566 = exp((.27189999999999998-t561
+)*(var_membrane__V+40.93+10*t401)), t568 = .56859999999999999*t559+.71740000000\
+000004*t566, t571 = .1010333333e-1+.6516666666e-1/t568, t572 = 1/t571, t577 = 
+t571^2, t580 = t568^2, t593 = exp(-.5076142132e-1*var_membrane__V+.5548223350),
+t594 = 1+t593, t595 = t594^2, t600 = exp(.90120000000000006e-1*var_membrane__V+
+2.758573200), t604 = exp(-.1190000000*var_membrane__V-2.836960000), t606 = 1.03\
+69999999999999*t600+.36899999999999999*t604, t609 = .2977500000e-2+.1959500000e\
+-1/t606, t610 = 1/t609, t615 = t609^2, t618 = t606^2, t629 = exp(-.9433962264e-\
+1*var_membrane__V-1.339622641), t630 = 1+t629, t631 = t630^2, t633 = 1/t631*
+t629, t636 = exp(.6289308176e-1*var_membrane__V-.5660377358), t640 = exp(-.\
+4444444444e-1*var_membrane__V+.4000000000), t642 = 37.200000000000003*t636+.959\
+99999999999996*t640, t645 = 1/t630, t654 = exp(1/17*var_membrane__V-9/17), t658
+= exp(-.4629629630e-1*var_membrane__V+.4166666667), t660 = 4.2000000000000002*
+t654+.14999999999999999*t658, t671 = exp(.9900990099e-1*var_membrane__V+1.84158\
+4158), t673 = (1+t671)^2, t676 = 1/
+var_rapid_delayed_rectifying_potassium_current_P_i_gate__tau_P_i, t680 = exp(-
+t523+40/9), t681 = 1+t680, t682 = t681^2, t689 = exp(-1/45*var_membrane__V), 
+t698 = exp(-.3755163350e-1*var_membrane__V-2.963199399), t704 = exp(.4705882353\
+e-1*var_membrane__V+3.535529412), jacobian[1,1] = -t12*(t19*(t36*
+var_sodium_current_h_gate__h1-t36*var_sodium_current_h_gate__h2)*
+var_ionic_concentrations__Na_o*t41*t46*t65+t78*t83*t57*t63*var_membrane__V-t78*
+t83*t58/t89*var_membrane__V*t61+t19*t75*t96*t45*t58*t63+.1000000000e-2*t104/
+t109*t107*t112+t104*(var_L_type_Ca_channel_f_gate__f_L*
+var_L_type_Ca_channel_d_gate__d_L+.60000000000000001e-2/t108)+t124*
+var_T_type_Ca_channel_d_gate__d_T*var_T_type_Ca_channel_f_gate__f_T+t131*
+var_four_AP_sensitive_currents_r_gate__r+t136*
+var_four_AP_sensitive_currents_r_gate__r+t141*t144*
+var_rapid_delayed_rectifying_potassium_current_P_i_gate__P_i+t229), jacobian[1,
+2] = -3*t232*t17*t74*var_ionic_concentrations__Na_o*t237, jacobian[1,3] = -t232
+*t18*t69*var_ionic_concentrations__Na_o*t237, jacobian[1,4] = -t232*t18*t72*
+var_ionic_concentrations__Na_o*t237, jacobian[1,5] = -t248*
+var_L_type_Ca_channel_f_gate__f_L*t112, jacobian[1,6] = -t248*
+var_L_type_Ca_channel_d_gate__d_L*t112, jacobian[1,7] = -t253*
+var_T_type_Ca_channel_f_gate__f_T*t254, jacobian[1,8] = -t253*
+var_T_type_Ca_channel_d_gate__d_T*t254, jacobian[1,9] = -t12*t130*
+var_four_AP_sensitive_currents_r_gate__r*t265, jacobian[1,10] = -t12*(t131*t265
++t136*t265), jacobian[1,11] = -.6000000000*t274, jacobian[1,12] = -.4000000000*
+t274, jacobian[1,13] = -t272*t144*t265, jacobian[1,14] = -2*t12*t151*
+var_slow_delayed_rectifying_potassium_current_xs_gate__xs*(var_membrane__V-t47*
+t48*t286), jacobian[1,15] = -t12*(t157*t54+t162*t265), jacobian[2,1] = .\
+6105006107e-1/t303/t305*t299*t320+.62469999999999995e-3*(t302-
+var_sodium_current_m_gate__m)/t325/t328*(-.2793418240*t310+.5163502000e-1*t314)
+, jacobian[2,2] = -t320, jacobian[2,3] = 0, jacobian[2,4] = 0, jacobian[2,5] =
+0, jacobian[2,6] = 0, jacobian[2,7] = 0, jacobian[2,8] = 0, jacobian[2,9] = 0,
+jacobian[2,10] = 0, jacobian[2,11] = 0, jacobian[2,12] = 0, jacobian[2,13] = 0,
+jacobian[2,14] = 0, jacobian[2,15] = 0, jacobian[3,1] = -.1562500000*t343*t356-
+(t359-var_sodium_current_h_gate__h1)/t361*(-.1046335500e-5*t353+.4752493754e-8*
+t346/t365*t349), jacobian[3,2] = 0, jacobian[3,3] = -t356, jacobian[3,4] = 0, 
+jacobian[3,5] = 0, jacobian[3,6] = 0, jacobian[3,7] = 0, jacobian[3,8] = 0, 
+jacobian[3,9] = 0, jacobian[3,10] = 0, jacobian[3,11] = 0, jacobian[3,12] = 0,
+jacobian[3,13] = 0, jacobian[3,14] = 0, jacobian[3,15] = 0, jacobian[4,1] = -.1\
+562500000*t343*t385-(t359-var_sodium_current_h_gate__h2)/t389*(-.1981373400e-7*
+t382+.1530684612e-11*t375/t393*t378), jacobian[4,2] = 0, jacobian[4,3] = 0, 
+jacobian[4,4] = -t385, jacobian[4,5] = 0, jacobian[4,6] = 0, jacobian[4,7] = 0,
+jacobian[4,8] = 0, jacobian[4,9] = 0, jacobian[4,10] = 0, jacobian[4,11] = 0, 
+jacobian[4,12] = 0, jacobian[4,13] = 0, jacobian[4,14] = 0, jacobian[4,15] = 0,
+jacobian[5,1] = 1/12/t406*t404*(-28.39000000*t415-84.90000000*t421+11.43*t429)+
+1/2*(1/t405-var_L_type_Ca_channel_d_gate__d_L)*(-28.39000000*t414-11.35600000*
+t409/t437*t412-84.90000000*t420-17.65920000*var_membrane__V/t443*t418+11.43*
+t428-4.572000000*t423/t449*t426), jacobian[5,2] = 0, jacobian[5,3] = 0, 
+jacobian[5,4] = 0, jacobian[5,5] = 14.19500000*t415+42.45000000*t421-5.71500000\
+0*t429, jacobian[5,6] = 0, jacobian[5,7] = 0, jacobian[5,8] = 0, jacobian[5,9]
+= 0, jacobian[5,10] = 0, jacobian[5,11] = 0, jacobian[5,12] = 0, jacobian[5,13]
+= 0, jacobian[5,14] = 0, jacobian[5,15] = 0, jacobian[6,1] = -1/5/t466*t464*
+t485+(1/t465-var_L_type_Ca_channel_f_gate__f_L)*t471*(3.75*t477-.9375000000*
+t472/t492*t475+15/2/t497*t480), jacobian[6,2] = 0, jacobian[6,3] = 0, jacobian[
+6,4] = 0, jacobian[6,5] = 0, jacobian[6,6] = -t485, jacobian[6,7] = 0, jacobian
+[6,8] = 0, jacobian[6,9] = 0, jacobian[6,10] = 0, jacobian[6,11] = 0, jacobian[
+6,12] = 0, jacobian[6,13] = 0, jacobian[6,14] = 0, jacobian[6,15] = 0, jacobian
+[7,1] = 157.0588235/t508*t506*t515+178/5*(1/t507-
+var_T_type_Ca_channel_d_gate__d_T)*(t513-t514), jacobian[7,2] = 0, jacobian[7,3
+] = 0, jacobian[7,4] = 0, jacobian[7,5] = 0, jacobian[7,6] = 0, jacobian[7,7] =
+-1068*t515, jacobian[7,8] = 0, jacobian[7,9] = 0, jacobian[7,10] = 0, jacobian[
+7,11] = 0, jacobian[7,12] = 0, jacobian[7,13] = 0, jacobian[7,14] = 0, jacobian
+[7,15] = 0, jacobian[8,1] = -1/9/t527*t525*t539+(1/t526-
+var_T_type_Ca_channel_f_gate__f_T)*(-.1836734694*t533+.9752925878*t537), 
+jacobian[8,2] = 0, jacobian[8,3] = 0, jacobian[8,4] = 0, jacobian[8,5] = 0, 
+jacobian[8,6] = 0, jacobian[8,7] = 0, jacobian[8,8] = -t539, jacobian[8,9] = 0,
+jacobian[8,10] = 0, jacobian[8,11] = 0, jacobian[8,12] = 0, jacobian[8,13] = 0,
+jacobian[8,14] = 0, jacobian[8,15] = 0, jacobian[9,1] = -.7633587786e-1/t553*
+t551*t572+.6516666666e-1*(1/t552-var_four_AP_sensitive_currents_q_gate__q)/t577
+/t580*(-.4640344600e-1*t559+.71740000000000004*(.2719000000-t561)*t566), 
+jacobian[9,2] = 0, jacobian[9,3] = 0, jacobian[9,4] = 0, jacobian[9,5] = 0, 
+jacobian[9,6] = 0, jacobian[9,7] = 0, jacobian[9,8] = 0, jacobian[9,9] = -t572,
+jacobian[9,10] = 0, jacobian[9,11] = 0, jacobian[9,12] = 0, jacobian[9,13] = 0,
+jacobian[9,14] = 0, jacobian[9,15] = 0, jacobian[10,1] = .5076142132e-1/t595*
+t593*t610+.1959500000e-1*(1/t594-var_four_AP_sensitive_currents_r_gate__r)/t615
+/t618*(.9345444000e-1*t600-.4391100000e-1*t604), jacobian[10,2] = 0, jacobian[
+10,3] = 0, jacobian[10,4] = 0, jacobian[10,5] = 0, jacobian[10,6] = 0, jacobian
+[10,7] = 0, jacobian[10,8] = 0, jacobian[10,9] = 0, jacobian[10,10] = -t610, 
+jacobian[10,11] = 0, jacobian[10,12] = 0, jacobian[10,13] = 0, jacobian[10,14]
+= 0, jacobian[10,15] = 0, jacobian[11,1] = .9433962264e-1*t633*t642+(t645-
+var_rapid_delayed_rectifying_potassium_current_P_af_gate__P_af)*(2.339622641*
+t636-.4266666666e-1*t640), jacobian[11,2] = 0, jacobian[11,3] = 0, jacobian[11,
+4] = 0, jacobian[11,5] = 0, jacobian[11,6] = 0, jacobian[11,7] = 0, jacobian[11
+,8] = 0, jacobian[11,9] = 0, jacobian[11,10] = 0, jacobian[11,11] = -t642, 
+jacobian[11,12] = 0, jacobian[11,13] = 0, jacobian[11,14] = 0, jacobian[11,15]
+= 0, jacobian[12,1] = .9433962264e-1*t633*t660+(t645-
+var_rapid_delayed_rectifying_potassium_current_P_as_gate__P_as)*(.2470588235*
+t654-.6944444445e-2*t658), jacobian[12,2] = 0, jacobian[12,3] = 0, jacobian[12,
+4] = 0, jacobian[12,5] = 0, jacobian[12,6] = 0, jacobian[12,7] = 0, jacobian[12
+,8] = 0, jacobian[12,9] = 0, jacobian[12,10] = 0, jacobian[12,11] = 0, jacobian
+[12,12] = -t660, jacobian[12,13] = 0, jacobian[12,14] = 0, jacobian[12,15] = 0,
+jacobian[13,1] = -.9900990099e-1/t673*t671*t676, jacobian[13,2] = 0, jacobian[
+13,3] = 0, jacobian[13,4] = 0, jacobian[13,5] = 0, jacobian[13,6] = 0, jacobian
+[13,7] = 0, jacobian[13,8] = 0, jacobian[13,9] = 0, jacobian[13,10] = 0, 
+jacobian[13,11] = 0, jacobian[13,12] = 0, jacobian[13,13] = -t676, jacobian[13,
+14] = 0, jacobian[13,15] = 0, jacobian[14,1] = 14/9/t682*(1-
+var_slow_delayed_rectifying_potassium_current_xs_gate__xs)*t680+1/45*t689*
+var_slow_delayed_rectifying_potassium_current_xs_gate__xs, jacobian[14,2] = 0,
+jacobian[14,3] = 0, jacobian[14,4] = 0, jacobian[14,5] = 0, jacobian[14,6] = 0,
+jacobian[14,7] = 0, jacobian[14,8] = 0, jacobian[14,9] = 0, jacobian[14,10] = 0
+, jacobian[14,11] = 0, jacobian[14,12] = 0, jacobian[14,13] = 0, jacobian[14,14
+] = -14/t681-t689, jacobian[14,15] = 0, jacobian[15,1] = -.3755163350e-1*t698*(
+1-var_hyperpolarisation_activated_current_y_gate__y)-.4705882353e-1*t704*
+var_hyperpolarisation_activated_current_y_gate__y, jacobian[15,2] = 0, jacobian
+[15,3] = 0, jacobian[15,4] = 0, jacobian[15,5] = 0, jacobian[15,6] = 0, 
+jacobian[15,7] = 0, jacobian[15,8] = 0, jacobian[15,9] = 0, jacobian[15,10] = 0
+, jacobian[15,11] = 0, jacobian[15,12] = 0, jacobian[15,13] = 0, jacobian[15,14
+] = 0, jacobian[15,15] = -t698-t704
+memory used=6.0MB, alloc=4.9MB, time=0.09

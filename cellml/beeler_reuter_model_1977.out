@@ -1,0 +1,499 @@
+    |\^/|     Maple 15 (X86 64 LINUX)
+._|\|   |/|_. Copyright (c) Maplesoft, a division of Waterloo Maple Inc. 2011
+ \  MAPLE  /  All rights reserved. Maple is a trademark of
+ <____ ____>  Waterloo Maple Inc.
+      |       Type ? for help.
+1
+"FULL JACOBIAN"
+var_membrane__time := var_environment__time
+var_sodium_current__m := var_sodium_current_m_gate__m
+var_sodium_current__j := var_sodium_current_j_gate__j
+var_sodium_current__h := var_sodium_current_h_gate__h
+var_sodium_current__V := var_membrane__V
+var_sodium_current__i_Na := (var_sodium_current__g_Na*
+var_sodium_current_m_gate__m^3*var_sodium_current_h_gate__h*
+var_sodium_current_j_gate__j+var_sodium_current__g_Nac)*(var_membrane__V-
+var_sodium_current__E_Na)
+var_membrane__i_Na := (var_sodium_current__g_Na*var_sodium_current_m_gate__m^3*
+var_sodium_current_h_gate__h*var_sodium_current_j_gate__j+
+var_sodium_current__g_Nac)*(var_membrane__V-var_sodium_current__E_Na)
+var_slow_inward_current__d := var_slow_inward_current_d_gate__d
+var_slow_inward_current__f := var_slow_inward_current_f_gate__f
+var_slow_inward_current__V := var_membrane__V
+var_slow_inward_current__E_s := -82.299999999999997-13.028700000000001*ln(.1e-2
+*var_slow_inward_current__Cai)
+var_slow_inward_current__i_s := var_slow_inward_current__g_s*
+var_slow_inward_current_d_gate__d*var_slow_inward_current_f_gate__f*(
+var_membrane__V+82.299999999999997+13.028700000000001*ln(.1e-2*
+var_slow_inward_current__Cai))
+var_membrane__i_s := var_slow_inward_current__g_s*
+var_slow_inward_current_d_gate__d*var_slow_inward_current_f_gate__f*(
+var_membrane__V+82.299999999999997+13.028700000000001*ln(.1e-2*
+var_slow_inward_current__Cai))
+var_time_dependent_outward_current__x1 := 
+var_time_dependent_outward_current_x1_gate__x1
+var_time_dependent_outward_current__V := var_membrane__V
+var_time_dependent_outward_current__i_x1 := 
+var_time_dependent_outward_current_x1_gate__x1*
+var_time_dependent_outward_current__G_Kr*(exp(.40000000000000001e-1*
+var_membrane__V+3.080000000)-1)/exp(.40000000000000001e-1*var_membrane__V+1.400\
+000000)
+var_membrane__i_x1 := var_time_dependent_outward_current_x1_gate__x1*
+var_time_dependent_outward_current__G_Kr*(exp(.40000000000000001e-1*
+var_membrane__V+3.080000000)-1)/exp(.40000000000000001e-1*var_membrane__V+1.400\
+000000)
+var_time_independent_outward_current__V := var_membrane__V
+var_time_independent_outward_current__i_K1 := .1400000000e-1*(exp(.\
+40000000000000001e-1*var_membrane__V+3.400000000)-1)/(exp(.80000000000000002e-1
+*var_membrane__V+4.240000000)+exp(.40000000000000001e-1*var_membrane__V+2.12000\
+0000))+.7000000000e-3*(var_membrane__V+23)/(1-exp(-.40000000000000001e-1*
+var_membrane__V-.9200000000))
+var_membrane__i_K1 := .1400000000e-1*(exp(.40000000000000001e-1*var_membrane__V
++3.400000000)-1)/(exp(.80000000000000002e-1*var_membrane__V+4.240000000)+exp(.\
+40000000000000001e-1*var_membrane__V+2.120000000))+.7000000000e-3*(
+var_membrane__V+23)/(1-exp(-.40000000000000001e-1*var_membrane__V-.9200000000))
+var_stimulus_protocol__time := var_environment__time
+var_stimulus_protocol__Istim := PIECEWISE([
+var_stimulus_protocol__IstimAmplitude, var_stimulus_protocol__IstimStart <= 
+var_environment__time and var_environment__time <= 
+var_stimulus_protocol__IstimEnd and var_environment__time-
+var_stimulus_protocol__IstimStart-floor((var_environment__time-
+var_stimulus_protocol__IstimStart)/var_stimulus_protocol__IstimPeriod)*
+var_stimulus_protocol__IstimPeriod <= var_stimulus_protocol__IstimPulseDuration
+],[0, otherwise])
+var_membrane__Istim := PIECEWISE([var_stimulus_protocol__IstimAmplitude, 
+var_stimulus_protocol__IstimStart <= var_environment__time and 
+var_environment__time <= var_stimulus_protocol__IstimEnd and 
+var_environment__time-var_stimulus_protocol__IstimStart-floor((
+var_environment__time-var_stimulus_protocol__IstimStart)/
+var_stimulus_protocol__IstimPeriod)*var_stimulus_protocol__IstimPeriod <= 
+var_stimulus_protocol__IstimPulseDuration],[0, otherwise])
+var_sodium_current__time := var_environment__time
+var_sodium_current_m_gate__V := var_membrane__V
+var_sodium_current_m_gate__alpha_m := -(var_membrane__V+47)/(exp(-.100000000000\
+00001*var_membrane__V-4.700000000)-1)
+var_sodium_current_m_gate__beta_m := 40*exp(-.56000000000000001e-1*
+var_membrane__V-4.032000000)
+var_sodium_current_m_gate__time := var_environment__time
+var_sodium_current_h_gate__shift_INa_inact := 
+var_sodium_current__shift_INa_inact
+var_sodium_current_h_gate__V := var_membrane__V
+var_sodium_current_h_gate__alpha_h := .126*exp(-.25*var_membrane__V-19.25+.25*
+var_sodium_current__shift_INa_inact)
+var_sodium_current_h_gate__beta_h := 1.7/(exp(-.82000000000000003e-1*
+var_membrane__V-1.845000000+.82000000000000003e-1*
+var_sodium_current__shift_INa_inact)+1)
+var_sodium_current_h_gate__perc_reduced_inact_for_IpNa := 
+var_sodium_current__perc_reduced_inact_for_IpNa
+var_sodium_current_h_gate__h_inf := .126*exp(-.25*var_membrane__V-19.25+.25*
+var_sodium_current__shift_INa_inact)*(1-1/100*
+var_sodium_current__perc_reduced_inact_for_IpNa)/(.126*exp(-.25*var_membrane__V
+-19.25+.25*var_sodium_current__shift_INa_inact)+1.7/(exp(-.82000000000000003e-1
+*var_membrane__V-1.845000000+.82000000000000003e-1*
+var_sodium_current__shift_INa_inact)+1))+1/100*
+var_sodium_current__perc_reduced_inact_for_IpNa
+var_sodium_current_h_gate__tau_h := 1/(.126*exp(-.25*var_membrane__V-19.25+.25*
+var_sodium_current__shift_INa_inact)+1.7/(exp(-.82000000000000003e-1*
+var_membrane__V-1.845000000+.82000000000000003e-1*
+var_sodium_current__shift_INa_inact)+1))
+var_sodium_current_h_gate__time := var_environment__time
+var_sodium_current_j_gate__V := var_membrane__V
+var_sodium_current_j_gate__shift_INa_inact := 
+var_sodium_current__shift_INa_inact
+var_sodium_current_j_gate__alpha_j := .55e-1*exp(-.25*var_membrane__V-19.50+.25
+*var_sodium_current__shift_INa_inact)/(exp(-.20000000000000001*var_membrane__V-\
+15.60000000+.20000000000000001*var_sodium_current__shift_INa_inact)+1)
+var_sodium_current_j_gate__beta_j := .29999999999999999/(exp(-.1000000000000000\
+1*var_membrane__V-3.200000000+.10000000000000001*
+var_sodium_current__shift_INa_inact)+1)
+var_sodium_current_j_gate__perc_reduced_inact_for_IpNa := 
+var_sodium_current__perc_reduced_inact_for_IpNa
+var_sodium_current_j_gate__j_inf := .55e-1*exp(-.25*var_membrane__V-19.50+.25*
+var_sodium_current__shift_INa_inact)/(exp(-.20000000000000001*var_membrane__V-\
+15.60000000+.20000000000000001*var_sodium_current__shift_INa_inact)+1)*(1-1/100
+*var_sodium_current__perc_reduced_inact_for_IpNa)/(.55e-1*exp(-.25*
+var_membrane__V-19.50+.25*var_sodium_current__shift_INa_inact)/(exp(-.200000000\
+00000001*var_membrane__V-15.60000000+.20000000000000001*
+var_sodium_current__shift_INa_inact)+1)+.29999999999999999/(exp(-.1000000000000\
+0001*var_membrane__V-3.200000000+.10000000000000001*
+var_sodium_current__shift_INa_inact)+1))+1/100*
+var_sodium_current__perc_reduced_inact_for_IpNa
+var_sodium_current_j_gate__tau_j := 1/(.55e-1*exp(-.25*var_membrane__V-19.50+.2\
+5*var_sodium_current__shift_INa_inact)/(exp(-.20000000000000001*var_membrane__V
+-15.60000000+.20000000000000001*var_sodium_current__shift_INa_inact)+1)+.299999\
+99999999999/(exp(-.10000000000000001*var_membrane__V-3.200000000+.1000000000000\
+0001*var_sodium_current__shift_INa_inact)+1))
+var_sodium_current_j_gate__time := var_environment__time
+var_slow_inward_current__time := var_environment__time
+var_slow_inward_current_d_gate__V := var_membrane__V
+var_slow_inward_current_d_gate__alpha_d := .95000000000000001e-1*exp(-1/100*
+var_membrane__V+1/20)/(1+exp(-.7199424046e-1*var_membrane__V+.3599712023))
+var_slow_inward_current_d_gate__beta_d := .70000000000000007e-1*exp(-1/59*
+var_membrane__V-44/59)/(1+exp(1/20*var_membrane__V+11/5))
+var_slow_inward_current_d_gate__time := var_environment__time
+var_slow_inward_current_f_gate__V := var_membrane__V
+var_slow_inward_current_f_gate__alpha_f := .12e-1*exp(-1/125*var_membrane__V-28
+/125)/(1+exp(.1499250375*var_membrane__V+4.197901050))
+var_slow_inward_current_f_gate__beta_f := .64999999999999997e-2*exp(-1/50*
+var_membrane__V-3/5)/(1+exp(-1/5*var_membrane__V-6))
+var_slow_inward_current_f_gate__time := var_environment__time
+var_time_dependent_outward_current__time := var_environment__time
+var_time_dependent_outward_current_x1_gate__V := var_membrane__V
+var_time_dependent_outward_current_x1_gate__alpha_x1 := .50000000000000001e-3*
+exp(.8264462810e-1*var_membrane__V+4.132231405)/(1+exp(.5714285714e-1*
+var_membrane__V+2.857142857))
+var_time_dependent_outward_current_x1_gate__beta_x1 := .12999999999999999e-2*
+exp(-.5998800240e-1*var_membrane__V-1.199760048)/(1+exp(-1/25*var_membrane__V-4
+/5))
+var_time_dependent_outward_current_x1_gate__time := var_environment__time
+d_dt_membrane__V := (PIECEWISE([var_stimulus_protocol__IstimAmplitude, 
+var_stimulus_protocol__IstimStart <= var_environment__time and 
+var_environment__time <= var_stimulus_protocol__IstimEnd and 
+var_environment__time-var_stimulus_protocol__IstimStart-floor((
+var_environment__time-var_stimulus_protocol__IstimStart)/
+var_stimulus_protocol__IstimPeriod)*var_stimulus_protocol__IstimPeriod <= 
+var_stimulus_protocol__IstimPulseDuration],[0, otherwise])-(
+var_sodium_current__g_Na*var_sodium_current_m_gate__m^3*
+var_sodium_current_h_gate__h*var_sodium_current_j_gate__j+
+var_sodium_current__g_Nac)*(var_membrane__V-var_sodium_current__E_Na)-
+var_slow_inward_current__g_s*var_slow_inward_current_d_gate__d*
+var_slow_inward_current_f_gate__f*(var_membrane__V+82.299999999999997+13.028700\
+000000001*ln(.1e-2*var_slow_inward_current__Cai))-
+var_time_dependent_outward_current_x1_gate__x1*
+var_time_dependent_outward_current__G_Kr*(exp(.40000000000000001e-1*
+var_membrane__V+3.080000000)-1)/exp(.40000000000000001e-1*var_membrane__V+1.400\
+000000)-.1400000000e-1*(exp(.40000000000000001e-1*var_membrane__V+3.400000000)-\
+1)/(exp(.80000000000000002e-1*var_membrane__V+4.240000000)+exp(.\
+40000000000000001e-1*var_membrane__V+2.120000000))-.7000000000e-3*(
+var_membrane__V+23)/(1-exp(-.40000000000000001e-1*var_membrane__V-.9200000000))
+)/var_membrane__C
+d_dt_sodium_current_m_gate__m := -(var_membrane__V+47)/(exp(-.10000000000000001
+*var_membrane__V-4.700000000)-1)*(1-var_sodium_current_m_gate__m)-40*exp(-.\
+56000000000000001e-1*var_membrane__V-4.032000000)*var_sodium_current_m_gate__m
+d_dt_sodium_current_h_gate__h := (.126*exp(-.25*var_membrane__V-19.25+.25*
+var_sodium_current__shift_INa_inact)*(1-1/100*
+var_sodium_current__perc_reduced_inact_for_IpNa)/(.126*exp(-.25*var_membrane__V
+-19.25+.25*var_sodium_current__shift_INa_inact)+1.7/(exp(-.82000000000000003e-1
+*var_membrane__V-1.845000000+.82000000000000003e-1*
+var_sodium_current__shift_INa_inact)+1))+1/100*
+var_sodium_current__perc_reduced_inact_for_IpNa-var_sodium_current_h_gate__h)*(
+.126*exp(-.25*var_membrane__V-19.25+.25*var_sodium_current__shift_INa_inact)+1.\
+7/(exp(-.82000000000000003e-1*var_membrane__V-1.845000000+.82000000000000003e-1
+*var_sodium_current__shift_INa_inact)+1))
+d_dt_sodium_current_j_gate__j := (.55e-1*exp(-.25*var_membrane__V-19.50+.25*
+var_sodium_current__shift_INa_inact)/(exp(-.20000000000000001*var_membrane__V-\
+15.60000000+.20000000000000001*var_sodium_current__shift_INa_inact)+1)*(1-1/100
+*var_sodium_current__perc_reduced_inact_for_IpNa)/(.55e-1*exp(-.25*
+var_membrane__V-19.50+.25*var_sodium_current__shift_INa_inact)/(exp(-.200000000\
+00000001*var_membrane__V-15.60000000+.20000000000000001*
+var_sodium_current__shift_INa_inact)+1)+.29999999999999999/(exp(-.1000000000000\
+0001*var_membrane__V-3.200000000+.10000000000000001*
+var_sodium_current__shift_INa_inact)+1))+1/100*
+var_sodium_current__perc_reduced_inact_for_IpNa-var_sodium_current_j_gate__j)*(
+.55e-1*exp(-.25*var_membrane__V-19.50+.25*var_sodium_current__shift_INa_inact)/
+(exp(-.20000000000000001*var_membrane__V-15.60000000+.20000000000000001*
+var_sodium_current__shift_INa_inact)+1)+.29999999999999999/(exp(-.1000000000000\
+0001*var_membrane__V-3.200000000+.10000000000000001*
+var_sodium_current__shift_INa_inact)+1))
+d_dt_slow_inward_current__Cai := -.1e-1*var_slow_inward_current__g_s*
+var_slow_inward_current_d_gate__d*var_slow_inward_current_f_gate__f*(
+var_membrane__V+82.299999999999997+13.028700000000001*ln(.1e-2*
+var_slow_inward_current__Cai))+.7000000000e-5-.70000000000000007e-1*
+var_slow_inward_current__Cai
+d_dt_slow_inward_current_d_gate__d := .95000000000000001e-1*exp(-1/100*
+var_membrane__V+1/20)/(1+exp(-.7199424046e-1*var_membrane__V+.3599712023))*(1-
+var_slow_inward_current_d_gate__d)-.70000000000000007e-1*exp(-1/59*
+var_membrane__V-44/59)/(1+exp(1/20*var_membrane__V+11/5))*
+var_slow_inward_current_d_gate__d
+d_dt_slow_inward_current_f_gate__f := .12e-1*exp(-1/125*var_membrane__V-28/125)
+/(1+exp(.1499250375*var_membrane__V+4.197901050))*(1-
+var_slow_inward_current_f_gate__f)-.64999999999999997e-2*exp(-1/50*
+var_membrane__V-3/5)/(1+exp(-1/5*var_membrane__V-6))*
+var_slow_inward_current_f_gate__f
+d_dt_time_dependent_outward_current_x1_gate__x1 := .50000000000000001e-3*exp(.\
+8264462810e-1*var_membrane__V+4.132231405)/(1+exp(.5714285714e-1*
+var_membrane__V+2.857142857))*(1-var_time_dependent_outward_current_x1_gate__x1
+)-.12999999999999999e-2*exp(-.5998800240e-1*var_membrane__V-1.199760048)/(1+exp
+(-1/25*var_membrane__V-4/5))*var_time_dependent_outward_current_x1_gate__x1
+"--1--var_membrane__V--"
+"--2--var_sodium_current_m_gate__m--"
+"--3--var_sodium_current_h_gate__h--"
+"--4--var_sodium_current_j_gate__j--"
+"--5--var_slow_inward_current__Cai--"
+"--6--var_slow_inward_current_d_gate__d--"
+"--7--var_slow_inward_current_f_gate__f--"
+"--8--var_time_dependent_outward_current_x1_gate__x1--"
+jacobian := matrix([[(-var_sodium_current__g_Na*var_sodium_current_m_gate__m^3*
+var_sodium_current_h_gate__h*var_sodium_current_j_gate__j-
+var_sodium_current__g_Nac-var_slow_inward_current__g_s*
+var_slow_inward_current_d_gate__d*var_slow_inward_current_f_gate__f-.\
+40000000000000001e-1*var_time_dependent_outward_current_x1_gate__x1*
+var_time_dependent_outward_current__G_Kr*exp(.40000000000000001e-1*
+var_membrane__V+3.080000000)/exp(.40000000000000001e-1*var_membrane__V+1.400000\
+000)+.40000000000000001e-1*var_time_dependent_outward_current_x1_gate__x1*
+var_time_dependent_outward_current__G_Kr*(exp(.40000000000000001e-1*
+var_membrane__V+3.080000000)-1)/exp(.40000000000000001e-1*var_membrane__V+1.400\
+000000)-.5600000000e-3*exp(.40000000000000001e-1*var_membrane__V+3.400000000)/(
+exp(.80000000000000002e-1*var_membrane__V+4.240000000)+exp(.40000000000000001e-\
+1*var_membrane__V+2.120000000))+.1400000000e-1*(exp(.40000000000000001e-1*
+var_membrane__V+3.400000000)-1)/(exp(.80000000000000002e-1*var_membrane__V+4.24\
+0000000)+exp(.40000000000000001e-1*var_membrane__V+2.120000000))^2*(.\
+80000000000000002e-1*exp(.80000000000000002e-1*var_membrane__V+4.240000000)+.\
+40000000000000001e-1*exp(.40000000000000001e-1*var_membrane__V+2.120000000))-.\
+7000000000e-3/(1-exp(-.40000000000000001e-1*var_membrane__V-.9200000000))+.\
+2800000000e-4*(var_membrane__V+23)/(1-exp(-.40000000000000001e-1*
+var_membrane__V-.9200000000))^2*exp(-.40000000000000001e-1*var_membrane__V-.920\
+0000000))/var_membrane__C, -3*var_sodium_current__g_Na*
+var_sodium_current_m_gate__m^2*var_sodium_current_h_gate__h*
+var_sodium_current_j_gate__j*(var_membrane__V-var_sodium_current__E_Na)/
+var_membrane__C, -var_sodium_current__g_Na*var_sodium_current_m_gate__m^3*
+var_sodium_current_j_gate__j*(var_membrane__V-var_sodium_current__E_Na)/
+var_membrane__C, -var_sodium_current__g_Na*var_sodium_current_m_gate__m^3*
+var_sodium_current_h_gate__h*(var_membrane__V-var_sodium_current__E_Na)/
+var_membrane__C, -13.02870000*var_slow_inward_current__g_s*
+var_slow_inward_current_d_gate__d*var_slow_inward_current_f_gate__f/
+var_slow_inward_current__Cai/var_membrane__C, -var_slow_inward_current__g_s*
+var_slow_inward_current_f_gate__f*(var_membrane__V+82.299999999999997+13.028700\
+000000001*ln(.1e-2*var_slow_inward_current__Cai))/var_membrane__C, -
+var_slow_inward_current__g_s*var_slow_inward_current_d_gate__d*(var_membrane__V
++82.299999999999997+13.028700000000001*ln(.1e-2*var_slow_inward_current__Cai))/
+var_membrane__C, -var_time_dependent_outward_current__G_Kr*(exp(.\
+40000000000000001e-1*var_membrane__V+3.080000000)-1)/exp(.40000000000000001e-1*
+var_membrane__V+1.400000000)/var_membrane__C], [-1/(exp(-.10000000000000001*
+var_membrane__V-4.700000000)-1)*(1-var_sodium_current_m_gate__m)-.1000000000000\
+0001*(var_membrane__V+47)/(exp(-.10000000000000001*var_membrane__V-4.700000000)
+-1)^2*(1-var_sodium_current_m_gate__m)*exp(-.10000000000000001*var_membrane__V-\
+4.700000000)+2.240000000*exp(-.56000000000000001e-1*var_membrane__V-4.032000000
+)*var_sodium_current_m_gate__m, (var_membrane__V+47)/(exp(-.10000000000000001*
+var_membrane__V-4.700000000)-1)-40*exp(-.56000000000000001e-1*var_membrane__V-4\
+.032000000), 0, 0, 0, 0, 0, 0], [(-.3150e-1*exp(-.25*var_membrane__V-19.25+.25*
+var_sodium_current__shift_INa_inact)*(1-1/100*
+var_sodium_current__perc_reduced_inact_for_IpNa)/(.126*exp(-.25*var_membrane__V
+-19.25+.25*var_sodium_current__shift_INa_inact)+1.7/(exp(-.82000000000000003e-1
+*var_membrane__V-1.845000000+.82000000000000003e-1*
+var_sodium_current__shift_INa_inact)+1))-.126*exp(-.25*var_membrane__V-19.25+.2\
+5*var_sodium_current__shift_INa_inact)*(1-1/100*
+var_sodium_current__perc_reduced_inact_for_IpNa)/(.126*exp(-.25*var_membrane__V
+-19.25+.25*var_sodium_current__shift_INa_inact)+1.7/(exp(-.82000000000000003e-1
+*var_membrane__V-1.845000000+.82000000000000003e-1*
+var_sodium_current__shift_INa_inact)+1))^2*(-.3150e-1*exp(-.25*var_membrane__V-\
+19.25+.25*var_sodium_current__shift_INa_inact)+.1394000000/(exp(-.\
+82000000000000003e-1*var_membrane__V-1.845000000+.82000000000000003e-1*
+var_sodium_current__shift_INa_inact)+1)^2*exp(-.82000000000000003e-1*
+var_membrane__V-1.845000000+.82000000000000003e-1*
+var_sodium_current__shift_INa_inact)))*(.126*exp(-.25*var_membrane__V-19.25+.25
+*var_sodium_current__shift_INa_inact)+1.7/(exp(-.82000000000000003e-1*
+var_membrane__V-1.845000000+.82000000000000003e-1*
+var_sodium_current__shift_INa_inact)+1))+(.126*exp(-.25*var_membrane__V-19.25+.\
+25*var_sodium_current__shift_INa_inact)*(1-1/100*
+var_sodium_current__perc_reduced_inact_for_IpNa)/(.126*exp(-.25*var_membrane__V
+-19.25+.25*var_sodium_current__shift_INa_inact)+1.7/(exp(-.82000000000000003e-1
+*var_membrane__V-1.845000000+.82000000000000003e-1*
+var_sodium_current__shift_INa_inact)+1))+1/100*
+var_sodium_current__perc_reduced_inact_for_IpNa-var_sodium_current_h_gate__h)*(
+-.3150e-1*exp(-.25*var_membrane__V-19.25+.25*
+var_sodium_current__shift_INa_inact)+.1394000000/(exp(-.82000000000000003e-1*
+var_membrane__V-1.845000000+.82000000000000003e-1*
+var_sodium_current__shift_INa_inact)+1)^2*exp(-.82000000000000003e-1*
+var_membrane__V-1.845000000+.82000000000000003e-1*
+var_sodium_current__shift_INa_inact)), 0, -.126*exp(-.25*var_membrane__V-19.25+
+.25*var_sodium_current__shift_INa_inact)-1.7/(exp(-.82000000000000003e-1*
+var_membrane__V-1.845000000+.82000000000000003e-1*
+var_sodium_current__shift_INa_inact)+1), 0, 0, 0, 0, 0], [(-.1375e-1*exp(-.25*
+var_membrane__V-19.50+.25*var_sodium_current__shift_INa_inact)/(exp(-.200000000\
+00000001*var_membrane__V-15.60000000+.20000000000000001*
+var_sodium_current__shift_INa_inact)+1)*(1-1/100*
+var_sodium_current__perc_reduced_inact_for_IpNa)/(.55e-1*exp(-.25*
+var_membrane__V-19.50+.25*var_sodium_current__shift_INa_inact)/(exp(-.200000000\
+00000001*var_membrane__V-15.60000000+.20000000000000001*
+var_sodium_current__shift_INa_inact)+1)+.29999999999999999/(exp(-.1000000000000\
+0001*var_membrane__V-3.200000000+.10000000000000001*
+var_sodium_current__shift_INa_inact)+1))+.1100000000e-1*exp(-.25*
+var_membrane__V-19.50+.25*var_sodium_current__shift_INa_inact)/(exp(-.200000000\
+00000001*var_membrane__V-15.60000000+.20000000000000001*
+var_sodium_current__shift_INa_inact)+1)^2*(1-1/100*
+var_sodium_current__perc_reduced_inact_for_IpNa)/(.55e-1*exp(-.25*
+var_membrane__V-19.50+.25*var_sodium_current__shift_INa_inact)/(exp(-.200000000\
+00000001*var_membrane__V-15.60000000+.20000000000000001*
+var_sodium_current__shift_INa_inact)+1)+.29999999999999999/(exp(-.1000000000000\
+0001*var_membrane__V-3.200000000+.10000000000000001*
+var_sodium_current__shift_INa_inact)+1))*exp(-.20000000000000001*
+var_membrane__V-15.60000000+.20000000000000001*
+var_sodium_current__shift_INa_inact)-.55e-1*exp(-.25*var_membrane__V-19.50+.25*
+var_sodium_current__shift_INa_inact)/(exp(-.20000000000000001*var_membrane__V-\
+15.60000000+.20000000000000001*var_sodium_current__shift_INa_inact)+1)*(1-1/100
+*var_sodium_current__perc_reduced_inact_for_IpNa)/(.55e-1*exp(-.25*
+var_membrane__V-19.50+.25*var_sodium_current__shift_INa_inact)/(exp(-.200000000\
+00000001*var_membrane__V-15.60000000+.20000000000000001*
+var_sodium_current__shift_INa_inact)+1)+.29999999999999999/(exp(-.1000000000000\
+0001*var_membrane__V-3.200000000+.10000000000000001*
+var_sodium_current__shift_INa_inact)+1))^2*(-.1375e-1*exp(-.25*var_membrane__V-\
+19.50+.25*var_sodium_current__shift_INa_inact)/(exp(-.20000000000000001*
+var_membrane__V-15.60000000+.20000000000000001*
+var_sodium_current__shift_INa_inact)+1)+.1100000000e-1*exp(-.25*var_membrane__V
+-19.50+.25*var_sodium_current__shift_INa_inact)/(exp(-.20000000000000001*
+var_membrane__V-15.60000000+.20000000000000001*
+var_sodium_current__shift_INa_inact)+1)^2*exp(-.20000000000000001*
+var_membrane__V-15.60000000+.20000000000000001*
+var_sodium_current__shift_INa_inact)+.3000000000e-1/(exp(-.10000000000000001*
+var_membrane__V-3.200000000+.10000000000000001*
+var_sodium_current__shift_INa_inact)+1)^2*exp(-.10000000000000001*
+var_membrane__V-3.200000000+.10000000000000001*
+var_sodium_current__shift_INa_inact)))*(.55e-1*exp(-.25*var_membrane__V-19.50+.\
+25*var_sodium_current__shift_INa_inact)/(exp(-.20000000000000001*
+var_membrane__V-15.60000000+.20000000000000001*
+var_sodium_current__shift_INa_inact)+1)+.29999999999999999/(exp(-.1000000000000\
+0001*var_membrane__V-3.200000000+.10000000000000001*
+var_sodium_current__shift_INa_inact)+1))+(.55e-1*exp(-.25*var_membrane__V-19.50
++.25*var_sodium_current__shift_INa_inact)/(exp(-.20000000000000001*
+var_membrane__V-15.60000000+.20000000000000001*
+var_sodium_current__shift_INa_inact)+1)*(1-1/100*
+var_sodium_current__perc_reduced_inact_for_IpNa)/(.55e-1*exp(-.25*
+var_membrane__V-19.50+.25*var_sodium_current__shift_INa_inact)/(exp(-.200000000\
+00000001*var_membrane__V-15.60000000+.20000000000000001*
+var_sodium_current__shift_INa_inact)+1)+.29999999999999999/(exp(-.1000000000000\
+0001*var_membrane__V-3.200000000+.10000000000000001*
+var_sodium_current__shift_INa_inact)+1))+1/100*
+var_sodium_current__perc_reduced_inact_for_IpNa-var_sodium_current_j_gate__j)*(
+-.1375e-1*exp(-.25*var_membrane__V-19.50+.25*
+var_sodium_current__shift_INa_inact)/(exp(-.20000000000000001*var_membrane__V-\
+15.60000000+.20000000000000001*var_sodium_current__shift_INa_inact)+1)+.\
+1100000000e-1*exp(-.25*var_membrane__V-19.50+.25*
+var_sodium_current__shift_INa_inact)/(exp(-.20000000000000001*var_membrane__V-\
+15.60000000+.20000000000000001*var_sodium_current__shift_INa_inact)+1)^2*exp(-.\
+20000000000000001*var_membrane__V-15.60000000+.20000000000000001*
+var_sodium_current__shift_INa_inact)+.3000000000e-1/(exp(-.10000000000000001*
+var_membrane__V-3.200000000+.10000000000000001*
+var_sodium_current__shift_INa_inact)+1)^2*exp(-.10000000000000001*
+var_membrane__V-3.200000000+.10000000000000001*
+var_sodium_current__shift_INa_inact)), 0, 0, -.55e-1*exp(-.25*var_membrane__V-\
+19.50+.25*var_sodium_current__shift_INa_inact)/(exp(-.20000000000000001*
+var_membrane__V-15.60000000+.20000000000000001*
+var_sodium_current__shift_INa_inact)+1)-.29999999999999999/(exp(-.1000000000000\
+0001*var_membrane__V-3.200000000+.10000000000000001*
+var_sodium_current__shift_INa_inact)+1), 0, 0, 0, 0], [-.1e-1*
+var_slow_inward_current__g_s*var_slow_inward_current_d_gate__d*
+var_slow_inward_current_f_gate__f, 0, 0, 0, -.1302870000*
+var_slow_inward_current__g_s*var_slow_inward_current_d_gate__d*
+var_slow_inward_current_f_gate__f/var_slow_inward_current__Cai-.\
+70000000000000007e-1, -.1e-1*var_slow_inward_current__g_s*
+var_slow_inward_current_f_gate__f*(var_membrane__V+82.299999999999997+13.028700\
+000000001*ln(.1e-2*var_slow_inward_current__Cai)), -.1e-1*
+var_slow_inward_current__g_s*var_slow_inward_current_d_gate__d*(var_membrane__V
++82.299999999999997+13.028700000000001*ln(.1e-2*var_slow_inward_current__Cai)),
+0], [-.9500000000e-3*exp(-1/100*var_membrane__V+1/20)/(1+exp(-.7199424046e-1*
+var_membrane__V+.3599712023))*(1-var_slow_inward_current_d_gate__d)+.6839452844\
+e-2*exp(-1/100*var_membrane__V+1/20)/(1+exp(-.7199424046e-1*var_membrane__V+.35\
+99712023))^2*(1-var_slow_inward_current_d_gate__d)*exp(-.7199424046e-1*
+var_membrane__V+.3599712023)+.1186440678e-2*exp(-1/59*var_membrane__V-44/59)/(1
++exp(1/20*var_membrane__V+11/5))*var_slow_inward_current_d_gate__d+.3500000000e\
+-2*exp(-1/59*var_membrane__V-44/59)/(1+exp(1/20*var_membrane__V+11/5))^2*
+var_slow_inward_current_d_gate__d*exp(1/20*var_membrane__V+11/5), 0, 0, 0, 0, -
+.95000000000000001e-1*exp(-1/100*var_membrane__V+1/20)/(1+exp(-.7199424046e-1*
+var_membrane__V+.3599712023))-.70000000000000007e-1*exp(-1/59*var_membrane__V-\
+44/59)/(1+exp(1/20*var_membrane__V+11/5)), 0, 0], [-.9600000000e-4*exp(-1/125*
+var_membrane__V-28/125)/(1+exp(.1499250375*var_membrane__V+4.197901050))*(1-
+var_slow_inward_current_f_gate__f)-.1799100450e-2*exp(-1/125*var_membrane__V-28
+/125)/(1+exp(.1499250375*var_membrane__V+4.197901050))^2*(1-
+var_slow_inward_current_f_gate__f)*exp(.1499250375*var_membrane__V+4.197901050)
++.1300000000e-3*exp(-1/50*var_membrane__V-3/5)/(1+exp(-1/5*var_membrane__V-6))*
+var_slow_inward_current_f_gate__f-.1300000000e-2*exp(-1/50*var_membrane__V-3/5)
+/(1+exp(-1/5*var_membrane__V-6))^2*var_slow_inward_current_f_gate__f*exp(-1/5*
+var_membrane__V-6), 0, 0, 0, 0, 0, -.12e-1*exp(-1/125*var_membrane__V-28/125)/(
+1+exp(.1499250375*var_membrane__V+4.197901050))-.64999999999999997e-2*exp(-1/50
+*var_membrane__V-3/5)/(1+exp(-1/5*var_membrane__V-6)), 0], [.4132231405e-4*exp(
+.8264462810e-1*var_membrane__V+4.132231405)/(1+exp(.5714285714e-1*
+var_membrane__V+2.857142857))*(1-var_time_dependent_outward_current_x1_gate__x1
+)-.2857142857e-4*exp(.8264462810e-1*var_membrane__V+4.132231405)/(1+exp(.\
+5714285714e-1*var_membrane__V+2.857142857))^2*(1-
+var_time_dependent_outward_current_x1_gate__x1)*exp(.5714285714e-1*
+var_membrane__V+2.857142857)+.7798440312e-4*exp(-.5998800240e-1*var_membrane__V
+-1.199760048)/(1+exp(-1/25*var_membrane__V-4/5))*
+var_time_dependent_outward_current_x1_gate__x1-.5200000000e-4*exp(-.5998800240e\
+-1*var_membrane__V-1.199760048)/(1+exp(-1/25*var_membrane__V-4/5))^2*
+var_time_dependent_outward_current_x1_gate__x1*exp(-1/25*var_membrane__V-4/5),
+0, 0, 0, 0, 0, 0, -.50000000000000001e-3*exp(.8264462810e-1*var_membrane__V+4.1\
+32231405)/(1+exp(.5714285714e-1*var_membrane__V+2.857142857))-.\
+12999999999999999e-2*exp(-.5998800240e-1*var_membrane__V-1.199760048)/(1+exp(-1
+/25*var_membrane__V-4/5))]])
+J := t1 = var_sodium_current_m_gate__m^2, t3 = var_sodium_current__g_Na*t1*
+var_sodium_current_m_gate__m, t6 = var_slow_inward_current__g_s*
+var_slow_inward_current_d_gate__d, t7 = t6*var_slow_inward_current_f_gate__f, 
+t8 = var_time_dependent_outward_current_x1_gate__x1*
+var_time_dependent_outward_current__G_Kr, t9 = .40000000000000001e-1*
+var_membrane__V, t11 = exp(t9+3.080000000), t13 = exp(t9+1.400000000), t14 = 1/
+t13, t18 = t11-1, t23 = exp(t9+3.400000000), t26 = exp(.80000000000000002e-1*
+var_membrane__V+4.240000000), t28 = exp(t9+2.120000000), t29 = t26+t28, t34 = 
+t29^2, t44 = exp(-.4000000000e-1*var_membrane__V-.9200000000), t45 = 1-t44, t49
+= t45^2, t55 = 1/var_membrane__C, t59 = var_membrane__V-
+var_sodium_current__E_Na, t61 = var_sodium_current_j_gate__j*t59*t55, t69 = 
+var_slow_inward_current_f_gate__f/var_slow_inward_current__Cai, t73 = 
+var_slow_inward_current__g_s*var_slow_inward_current_f_gate__f, t75 = ln(.1e-2*
+var_slow_inward_current__Cai), t77 = var_membrane__V+82.299999999999997+13.0287\
+00000000001*t75, t78 = t77*t55, t84 = .1000000000*var_membrane__V, t86 = exp(-
+t84-4.700000000), t87 = t86-1, t88 = 1/t87, t89 = 1-
+var_sodium_current_m_gate__m, t91 = var_membrane__V+47, t92 = t87^2, t100 = exp
+(-.5600000000e-1*var_membrane__V-4.032000000), t107 = .25*var_membrane__V, t108
+= .25*var_sodium_current__shift_INa_inact, t110 = exp(-t107-19.25+t108), t111 =
+1/100*var_sodium_current__perc_reduced_inact_for_IpNa, t112 = 1-t111, t113 = 
+t110*t112, t118 = exp(-.8200000000e-1*var_membrane__V-1.845000000+.\
+82000000000000003e-1*var_sodium_current__shift_INa_inact), t119 = t118+1, t122
+= .126*t110+1.7/t119, t124 = t113/t122, t126 = t122^2, t129 = t119^2, t133 = -.\
+3150e-1*t110+.1394000000/t129*t118, t144 = exp(-t107-19.50+t108), t148 = exp(-.\
+2000000000*var_membrane__V-15.60000000+.20000000000000001*
+var_sodium_current__shift_INa_inact), t149 = t148+1, t151 = t144/t149, t155 = 
+exp(-t84-3.200000000+.10000000000000001*var_sodium_current__shift_INa_inact), 
+t156 = t155+1, t159 = .55e-1*t151+.29999999999999999/t156, t161 = t112/t159, 
+t162 = t151*t161, t164 = t149^2, t166 = t144/t164, t170 = t159^2, t176 = t156^2
+, t180 = -.1375e-1*t151+.1100000000e-1*t166*t148+.3000000000e-1/t176*t155, t200
+= exp(-1/100*var_membrane__V+1/20), t203 = exp(-.7199424046e-1*var_membrane__V+
+.3599712023), t204 = 1+t203, t206 = t200/t204, t207 = 1-
+var_slow_inward_current_d_gate__d, t210 = t204^2, t218 = exp(-1/59*
+var_membrane__V-44/59), t221 = exp(1/20*var_membrane__V+11/5), t222 = 1+t221, 
+t224 = t218/t222, t227 = t222^2, t239 = exp(-1/125*var_membrane__V-28/125), 
+t242 = exp(.1499250375*var_membrane__V+4.197901050), t243 = 1+t242, t245 = t239
+/t243, t246 = 1-var_slow_inward_current_f_gate__f, t249 = t243^2, t257 = exp(-1
+/50*var_membrane__V-3/5), t260 = exp(-1/5*var_membrane__V-6), t261 = 1+t260, 
+t263 = t257/t261, t266 = t261^2, t278 = exp(.8264462810e-1*var_membrane__V+4.13\
+2231405), t281 = exp(.5714285714e-1*var_membrane__V+2.857142857), t282 = 1+t281
+, t284 = t278/t282, t285 = 1-var_time_dependent_outward_current_x1_gate__x1, 
+t288 = t282^2, t296 = exp(-.5998800240e-1*var_membrane__V-1.199760048), t299 =
+exp(-1/25*var_membrane__V-4/5), t300 = 1+t299, t302 = t296/t300, t305 = t300^2,
+jacobian[1,1] = (-t3*var_sodium_current_h_gate__h*var_sodium_current_j_gate__j-
+var_sodium_current__g_Nac-t7-.4000000000e-1*t8*t11*t14+.40000000000000001e-1*t8
+*t18*t14-.5600000000e-3*t23/t29+.1400000000e-1*(t23-1)/t34*(.80000000000000002e\
+-1*t26+.40000000000000001e-1*t28)-.7000000000e-3/t45+.2800000000e-4*(
+var_membrane__V+23)/t49*t44)*t55, jacobian[1,2] = -3*var_sodium_current__g_Na*
+t1*var_sodium_current_h_gate__h*t61, jacobian[1,3] = -t3*t61, jacobian[1,4] = -
+t3*var_sodium_current_h_gate__h*t59*t55, jacobian[1,5] = -13.02870000*t6*t69*
+t55, jacobian[1,6] = -t73*t78, jacobian[1,7] = -t6*t78, jacobian[1,8] = -
+var_time_dependent_outward_current__G_Kr*t18*t14*t55, jacobian[2,1] = -t88*t89-\
+.1000000000*t91/t92*t89*t86+2.240000000*t100*var_sodium_current_m_gate__m, 
+jacobian[2,2] = t91*t88-40*t100, jacobian[2,3] = 0, jacobian[2,4] = 0, jacobian
+[2,5] = 0, jacobian[2,6] = 0, jacobian[2,7] = 0, jacobian[2,8] = 0, jacobian[3,
+1] = (-.3150e-1*t124-.126*t113/t126*t133)*t122+(.126*t124+t111-
+var_sodium_current_h_gate__h)*t133, jacobian[3,2] = 0, jacobian[3,3] = -t122, 
+jacobian[3,4] = 0, jacobian[3,5] = 0, jacobian[3,6] = 0, jacobian[3,7] = 0, 
+jacobian[3,8] = 0, jacobian[4,1] = (-.1375e-1*t162+.1100000000e-1*t166*t161*
+t148-.55e-1*t151*t112/t170*t180)*t159+(.55e-1*t162+t111-
+var_sodium_current_j_gate__j)*t180, jacobian[4,2] = 0, jacobian[4,3] = 0, 
+jacobian[4,4] = -t159, jacobian[4,5] = 0, jacobian[4,6] = 0, jacobian[4,7] = 0,
+jacobian[4,8] = 0, jacobian[5,1] = -.1e-1*t7, jacobian[5,2] = 0, jacobian[5,3]
+= 0, jacobian[5,4] = 0, jacobian[5,5] = -.1302870000*t6*t69-.70000000000000007e\
+-1, jacobian[5,6] = -.1e-1*t73*t77, jacobian[5,7] = -.1e-1*t6*t77, jacobian[5,8
+] = 0, jacobian[6,1] = -.9500000000e-3*t206*t207+.6839452844e-2*t200/t210*t207*
+t203+.1186440678e-2*t224*var_slow_inward_current_d_gate__d+.3500000000e-2*t218/
+t227*var_slow_inward_current_d_gate__d*t221, jacobian[6,2] = 0, jacobian[6,3] =
+0, jacobian[6,4] = 0, jacobian[6,5] = 0, jacobian[6,6] = -.9500000000e-1*t206-.\
+7000000000e-1*t224, jacobian[6,7] = 0, jacobian[6,8] = 0, jacobian[7,1] = -.\
+9600000000e-4*t245*t246-.1799100450e-2*t239/t249*t246*t242+.1300000000e-3*t263*
+var_slow_inward_current_f_gate__f-.1300000000e-2*t257/t266*
+var_slow_inward_current_f_gate__f*t260, jacobian[7,2] = 0, jacobian[7,3] = 0, 
+jacobian[7,4] = 0, jacobian[7,5] = 0, jacobian[7,6] = 0, jacobian[7,7] = -.12e-\
+1*t245-.6500000000e-2*t263, jacobian[7,8] = 0, jacobian[8,1] = .4132231405e-4*
+t284*t285-.2857142857e-4*t278/t288*t285*t281+.7798440312e-4*t302*
+var_time_dependent_outward_current_x1_gate__x1-.5200000000e-4*t296/t305*
+var_time_dependent_outward_current_x1_gate__x1*t299, jacobian[8,2] = 0, 
+jacobian[8,3] = 0, jacobian[8,4] = 0, jacobian[8,5] = 0, jacobian[8,6] = 0, 
+jacobian[8,7] = 0, jacobian[8,8] = -.5000000000e-3*t284-.1300000000e-2*t302
+memory used=3.5MB, alloc=3.1MB, time=0.09
