@@ -61,6 +61,10 @@ http://www.cellml.org/
       <unit units="mole" prefix="milli"/>
       <unit units="litre" exponent="-1"/>
    </units>
+   <units xmlns="http://www.cellml.org/cellml/1.0#" name="millivolt_millimoles">
+      <unit units="millivolt"/>
+      <unit units="millimolar"/>
+   </units>
    <units name="millimolar_per_millisecond">
       <unit units="millimolar"/>
       <unit units="second" prefix="milli" exponent="-1"/>
@@ -1820,6 +1824,9 @@ http://www.cellml.org/
       <variable name="f" units="dimensionless" private_interface="in"/>
       <variable name="f2" units="dimensionless" private_interface="in"/>
       <variable name="fCass" units="dimensionless" private_interface="in"/>
+      <variable name="V_low" units="millivolt" initial_value="14.999"/>
+      <variable name="V_high" units="millivolt" initial_value="15.001"/>
+      <variable name="temp" units="millivolt_millimoles"/>
       <math xmlns="http://www.w3.org/1998/Math/MathML">
          <apply>
             <eq/>
@@ -1828,39 +1835,73 @@ http://www.cellml.org/
                <divide/>
                <apply>
                   <times/>
+                  <ci>temp</ci>
+                  <ci>g_CaL</ci>
+                  <ci>d</ci>
+                  <ci>f</ci>
+                  <ci>f2</ci>
+                  <ci>fCass</ci>
+                  <cn cellml:units="dimensionless">4</cn>
+                  <apply>
+                     <power/>
+                     <ci>F</ci>
+                     <cn cellml:units="dimensionless">2</cn>
+                  </apply>
+               </apply>
+               <apply>
+                  <times/>
+                  <ci>R</ci>
+                  <ci>T</ci>
+               </apply>
+            </apply>
+         </apply>
+         <apply>
+            <eq/>
+            <ci>temp</ci>
+            <piecewise>
+               <piece>
                   <apply>
                      <divide/>
                      <apply>
                         <times/>
-                        <ci>g_CaL</ci>
-                        <ci>d</ci>
-                        <ci>f</ci>
-                        <ci>f2</ci>
-                        <ci>fCass</ci>
-                        <cn cellml:units="dimensionless">4</cn>
                         <apply>
                            <minus/>
                            <ci>V</ci>
                            <cn cellml:units="millivolt">15</cn>
                         </apply>
                         <apply>
-                           <power/>
-                           <ci>F</ci>
-                           <cn cellml:units="dimensionless">2</cn>
+                           <minus/>
+                           <apply>
+                              <times/>
+                              <cn cellml:units="dimensionless">0.25</cn>
+                              <ci>Ca_ss</ci>
+                              <apply>
+                                 <exp/>
+                                 <apply>
+                                    <divide/>
+                                    <apply>
+                                       <times/>
+                                       <cn cellml:units="dimensionless">2</cn>
+                                       <apply>
+                                          <minus/>
+                                          <ci>V</ci>
+                                          <cn cellml:units="millivolt">15</cn>
+                                       </apply>
+                                       <ci>F</ci>
+                                    </apply>
+                                    <apply>
+                                       <times/>
+                                       <ci>R</ci>
+                                       <ci>T</ci>
+                                    </apply>
+                                 </apply>
+                              </apply>
+                           </apply>
+                           <ci>Ca_o</ci>
                         </apply>
                      </apply>
                      <apply>
-                        <times/>
-                        <ci>R</ci>
-                        <ci>T</ci>
-                     </apply>
-                  </apply>
-                  <apply>
-                     <minus/>
-                     <apply>
-                        <times/>
-                        <cn cellml:units="dimensionless">0.25</cn>
-                        <ci>Ca_ss</ci>
+                        <minus/>
                         <apply>
                            <exp/>
                            <apply>
@@ -1882,36 +1923,165 @@ http://www.cellml.org/
                               </apply>
                            </apply>
                         </apply>
+                        <cn cellml:units="dimensionless">1</cn>
                      </apply>
-                     <ci>Ca_o</ci>
                   </apply>
-               </apply>
-               <apply>
-                  <minus/>
                   <apply>
-                     <exp/>
+                     <or/>
                      <apply>
-                        <divide/>
+                        <lt/>
+                        <ci>V</ci>
+                        <ci>V_low</ci>
+                     </apply>
+                     <apply>
+                        <gt/>
+                        <ci>V</ci>
+                        <ci>V_high</ci>
+                     </apply>
+                  </apply>
+               </piece>
+               <otherwise>
+                  <apply>
+                     <divide/>
+                     <apply>
+                        <plus/>
                         <apply>
-                           <times/>
-                           <cn cellml:units="dimensionless">2</cn>
+                           <divide/>
+                           <apply>
+                              <times/>
+                              <apply>
+                                 <minus/>
+                                 <ci>V_low</ci>
+                                 <cn cellml:units="millivolt">15</cn>
+                              </apply>
+                              <apply>
+                                 <minus/>
+                                 <apply>
+                                    <times/>
+                                    <cn cellml:units="dimensionless">0.25</cn>
+                                    <ci>Ca_ss</ci>
+                                    <apply>
+                                       <exp/>
+                                       <apply>
+                                          <divide/>
+                                          <apply>
+                                             <times/>
+                                             <cn cellml:units="dimensionless">2</cn>
+                                             <apply>
+                                                <minus/>
+                                                <ci>V_low</ci>
+                                                <cn cellml:units="millivolt">15</cn>
+                                             </apply>
+                                             <ci>F</ci>
+                                          </apply>
+                                          <apply>
+                                             <times/>
+                                             <ci>R</ci>
+                                             <ci>T</ci>
+                                          </apply>
+                                       </apply>
+                                    </apply>
+                                 </apply>
+                                 <ci>Ca_o</ci>
+                              </apply>
+                           </apply>
                            <apply>
                               <minus/>
-                              <ci>V</ci>
-                              <cn cellml:units="millivolt">15</cn>
+                              <apply>
+                                 <exp/>
+                                 <apply>
+                                    <divide/>
+                                    <apply>
+                                       <times/>
+                                       <cn cellml:units="dimensionless">2</cn>
+                                       <apply>
+                                          <minus/>
+                                          <ci>V_low</ci>
+                                          <cn cellml:units="millivolt">15</cn>
+                                       </apply>
+                                       <ci>F</ci>
+                                    </apply>
+                                    <apply>
+                                       <times/>
+                                       <ci>R</ci>
+                                       <ci>T</ci>
+                                    </apply>
+                                 </apply>
+                              </apply>
+                              <cn cellml:units="dimensionless">1</cn>
                            </apply>
-                           <ci>F</ci>
                         </apply>
                         <apply>
-                           <times/>
-                           <ci>R</ci>
-                           <ci>T</ci>
+                           <divide/>
+                           <apply>
+                              <times/>
+                              <apply>
+                                 <minus/>
+                                 <ci>V_high</ci>
+                                 <cn cellml:units="millivolt">15</cn>
+                              </apply>
+                              <apply>
+                                 <minus/>
+                                 <apply>
+                                    <times/>
+                                    <cn cellml:units="dimensionless">0.25</cn>
+                                    <ci>Ca_ss</ci>
+                                    <apply>
+                                       <exp/>
+                                       <apply>
+                                          <divide/>
+                                          <apply>
+                                             <times/>
+                                             <cn cellml:units="dimensionless">2</cn>
+                                             <apply>
+                                                <minus/>
+                                                <ci>V_high</ci>
+                                                <cn cellml:units="millivolt">15</cn>
+                                             </apply>
+                                             <ci>F</ci>
+                                          </apply>
+                                          <apply>
+                                             <times/>
+                                             <ci>R</ci>
+                                             <ci>T</ci>
+                                          </apply>
+                                       </apply>
+                                    </apply>
+                                 </apply>
+                                 <ci>Ca_o</ci>
+                              </apply>
+                           </apply>
+                           <apply>
+                              <minus/>
+                              <apply>
+                                 <exp/>
+                                 <apply>
+                                    <divide/>
+                                    <apply>
+                                       <times/>
+                                       <cn cellml:units="dimensionless">2</cn>
+                                       <apply>
+                                          <minus/>
+                                          <ci>V_high</ci>
+                                          <cn cellml:units="millivolt">15</cn>
+                                       </apply>
+                                       <ci>F</ci>
+                                    </apply>
+                                    <apply>
+                                       <times/>
+                                       <ci>R</ci>
+                                       <ci>T</ci>
+                                    </apply>
+                                 </apply>
+                              </apply>
+                              <cn cellml:units="dimensionless">1</cn>
+                           </apply>
                         </apply>
                      </apply>
+                     <cn cellml:units="dimensionless">2</cn>
                   </apply>
-                  <cn cellml:units="dimensionless">1</cn>
-               </apply>
-            </apply>
+               </otherwise>
+            </piecewise>
          </apply>
       </math>
    </component>
