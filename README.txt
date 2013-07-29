@@ -18,6 +18,18 @@ svn up
 
 (Note the "." at the end of the svn propset line - this is important!)
 
+[
+  NB You can do the same thing for a single file by doing e.g.
+  cd Chaste/projects/MyProject/src
+  svn propset svn:externals "noble_model_1962.cellml https://chaste.cs.ox.ac.uk/svn/chaste/projects/cellml/cellml/noble_model_1962.cellml" .
+  svn up
+
+  BUT - you only seem to be able to have one external per folder, 
+  and so you need separate folders (all added to svn) for separate 
+  cellml files. Although if you just want a handful of them this can 
+  still save time and be tidier than converting all of them.
+]
+
 Models which did not convert properly for some reason when they were last
 checked are in the "dont_convert" folder (which isn't checked out by the above command).
 They have not necessarily been tried with the latest code version.
