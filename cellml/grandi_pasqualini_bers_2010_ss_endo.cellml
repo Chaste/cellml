@@ -302,7 +302,13 @@ A novel computational model of the human ventricular action potential and Ca tra
          </rdf:RDF>
       </variable>
       <variable name="GNaB" units="mS_per_uF" public_interface="out"/>
-      <variable name="IbarNaK" units="uA_per_uF" public_interface="out"/>
+      <variable name="IbarNaK" units="uA_per_uF" initial_value="1.8" public_interface="out" cmeta:id="membrane_sodium_potassium_pump_current_permeability">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_sodium_potassium_pump_current_permeability">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_sodium_potassium_pump_current_permeability"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="KmNaip" units="mM" public_interface="out"/>
       <variable name="KmKo" units="mM" public_interface="out"/>
       <variable name="Q10NaK" units="dimensionless" public_interface="out"/>
@@ -790,7 +796,7 @@ A novel computational model of the human ventricular action potential and Ca tra
             <cn type="e-notation" cellml:units="mS_per_uF">0.597   <sep/>
             -3</cn>
          </apply>
-         <apply>
+         <!--<apply>
             <eq/>
             <ci>IbarNaK</ci>
             <apply>
@@ -798,7 +804,7 @@ A novel computational model of the human ventricular action potential and Ca tra
                <cn cellml:units="uA_per_uF">1</cn>
                <cn cellml:units="dimensionless">1.8</cn>
             </apply>
-         </apply>
+         </apply>-->
          <apply>
             <eq/>
             <ci>KmNaip</ci>

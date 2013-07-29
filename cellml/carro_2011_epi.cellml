@@ -1029,7 +1029,13 @@ http://www.cellml.org/
       <variable name="I_NaK_junc" units="picoA_per_picoF" public_interface="out"/>
       <variable name="I_NaK_sl" units="picoA_per_picoF" public_interface="out"/>
       <variable name="I_NaK" units="picoA_per_picoF" public_interface="out"/>
-      <variable name="Ibar_NaK" units="picoA_per_picoF" initial_value="0.99" public_interface="out"/>
+      <variable name="Ibar_NaK" units="picoA_per_picoF" initial_value="0.99" public_interface="out" cmeta:id="membrane_sodium_potassium_pump_current_permeability">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_sodium_potassium_pump_current_permeability">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_sodium_potassium_pump_current_permeability"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="K_o" units="millimolar" public_interface="in"/>
       <variable name="Na_j" units="millimolar" public_interface="in"/>
       <variable name="Na_sl" units="millimolar" public_interface="in"/>
@@ -1578,8 +1584,20 @@ http://www.cellml.org/
       <variable name="x_to_f" units="dimensionless" initial_value="3.584625e-4" public_interface="out"/>
       <variable name="y_to_f" units="dimensionless" initial_value="9.999976e-1" public_interface="out"/>
       <variable name="E_K" units="millivolt" public_interface="in"/>
-      <variable name="G_to_s" units="milliS_per_microF" initial_value="0.0156" public_interface="out"/>
-      <variable name="G_to_f" units="milliS_per_microF" initial_value="0.1144" public_interface="out"/>
+      <variable name="G_to_s" units="milliS_per_microF" initial_value="0.0156" public_interface="out" cmeta:id="membrane_slow_transient_outward_current_conductance">
+        <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_slow_transient_outward_current_conductance">
+                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_slow_transient_outward_current_conductance"/>
+            </rdf:Description>
+        </rdf:RDF>
+      </variable>
+      <variable name="G_to_f" units="milliS_per_microF" initial_value="0.1144" public_interface="out" cmeta:id="membrane_fast_transient_outward_current_conductance">
+        <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_fast_transient_outward_current_conductance">
+                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_transient_outward_current_conductance"/>
+            </rdf:Description>
+        </rdf:RDF>
+      </variable>
       <variable name="I_to_s" units="picoA_per_picoF" public_interface="out"/>
       <variable name="I_to_f" units="picoA_per_picoF" public_interface="out"/>
       <variable name="I_to" units="picoA_per_picoF" public_interface="out" cmeta:id="membrane_transient_outward_current">
@@ -2175,7 +2193,13 @@ http://www.cellml.org/
       <variable name="Ibar_K" units="picoA_per_picoF" public_interface="out"/>
       <variable name="Ibar_Na_j" units="picoA_per_picoF" public_interface="out"/>
       <variable name="Ibar_Na_sl" units="picoA_per_picoF" public_interface="out"/>
-      <variable name="p_Ca" units="litre_per_farad_millisecond" initial_value="1.9887e-4" public_interface="out"/>
+      <variable name="p_Ca" units="litre_per_farad_millisecond" initial_value="1.9887e-4" public_interface="out" cmeta:id="membrane_L_type_calcium_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_L_type_calcium_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_L_type_calcium_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="p_Na" units="litre_per_farad_millisecond" initial_value="3.0375e-9" public_interface="out"/>
       <variable name="p_K" units="litre_per_farad_millisecond" initial_value="5.4675e-8" public_interface="out"/>
       <variable name="I_Ca_junc" units="picoA_per_picoF" public_interface="out"/>
@@ -3023,7 +3047,13 @@ http://www.cellml.org/
       <variable name="s1_sl" units="millimolar4" public_interface="out"/>
       <variable name="s2_sl" units="millimolar4" public_interface="out"/>
       <variable name="s3_sl" units="millimolar4" public_interface="out"/>
-      <variable name="Ibar_NCX" units="picoA_per_picoF" initial_value="4.5" public_interface="out"/>
+      <variable name="Ibar_NCX" units="picoA_per_picoF" initial_value="4.5" public_interface="out" cmeta:id="membrane_sodium_calcium_exchanger_current_conductance">
+        <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_sodium_calcium_exchanger_current_conductance">
+                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_sodium_calcium_exchanger_current_conductance"/>
+            </rdf:Description>
+        </rdf:RDF>
+      </variable>
       <variable name="I_ncx_sl" units="picoA_per_picoF" public_interface="out"/>
       <variable name="I_ncx_junc" units="picoA_per_picoF" public_interface="out"/>
       <variable name="I_ncx" units="picoA_per_picoF" public_interface="out"/>
@@ -3568,7 +3598,13 @@ http://www.cellml.org/
       <variable name="Ry_Ri" units="dimensionless" initial_value="1.411382e-7" public_interface="out"/>
       <variable name="Ca_j" units="millimolar" public_interface="in"/>
       <variable name="Ca_i" units="millimolar" public_interface="in"/>
-      <variable name="V_max_SR_CaP" units="milliM_per_millis" initial_value="5.3114e-3" public_interface="out"/>
+      <variable name="V_max_SR_CaP" units="milliM_per_millis" initial_value="5.3114e-3" public_interface="out" cmeta:id="SR_uptake_current_max">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#SR_uptake_current_max">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#SR_uptake_current_max"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="hill_SR_CaP" units="dimensionless" initial_value="1.787" public_interface="out"/>
       <math xmlns="http://www.w3.org/1998/Math/MathML">
          <apply>

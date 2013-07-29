@@ -5978,7 +5978,13 @@ http://www.cellml.org/
       <variable name="Kxkur" units="millimolar" initial_value="292"/>
       <variable name="zk" units="dimensionless" public_interface="in"/>
       <variable name="zna" units="dimensionless" public_interface="in"/>
-      <variable name="Pnak_b" units="milliS_per_microF" initial_value="30"/>
+      <variable name="Pnak_b" units="milliS_per_microF" initial_value="30" cmeta:id="membrane_sodium_potassium_pump_current_permeability">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_sodium_potassium_pump_current_permeability">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_sodium_potassium_pump_current_permeability"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="Pnak" units="milliS_per_microF"/>
       <variable name="celltype" units="dimensionless" public_interface="in"/>
       <variable name="R" units="joule_per_kilomole_kelvin" public_interface="in"/>

@@ -4066,14 +4066,20 @@ http://www.cellml.org/
       <variable name="GNab" units="mS_per_uF" initial_value="0.001e0"/>
       <variable name="KvScale" units="dimensionless" initial_value="0.872"/>
       <variable name="Kv43Frac" units="dimensionless" initial_value="0.889"/>
-      <variable name="GKv43" units="mS_per_uF" cmeta:id="membrane_transient_outward_current_conductance">
+      <variable name="GKv43" units="mS_per_uF" initial_value="0.0775208" cmeta:id="membrane_fast_transient_outward_current_conductance">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-            <rdf:Description rdf:about="#membrane_transient_outward_current_conductance">
-               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_transient_outward_current_conductance"/>
+            <rdf:Description rdf:about="#membrane_fast_transient_outward_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_transient_outward_current_conductance"/>
             </rdf:Description>
          </rdf:RDF>
       </variable>	
-      <variable name="PKv14" units="litre_per_farad_second"/>
+      <variable name="PKv14" units="litre_per_farad_second" initial_value="4.161e-8" cmeta:id="membrane_slow_transient_outward_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_slow_transient_outward_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_slow_transient_outward_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>	
       <variable name="OKv14" units="dimensionless" public_interface="in"/>
       <variable name="na6" units="dimensionless" public_interface="in"/>
       <variable name="na7" units="dimensionless" public_interface="in"/>
@@ -4138,7 +4144,7 @@ http://www.cellml.org/
          </rdf:RDF>
       </variable>
       <math xmlns="http://www.w3.org/1998/Math/MathML">
-         <apply>
+         <!--<apply>
             <eq/>
             <ci>PKv14</ci>
             <apply>
@@ -4152,8 +4158,8 @@ http://www.cellml.org/
                <cn type="e-notation" cellml:units="litre_per_farad_second">4.2986   <sep/>
                -7</cn>
             </apply>
-         </apply>
-         <apply>
+         </apply>-->
+         <!--<apply>
             <eq/>
             <ci>GKv43</ci>
             <apply>
@@ -4162,7 +4168,7 @@ http://www.cellml.org/
                <ci>KvScale</ci>
                <cn cellml:units="mS_per_uF">0.1</cn>
             </apply>
-         </apply>
+         </apply>-->
          <apply>
             <eq/>
             <ci>INa</ci>
@@ -4437,7 +4443,13 @@ http://www.cellml.org/
       <variable name="KmCa" units="mM" initial_value="1.38"/>
       <variable name="ksat" units="dimensionless" initial_value="0.2"/>
       <variable name="eta" units="dimensionless" initial_value="0.35"/>
-      <variable name="INaKmax" units="uA_per_uF" initial_value="2.387"/>
+      <variable name="INaKmax" units="uA_per_uF" initial_value="2.387" cmeta:id="membrane_sodium_potassium_pump_current_permeability">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_sodium_potassium_pump_current_permeability">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_sodium_potassium_pump_current_permeability"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="KmNai" units="mM" initial_value="20"/>
       <variable name="KmKo" units="mM" initial_value="1.5"/>
       <variable name="IpCamax" units="uA_per_uF" initial_value="0.05"/>
