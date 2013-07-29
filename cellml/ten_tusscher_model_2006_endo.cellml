@@ -2842,7 +2842,13 @@ http://www.cellml.org/
    </component>
    <component name="sodium_potassium_pump_current">
       <variable name="i_NaK" units="picoA_per_picoF" public_interface="out"/>
-      <variable name="P_NaK" units="picoA_per_picoF" initial_value="2.724"/>
+      <variable name="P_NaK" units="picoA_per_picoF" initial_value="2.724" cmeta:id="membrane_sodium_potassium_pump_current_permeability">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_sodium_potassium_pump_current_permeability">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_sodium_potassium_pump_current_permeability"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="K_mk" units="millimolar" initial_value="1"/>
       <variable name="K_mNa" units="millimolar" initial_value="40"/>
       <variable name="K_o" units="millimolar" public_interface="in"/>
