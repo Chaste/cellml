@@ -4064,22 +4064,23 @@ http://www.cellml.org/
          </rdf:RDF>
       </variable>
       <variable name="GNab" units="mS_per_uF" initial_value="0.001e0"/>
-      <variable name="KvScale" units="dimensionless" initial_value="0.872"/>
-      <variable name="Kv43Frac" units="dimensionless" initial_value="0.889"/>
-      <variable name="GKv43" units="mS_per_uF" initial_value="0.0775208" cmeta:id="membrane_fast_transient_outward_current_conductance">
+      <variable name="GtoFfactor" units="mS_per_uF" initial_value="0.0872" cmeta:id="membrane_fast_transient_outward_current_conductance">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#membrane_fast_transient_outward_current_conductance">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_transient_outward_current_conductance"/>
             </rdf:Description>
          </rdf:RDF>
-      </variable>	
-      <variable name="PKv14" units="litre_per_farad_second" initial_value="4.161e-8" cmeta:id="membrane_slow_transient_outward_current_conductance">
+      </variable>
+      <variable name="Kv43Frac" units="dimensionless" initial_value="0.889"/>
+      <variable name="GKv43" units="mS_per_uF"/>	
+      <variable name="PtoSfactor" units="litre_per_farad_second" initial_value="3.7484e-7" cmeta:id="membrane_slow_transient_outward_current_conductance">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#membrane_slow_transient_outward_current_conductance">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_slow_transient_outward_current_conductance"/>
             </rdf:Description>
          </rdf:RDF>
-      </variable>	
+      </variable>
+      <variable name="PKv14" units="litre_per_farad_second"/>	
       <variable name="OKv14" units="dimensionless" public_interface="in"/>
       <variable name="na6" units="dimensionless" public_interface="in"/>
       <variable name="na7" units="dimensionless" public_interface="in"/>
@@ -4144,7 +4145,7 @@ http://www.cellml.org/
          </rdf:RDF>
       </variable>
       <math xmlns="http://www.w3.org/1998/Math/MathML">
-         <!--<apply>
+         <apply>
             <eq/>
             <ci>PKv14</ci>
             <apply>
@@ -4154,21 +4155,18 @@ http://www.cellml.org/
                   <cn cellml:units="dimensionless">1</cn>
                   <ci>Kv43Frac</ci>
                </apply>
-               <ci>KvScale</ci>
-               <cn type="e-notation" cellml:units="litre_per_farad_second">4.2986   <sep/>
-               -7</cn>
+               <ci>PtoSfactor</ci>
             </apply>
-         </apply>-->
-         <!--<apply>
+         </apply>
+         <apply>
             <eq/>
             <ci>GKv43</ci>
             <apply>
                <times/>
                <ci>Kv43Frac</ci>
-               <ci>KvScale</ci>
-               <cn cellml:units="mS_per_uF">0.1</cn>
+               <ci>GtoFfactor</ci>
             </apply>
-         </apply>-->
+         </apply>
          <apply>
             <eq/>
             <ci>INa</ci>

@@ -796,15 +796,6 @@ A novel computational model of the human ventricular action potential and Ca tra
             <cn type="e-notation" cellml:units="mS_per_uF">0.597   <sep/>
             -3</cn>
          </apply>
-         <!--<apply>
-            <eq/>
-            <ci>IbarNaK</ci>
-            <apply>
-               <times/>
-               <cn cellml:units="uA_per_uF">1</cn>
-               <cn cellml:units="dimensionless">1.8</cn>
-            </apply>
-         </apply>-->
          <apply>
             <eq/>
             <ci>KmNaip</ci>
