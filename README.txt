@@ -19,16 +19,35 @@ svn up
 (Note the "." at the end of the svn propset line - this is important!)
 
 [
-  NB You can do the same thing for a single file by doing e.g.
+  NB You can do the same thing for individual files by doing e.g.
   cd Chaste/projects/MyProject/src
-  svn propset svn:externals "noble_model_1962.cellml https://chaste.cs.ox.ac.uk/svn/chaste/projects/cellml/cellml/noble_model_1962.cellml" .
+  svn propedit svn:externals .
+  
+  This will open a text editor for you to edit the svn property in a temporary file,
+  and specify the externals to pull into this folder. If you put in the lines:
+  
+  noble_model_1962.cellml https://chaste.cs.ox.ac.uk/svn/chaste/projects/cellml/cellml/noble_model_1962.cellml
+  noble_model_1962.out https://chaste.cs.ox.ac.uk/svn/chaste/projects/cellml/cellml/noble_model_1962.out
+  
+  Then save the file and exit the editor, now if you do
+  
   svn up
-
-  BUT - you only seem to be able to have one external per folder, 
-  and so you need separate folders (all added to svn) for separate 
-  cellml files. Although if you just want a handful of them this can 
-  still save time and be tidier than converting all of them.
+  
+  it should pull in just the files you specified. You can put as many files as you want.
 ]
+
+IMPORTANT NOTE: If you pull in files as above, then whatever version of your repository 
+you load, it will always pull in the current revision of the cellml files 
+in the cellml project. We tend to just add metadata to existing models, 
+and perhaps add tweaks to prevent hitting divide by zeros, we try to leave the maths unchanged.
+So it may be a good idea to keep it up to date, and this is the suggested route.
+BUT, when releasing part of your project for a paper or suchlike, it would make 
+sense to pull in a specific revision of the cellml project, for reproducibility purposes. 
+Luckily you can do this by setting an svn property like this instead:
+"cellml -r19716 https://chaste.cs.ox.ac.uk/svn/chaste/projects/cellml/cellml"
+you can alter the existing externals line accordingly by using 
+svn propedit  svn:externals .
+as above.
 
 Models which did not convert properly for some reason when they were last
 checked are in the "dont_convert" folder (which isn't checked out by the above command).
@@ -39,6 +58,7 @@ repository as of r72 of that repository.  They are mostly the excitable
 models that are packaged with COR, with additional models from the CellML
 electrophysiology models repository as of around January 2011.
 
+USEFUL NOTE:
 If you want to add options to the ConvertCellModels.py script (for example to
 provide access to all of the metadata tagged variables in all the models) 
 then you can now (as of r15865) include lines like this in your project
@@ -50,5 +70,12 @@ env['PYCML_EXTRA_ARGS'] = ['--expose-annotated-variables']
 
 This must come before the DoProjectSConscript() call. 
 
-If for any reason you need to (re)generate a .out file for analytic jacobians,
-a couple of python scripts are in this folder that may help with this process.
+IMPORTANT NOTE:
+If for any reason the mathematics of the CellML file changes, you will need to
+regenerate the .out file if one is associated with the model, to update
+the analytic jacobian to match the new mathematics.
+A couple of python scripts are in this folder that may help with this process.
+
+See https://chaste.cs.ox.ac.uk/trac/wiki/ChasteGuides/CodeGenerationFromCellML 
+for more details of working with CellML.
+
