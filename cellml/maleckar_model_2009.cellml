@@ -1290,7 +1290,13 @@ http://www.CellML.org/
    </component>
    <component name="ultra_rapid_K_current">
       <variable name="i_Kur" units="picoA" public_interface="out"/>
-      <variable name="g_kur" units="nanoS" initial_value="2.25"/>
+      <variable name="g_kur" units="nanoS" initial_value="2.25" cmeta:id="membrane_ultrarapid_delayed_rectifier_potassium_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_ultrarapid_delayed_rectifier_potassium_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_ultrarapid_delayed_rectifier_potassium_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>    
       <variable name="E_K" units="millivolt" public_interface="in"/>
       <variable name="time" units="second" public_interface="in" private_interface="out"/>
       <variable name="V" units="millivolt" public_interface="in" private_interface="out"/>
@@ -1912,7 +1918,13 @@ http://www.CellML.org/
    <component name="sodium_potassium_pump">
       <variable name="i_NaK" units="picoA" public_interface="out"/>
       <variable name="K_NaK_K" units="millimolar" initial_value="1"/>
-      <variable name="i_NaK_max" units="picoA" initial_value="68.55"/>
+      <variable name="i_NaK_max" units="picoA" initial_value="68.55" cmeta:id="membrane_sodium_potassium_pump_current_permeability">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_sodium_potassium_pump_current_permeability">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_sodium_potassium_pump_current_permeability"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable> 
       <variable name="pow_K_NaK_Na_15" units="millimolar15" initial_value="36.4829"/>
       <variable name="pow_Na_i_15" units="millimolar15"/>
       <variable name="K_c" units="millimolar" public_interface="in"/>
