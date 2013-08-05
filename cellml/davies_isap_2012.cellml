@@ -2860,10 +2860,10 @@ http://www.cellml.org/
    </component>
    <component name="IpCa">
       <variable name="Ca_i" units="mM" public_interface="in"/>
-      <variable name="ibarpca" units="uA_per_uF" initial_value="0.0575" cmeta:id="calcium_pump_current_conductance">
+      <variable name="ibarpca" units="uA_per_uF" initial_value="0.0575" cmeta:id="membrane_calcium_pump_current_conductance">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-            <rdf:Description rdf:about="#calcium_pump_current_conductance">
-               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#calcium_pump_current_conductance"/>
+            <rdf:Description rdf:about="#membrane_calcium_pump_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_calcium_pump_current_conductance"/>
             </rdf:Description>
          </rdf:RDF>
       </variable>      
@@ -2893,10 +2893,10 @@ http://www.cellml.org/
       <variable name="V" units="mV" public_interface="in"/>
       <variable name="F" units="C_per_mole" public_interface="in"/>
       <variable name="FonRT" units="per_mV" public_interface="in"/>
-      <variable name="GCab" units="L_per_F_ms" initial_value="0.0000007980336" cmeta:id="calcium_background_current_conductance">
+      <variable name="GCab" units="L_per_F_ms" initial_value="0.0000007980336" cmeta:id="membrane_background_calcium_current_conductance">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-            <rdf:Description rdf:about="#calcium_background_current_conductance">
-               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#calcium_background_current_conductance"/>
+            <rdf:Description rdf:about="#membrane_background_calcium_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_background_calcium_current_conductance"/>
             </rdf:Description>
          </rdf:RDF>
       </variable>      

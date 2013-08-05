@@ -1040,7 +1040,13 @@ http://www.cellml.org/
       <variable name="F_sl" units="dimensionless" public_interface="in"/>
       <variable name="I_NaK_junc" units="picoA_per_picoF" public_interface="out"/>
       <variable name="I_NaK_sl" units="picoA_per_picoF" public_interface="out"/>
-      <variable name="I_NaK" units="picoA_per_picoF" public_interface="out"/>
+      <variable name="I_NaK" units="picoA_per_picoF" public_interface="out" cmeta:id="membrane_sodium_potassium_pump_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_sodium_potassium_pump_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_sodium_potassium_pump_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="Ibar_NaK" units="picoA_per_picoF" initial_value="0.99" public_interface="out" cmeta:id="membrane_sodium_potassium_pump_current_permeability">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#membrane_sodium_potassium_pump_current_permeability">
@@ -1612,7 +1618,13 @@ http://www.cellml.org/
       </variable>
       <variable name="I_to_s" units="picoA_per_picoF" public_interface="out"/>
       <variable name="I_to_f" units="picoA_per_picoF" public_interface="out"/>
-      <variable name="I_to" units="picoA_per_picoF" public_interface="out"/>
+      <variable name="I_to" units="picoA_per_picoF" public_interface="out" cmeta:id="membrane_transient_outward_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_transient_outward_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_transient_outward_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>   
       <math xmlns="http://www.w3.org/1998/Math/MathML">
          <apply>
             <eq/>

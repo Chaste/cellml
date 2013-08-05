@@ -2708,7 +2708,13 @@ http://www.cellml.org/
       </math>
    </component>
    <component xmlns="http://www.cellml.org/cellml/1.0#" name="i_f">
-      <variable name="i_f" units="A_per_F" public_interface="out"/>
+      <variable name="i_f" units="A_per_F" public_interface="out" cmeta:id="membrane_hyperpolarisation_activated_funny_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_hyperpolarisation_activated_funny_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_hyperpolarisation_activated_funny_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="g_f" units="S_per_F" initial_value="30.10312"/>
       <variable name="time" units="second" public_interface="in" private_interface="out"/>
       <variable name="E_f" units="volt" initial_value="-0.017"/>
@@ -2865,7 +2871,13 @@ http://www.cellml.org/
       </math>
    </component>
    <component xmlns="http://www.cellml.org/cellml/1.0#" name="i_NaK">
-      <variable name="i_NaK" units="A_per_F" public_interface="out"/>
+      <variable name="i_NaK" units="A_per_F" public_interface="out" cmeta:id="membrane_sodium_potassium_pump_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_sodium_potassium_pump_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_sodium_potassium_pump_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="E_Na" units="volt" public_interface="in"/>
       <variable name="time" units="second" public_interface="in"/>
       <variable name="Vm" units="volt" public_interface="in"/>

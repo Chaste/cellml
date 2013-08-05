@@ -398,7 +398,13 @@ http://www.cellml.org/
       <variable name="E_Na_junc" units="millivolt" public_interface="in"/>
       <variable name="F_junc" units="dimensionless" public_interface="in"/>
       <variable name="F_sl" units="dimensionless" public_interface="in"/>
-      <variable name="G_Na" units="milliS_per_microF" initial_value="18.86" public_interface="out"/>
+      <variable name="G_Na" units="milliS_per_microF" initial_value="18.86" public_interface="out" cmeta:id="membrane_fast_sodium_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_fast_sodium_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="V" units="millivolt" public_interface="in"/>
       <variable name="m" units="dimensionless" initial_value="2.163678e-3" public_interface="out"/>
       <variable name="m_ss" units="dimensionless" public_interface="out"/>
@@ -406,7 +412,13 @@ http://www.cellml.org/
       <variable name="a_h" units="dimensionless" public_interface="out"/>
       <variable name="b_h" units="dimensionless" public_interface="out"/>
       <variable name="tau_h" units="millisecond" public_interface="out"/>
-      <variable name="h" units="dimensionless" initial_value="7.13497e-1" public_interface="out"/>
+      <variable name="h" units="dimensionless" initial_value="7.126555e-1" public_interface="out" cmeta:id="membrane_fast_sodium_current_h_gate">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_fast_sodium_current_h_gate">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current_h_gate"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="h_ss" units="dimensionless" public_interface="out"/>
       <variable name="a_j" units="dimensionless" public_interface="out"/>
       <variable name="b_j" units="dimensionless" public_interface="out"/>
@@ -1028,7 +1040,13 @@ http://www.cellml.org/
       <variable name="F_sl" units="dimensionless" public_interface="in"/>
       <variable name="I_NaK_junc" units="picoA_per_picoF" public_interface="out"/>
       <variable name="I_NaK_sl" units="picoA_per_picoF" public_interface="out"/>
-      <variable name="I_NaK" units="picoA_per_picoF" public_interface="out"/>
+      <variable name="I_NaK" units="picoA_per_picoF" public_interface="out" cmeta:id="membrane_sodium_potassium_pump_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_sodium_potassium_pump_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_sodium_potassium_pump_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="Ibar_NaK" units="picoA_per_picoF" initial_value="0.99" public_interface="out" cmeta:id="membrane_sodium_potassium_pump_current_permeability">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#membrane_sodium_potassium_pump_current_permeability">
