@@ -1213,7 +1213,13 @@ http://www.cellml.org/
             </rdf:Description>
          </rdf:RDF>
       </variable>
-      <variable name="g_CaL" units="metre_cube_per_F_per_s" initial_value="8.635702e-5"/>
+      <variable name="g_CaL" units="metre_cube_per_F_per_s" initial_value="8.635702e-5" cmeta:id="membrane_L_type_calcium_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_L_type_calcium_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_L_type_calcium_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="R" units="joule_per_mole_kelvin" public_interface="in"/>
       <variable name="T" units="kelvin" public_interface="in"/>
       <variable name="F" units="coulomb_per_mole" public_interface="in"/>
@@ -3760,7 +3766,13 @@ http://www.cellml.org/
       <variable name="F" units="coulomb_per_mole" initial_value="96485.3415" public_interface="out"/>
    </component>
    <component xmlns="http://www.cellml.org/cellml/1.0#" name="sodium_dynamics">
-      <variable name="Nai" units="millimolar" initial_value="10.9248496211574" public_interface="out"/>
+      <variable name="Nai" units="millimolar" initial_value="10.9248496211574" public_interface="out" cmeta:id="cytosolic_sodium_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#cytosolic_sodium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_sodium_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="Cm" units="farad" public_interface="in"/>
       <variable name="Vc" units="micrometre_cube" public_interface="in"/>
       <variable name="time" units="second" public_interface="in"/>
@@ -3831,7 +3843,13 @@ http://www.cellml.org/
             </rdf:Description>
          </rdf:RDF>
       </variable>
-      <variable name="Ca_SR" units="millimolar" initial_value="-0.2734234751931"/>
+      <variable name="Ca_SR" units="millimolar" initial_value="-0.2734234751931" cmeta:id="JSR_calcium_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#JSR_calcium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#JSR_calcium_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="Vc" units="micrometre_cube" public_interface="in"/>
       <variable name="V_SR" units="micrometre_cube" public_interface="in"/>
       <variable name="time" units="second" public_interface="in"/>
