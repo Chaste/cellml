@@ -454,11 +454,11 @@ Mathematical modeling and spectral simulation of genetic diseases in the human h
    </component>
    <component name="fast_inward_current">
       <variable name="i_fi" units="uA_per_cm2" public_interface="out"/>
-      <variable name="tau_fi" units="cm2_per_uA" initial_value="0.104"/>
+      <variable name="tau_fi" units="cm2_per_uA" initial_value="0.11"/>
       <variable name="m" units="dimensionless" public_interface="in" private_interface="out"/>
       <variable name="q" units="dimensionless" public_interface="in" private_interface="out"/>
       <variable name="u_p" units="dimensionless" public_interface="in"/>
-      <variable name="u_u" units="dimensionless" initial_value="1.56"/>
+      <variable name="u_u" units="dimensionless" initial_value="1.55"/>
       <variable name="u_m" units="dimensionless" public_interface="in"/>
       <variable name="time" units="ms" public_interface="in" private_interface="out"/>
       <variable name="u" units="dimensionless" public_interface="in" private_interface="out"/>
@@ -497,8 +497,8 @@ Mathematical modeling and spectral simulation of genetic diseases in the human h
       <variable name="v" units="dimensionless" initial_value="1" public_interface="out"/>
       <variable name="v_inf" units="dimensionless"/>
       <variable name="tau_v_minus" units="ms"/>
-      <variable name="tau_v1_minus" units="ms" initial_value="75"/>
-      <variable name="tau_v2_minus" units="ms" initial_value="10"/>
+      <variable name="tau_v1_minus" units="ms" initial_value="60"/>
+      <variable name="tau_v2_minus" units="ms" initial_value="1150"/>
       <variable name="tau_v_plus" units="ms" initial_value="1.4506"/>
       <variable name="q" units="dimensionless" public_interface="in"/>
       <variable name="m" units="dimensionless" public_interface="in"/>
@@ -588,12 +588,12 @@ Mathematical modeling and spectral simulation of genetic diseases in the human h
    <component name="slow_outward_current">
       <variable name="i_so" units="uA_per_cm2" public_interface="out"/>
       <variable name="tau_o" units="cm2_per_uA"/>
-      <variable name="tau_o1" units="cm2_per_uA" initial_value="470"/>
+      <variable name="tau_o1" units="cm2_per_uA" initial_value="400"/>
       <variable name="tau_o2" units="cm2_per_uA" initial_value="6"/>
       <variable name="tau_so" units="cm2_per_uA"/>
-      <variable name="tau_so1" units="cm2_per_uA" initial_value="40"/>
-      <variable name="tau_so2" units="cm2_per_uA" initial_value="1.2"/>
-      <variable name="k_so" units="dimensionless" initial_value="2"/>
+      <variable name="tau_so1" units="cm2_per_uA" initial_value="30.0181"/>
+      <variable name="tau_so2" units="cm2_per_uA" initial_value="0.9957"/>
+      <variable name="k_so" units="dimensionless" initial_value="2.0458"/>
       <variable name="u_so" units="dimensionless" initial_value="0.65"/>
       <variable name="r" units="dimensionless" public_interface="in"/>
       <variable name="p" units="dimensionless" public_interface="in"/>
@@ -686,7 +686,7 @@ Mathematical modeling and spectral simulation of genetic diseases in the human h
    </component>
    <component name="slow_inward_current">
       <variable name="i_si" units="uA_per_cm2" public_interface="out"/>
-      <variable name="tau_si" units="cm2_per_uA" initial_value="2.9013"/>
+      <variable name="tau_si" units="cm2_per_uA" initial_value="1.8875"/>
       <variable name="p" units="dimensionless" public_interface="in" private_interface="out"/>
       <variable name="r" units="dimensionless" public_interface="in" private_interface="out"/>
       <variable name="time" units="ms" public_interface="in" private_interface="out"/>
@@ -716,14 +716,14 @@ Mathematical modeling and spectral simulation of genetic diseases in the human h
    <component name="slow_inward_current_w_gate">
       <variable name="w" units="dimensionless" initial_value="1" public_interface="out"/>
       <variable name="w_inf" units="dimensionless"/>
-      <variable name="tau_winf" units="ms" initial_value="0.0273"/>
-      <variable name="wstar_inf" units="dimensionless" initial_value="0.78"/>
+      <variable name="tau_winf" units="ms" initial_value="0.07"/>
+      <variable name="wstar_inf" units="dimensionless" initial_value="0.94"/>
       <variable name="tau_w_minus" units="ms"/>
-      <variable name="tau_w1_minus" units="ms" initial_value="6"/>
-      <variable name="tau_w2_minus" units="ms" initial_value="140"/>
-      <variable name="k_w_minus" units="dimensionless" initial_value="200"/>
-      <variable name="u_w_minus" units="dimensionless" initial_value="0.016"/>
-      <variable name="tau_w_plus" units="ms" initial_value="280"/>
+      <variable name="tau_w1_minus" units="ms" initial_value="60"/>
+      <variable name="tau_w2_minus" units="ms" initial_value="15"/>
+      <variable name="k_w_minus" units="dimensionless" initial_value="65"/>
+      <variable name="u_w_minus" units="dimensionless" initial_value="0.03"/>
+      <variable name="tau_w_plus" units="ms" initial_value="200"/>
       <variable name="r" units="dimensionless" public_interface="in"/>
       <variable name="u" units="dimensionless" public_interface="in"/>
       <variable name="time" units="ms" public_interface="in"/>
@@ -842,7 +842,7 @@ Mathematical modeling and spectral simulation of genetic diseases in the human h
       <variable name="s" units="dimensionless" initial_value="0" public_interface="out"/>
       <variable name="tau_s" units="ms"/>
       <variable name="tau_s1" units="ms" initial_value="2.7342"/>
-      <variable name="tau_s2" units="ms" initial_value="2"/>
+      <variable name="tau_s2" units="ms" initial_value="16"/>
       <variable name="k_s" units="dimensionless" initial_value="2.0994"/>
       <variable name="u_s" units="dimensionless" initial_value="0.9087"/>
       <variable name="p" units="dimensionless" public_interface="in"/>
