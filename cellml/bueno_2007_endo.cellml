@@ -191,22 +191,70 @@ Mathematical modeling and spectral simulation of genetic diseases in the human h
       <unit units="metre" prefix="milli" exponent="-3"/>
    </units>
    <component name="environment">
-      <variable name="time" units="ms" public_interface="out"/>
+      <variable name="time" units="ms" public_interface="out" cmeta:id="time">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#time">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#time"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
    </component>
    <component name="membrane">
       <variable name="u" units="dimensionless" public_interface="out"/>
-      <variable name="V" units="mV" initial_value="0"/>
+      <variable name="V" units="mV" initial_value="0" cmeta:id="membrane_voltage">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_voltage">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_voltage"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="time" units="ms" public_interface="in"/>
-      <variable name="C" units="uF_per_cm2" initial_value="1"/>
+      <variable name="C" units="uF_per_cm2" initial_value="1" cmeta:id="membrane_capacitance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_capacitance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_capacitance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="i_fi" units="uA_per_cm2" public_interface="in"/>
       <variable name="i_so" units="uA_per_cm2" public_interface="in"/>
       <variable name="i_si" units="uA_per_cm2" public_interface="in"/>
-      <variable name="i_stim" units="uA_per_cm2"/>
-      <variable name="IstimStart" units="ms" initial_value="10"/>
+      <variable name="i_stim" units="uA_per_cm2" cmeta:id="membrane_stimulus_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_stimulus_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="IstimStart" units="ms" initial_value="10" cmeta:id="membrane_stimulus_current_offset">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_stimulus_current_offset">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current_offset"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="IstimEnd" units="ms" initial_value="50000"/>
-      <variable name="IstimAmplitude" units="uA_per_cm2" initial_value="-0.5"/>
-      <variable name="IstimPeriod" units="ms" initial_value="1000"/>
-      <variable name="IstimPulseDuration" units="ms" initial_value="1"/>
+      <variable name="IstimAmplitude" units="uA_per_cm2" initial_value="-0.5" cmeta:id="membrane_stimulus_current_amplitude">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_stimulus_current_amplitude">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current_amplitude"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="IstimPeriod" units="ms" initial_value="1000" cmeta:id="membrane_stimulus_current_period">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_stimulus_current_period">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current_period"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="IstimPulseDuration" units="ms" initial_value="1" cmeta:id="membrane_stimulus_current_duration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_stimulus_current_duration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current_duration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="alpha" units="per_mV" initial_value="1"/>
       <math xmlns="http://www.w3.org/1998/Math/MathML">
          <apply>
