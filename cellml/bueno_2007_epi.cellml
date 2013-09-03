@@ -404,7 +404,7 @@ Mathematical modeling and spectral simulation of genetic diseases in the human h
    </component>
    <component name="q">
       <variable name="q" units="dimensionless" public_interface="out"/>
-      <variable name="u_q" units="dimensionless" initial_value="0.024" public_interface="out"/>
+      <variable name="u_q" units="dimensionless" initial_value="0.006" public_interface="out"/>
       <variable name="u" units="dimensionless" public_interface="in"/>
       <variable name="time" units="ms" public_interface="in"/>
       <math xmlns="http://www.w3.org/1998/Math/MathML">
