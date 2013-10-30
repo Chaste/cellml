@@ -59,12 +59,6 @@ Synergism of coupled subsarcolemmal Ca2+ clocks and sarcolemmal voltage clocks c
       </rdf:Description>
     </rdf:RDF>   
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/0P/PP-rdf-syntax-ns#">
-		<rdf:Description rdf:about="#Vm">
-			<dc:title>Vm</dc:title>
-			<dcterms:alternative>membrane potential</dcterms:alternative>
-		</rdf:Description>
-	</rdf:RDF>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/0P/PP-rdf-syntax-ns#">
 		<rdf:Description rdf:about="#electric_potentials">
 			<dc:title>electric_potentials</dc:title>
 			<dcterms:alternative>electric potentials</dcterms:alternative>
