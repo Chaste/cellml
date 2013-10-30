@@ -137,16 +137,16 @@ http://www.cellml.org/
       <variable name="i_CaL" units="nanoA" public_interface="in"/>
       <variable name="i_CaT" units="nanoA" public_interface="in"/>
       <variable name="i_KACh" units="nanoA" public_interface="in"/>
-      <variable name="V" units="millivolt" public_interface="out" cmeta:id="membrane_voltage">
+      <variable name="V" units="millivolt" public_interface="out"/>
+      <variable name="clamp_mode" units="dimensionless" initial_value="0"/>
+      <variable name="V_clamp" units="millivolt" private_interface="in"/>
+      <variable name="V_ode" units="millivolt" initial_value="-52" cmeta:id="membrane_voltage">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#membrane_voltage">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_voltage"/>
             </rdf:Description>
          </rdf:RDF>
       </variable>
-      <variable name="clamp_mode" units="dimensionless" initial_value="0"/>
-      <variable name="V_clamp" units="millivolt" private_interface="in"/>
-      <variable name="V_ode" units="millivolt" initial_value="-52"/>
       <variable name="i_tot" units="nanoA"/>
       <math xmlns="http://www.w3.org/1998/Math/MathML">
          <apply>
