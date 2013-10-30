@@ -9,7 +9,10 @@ http://cor.physiol.ox.ac.uk/ - cor@physiol.ox.ac.uk
 CellML 1.0 was used to generate this model
 http://www.cellml.org/
 -->
-<model name="severi_fantini_charawi_difrancesco_2012" cmeta:id="severi_fantini_charawi_difrancesco_2012" xmlns="http://www.cellml.org/cellml/1.0#" xmlns:cellml="http://www.cellml.org/cellml/1.0#" xmlns:cmeta="http://www.cellml.org/metadata/1.0#">
+<?xml-model href="../../../Chaste/python/pycml/cellml1.0.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<model xmlns="http://www.cellml.org/cellml/1.0#" xmlns:cmeta="http://www.cellml.org/metadata/1.0#"
+ xmlns:cellml="http://www.cellml.org/cellml/1.0#" name="severi_fantini_charawi_difrancesco_2012"
+ cmeta:id="severi_fantini_charawi_difrancesco_2012">
    <units name="per_second">
       <unit units="second" exponent="-1"/>
    </units>
@@ -119,7 +122,7 @@ http://www.cellml.org/
       <variable name="R" units="joule_per_kilomole_kelvin" initial_value="8314.472" public_interface="out"/>
       <variable name="T" units="kelvin" initial_value="310" public_interface="out"/>
       <variable name="F" units="coulomb_per_mole" initial_value="96485.3415" public_interface="out"/>
-      <variable name="C" units="microF" initial_value="3.2e-5" cmeta:id="membrane_capacitance"/>
+      <variable name="C" units="microF" initial_value="3.2e-5" cmeta:id="membrane_capacitance" public_interface="out"/>
       <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
          <rdf:Description rdf:about="#membrane_capacitance">
             <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_capacitance"/>
@@ -137,10 +140,7 @@ http://www.cellml.org/
       <variable name="i_CaL" units="nanoA" public_interface="in"/>
       <variable name="i_CaT" units="nanoA" public_interface="in"/>
       <variable name="i_KACh" units="nanoA" public_interface="in"/>
-      <variable name="V" units="millivolt" public_interface="out"/>
-      <variable name="clamp_mode" units="dimensionless" initial_value="0"/>
-      <variable name="V_clamp" units="millivolt" private_interface="in"/>
-      <variable name="V_ode" units="millivolt" initial_value="-52" cmeta:id="membrane_voltage">
+      <variable name="V" units="millivolt" initial_value="-52" public_interface="out" cmeta:id="membrane_voltage">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#membrane_voltage">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_voltage"/>
@@ -173,7 +173,7 @@ http://www.cellml.org/
                <bvar>
                   <ci>time</ci>
                </bvar>
-               <ci>V_ode</ci>
+               <ci>V</ci>
             </apply>
             <apply>
                <divide/>
@@ -196,62 +196,6 @@ http://www.cellml.org/
                </apply>
                <ci>F</ci>
             </apply>
-         </apply>
-         <apply>
-            <eq/>
-            <ci>V</ci>
-            <piecewise>
-               <piece>
-                  <ci>V_clamp</ci>
-                  <apply>
-                     <geq/>
-                     <ci>clamp_mode</ci>
-                     <cn cellml:units="dimensionless">1</cn>
-                  </apply>
-               </piece>
-               <otherwise>
-                  <ci>V_ode</ci>
-               </otherwise>
-            </piecewise>
-         </apply>
-      </math>
-   </component>
-   <component name="Voltage_clamp">
-      <variable name="t_holding" units="second" initial_value="0.5"/>
-      <variable name="t_test" units="second" initial_value="0.5"/>
-      <variable name="V_clamp" units="millivolt" public_interface="out"/>
-      <variable name="V_test" units="millivolt" initial_value="-35"/>
-      <variable name="V_holding" units="millivolt" initial_value="-45"/>
-      <variable name="time" units="second" public_interface="in"/>
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-         <apply>
-            <eq/>
-            <ci>V_clamp</ci>
-            <piecewise>
-               <piece>
-                  <ci>V_test</ci>
-                  <apply>
-                     <and/>
-                     <apply>
-                        <gt/>
-                        <ci>time</ci>
-                        <ci>t_holding</ci>
-                     </apply>
-                     <apply>
-                        <lt/>
-                        <ci>time</ci>
-                        <apply>
-                           <plus/>
-                           <ci>t_holding</ci>
-                           <ci>t_test</ci>
-                        </apply>
-                     </apply>
-                  </apply>
-               </piece>
-               <otherwise>
-                  <ci>V_holding</ci>
-               </otherwise>
-            </piecewise>
          </apply>
       </math>
    </component>
@@ -4923,7 +4867,6 @@ http://www.cellml.org/
       <relationship_ref relationship="containment"/>
       <component_ref component="Membrane">
          <component_ref component="Ionic_values"/>
-         <component_ref component="Voltage_clamp"/>
          <component_ref component="i_NaK"/>
          <component_ref component="i_NaCa"/>
          <component_ref component="Ca_SR_release"/>
@@ -4967,9 +4910,6 @@ http://www.cellml.org/
    </group>
    <group>
       <relationship_ref relationship="encapsulation"/>
-      <component_ref component="Membrane">
-         <component_ref component="Voltage_clamp"/>
-      </component_ref>
       <component_ref component="i_f">
          <component_ref component="i_f_y_gate"/>
       </component_ref>
@@ -5001,11 +4941,6 @@ http://www.cellml.org/
          <component_ref component="i_KACh_a_gate"/>
       </component_ref>
    </group>
-   <connection>
-      <map_components component_1="Membrane" component_2="Voltage_clamp"/>
-      <map_variables variable_1="V_clamp" variable_2="V_clamp"/>
-      <map_variables variable_1="time" variable_2="time"/>
-   </connection>
    <connection>
       <map_components component_1="Membrane" component_2="Ionic_values"/>
       <map_variables variable_1="RTONF" variable_2="RTONF"/>
@@ -5410,7 +5345,7 @@ http://www.cellml.org/
       <map_variables variable_1="BAPTA_10_mM" variable_2="BAPTA_10_mM"/>
    </connection>
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqs="http://www.cellml.org/bqs/1.0#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#">
-   <foo xmlns="http://www.example.org/foo/bar/baz" />
+   
    <!--
       The following RDF block contains metadata that applies to this document
       as a whole, as indicated by the empty about attribute on the 
