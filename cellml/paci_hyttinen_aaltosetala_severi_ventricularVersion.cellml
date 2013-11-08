@@ -2541,7 +2541,13 @@ http://www.cellml.org/
             </rdf:Description>
          </rdf:RDF>
       </variable>
-      <variable name="g_Ks" units="S_per_F" initial_value="2.041"/>
+      <variable name="g_Ks" units="S_per_F" initial_value="2.041" cmeta:id="membrane_slow_delayed_rectifier_potassium_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_slow_delayed_rectifier_potassium_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_slow_delayed_rectifier_potassium_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="E_Ks" units="volt" public_interface="in"/>
       <variable name="Cai" units="millimolar" public_interface="in"/>
       <variable name="time" units="second" public_interface="in" private_interface="out"/>
