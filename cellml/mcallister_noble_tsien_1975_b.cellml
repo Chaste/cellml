@@ -8,7 +8,8 @@ http://COR.physiol.ox.ac.uk/ - COR@physiol.ox.ac.uk
 
 CellML 1.0 was used to generate this cellular model
 http://www.CellML.org/
---><model xmlns="http://www.cellml.org/cellml/1.0#" xmlns:cmeta="http://www.cellml.org/metadata/1.0#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqs="http://www.cellml.org/bqs/1.0#" xmlns:cellml="http://www.cellml.org/cellml/1.0#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" cmeta:id="mcallister_noble_tsien_1975_modelB" name="mcallister_noble_tsien_1975_modelB">
+-->
+<model xmlns="http://www.cellml.org/cellml/1.0#" xmlns:cmeta="http://www.cellml.org/metadata/1.0#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqs="http://www.cellml.org/bqs/1.0#" xmlns:cellml="http://www.cellml.org/cellml/1.0#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" cmeta:id="mcallister_noble_tsien_1975_modelB" name="mcallister_noble_tsien_1975_modelB">
 
    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
       <rdf:Description rdf:about="#mcallister_noble_tsien_1975_modelB">
@@ -120,7 +121,13 @@ Reconstruction of the Electrical Activity of Cardiac Purkinje Fibres, McAllister
 		</rdf:Description>
 	</rdf:RDF>
       </variable>
-      <variable units="microF_per_cm2" name="C" initial_value="10"/>
+      <variable units="microF_per_cm2" name="C" initial_value="10" cmeta:id="membrane_capacitance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_capacitance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_capacitance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable units="millisecond" public_interface="in" name="time"/>
       <variable units="microA_per_cm2" public_interface="in" name="i_Na"/>
       <variable units="microA_per_cm2" public_interface="in" name="i_si"/>

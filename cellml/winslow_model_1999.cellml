@@ -107,7 +107,13 @@ http://www.CellML.org/
       <variable name="R" units="joule_per_mole_kelvin" initial_value="8.314472" public_interface="out"/>
       <variable name="T" units="kelvin" initial_value="310" public_interface="out"/>
       <variable name="F" units="coulomb_per_millimole" initial_value="96.4853415" public_interface="out"/>
-      <variable name="C_sc" units="microF_per_cm2" initial_value="0.001" public_interface="out"/>
+      <variable name="C_sc" units="microF_per_cm2" initial_value="0.001" public_interface="out" cmeta:id="membrane_capacitance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_capacitance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_capacitance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="time" units="second" public_interface="in"/>
       <variable name="i_Na" units="microA_per_microF" public_interface="in"/>
       <variable name="i_Ca" units="microA_per_microF" public_interface="in"/>

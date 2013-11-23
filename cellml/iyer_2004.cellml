@@ -174,7 +174,13 @@ http://www.cellml.org/
       <variable name="Rgas" units="joule_per_mole_kelvin" initial_value="8.315" public_interface="out"/>
       <variable name="RT_over_F" units="mV" public_interface="out"/>
       <variable name="Acap" units="cm2" initial_value="1.534e-4"/>
-      <variable name="C" units="mF"/>
+      <variable name="C" units="mF" cmeta:id="membrane_capacitance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_capacitance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_capacitance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="Vmyo" units="uL" initial_value="25.84e-6"/>
       <variable name="VJSR" units="uL" initial_value="0.16e-6"/>
       <variable name="VNSR" units="uL" initial_value="2.1e-6"/>

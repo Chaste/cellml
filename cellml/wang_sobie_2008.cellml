@@ -149,7 +149,13 @@ The original paper reference is cited below:
             </rdf:Description>
          </rdf:RDF>
       </variable>
-      <variable initial_value="1" name="Cm" public_interface="out" units="microF_per_cm2"/>
+      <variable initial_value="1" name="Cm" public_interface="out" units="microF_per_cm2" cmeta:id="membrane_capacitance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_capacitance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_capacitance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable initial_value="2.2826e-6" name="Vmyo" public_interface="out" units="microlitre"/>
       <variable initial_value="0.12e-8" name="VJSR" public_interface="out" units="microlitre"/>
       <variable initial_value="2.098e-7" name="VNSR" public_interface="out" units="microlitre"/>

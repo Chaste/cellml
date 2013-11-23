@@ -87,7 +87,13 @@ http://www.CellML.org/
               </rdf:Description>
           </rdf:RDF>
       </variable>
-      <variable name="C" units="nanoF" initial_value="3.2e-5"/>
+      <variable name="C" units="nanoF" initial_value="3.2e-5" cmeta:id="membrane_capacitance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_capacitance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_capacitance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="i_tot" units="picoA"/>
       <variable name="time" units="second" public_interface="in"/>
       <variable name="i_CaL" units="picoA" public_interface="in"/>
