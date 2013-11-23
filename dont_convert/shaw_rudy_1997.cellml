@@ -193,7 +193,13 @@ A schematic diagram of the Shaw and Rudy 1997 ventricular cell model.</caption>
     <variable units="coulomb_per_mole" public_interface="out" name="F" initial_value="96500.0"/>
     
     <!-- These variables are defined here and only used internally. -->
-    <variable units="microF" name="Cm" initial_value="1.0"/>
+    <variable units="microF" name="Cm" initial_value="1.0" cmeta:id="membrane_capacitance">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+        <rdf:Description rdf:about="#membrane_capacitance">
+          <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_capacitance"/>
+        </rdf:Description>
+      </rdf:RDF>
+    </variable>
     <variable units="microA_per_microF" name="I_st" initial_value="-100.0" cmeta:id="membrane_stimulus_current">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#membrane_stimulus_current">

@@ -48,7 +48,13 @@ http://www.CellML.org/
          </rdf:RDF>
       </variable>
       <variable name="E_R" units="millivolt" initial_value="-75" public_interface="out"/>
-      <variable name="Cm" units="microF_per_cm2" initial_value="1"/>
+      <variable name="Cm" units="microF_per_cm2" initial_value="1" cmeta:id="membrane_capacitance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_capacitance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_capacitance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="time" units="millisecond" public_interface="in"/>
       <variable name="i_Na" units="microA_per_cm2" public_interface="in"/>
       <variable name="i_K" units="microA_per_cm2" public_interface="in"/>

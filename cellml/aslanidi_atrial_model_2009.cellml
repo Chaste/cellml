@@ -145,7 +145,13 @@ Mechanisms of transition from normal to reentrant electrical activity in a model
       <variable initial_value="8314" name="R" public_interface="out" units="millijoule_per_mole_kelvin"/>
       <variable initial_value="308" name="T" public_interface="out" units="kelvin"/>
       <variable initial_value="96487" name="F" public_interface="out" units="coulomb_per_mole"/>
-      <variable initial_value="0.00005" name="Cm" units="nanoF"/>
+      <variable initial_value="0.00005" name="Cm" units="nanoF" cmeta:id="membrane_capacitance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_capacitance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_capacitance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="time" public_interface="in" units="second"/>
       <variable name="i_Na" public_interface="in" units="picoA"/>
       <variable name="i_Ca_L" public_interface="in" units="picoA"/>

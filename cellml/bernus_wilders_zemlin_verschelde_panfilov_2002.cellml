@@ -184,7 +184,13 @@ A computationally efficient electrophysiological model of human ventricular cell
     <variable units="millijoule_per_mole_kelvin" public_interface="out" name="R" initial_value="8314.0"/>
     <variable units="kelvin" public_interface="out" name="T" initial_value="310.0"/>
     <variable units="coulomb_per_mole" public_interface="out" name="F" initial_value="96845.0"/>    
-    <variable units="picoF" name="Cm" initial_value="153.4"/>    
+    <variable units="picoF" name="Cm" initial_value="153.4" cmeta:id="membrane_capacitance">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+        <rdf:Description rdf:about="#membrane_capacitance">
+          <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_capacitance"/>
+        </rdf:Description>
+      </rdf:RDF>
+    </variable>   
     <variable units="millisecond" public_interface="in" name="time"/>
     <variable units="picoA_per_picoF" public_interface="in" name="i_Na"/>
     <variable units="picoA_per_picoF" public_interface="in" name="i_Ca"/>

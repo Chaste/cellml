@@ -237,7 +237,13 @@ A novel computational model of the human ventricular action potential and Ca tra
       <variable name="Frdy" units="coulomb_per_mole" public_interface="out"/>
       <variable name="Temp" units="kelvin" public_interface="out"/>
       <variable name="FoRT" units="per_mV" public_interface="out"/>
-      <variable name="Cmem" units="farad" public_interface="out"/>
+      <variable name="Cmem" units="farad" public_interface="out" cmeta:id="membrane_capacitance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_capacitance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_capacitance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="Qpow" units="dimensionless" public_interface="out"/>
       <variable name="cellLength" units="um" public_interface="out"/>
       <variable name="cellRadius" units="um" public_interface="out"/>
