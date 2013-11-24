@@ -1,0 +1,630 @@
+    |\^/|     Maple 15 (X86 64 LINUX)
+._|\|   |/|_. Copyright (c) Maplesoft, a division of Waterloo Maple Inc. 2011
+ \  MAPLE  /  All rights reserved. Maple is a trademark of
+ <____ ____>  Waterloo Maple Inc.
+      |       Type ? for help.
+1
+"FULL JACOBIAN"
+var_membrane__Vm := PIECEWISE([.99999999999999995e-7, abs(var_membrane__VmReal)
+< .99999999999999995e-7],[var_membrane__VmReal, otherwise])
+var_I_b__Vm := PIECEWISE([.99999999999999995e-7, abs(var_membrane__VmReal) < .\
+99999999999999995e-7],[var_membrane__VmReal, otherwise])
+var_I_b__I_b := var_I_b__Gb*(PIECEWISE([.99999999999999995e-7, abs(
+var_membrane__VmReal) < .99999999999999995e-7],[var_membrane__VmReal, otherwise
+])-var_I_b__Eb)
+var_membrane__I_b := var_I_b__Gb*(PIECEWISE([.99999999999999995e-7, abs(
+var_membrane__VmReal) < .99999999999999995e-7],[var_membrane__VmReal, otherwise
+])-var_I_b__Eb)
+var_I_Kir__T := var_model_parameters__T
+var_I_Kir__Ki := var_model_parameters__Ki
+var_I_Kir__R := var_model_parameters__R
+var_I_Kir__F := var_model_parameters__F
+var_I_Kir__Ko := var_model_parameters__Ko
+var_I_Kir__EK := var_model_parameters__R*var_model_parameters__T/
+var_model_parameters__F*ln(var_model_parameters__Ko/var_model_parameters__Ki)
+var_I_Kir__Vm := PIECEWISE([.99999999999999995e-7, abs(var_membrane__VmReal) <
+.99999999999999995e-7],[var_membrane__VmReal, otherwise])
+var_I_Kir__OKir := 1/(var_I_Kir__aKir+exp(var_I_Kir__bKir*(PIECEWISE([.\
+99999999999999995e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[
+var_membrane__VmReal, otherwise])-var_model_parameters__R*
+var_model_parameters__T/var_model_parameters__F*ln(var_model_parameters__Ko/
+var_model_parameters__Ki))*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T))
+var_I_Kir__I_Kir := .3162277660e-1*var_I_Kir__GKir/(var_I_Kir__aKir+exp(
+var_I_Kir__bKir*(PIECEWISE([.99999999999999995e-7, abs(var_membrane__VmReal) <
+.99999999999999995e-7],[var_membrane__VmReal, otherwise])-
+var_model_parameters__R*var_model_parameters__T/var_model_parameters__F*ln(
+var_model_parameters__Ko/var_model_parameters__Ki))*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T))*var_model_parameters__Ko^(1/2
+)*(PIECEWISE([.99999999999999995e-7, abs(var_membrane__VmReal) < .\
+99999999999999995e-7],[var_membrane__VmReal, otherwise])-
+var_model_parameters__R*var_model_parameters__T/var_model_parameters__F*ln(
+var_model_parameters__Ko/var_model_parameters__Ki))
+var_membrane__I_Kir := .3162277660e-1*var_I_Kir__GKir/(var_I_Kir__aKir+exp(
+var_I_Kir__bKir*(PIECEWISE([.99999999999999995e-7, abs(var_membrane__VmReal) <
+.99999999999999995e-7],[var_membrane__VmReal, otherwise])-
+var_model_parameters__R*var_model_parameters__T/var_model_parameters__F*ln(
+var_model_parameters__Ko/var_model_parameters__Ki))*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T))*var_model_parameters__Ko^(1/2
+)*(PIECEWISE([.99999999999999995e-7, abs(var_membrane__VmReal) < .\
+99999999999999995e-7],[var_membrane__VmReal, otherwise])-
+var_model_parameters__R*var_model_parameters__T/var_model_parameters__F*ln(
+var_model_parameters__Ko/var_model_parameters__Ki))
+var_I_Shkr__Ki := var_model_parameters__Ki
+var_I_Shkr__Ko := var_model_parameters__Ko
+var_I_Shkr__Vm := PIECEWISE([.99999999999999995e-7, abs(var_membrane__VmReal) <
+.99999999999999995e-7],[var_membrane__VmReal, otherwise])
+var_I_Shkr__OShkr := PIECEWISE([0, var_I_Shkr__OShkrReal < 0],[1, 1 < 
+var_I_Shkr__OShkrReal],[var_I_Shkr__OShkrReal, otherwise])
+var_I_Shkr__F := var_model_parameters__F
+var_I_Shkr__R := var_model_parameters__R
+var_I_Shkr__T := var_model_parameters__T
+var_I_Shkr__I_Shkr := var_I_Shkr__PShkr*PIECEWISE([0, var_I_Shkr__OShkrReal < 0
+],[1, 1 < var_I_Shkr__OShkrReal],[var_I_Shkr__OShkrReal, otherwise])*PIECEWISE(
+[.99999999999999995e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[
+var_membrane__VmReal, otherwise])*var_model_parameters__F^2/
+var_model_parameters__R/var_model_parameters__T*(var_model_parameters__Ki-
+var_model_parameters__Ko*exp(-PIECEWISE([.99999999999999995e-7, abs(
+var_membrane__VmReal) < .99999999999999995e-7],[var_membrane__VmReal, otherwise
+])*var_model_parameters__F/var_model_parameters__R/var_model_parameters__T))/(1
+-exp(-PIECEWISE([.99999999999999995e-7, abs(var_membrane__VmReal) < .\
+99999999999999995e-7],[var_membrane__VmReal, otherwise])*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T))
+var_membrane__I_Shkr := var_I_Shkr__PShkr*PIECEWISE([0, var_I_Shkr__OShkrReal <
+0],[1, 1 < var_I_Shkr__OShkrReal],[var_I_Shkr__OShkrReal, otherwise])*PIECEWISE
+([.99999999999999995e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[
+var_membrane__VmReal, otherwise])*var_model_parameters__F^2/
+var_model_parameters__R/var_model_parameters__T*(var_model_parameters__Ki-
+var_model_parameters__Ko*exp(-PIECEWISE([.99999999999999995e-7, abs(
+var_membrane__VmReal) < .99999999999999995e-7],[var_membrane__VmReal, otherwise
+])*var_model_parameters__F/var_model_parameters__R/var_model_parameters__T))/(1
+-exp(-PIECEWISE([.99999999999999995e-7, abs(var_membrane__VmReal) < .\
+99999999999999995e-7],[var_membrane__VmReal, otherwise])*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T))
+var_I_stim__time := var_environment__time
+var_I_stim__I_stim := PIECEWISE([var_I_stim__stim_amplitude, 
+var_I_stim__stim_start <= var_environment__time and var_environment__time <= 
+var_I_stim__stim_end and var_environment__time-var_I_stim__stim_start-floor((
+var_environment__time-var_I_stim__stim_start)/var_I_stim__stim_period)*
+var_I_stim__stim_period <= var_I_stim__stim_duration],[0, otherwise])
+var_membrane__I_stim := PIECEWISE([var_I_stim__stim_amplitude, 
+var_I_stim__stim_start <= var_environment__time and var_environment__time <= 
+var_I_stim__stim_end and var_environment__time-var_I_stim__stim_start-floor((
+var_environment__time-var_I_stim__stim_start)/var_I_stim__stim_period)*
+var_I_stim__stim_period <= var_I_stim__stim_duration],[0, otherwise])
+var_membrane__time := var_environment__time
+var_I_Shkr__C0Shkr := PIECEWISE([0, var_I_Shkr__C0ShkrReal < 0],[1, 1 < 
+var_I_Shkr__C0ShkrReal],[var_I_Shkr__C0ShkrReal, otherwise])
+var_I_Shkr__C1Shkr := PIECEWISE([0, var_I_Shkr__C1ShkrReal < 0],[1, 1 < 
+var_I_Shkr__C1ShkrReal],[var_I_Shkr__C1ShkrReal, otherwise])
+var_I_Shkr__C2Shkr := PIECEWISE([0, var_I_Shkr__C2ShkrReal < 0],[1, 1 < 
+var_I_Shkr__C2ShkrReal],[var_I_Shkr__C2ShkrReal, otherwise])
+var_I_Shkr__C3Shkr := PIECEWISE([0, var_I_Shkr__C3ShkrReal < 0],[1, 1 < 
+var_I_Shkr__C3ShkrReal],[var_I_Shkr__C3ShkrReal, otherwise])
+var_I_Shkr__C4Shkr := PIECEWISE([0, var_I_Shkr__C4ShkrReal < 0],[1, 1 < 
+var_I_Shkr__C4ShkrReal],[var_I_Shkr__C4ShkrReal, otherwise])
+var_I_Shkr__kv := var_I_Shkr__kv0*exp(PIECEWISE([.99999999999999995e-7, abs(
+var_membrane__VmReal) < .99999999999999995e-7],[var_membrane__VmReal, otherwise
+])*var_I_Shkr__zv*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T)
+var_I_Shkr__k_v := var_I_Shkr__k_v0*exp(PIECEWISE([.99999999999999995e-7, abs(
+var_membrane__VmReal) < .99999999999999995e-7],[var_membrane__VmReal, otherwise
+])*var_I_Shkr__z_v*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T)
+var_I_Shkr__time := var_environment__time
+d_dt_membrane__VmReal := (-.3162277660e-1*var_I_Kir__GKir/(var_I_Kir__aKir+exp(
+var_I_Kir__bKir*(PIECEWISE([.99999999999999995e-7, abs(var_membrane__VmReal) <
+.99999999999999995e-7],[var_membrane__VmReal, otherwise])-
+var_model_parameters__R*var_model_parameters__T/var_model_parameters__F*ln(
+var_model_parameters__Ko/var_model_parameters__Ki))*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T))*var_model_parameters__Ko^(1/2
+)*(PIECEWISE([.99999999999999995e-7, abs(var_membrane__VmReal) < .\
+99999999999999995e-7],[var_membrane__VmReal, otherwise])-
+var_model_parameters__R*var_model_parameters__T/var_model_parameters__F*ln(
+var_model_parameters__Ko/var_model_parameters__Ki))-var_I_Shkr__PShkr*PIECEWISE
+([0, var_I_Shkr__OShkrReal < 0],[1, 1 < var_I_Shkr__OShkrReal],[
+var_I_Shkr__OShkrReal, otherwise])*PIECEWISE([.99999999999999995e-7, abs(
+var_membrane__VmReal) < .99999999999999995e-7],[var_membrane__VmReal, otherwise
+])*var_model_parameters__F^2/var_model_parameters__R/var_model_parameters__T*(
+var_model_parameters__Ki-var_model_parameters__Ko*exp(-PIECEWISE([.\
+99999999999999995e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[
+var_membrane__VmReal, otherwise])*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T))/(1-exp(-PIECEWISE([.\
+99999999999999995e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[
+var_membrane__VmReal, otherwise])*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T))-var_I_b__Gb*(PIECEWISE([.\
+99999999999999995e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[
+var_membrane__VmReal, otherwise])-var_I_b__Eb)+PIECEWISE([
+var_I_stim__stim_amplitude, var_I_stim__stim_start <= var_environment__time and
+var_environment__time <= var_I_stim__stim_end and var_environment__time-
+var_I_stim__stim_start-floor((var_environment__time-var_I_stim__stim_start)/
+var_I_stim__stim_period)*var_I_stim__stim_period <= var_I_stim__stim_duration],
+[0, otherwise]))/var_membrane__Cm
+d_dt_I_Shkr__C0ShkrReal := var_I_Shkr__k_v0*exp(PIECEWISE([.99999999999999995e-\
+7, abs(var_membrane__VmReal) < .99999999999999995e-7],[var_membrane__VmReal, 
+otherwise])*var_I_Shkr__z_v*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T)*PIECEWISE([0, var_I_Shkr__C1ShkrReal < 0],[1, 1 < 
+var_I_Shkr__C1ShkrReal],[var_I_Shkr__C1ShkrReal, otherwise])-4*var_I_Shkr__kv0*
+exp(PIECEWISE([.99999999999999995e-7, abs(var_membrane__VmReal) < .\
+99999999999999995e-7],[var_membrane__VmReal, otherwise])*var_I_Shkr__zv*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T)*
+PIECEWISE([0, var_I_Shkr__C0ShkrReal < 0],[1, 1 < var_I_Shkr__C0ShkrReal],[
+var_I_Shkr__C0ShkrReal, otherwise])
+d_dt_I_Shkr__C1ShkrReal := 2*var_I_Shkr__k_v0*exp(PIECEWISE([.99999999999999995\
+e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[var_membrane__VmReal,
+otherwise])*var_I_Shkr__z_v*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T)*PIECEWISE([0, var_I_Shkr__C2ShkrReal < 0],[1, 1 < 
+var_I_Shkr__C2ShkrReal],[var_I_Shkr__C2ShkrReal, otherwise])+4*var_I_Shkr__kv0*
+exp(PIECEWISE([.99999999999999995e-7, abs(var_membrane__VmReal) < .\
+99999999999999995e-7],[var_membrane__VmReal, otherwise])*var_I_Shkr__zv*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T)*
+PIECEWISE([0, var_I_Shkr__C0ShkrReal < 0],[1, 1 < var_I_Shkr__C0ShkrReal],[
+var_I_Shkr__C0ShkrReal, otherwise])-(3*var_I_Shkr__kv0*exp(PIECEWISE([.\
+99999999999999995e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[
+var_membrane__VmReal, otherwise])*var_I_Shkr__zv*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T)+var_I_Shkr__k_v0*exp(PIECEWISE
+([.99999999999999995e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[
+var_membrane__VmReal, otherwise])*var_I_Shkr__z_v*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T))*PIECEWISE([0, 
+var_I_Shkr__C1ShkrReal < 0],[1, 1 < var_I_Shkr__C1ShkrReal],[
+var_I_Shkr__C1ShkrReal, otherwise])
+d_dt_I_Shkr__C2ShkrReal := 3*var_I_Shkr__k_v0*exp(PIECEWISE([.99999999999999995\
+e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[var_membrane__VmReal,
+otherwise])*var_I_Shkr__z_v*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T)*PIECEWISE([0, var_I_Shkr__C3ShkrReal < 0],[1, 1 < 
+var_I_Shkr__C3ShkrReal],[var_I_Shkr__C3ShkrReal, otherwise])+3*var_I_Shkr__kv0*
+exp(PIECEWISE([.99999999999999995e-7, abs(var_membrane__VmReal) < .\
+99999999999999995e-7],[var_membrane__VmReal, otherwise])*var_I_Shkr__zv*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T)*
+PIECEWISE([0, var_I_Shkr__C1ShkrReal < 0],[1, 1 < var_I_Shkr__C1ShkrReal],[
+var_I_Shkr__C1ShkrReal, otherwise])-(2*var_I_Shkr__kv0*exp(PIECEWISE([.\
+99999999999999995e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[
+var_membrane__VmReal, otherwise])*var_I_Shkr__zv*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T)+2*var_I_Shkr__k_v0*exp(
+PIECEWISE([.99999999999999995e-7, abs(var_membrane__VmReal) < .\
+99999999999999995e-7],[var_membrane__VmReal, otherwise])*var_I_Shkr__z_v*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T))*
+PIECEWISE([0, var_I_Shkr__C2ShkrReal < 0],[1, 1 < var_I_Shkr__C2ShkrReal],[
+var_I_Shkr__C2ShkrReal, otherwise])
+d_dt_I_Shkr__C3ShkrReal := 4*var_I_Shkr__k_v0*exp(PIECEWISE([.99999999999999995\
+e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[var_membrane__VmReal,
+otherwise])*var_I_Shkr__z_v*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T)*PIECEWISE([0, var_I_Shkr__C4ShkrReal < 0],[1, 1 < 
+var_I_Shkr__C4ShkrReal],[var_I_Shkr__C4ShkrReal, otherwise])+2*var_I_Shkr__kv0*
+exp(PIECEWISE([.99999999999999995e-7, abs(var_membrane__VmReal) < .\
+99999999999999995e-7],[var_membrane__VmReal, otherwise])*var_I_Shkr__zv*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T)*
+PIECEWISE([0, var_I_Shkr__C2ShkrReal < 0],[1, 1 < var_I_Shkr__C2ShkrReal],[
+var_I_Shkr__C2ShkrReal, otherwise])-(var_I_Shkr__kv0*exp(PIECEWISE([.\
+99999999999999995e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[
+var_membrane__VmReal, otherwise])*var_I_Shkr__zv*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T)+3*var_I_Shkr__k_v0*exp(
+PIECEWISE([.99999999999999995e-7, abs(var_membrane__VmReal) < .\
+99999999999999995e-7],[var_membrane__VmReal, otherwise])*var_I_Shkr__z_v*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T))*
+PIECEWISE([0, var_I_Shkr__C3ShkrReal < 0],[1, 1 < var_I_Shkr__C3ShkrReal],[
+var_I_Shkr__C3ShkrReal, otherwise])
+d_dt_I_Shkr__C4ShkrReal := var_I_Shkr__k_o*PIECEWISE([0, var_I_Shkr__OShkrReal
+< 0],[1, 1 < var_I_Shkr__OShkrReal],[var_I_Shkr__OShkrReal, otherwise])+
+var_I_Shkr__kv0*exp(PIECEWISE([.99999999999999995e-7, abs(var_membrane__VmReal)
+< .99999999999999995e-7],[var_membrane__VmReal, otherwise])*var_I_Shkr__zv*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T)*
+PIECEWISE([0, var_I_Shkr__C3ShkrReal < 0],[1, 1 < var_I_Shkr__C3ShkrReal],[
+var_I_Shkr__C3ShkrReal, otherwise])-(var_I_Shkr__ko+4*var_I_Shkr__k_v0*exp(
+PIECEWISE([.99999999999999995e-7, abs(var_membrane__VmReal) < .\
+99999999999999995e-7],[var_membrane__VmReal, otherwise])*var_I_Shkr__z_v*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T))*
+PIECEWISE([0, var_I_Shkr__C4ShkrReal < 0],[1, 1 < var_I_Shkr__C4ShkrReal],[
+var_I_Shkr__C4ShkrReal, otherwise])
+d_dt_I_Shkr__OShkrReal := var_I_Shkr__ko*PIECEWISE([0, var_I_Shkr__C4ShkrReal <
+0],[1, 1 < var_I_Shkr__C4ShkrReal],[var_I_Shkr__C4ShkrReal, otherwise])-
+var_I_Shkr__k_o*PIECEWISE([0, var_I_Shkr__OShkrReal < 0],[1, 1 < 
+var_I_Shkr__OShkrReal],[var_I_Shkr__OShkrReal, otherwise])
+"--1--var_membrane__VmReal--"
+"--2--var_I_Shkr__C0ShkrReal--"
+"--3--var_I_Shkr__C1ShkrReal--"
+"--4--var_I_Shkr__C2ShkrReal--"
+"--5--var_I_Shkr__C3ShkrReal--"
+"--6--var_I_Shkr__C4ShkrReal--"
+"--7--var_I_Shkr__OShkrReal--"
+jacobian := matrix([[(.3162277660e-1*var_I_Kir__GKir/(var_I_Kir__aKir+exp(
+var_I_Kir__bKir*(PIECEWISE([.99999999999999995e-7, abs(var_membrane__VmReal) <
+.99999999999999995e-7],[var_membrane__VmReal, otherwise])-
+var_model_parameters__R*var_model_parameters__T/var_model_parameters__F*ln(
+var_model_parameters__Ko/var_model_parameters__Ki))*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T))^2*var_model_parameters__Ko^(1
+/2)*(PIECEWISE([.99999999999999995e-7, abs(var_membrane__VmReal) < .\
+99999999999999995e-7],[var_membrane__VmReal, otherwise])-
+var_model_parameters__R*var_model_parameters__T/var_model_parameters__F*ln(
+var_model_parameters__Ko/var_model_parameters__Ki))*var_I_Kir__bKir*PIECEWISE([
+1., var_membrane__VmReal < -.1000000000e-6],[Float(undefined), 
+var_membrane__VmReal = -.1000000000e-6],[0., var_membrane__VmReal < .1000000000\
+e-6],[Float(undefined), var_membrane__VmReal = .1000000000e-6],[1., .1000000000\
+e-6 < var_membrane__VmReal])*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T*exp(var_I_Kir__bKir*(PIECEWISE([.99999999999999995e-7,
+abs(var_membrane__VmReal) < .99999999999999995e-7],[var_membrane__VmReal, 
+otherwise])-var_model_parameters__R*var_model_parameters__T/
+var_model_parameters__F*ln(var_model_parameters__Ko/var_model_parameters__Ki))*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T)-.\
+3162277660e-1*var_I_Kir__GKir/(var_I_Kir__aKir+exp(var_I_Kir__bKir*(PIECEWISE([
+.99999999999999995e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[
+var_membrane__VmReal, otherwise])-var_model_parameters__R*
+var_model_parameters__T/var_model_parameters__F*ln(var_model_parameters__Ko/
+var_model_parameters__Ki))*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T))*var_model_parameters__Ko^(1/2)*PIECEWISE([1., 
+var_membrane__VmReal < -.1000000000e-6],[Float(undefined), var_membrane__VmReal
+= -.1000000000e-6],[0., var_membrane__VmReal < .1000000000e-6],[Float(undefined
+), var_membrane__VmReal = .1000000000e-6],[1., .1000000000e-6 < 
+var_membrane__VmReal])-var_I_Shkr__PShkr*PIECEWISE([0, var_I_Shkr__OShkrReal <
+0],[1, 1 < var_I_Shkr__OShkrReal],[var_I_Shkr__OShkrReal, otherwise])*PIECEWISE
+([1., var_membrane__VmReal < -.1000000000e-6],[Float(undefined), 
+var_membrane__VmReal = -.1000000000e-6],[0., var_membrane__VmReal < .1000000000\
+e-6],[Float(undefined), var_membrane__VmReal = .1000000000e-6],[1., .1000000000\
+e-6 < var_membrane__VmReal])*var_model_parameters__F^2/var_model_parameters__R/
+var_model_parameters__T*(var_model_parameters__Ki-var_model_parameters__Ko*exp(
+-PIECEWISE([.99999999999999995e-7, abs(var_membrane__VmReal) < .\
+99999999999999995e-7],[var_membrane__VmReal, otherwise])*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T))/(1-
+exp(-PIECEWISE([.99999999999999995e-7, abs(var_membrane__VmReal) < .\
+99999999999999995e-7],[var_membrane__VmReal, otherwise])*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T))-
+var_I_Shkr__PShkr*PIECEWISE([0, var_I_Shkr__OShkrReal < 0],[1, 1 < 
+var_I_Shkr__OShkrReal],[var_I_Shkr__OShkrReal, otherwise])*PIECEWISE([.\
+99999999999999995e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[
+var_membrane__VmReal, otherwise])*var_model_parameters__F^3/
+var_model_parameters__R^2/var_model_parameters__T^2*var_model_parameters__Ko*
+PIECEWISE([1., var_membrane__VmReal < -.1000000000e-6],[Float(undefined), 
+var_membrane__VmReal = -.1000000000e-6],[0., var_membrane__VmReal < .1000000000\
+e-6],[Float(undefined), var_membrane__VmReal = .1000000000e-6],[1., .1000000000\
+e-6 < var_membrane__VmReal])*exp(-PIECEWISE([.99999999999999995e-7, abs(
+var_membrane__VmReal) < .99999999999999995e-7],[var_membrane__VmReal, otherwise
+])*var_model_parameters__F/var_model_parameters__R/var_model_parameters__T)/(1-
+exp(-PIECEWISE([.99999999999999995e-7, abs(var_membrane__VmReal) < .\
+99999999999999995e-7],[var_membrane__VmReal, otherwise])*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T))+
+var_I_Shkr__PShkr*PIECEWISE([0, var_I_Shkr__OShkrReal < 0],[1, 1 < 
+var_I_Shkr__OShkrReal],[var_I_Shkr__OShkrReal, otherwise])*PIECEWISE([.\
+99999999999999995e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[
+var_membrane__VmReal, otherwise])*var_model_parameters__F^3/
+var_model_parameters__R^2/var_model_parameters__T^2*(var_model_parameters__Ki-
+var_model_parameters__Ko*exp(-PIECEWISE([.99999999999999995e-7, abs(
+var_membrane__VmReal) < .99999999999999995e-7],[var_membrane__VmReal, otherwise
+])*var_model_parameters__F/var_model_parameters__R/var_model_parameters__T))/(1
+-exp(-PIECEWISE([.99999999999999995e-7, abs(var_membrane__VmReal) < .\
+99999999999999995e-7],[var_membrane__VmReal, otherwise])*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T))^2*
+PIECEWISE([1., var_membrane__VmReal < -.1000000000e-6],[Float(undefined), 
+var_membrane__VmReal = -.1000000000e-6],[0., var_membrane__VmReal < .1000000000\
+e-6],[Float(undefined), var_membrane__VmReal = .1000000000e-6],[1., .1000000000\
+e-6 < var_membrane__VmReal])*exp(-PIECEWISE([.99999999999999995e-7, abs(
+var_membrane__VmReal) < .99999999999999995e-7],[var_membrane__VmReal, otherwise
+])*var_model_parameters__F/var_model_parameters__R/var_model_parameters__T)-
+var_I_b__Gb*PIECEWISE([1., var_membrane__VmReal < -.1000000000e-6],[Float(
+undefined), var_membrane__VmReal = -.1000000000e-6],[0., var_membrane__VmReal <
+.1000000000e-6],[Float(undefined), var_membrane__VmReal = .1000000000e-6],[1.,
+.1000000000e-6 < var_membrane__VmReal]))/var_membrane__Cm, 0, 0, 0, 0, 0, -
+var_I_Shkr__PShkr*PIECEWISE([0, var_I_Shkr__OShkrReal < 0],[undefined, 
+var_I_Shkr__OShkrReal = 0],[1, var_I_Shkr__OShkrReal < 1],[undefined, 
+var_I_Shkr__OShkrReal = 1],[0, 1 < var_I_Shkr__OShkrReal])*PIECEWISE([.\
+99999999999999995e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[
+var_membrane__VmReal, otherwise])*var_model_parameters__F^2/
+var_model_parameters__R/var_model_parameters__T*(var_model_parameters__Ki-
+var_model_parameters__Ko*exp(-PIECEWISE([.99999999999999995e-7, abs(
+var_membrane__VmReal) < .99999999999999995e-7],[var_membrane__VmReal, otherwise
+])*var_model_parameters__F/var_model_parameters__R/var_model_parameters__T))/(1
+-exp(-PIECEWISE([.99999999999999995e-7, abs(var_membrane__VmReal) < .\
+99999999999999995e-7],[var_membrane__VmReal, otherwise])*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T))/
+var_membrane__Cm], [var_I_Shkr__k_v0*PIECEWISE([1., var_membrane__VmReal < -.\
+1000000000e-6],[Float(undefined), var_membrane__VmReal = -.1000000000e-6],[0.,
+var_membrane__VmReal < .1000000000e-6],[Float(undefined), var_membrane__VmReal
+= .1000000000e-6],[1., .1000000000e-6 < var_membrane__VmReal])*var_I_Shkr__z_v*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T*exp(
+PIECEWISE([.99999999999999995e-7, abs(var_membrane__VmReal) < .\
+99999999999999995e-7],[var_membrane__VmReal, otherwise])*var_I_Shkr__z_v*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T)*
+PIECEWISE([0, var_I_Shkr__C1ShkrReal < 0],[1, 1 < var_I_Shkr__C1ShkrReal],[
+var_I_Shkr__C1ShkrReal, otherwise])-4*var_I_Shkr__kv0*PIECEWISE([1., 
+var_membrane__VmReal < -.1000000000e-6],[Float(undefined), var_membrane__VmReal
+= -.1000000000e-6],[0., var_membrane__VmReal < .1000000000e-6],[Float(undefined
+), var_membrane__VmReal = .1000000000e-6],[1., .1000000000e-6 < 
+var_membrane__VmReal])*var_I_Shkr__zv*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T*exp(PIECEWISE([.\
+99999999999999995e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[
+var_membrane__VmReal, otherwise])*var_I_Shkr__zv*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T)*PIECEWISE([0, 
+var_I_Shkr__C0ShkrReal < 0],[1, 1 < var_I_Shkr__C0ShkrReal],[
+var_I_Shkr__C0ShkrReal, otherwise]), -4*var_I_Shkr__kv0*exp(PIECEWISE([.\
+99999999999999995e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[
+var_membrane__VmReal, otherwise])*var_I_Shkr__zv*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T)*PIECEWISE([0, 
+var_I_Shkr__C0ShkrReal < 0],[undefined, var_I_Shkr__C0ShkrReal = 0],[1, 
+var_I_Shkr__C0ShkrReal < 1],[undefined, var_I_Shkr__C0ShkrReal = 1],[0, 1 < 
+var_I_Shkr__C0ShkrReal]), var_I_Shkr__k_v0*exp(PIECEWISE([.99999999999999995e-7
+, abs(var_membrane__VmReal) < .99999999999999995e-7],[var_membrane__VmReal, 
+otherwise])*var_I_Shkr__z_v*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T)*PIECEWISE([0, var_I_Shkr__C1ShkrReal < 0],[undefined,
+var_I_Shkr__C1ShkrReal = 0],[1, var_I_Shkr__C1ShkrReal < 1],[undefined, 
+var_I_Shkr__C1ShkrReal = 1],[0, 1 < var_I_Shkr__C1ShkrReal]), 0, 0, 0, 0], [2*
+var_I_Shkr__k_v0*PIECEWISE([1., var_membrane__VmReal < -.1000000000e-6],[Float(
+undefined), var_membrane__VmReal = -.1000000000e-6],[0., var_membrane__VmReal <
+.1000000000e-6],[Float(undefined), var_membrane__VmReal = .1000000000e-6],[1.,
+.1000000000e-6 < var_membrane__VmReal])*var_I_Shkr__z_v*var_model_parameters__F
+/var_model_parameters__R/var_model_parameters__T*exp(PIECEWISE([.\
+99999999999999995e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[
+var_membrane__VmReal, otherwise])*var_I_Shkr__z_v*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T)*PIECEWISE([0, 
+var_I_Shkr__C2ShkrReal < 0],[1, 1 < var_I_Shkr__C2ShkrReal],[
+var_I_Shkr__C2ShkrReal, otherwise])+4*var_I_Shkr__kv0*PIECEWISE([1., 
+var_membrane__VmReal < -.1000000000e-6],[Float(undefined), var_membrane__VmReal
+= -.1000000000e-6],[0., var_membrane__VmReal < .1000000000e-6],[Float(undefined
+), var_membrane__VmReal = .1000000000e-6],[1., .1000000000e-6 < 
+var_membrane__VmReal])*var_I_Shkr__zv*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T*exp(PIECEWISE([.\
+99999999999999995e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[
+var_membrane__VmReal, otherwise])*var_I_Shkr__zv*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T)*PIECEWISE([0, 
+var_I_Shkr__C0ShkrReal < 0],[1, 1 < var_I_Shkr__C0ShkrReal],[
+var_I_Shkr__C0ShkrReal, otherwise])-(3*var_I_Shkr__kv0*PIECEWISE([1., 
+var_membrane__VmReal < -.1000000000e-6],[Float(undefined), var_membrane__VmReal
+= -.1000000000e-6],[0., var_membrane__VmReal < .1000000000e-6],[Float(undefined
+), var_membrane__VmReal = .1000000000e-6],[1., .1000000000e-6 < 
+var_membrane__VmReal])*var_I_Shkr__zv*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T*exp(PIECEWISE([.\
+99999999999999995e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[
+var_membrane__VmReal, otherwise])*var_I_Shkr__zv*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T)+var_I_Shkr__k_v0*PIECEWISE([1.
+, var_membrane__VmReal < -.1000000000e-6],[Float(undefined), 
+var_membrane__VmReal = -.1000000000e-6],[0., var_membrane__VmReal < .1000000000\
+e-6],[Float(undefined), var_membrane__VmReal = .1000000000e-6],[1., .1000000000\
+e-6 < var_membrane__VmReal])*var_I_Shkr__z_v*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T*exp(PIECEWISE([.\
+99999999999999995e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[
+var_membrane__VmReal, otherwise])*var_I_Shkr__z_v*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T))*PIECEWISE([0, 
+var_I_Shkr__C1ShkrReal < 0],[1, 1 < var_I_Shkr__C1ShkrReal],[
+var_I_Shkr__C1ShkrReal, otherwise]), 4*var_I_Shkr__kv0*exp(PIECEWISE([.\
+99999999999999995e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[
+var_membrane__VmReal, otherwise])*var_I_Shkr__zv*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T)*PIECEWISE([0, 
+var_I_Shkr__C0ShkrReal < 0],[undefined, var_I_Shkr__C0ShkrReal = 0],[1, 
+var_I_Shkr__C0ShkrReal < 1],[undefined, var_I_Shkr__C0ShkrReal = 1],[0, 1 < 
+var_I_Shkr__C0ShkrReal]), -(3*var_I_Shkr__kv0*exp(PIECEWISE([.99999999999999995\
+e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[var_membrane__VmReal,
+otherwise])*var_I_Shkr__zv*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T)+var_I_Shkr__k_v0*exp(PIECEWISE([.99999999999999995e-7,
+abs(var_membrane__VmReal) < .99999999999999995e-7],[var_membrane__VmReal, 
+otherwise])*var_I_Shkr__z_v*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T))*PIECEWISE([0, var_I_Shkr__C1ShkrReal < 0],[undefined,
+var_I_Shkr__C1ShkrReal = 0],[1, var_I_Shkr__C1ShkrReal < 1],[undefined, 
+var_I_Shkr__C1ShkrReal = 1],[0, 1 < var_I_Shkr__C1ShkrReal]), 2*
+var_I_Shkr__k_v0*exp(PIECEWISE([.99999999999999995e-7, abs(var_membrane__VmReal
+) < .99999999999999995e-7],[var_membrane__VmReal, otherwise])*var_I_Shkr__z_v*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T)*
+PIECEWISE([0, var_I_Shkr__C2ShkrReal < 0],[undefined, var_I_Shkr__C2ShkrReal =
+0],[1, var_I_Shkr__C2ShkrReal < 1],[undefined, var_I_Shkr__C2ShkrReal = 1],[0,
+1 < var_I_Shkr__C2ShkrReal]), 0, 0, 0], [3*var_I_Shkr__k_v0*PIECEWISE([1., 
+var_membrane__VmReal < -.1000000000e-6],[Float(undefined), var_membrane__VmReal
+= -.1000000000e-6],[0., var_membrane__VmReal < .1000000000e-6],[Float(undefined
+), var_membrane__VmReal = .1000000000e-6],[1., .1000000000e-6 < 
+var_membrane__VmReal])*var_I_Shkr__z_v*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T*exp(PIECEWISE([.\
+99999999999999995e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[
+var_membrane__VmReal, otherwise])*var_I_Shkr__z_v*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T)*PIECEWISE([0, 
+var_I_Shkr__C3ShkrReal < 0],[1, 1 < var_I_Shkr__C3ShkrReal],[
+var_I_Shkr__C3ShkrReal, otherwise])+3*var_I_Shkr__kv0*PIECEWISE([1., 
+var_membrane__VmReal < -.1000000000e-6],[Float(undefined), var_membrane__VmReal
+= -.1000000000e-6],[0., var_membrane__VmReal < .1000000000e-6],[Float(undefined
+), var_membrane__VmReal = .1000000000e-6],[1., .1000000000e-6 < 
+var_membrane__VmReal])*var_I_Shkr__zv*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T*exp(PIECEWISE([.\
+99999999999999995e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[
+var_membrane__VmReal, otherwise])*var_I_Shkr__zv*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T)*PIECEWISE([0, 
+var_I_Shkr__C1ShkrReal < 0],[1, 1 < var_I_Shkr__C1ShkrReal],[
+var_I_Shkr__C1ShkrReal, otherwise])-(2*var_I_Shkr__kv0*PIECEWISE([1., 
+var_membrane__VmReal < -.1000000000e-6],[Float(undefined), var_membrane__VmReal
+= -.1000000000e-6],[0., var_membrane__VmReal < .1000000000e-6],[Float(undefined
+), var_membrane__VmReal = .1000000000e-6],[1., .1000000000e-6 < 
+var_membrane__VmReal])*var_I_Shkr__zv*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T*exp(PIECEWISE([.\
+99999999999999995e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[
+var_membrane__VmReal, otherwise])*var_I_Shkr__zv*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T)+2*var_I_Shkr__k_v0*PIECEWISE([
+1., var_membrane__VmReal < -.1000000000e-6],[Float(undefined), 
+var_membrane__VmReal = -.1000000000e-6],[0., var_membrane__VmReal < .1000000000\
+e-6],[Float(undefined), var_membrane__VmReal = .1000000000e-6],[1., .1000000000\
+e-6 < var_membrane__VmReal])*var_I_Shkr__z_v*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T*exp(PIECEWISE([.\
+99999999999999995e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[
+var_membrane__VmReal, otherwise])*var_I_Shkr__z_v*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T))*PIECEWISE([0, 
+var_I_Shkr__C2ShkrReal < 0],[1, 1 < var_I_Shkr__C2ShkrReal],[
+var_I_Shkr__C2ShkrReal, otherwise]), 0, 3*var_I_Shkr__kv0*exp(PIECEWISE([.\
+99999999999999995e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[
+var_membrane__VmReal, otherwise])*var_I_Shkr__zv*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T)*PIECEWISE([0, 
+var_I_Shkr__C1ShkrReal < 0],[undefined, var_I_Shkr__C1ShkrReal = 0],[1, 
+var_I_Shkr__C1ShkrReal < 1],[undefined, var_I_Shkr__C1ShkrReal = 1],[0, 1 < 
+var_I_Shkr__C1ShkrReal]), -(2*var_I_Shkr__kv0*exp(PIECEWISE([.99999999999999995\
+e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[var_membrane__VmReal,
+otherwise])*var_I_Shkr__zv*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T)+2*var_I_Shkr__k_v0*exp(PIECEWISE([.99999999999999995e-\
+7, abs(var_membrane__VmReal) < .99999999999999995e-7],[var_membrane__VmReal, 
+otherwise])*var_I_Shkr__z_v*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T))*PIECEWISE([0, var_I_Shkr__C2ShkrReal < 0],[undefined,
+var_I_Shkr__C2ShkrReal = 0],[1, var_I_Shkr__C2ShkrReal < 1],[undefined, 
+var_I_Shkr__C2ShkrReal = 1],[0, 1 < var_I_Shkr__C2ShkrReal]), 3*
+var_I_Shkr__k_v0*exp(PIECEWISE([.99999999999999995e-7, abs(var_membrane__VmReal
+) < .99999999999999995e-7],[var_membrane__VmReal, otherwise])*var_I_Shkr__z_v*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T)*
+PIECEWISE([0, var_I_Shkr__C3ShkrReal < 0],[undefined, var_I_Shkr__C3ShkrReal =
+0],[1, var_I_Shkr__C3ShkrReal < 1],[undefined, var_I_Shkr__C3ShkrReal = 1],[0,
+1 < var_I_Shkr__C3ShkrReal]), 0, 0], [4*var_I_Shkr__k_v0*PIECEWISE([1., 
+var_membrane__VmReal < -.1000000000e-6],[Float(undefined), var_membrane__VmReal
+= -.1000000000e-6],[0., var_membrane__VmReal < .1000000000e-6],[Float(undefined
+), var_membrane__VmReal = .1000000000e-6],[1., .1000000000e-6 < 
+var_membrane__VmReal])*var_I_Shkr__z_v*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T*exp(PIECEWISE([.\
+99999999999999995e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[
+var_membrane__VmReal, otherwise])*var_I_Shkr__z_v*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T)*PIECEWISE([0, 
+var_I_Shkr__C4ShkrReal < 0],[1, 1 < var_I_Shkr__C4ShkrReal],[
+var_I_Shkr__C4ShkrReal, otherwise])+2*var_I_Shkr__kv0*PIECEWISE([1., 
+var_membrane__VmReal < -.1000000000e-6],[Float(undefined), var_membrane__VmReal
+= -.1000000000e-6],[0., var_membrane__VmReal < .1000000000e-6],[Float(undefined
+), var_membrane__VmReal = .1000000000e-6],[1., .1000000000e-6 < 
+var_membrane__VmReal])*var_I_Shkr__zv*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T*exp(PIECEWISE([.\
+99999999999999995e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[
+var_membrane__VmReal, otherwise])*var_I_Shkr__zv*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T)*PIECEWISE([0, 
+var_I_Shkr__C2ShkrReal < 0],[1, 1 < var_I_Shkr__C2ShkrReal],[
+var_I_Shkr__C2ShkrReal, otherwise])-(var_I_Shkr__kv0*PIECEWISE([1., 
+var_membrane__VmReal < -.1000000000e-6],[Float(undefined), var_membrane__VmReal
+= -.1000000000e-6],[0., var_membrane__VmReal < .1000000000e-6],[Float(undefined
+), var_membrane__VmReal = .1000000000e-6],[1., .1000000000e-6 < 
+var_membrane__VmReal])*var_I_Shkr__zv*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T*exp(PIECEWISE([.\
+99999999999999995e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[
+var_membrane__VmReal, otherwise])*var_I_Shkr__zv*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T)+3*var_I_Shkr__k_v0*PIECEWISE([
+1., var_membrane__VmReal < -.1000000000e-6],[Float(undefined), 
+var_membrane__VmReal = -.1000000000e-6],[0., var_membrane__VmReal < .1000000000\
+e-6],[Float(undefined), var_membrane__VmReal = .1000000000e-6],[1., .1000000000\
+e-6 < var_membrane__VmReal])*var_I_Shkr__z_v*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T*exp(PIECEWISE([.\
+99999999999999995e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[
+var_membrane__VmReal, otherwise])*var_I_Shkr__z_v*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T))*PIECEWISE([0, 
+var_I_Shkr__C3ShkrReal < 0],[1, 1 < var_I_Shkr__C3ShkrReal],[
+var_I_Shkr__C3ShkrReal, otherwise]), 0, 0, 2*var_I_Shkr__kv0*exp(PIECEWISE([.\
+99999999999999995e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[
+var_membrane__VmReal, otherwise])*var_I_Shkr__zv*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T)*PIECEWISE([0, 
+var_I_Shkr__C2ShkrReal < 0],[undefined, var_I_Shkr__C2ShkrReal = 0],[1, 
+var_I_Shkr__C2ShkrReal < 1],[undefined, var_I_Shkr__C2ShkrReal = 1],[0, 1 < 
+var_I_Shkr__C2ShkrReal]), -(var_I_Shkr__kv0*exp(PIECEWISE([.99999999999999995e-\
+7, abs(var_membrane__VmReal) < .99999999999999995e-7],[var_membrane__VmReal, 
+otherwise])*var_I_Shkr__zv*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T)+3*var_I_Shkr__k_v0*exp(PIECEWISE([.99999999999999995e-\
+7, abs(var_membrane__VmReal) < .99999999999999995e-7],[var_membrane__VmReal, 
+otherwise])*var_I_Shkr__z_v*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T))*PIECEWISE([0, var_I_Shkr__C3ShkrReal < 0],[undefined,
+var_I_Shkr__C3ShkrReal = 0],[1, var_I_Shkr__C3ShkrReal < 1],[undefined, 
+var_I_Shkr__C3ShkrReal = 1],[0, 1 < var_I_Shkr__C3ShkrReal]), 4*
+var_I_Shkr__k_v0*exp(PIECEWISE([.99999999999999995e-7, abs(var_membrane__VmReal
+) < .99999999999999995e-7],[var_membrane__VmReal, otherwise])*var_I_Shkr__z_v*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T)*
+PIECEWISE([0, var_I_Shkr__C4ShkrReal < 0],[undefined, var_I_Shkr__C4ShkrReal =
+0],[1, var_I_Shkr__C4ShkrReal < 1],[undefined, var_I_Shkr__C4ShkrReal = 1],[0,
+1 < var_I_Shkr__C4ShkrReal]), 0], [var_I_Shkr__kv0*PIECEWISE([1., 
+var_membrane__VmReal < -.1000000000e-6],[Float(undefined), var_membrane__VmReal
+= -.1000000000e-6],[0., var_membrane__VmReal < .1000000000e-6],[Float(undefined
+), var_membrane__VmReal = .1000000000e-6],[1., .1000000000e-6 < 
+var_membrane__VmReal])*var_I_Shkr__zv*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T*exp(PIECEWISE([.\
+99999999999999995e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[
+var_membrane__VmReal, otherwise])*var_I_Shkr__zv*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T)*PIECEWISE([0, 
+var_I_Shkr__C3ShkrReal < 0],[1, 1 < var_I_Shkr__C3ShkrReal],[
+var_I_Shkr__C3ShkrReal, otherwise])-4*var_I_Shkr__k_v0*PIECEWISE([1., 
+var_membrane__VmReal < -.1000000000e-6],[Float(undefined), var_membrane__VmReal
+= -.1000000000e-6],[0., var_membrane__VmReal < .1000000000e-6],[Float(undefined
+), var_membrane__VmReal = .1000000000e-6],[1., .1000000000e-6 < 
+var_membrane__VmReal])*var_I_Shkr__z_v*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T*exp(PIECEWISE([.\
+99999999999999995e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[
+var_membrane__VmReal, otherwise])*var_I_Shkr__z_v*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T)*PIECEWISE([0, 
+var_I_Shkr__C4ShkrReal < 0],[1, 1 < var_I_Shkr__C4ShkrReal],[
+var_I_Shkr__C4ShkrReal, otherwise]), 0, 0, 0, var_I_Shkr__kv0*exp(PIECEWISE([.\
+99999999999999995e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[
+var_membrane__VmReal, otherwise])*var_I_Shkr__zv*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T)*PIECEWISE([0, 
+var_I_Shkr__C3ShkrReal < 0],[undefined, var_I_Shkr__C3ShkrReal = 0],[1, 
+var_I_Shkr__C3ShkrReal < 1],[undefined, var_I_Shkr__C3ShkrReal = 1],[0, 1 < 
+var_I_Shkr__C3ShkrReal]), -(var_I_Shkr__ko+4*var_I_Shkr__k_v0*exp(PIECEWISE([.\
+99999999999999995e-7, abs(var_membrane__VmReal) < .99999999999999995e-7],[
+var_membrane__VmReal, otherwise])*var_I_Shkr__z_v*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T))*PIECEWISE([0, 
+var_I_Shkr__C4ShkrReal < 0],[undefined, var_I_Shkr__C4ShkrReal = 0],[1, 
+var_I_Shkr__C4ShkrReal < 1],[undefined, var_I_Shkr__C4ShkrReal = 1],[0, 1 < 
+var_I_Shkr__C4ShkrReal]), var_I_Shkr__k_o*PIECEWISE([0, var_I_Shkr__OShkrReal <
+0],[undefined, var_I_Shkr__OShkrReal = 0],[1, var_I_Shkr__OShkrReal < 1],[
+undefined, var_I_Shkr__OShkrReal = 1],[0, 1 < var_I_Shkr__OShkrReal])], [0, 0,
+0, 0, 0, var_I_Shkr__ko*PIECEWISE([0, var_I_Shkr__C4ShkrReal < 0],[undefined, 
+var_I_Shkr__C4ShkrReal = 0],[1, var_I_Shkr__C4ShkrReal < 1],[undefined, 
+var_I_Shkr__C4ShkrReal = 1],[0, 1 < var_I_Shkr__C4ShkrReal]), -var_I_Shkr__k_o*
+PIECEWISE([0, var_I_Shkr__OShkrReal < 0],[undefined, var_I_Shkr__OShkrReal = 0]
+,[1, var_I_Shkr__OShkrReal < 1],[undefined, var_I_Shkr__OShkrReal = 1],[0, 1 <
+var_I_Shkr__OShkrReal])]])
+J := t1 = abs(var_membrane__VmReal), t3 = PIECEWISE([.99999999999999995e-7, t1
+< .99999999999999995e-7],[var_membrane__VmReal, otherwise]), t8 = ln(
+var_model_parameters__Ko/var_model_parameters__Ki), t11 = t3-
+var_model_parameters__R*var_model_parameters__T/var_model_parameters__F*t8, t13
+= 1/var_model_parameters__R, t14 = var_model_parameters__F*t13, t15 = 1/
+var_model_parameters__T, t16 = t14*t15, t18 = exp(var_I_Kir__bKir*t11*t16), t19
+= var_I_Kir__aKir+t18, t20 = t19^2, t23 = var_model_parameters__Ko^(1/2), t32 =
+PIECEWISE([1., var_membrane__VmReal < -.1000000000e-6],[Float(undefined), 
+var_membrane__VmReal = -.1000000000e-6],[0., var_membrane__VmReal < .1000000000\
+e-6],[Float(undefined), var_membrane__VmReal = .1000000000e-6],[1., .1000000000\
+e-6 < var_membrane__VmReal]), t34 = t13*t15, t44 = (var_I_Shkr__OShkrReal < 0),
+t45 = (1 < var_I_Shkr__OShkrReal), t46 = PIECEWISE([0, t44],[1, t45],[
+var_I_Shkr__OShkrReal, otherwise]), t47 = var_I_Shkr__PShkr*t46, t48 = 
+var_model_parameters__F^2, t53 = exp(-t3*var_model_parameters__F*t34), t55 = 
+var_model_parameters__Ki-var_model_parameters__Ko*t53, t56 = 1-t53, t57 = 1/t56
+, t58 = t55*t57, t63 = var_model_parameters__R^2, t66 = t47*t3*t48*
+var_model_parameters__F/t63, t67 = var_model_parameters__T^2, t68 = 1/t67, t75
+= t56^2, t83 = 1/var_membrane__Cm, t88 = PIECEWISE([0, t44],[undefined, 
+var_I_Shkr__OShkrReal = 0],[1, var_I_Shkr__OShkrReal < 1],[undefined, 
+var_I_Shkr__OShkrReal = 1],[0, t45]), t95 = var_I_Shkr__k_v0*t32, t97 = t95*
+var_I_Shkr__z_v*var_model_parameters__F, t100 = exp(t3*var_I_Shkr__z_v*t16), 
+t101 = (var_I_Shkr__C1ShkrReal < 0), t102 = (1 < var_I_Shkr__C1ShkrReal), t103
+= PIECEWISE([0, t101],[1, t102],[var_I_Shkr__C1ShkrReal, otherwise]), t107 = 
+var_I_Shkr__kv0*t32, t109 = t107*var_I_Shkr__zv*var_model_parameters__F, t112 =
+exp(t3*var_I_Shkr__zv*t16), t113 = (var_I_Shkr__C0ShkrReal < 0), t114 = (1 < 
+var_I_Shkr__C0ShkrReal), t115 = PIECEWISE([0, t113],[1, t114],[
+var_I_Shkr__C0ShkrReal, otherwise]), t119 = 4*t109*t34*t112*t115, t121 = 
+var_I_Shkr__kv0*t112, t125 = PIECEWISE([0, t113],[undefined, 
+var_I_Shkr__C0ShkrReal = 0],[1, var_I_Shkr__C0ShkrReal < 1],[undefined, 
+var_I_Shkr__C0ShkrReal = 1],[0, t114]), t127 = 4*t121*t125, t128 = 
+var_I_Shkr__k_v0*t100, t132 = PIECEWISE([0, t101],[undefined, 
+var_I_Shkr__C1ShkrReal = 0],[1, var_I_Shkr__C1ShkrReal < 1],[undefined, 
+var_I_Shkr__C1ShkrReal = 1],[0, t102]), t134 = (var_I_Shkr__C2ShkrReal < 0), 
+t135 = (1 < var_I_Shkr__C2ShkrReal), t136 = PIECEWISE([0, t134],[1, t135],[
+var_I_Shkr__C2ShkrReal, otherwise]), t144 = t107*var_I_Shkr__zv*t14*t15*t112, 
+t149 = t95*var_I_Shkr__z_v*t14*t15*t100, t159 = PIECEWISE([0, t134],[undefined,
+var_I_Shkr__C2ShkrReal = 0],[1, var_I_Shkr__C2ShkrReal < 1],[undefined, 
+var_I_Shkr__C2ShkrReal = 1],[0, t135]), t162 = (var_I_Shkr__C3ShkrReal < 0), 
+t163 = (1 < var_I_Shkr__C3ShkrReal), t164 = PIECEWISE([0, t162],[1, t163],[
+var_I_Shkr__C3ShkrReal, otherwise]), t183 = PIECEWISE([0, t162],[undefined, 
+var_I_Shkr__C3ShkrReal = 0],[1, var_I_Shkr__C3ShkrReal < 1],[undefined, 
+var_I_Shkr__C3ShkrReal = 1],[0, t163]), t186 = (var_I_Shkr__C4ShkrReal < 0), 
+t187 = (1 < var_I_Shkr__C4ShkrReal), t188 = PIECEWISE([0, t186],[1, t187],[
+var_I_Shkr__C4ShkrReal, otherwise]), t192 = 4*t97*t34*t100*t188, t209 = 
+PIECEWISE([0, t186],[undefined, var_I_Shkr__C4ShkrReal = 0],[1, 
+var_I_Shkr__C4ShkrReal < 1],[undefined, var_I_Shkr__C4ShkrReal = 1],[0, t187]),
+t220 = var_I_Shkr__k_o*t88, jacobian[1,1] = (.3162277660e-1*var_I_Kir__GKir/t20
+*t23*t11*var_I_Kir__bKir*t32*var_model_parameters__F*t34*t18-.3162277660e-1*
+var_I_Kir__GKir/t19*t23*t32-t47*t32*t48*t34*t58-t66*t68*
+var_model_parameters__Ko*t32*t53*t57+t66*t68*t55/t75*t32*t53-var_I_b__Gb*t32)*
+t83, jacobian[1,2] = 0, jacobian[1,3] = 0, jacobian[1,4] = 0, jacobian[1,5] = 0
+, jacobian[1,6] = 0, jacobian[1,7] = -var_I_Shkr__PShkr*t88*t3*t48*t34*t58*t83,
+jacobian[2,1] = t97*t34*t100*t103-t119, jacobian[2,2] = -t127, jacobian[2,3] =
+t128*t132, jacobian[2,4] = 0, jacobian[2,5] = 0, jacobian[2,6] = 0, jacobian[2,
+7] = 0, jacobian[3,1] = 2*t97*t34*t100*t136+t119-(3*t144+t149)*t103, jacobian[3
+,2] = t127, jacobian[3,3] = -(3*t121+t128)*t132, jacobian[3,4] = 2*t128*t159, 
+jacobian[3,5] = 0, jacobian[3,6] = 0, jacobian[3,7] = 0, jacobian[4,1] = 3*t97*
+t34*t100*t164+3*t109*t34*t112*t103-2*(t144+t149)*t136, jacobian[4,2] = 0, 
+jacobian[4,3] = 3*t121*t132, jacobian[4,4] = -2*(t121+t128)*t159, jacobian[4,5]
+= 3*t128*t183, jacobian[4,6] = 0, jacobian[4,7] = 0, jacobian[5,1] = t192+2*
+t109*t34*t112*t136-(t144+3*t149)*t164, jacobian[5,2] = 0, jacobian[5,3] = 0, 
+jacobian[5,4] = 2*t121*t159, jacobian[5,5] = -(t121+3*t128)*t183, jacobian[5,6]
+= 4*t128*t209, jacobian[5,7] = 0, jacobian[6,1] = t109*t34*t112*t164-t192, 
+jacobian[6,2] = 0, jacobian[6,3] = 0, jacobian[6,4] = 0, jacobian[6,5] = t121*
+t183, jacobian[6,6] = -(var_I_Shkr__ko+4*t128)*t209, jacobian[6,7] = t220, 
+jacobian[7,1] = 0, jacobian[7,2] = 0, jacobian[7,3] = 0, jacobian[7,4] = 0, 
+jacobian[7,5] = 0, jacobian[7,6] = var_I_Shkr__ko*t209, jacobian[7,7] = -t220
+memory used=10.7MB, alloc=8.7MB, time=0.30

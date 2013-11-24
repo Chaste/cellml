@@ -138,13 +138,7 @@ Electrophysiological Modeling of Fibroblasts and Their Interaction with Myocytes
       <variable units="nanoampere" public_interface="in" name="I_b"/>
       <variable units="nanoampere" public_interface="in" name="I_Kir"/>
       <variable units="nanoampere" public_interface="in" name="I_Shkr"/>
-      <variable units="nanoampere" public_interface="in" name="I_stim" cmeta:id="membrane_stimulus_current">
-         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-            <rdf:Description rdf:about="#membrane_stimulus_current">
-               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current"/>
-            </rdf:Description>
-         </rdf:RDF>
-      </variable>
+      <variable units="nanoampere" public_interface="in" name="I_stim"/>
       <variable units="second" public_interface="in" name="time"/>
       <variable units="millivolt" name="VmReal" initial_value="-58.00" cmeta:id="membrane_voltage">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
@@ -847,12 +841,42 @@ Electrophysiological Modeling of Fibroblasts and Their Interaction with Myocytes
       </math>
    </component>
    <component name="I_stim">
-      <variable units="nanoampere" public_interface="out" name="I_stim"/>
-      <variable units="second" name="stim_start" initial_value="0.1"/>
+      <variable units="nanoampere" public_interface="out" name="I_stim" cmeta:id="membrane_stimulus_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_stimulus_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable units="second" name="stim_start" initial_value="0.1" cmeta:id="membrane_stimulus_current_offset">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_stimulus_current_offset">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current_offset"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable units="second" name="stim_end" initial_value="10"/>
-      <variable units="second" name="stim_period" initial_value="1"/>
-      <variable units="second" name="stim_duration" initial_value="0.001"/>
-      <variable units="nanoampere" name="stim_amplitude" initial_value="0.1"/>
+      <variable units="second" name="stim_period" initial_value="1" cmeta:id="membrane_stimulus_current_period">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_stimulus_current_period">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current_period"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable units="second" name="stim_duration" initial_value="0.001" cmeta:id="membrane_stimulus_current_duration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_stimulus_current_duration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current_duration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable units="nanoampere" name="stim_amplitude" initial_value="0.1" cmeta:id="membrane_stimulus_current_amplitude">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_stimulus_current_amplitude">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current_amplitude"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable units="second" public_interface="in" name="time"/>
       <variable units="millivolt" public_interface="in" name="Vm"/>
       <math xmlns="http://www.w3.org/1998/Math/MathML">
