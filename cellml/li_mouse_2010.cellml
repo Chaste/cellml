@@ -9,7 +9,7 @@ http://COR.physiol.ox.ac.uk/ - COR@physiol.ox.ac.uk
 CellML 1.0 was used to generate this cellular model
 http://www.CellML.org/
 -->
-<model name="MyModel_2006" cmeta:id="MyModel_2006" xmlns="http://www.cellml.org/cellml/1.0#" xmlns:cellml="http://www.cellml.org/cellml/1.0#" xmlns:cmeta="http://www.cellml.org/metadata/1.0#">
+<model name="Li_Mouse_2010" cmeta:id="Li_Mouse_2010" xmlns="http://www.cellml.org/cellml/1.0#" xmlns:cellml="http://www.cellml.org/cellml/1.0#" xmlns:cmeta="http://www.cellml.org/metadata/1.0#">
    <units name="millisecond">
       <unit units="second" prefix="milli"/>
    </units>
