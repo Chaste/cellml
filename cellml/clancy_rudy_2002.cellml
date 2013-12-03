@@ -1889,7 +1889,20 @@ Na<superscript>+</superscript> Channel Mutation That Causes Both Brugada and Lon
       </math>
    </component>
    <component name="rapid_delayed_rectifier_potassium_current">
-      <variable name="i_Kr" units="microA_per_microF" public_interface="out"/>
+      <variable name="i_Kr" units="microA_per_microF" public_interface="out" cmeta:id="membrane_rapid_delayed_rectifier_potassium_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_rapid_delayed_rectifier_potassium_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_rapid_delayed_rectifier_potassium_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="g_Kr_max" units="milliS_per_microF" initial_value="0.0135" cmeta:id="membrane_rapid_delayed_rectifier_potassium_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_rapid_delayed_rectifier_potassium_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_rapid_delayed_rectifier_potassium_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="g_Kr" units="milliS_per_microF"/>
       <variable name="E_Kr" units="millivolt"/>
       <variable name="time" units="second" public_interface="in" private_interface="out"/>
@@ -1920,7 +1933,7 @@ Na<superscript>+</superscript> Channel Mutation That Causes Both Brugada and Lon
             <ci>g_Kr</ci>
             <apply>
                <times/>
-               <cn cellml:units="milliS_per_microF">0.0135</cn>
+               <ci>g_Kr_max</ci>
                <apply>
                   <power/>
                   <ci>Ko</ci>
@@ -4051,7 +4064,13 @@ Na<superscript>+</superscript> Channel Mutation That Causes Both Brugada and Lon
       <variable name="Ca_NSR_max" units="millimolar" initial_value="15"/>
       <variable name="time" units="second" public_interface="in"/>
       <variable name="F" units="coulomb_per_mole" public_interface="in"/>
-      <variable name="Cai" units="millimolar" initial_value="0.000104" public_interface="out"/>
+      <variable name="Cai" units="millimolar" initial_value="0.000104" public_interface="out" cmeta:id="cytosolic_calcium_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#cytosolic_calcium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_calcium_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="Cao" units="millimolar" initial_value="1.8" public_interface="out" cmeta:id="extracellular_calcium_concentration">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#extracellular_calcium_concentration">
@@ -4817,10 +4836,34 @@ Na<superscript>+</superscript> Channel Mutation That Causes Both Brugada and Lon
       </math>
    </component>
    <component name="ionic_concentrations">
-      <variable name="Nai" units="millimolar" initial_value="10.532" public_interface="out"/>
-      <variable name="Nao" units="millimolar" initial_value="132" public_interface="out"/>
-      <variable name="Ki" units="millimolar" initial_value="140.557" public_interface="out"/>
-      <variable name="Ko" units="millimolar" initial_value="4.5" public_interface="out"/>
+      <variable name="Nai" units="millimolar" initial_value="10.532" public_interface="out" cmeta:id="cytosolic_sodium_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#cytosolic_sodium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_sodium_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="Nao" units="millimolar" initial_value="132" public_interface="out" cmeta:id="extracellular_sodium_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#extracellular_sodium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#extracellular_sodium_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="Ki" units="millimolar" initial_value="140.557" public_interface="out" cmeta:id="cytosolic_potassium_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#cytosolic_potassium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_potassium_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="Ko" units="millimolar" initial_value="4.5" public_interface="out" cmeta:id="extracellular_potassium_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#extracellular_potassium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#extracellular_potassium_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>             
       <variable name="A_cap" units="mm2" initial_value="1.434e-7" public_interface="out"/>
       <variable name="preplength" units="mm" initial_value="0.001"/>
       <variable name="radius" units="mm" initial_value="1.1e-4"/>

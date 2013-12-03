@@ -1893,12 +1893,48 @@ A computationally efficient electrophysiological model of human ventricular cell
   </component>
   
   <component name="ionic_concentrations">
-    <variable units="millimolar" public_interface="out" name="Na_i" initial_value="10.0"/>
-    <variable units="millimolar" public_interface="out" name="Na_e" initial_value="138.0"/>
-    <variable units="millimolar" public_interface="out" name="Ca_i" initial_value="0.0004"/>
-    <variable units="millimolar" public_interface="out" name="Ca_e" initial_value="2.0"/>
-    <variable units="millimolar" public_interface="out" name="K_i" initial_value="140.0"/>
-    <variable units="millimolar" public_interface="out" name="K_e" initial_value="4.0"/>
+    <variable units="millimolar" public_interface="out" name="Na_i" initial_value="10.0" cmeta:id="cytosolic_sodium_concentration">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+        <rdf:Description rdf:about="#cytosolic_sodium_concentration">
+          <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_sodium_concentration"/>
+        </rdf:Description>
+      </rdf:RDF>
+    </variable>
+    <variable units="millimolar" public_interface="out" name="Na_e" initial_value="138.0" cmeta:id="extracellular_sodium_concentration">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+        <rdf:Description rdf:about="#extracellular_sodium_concentration">
+          <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#extracellular_sodium_concentration"/>
+        </rdf:Description>
+      </rdf:RDF>
+    </variable>
+    <variable units="millimolar" public_interface="out" name="Ca_i" initial_value="0.0004" cmeta:id="cytosolic_calcium_concentration">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+        <rdf:Description rdf:about="#cytosolic_calcium_concentration">
+          <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_calcium_concentration"/>
+        </rdf:Description>
+      </rdf:RDF>
+    </variable>
+    <variable units="millimolar" public_interface="out" name="Ca_e" initial_value="2.0" cmeta:id="extracellular_calcium_concentration">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+        <rdf:Description rdf:about="#extracellular_calcium_concentration">
+          <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#extracellular_calcium_concentration"/>
+        </rdf:Description>
+      </rdf:RDF>
+    </variable>
+    <variable units="millimolar" public_interface="out" name="K_i" initial_value="140.0" cmeta:id="cytosolic_potassium_concentration">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+        <rdf:Description rdf:about="#cytosolic_potassium_concentration">
+          <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_potassium_concentration"/>
+        </rdf:Description>
+      </rdf:RDF>
+    </variable>
+    <variable units="millimolar" public_interface="out" name="K_e" initial_value="4.0" cmeta:id="extracellular_potassium_concentration">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+        <rdf:Description rdf:about="#extracellular_potassium_concentration">
+          <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#extracellular_potassium_concentration"/>
+        </rdf:Description>
+      </rdf:RDF>
+    </variable>
   </component>
   
   <component name="stimulus_protocol">

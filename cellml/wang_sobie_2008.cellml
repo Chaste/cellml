@@ -161,8 +161,20 @@ The original paper reference is cited below:
       <variable initial_value="2.098e-7" name="VNSR" public_interface="out" units="microlitre"/>
       <variable initial_value="3.0734e-8" name="Vss" public_interface="out" units="microlitre"/>
       <variable initial_value="1.5410e-5" name="Acap" public_interface="out" units="cm2"/>
-      <variable initial_value="5400" name="Ko" public_interface="out" units="micromolar"/>
-      <variable initial_value="140000" name="Nao" public_interface="out" units="micromolar"/>
+      <variable initial_value="5400" name="Ko" public_interface="out" units="micromolar" cmeta:id="extracellular_potassium_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#extracellular_potassium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#extracellular_potassium_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable initial_value="140000" name="Nao" public_interface="out" units="micromolar" cmeta:id="extracellular_sodium_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#extracellular_sodium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#extracellular_sodium_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable initial_value="1000" name="Cao" public_interface="out" units="micromolar" cmeta:id="extracellular_calcium_concentration">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#extracellular_calcium_concentration">
@@ -170,8 +182,20 @@ The original paper reference is cited below:
             </rdf:Description>
          </rdf:RDF>
       </variable>
-	  <variable initial_value="132000" name="Clo" public_interface="out" units="micromolar"/>
-      <variable initial_value="30000" name="Cli" public_interface="out" units="micromolar"/>
+      <variable initial_value="132000" name="Clo" public_interface="out" units="micromolar" cmeta:id="extracellular_chloride_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#extracellular_chloride_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#extracellular_chloride_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable initial_value="30000" name="Cli" public_interface="out" units="micromolar" cmeta:id="cytosolic_chloride_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#cytosolic_chloride_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_chloride_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable initial_value="8.314" name="R" public_interface="out" units="joule_per_mole_kelvin"/>
       <variable initial_value="298" name="T" public_interface="out" units="kelvin"/>
       <variable initial_value="96.5" name="F" public_interface="out" units="coulomb_per_millimole"/>
@@ -329,9 +353,27 @@ The original paper reference is cited below:
             </rdf:Description>
          </rdf:RDF>
       </variable>
-      <variable initial_value="0.1867" name="Cass" public_interface="out" units="micromolar"/>
-      <variable initial_value="705.5417" name="CaJSR" public_interface="out" units="micromolar"/>
-      <variable initial_value="703.3063" name="CaNSR" public_interface="out" units="micromolar"/>
+      <variable initial_value="0.1867" name="Cass" public_interface="out" units="micromolar" cmeta:id="diadicspace_calcium_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#diadicspace_calcium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#diadicspace_calcium_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable initial_value="705.5417" name="CaJSR" public_interface="out" units="micromolar" cmeta:id="JSR_calcium_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#JSR_calcium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#JSR_calcium_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable initial_value="703.3063" name="CaNSR" public_interface="out" units="micromolar" cmeta:id="NSR_calcium_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#NSR_calcium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#NSR_calcium_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       
 	  <variable name="Bi" units="dimensionless"/>
       <variable name="Bss" units="dimensionless"/>
@@ -3728,9 +3770,8 @@ The original paper reference is cited below:
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_rapid_delayed_rectifier_potassium_current"/>
             </rdf:Description>
          </rdf:RDF>
-      </variable>
-      
-      <variable initial_value="01.17" name="g_Kr" units="milliS_per_microF" cmeta:id="membrane_rapid_delayed_rectifier_potassium_current_conductance">
+      </variable>      
+      <variable initial_value="1.17" name="g_Kr" units="milliS_per_microF" cmeta:id="membrane_rapid_delayed_rectifier_potassium_current_conductance">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#membrane_rapid_delayed_rectifier_potassium_current_conductance">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_rapid_delayed_rectifier_potassium_current_conductance"/>

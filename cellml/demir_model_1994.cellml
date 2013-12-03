@@ -85,10 +85,22 @@ http://www.CellML.org/
       <unit units="litre" prefix="micro"/>
    </units>
    <component name="environment">
-      <variable name="time" units="second" public_interface="out"/>
+      <variable name="time" units="second" public_interface="out" cmeta:id="time">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#time">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#time"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
    </component>
    <component name="membrane">
-      <variable name="V" units="millivolt" initial_value="-49.54105" public_interface="out" cmeta:id="membrane_voltage"/>
+      <variable name="V" units="millivolt" initial_value="-49.54105" public_interface="out" cmeta:id="membrane_voltage">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_voltage">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_voltage"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="R" units="joule_per_kilomole_kelvin" initial_value="8314.472" public_interface="out"/>
       <variable name="T" units="kelvin" initial_value="310" public_interface="out"/>
       <variable name="F" units="coulomb_per_mole" initial_value="96485.3415" public_interface="out"/>
@@ -1713,9 +1725,27 @@ http://www.CellML.org/
       </math>
    </component>
    <component name="intracellular_concentrations_and_buffer_equations">
-      <variable name="Na_i" units="millimolar" initial_value="9.701621" public_interface="out"/>
-      <variable name="Ca_i" units="millimolar" initial_value="3.787018e-4" public_interface="out"/>
-      <variable name="K_i" units="millimolar" initial_value="1.407347e2" public_interface="out"/>
+      <variable name="Na_i" units="millimolar" initial_value="9.701621" public_interface="out" cmeta:id="cytosolic_sodium_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#cytosolic_sodium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_sodium_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="Ca_i" units="millimolar" initial_value="3.787018e-4" public_interface="out" cmeta:id="cytosolic_calcium_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#cytosolic_calcium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_calcium_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="K_i" units="millimolar" initial_value="1.407347e2" public_interface="out" cmeta:id="cytosolic_potassium_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#cytosolic_potassium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_potassium_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="Ca_Calmod" units="dimensionless" initial_value="0.1411678"/>
       <variable name="Ca_Trop" units="dimensionless" initial_value="0.07331396"/>
       <variable name="Ca_Mg_Trop" units="dimensionless" initial_value="0.7618549"/>
@@ -2049,9 +2079,27 @@ http://www.CellML.org/
       </math>
    </component>
    <component name="cleft_space_equations">
-      <variable name="Na_c" units="millimolar" initial_value="139.9988" public_interface="out"/>
-      <variable name="Ca_c" units="millimolar" initial_value="2.00474" public_interface="out"/>
-      <variable name="K_c" units="millimolar" initial_value="5.389014" public_interface="out"/>
+      <variable name="Na_c" units="millimolar" initial_value="139.9988" public_interface="out" cmeta:id="extracellular_sodium_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#extracellular_sodium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#extracellular_sodium_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="Ca_c" units="millimolar" initial_value="2.00474" public_interface="out" cmeta:id="extracellular_calcium_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#extracellular_calcium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#extracellular_calcium_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="K_c" units="millimolar" initial_value="5.389014" public_interface="out" cmeta:id="extracellular_potassium_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#extracellular_potassium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#extracellular_potassium_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>             
       <variable name="K_b" units="millimolar" initial_value="5.4" public_interface="out"/>
       <variable name="Na_b" units="millimolar" initial_value="140"/>
       <variable name="Ca_b" units="millimolar" initial_value="2"/>
