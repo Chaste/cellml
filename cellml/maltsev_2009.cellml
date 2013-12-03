@@ -1006,8 +1006,20 @@ Synergism of coupled subsarcolemmal Ca2+ clocks and sarcolemmal voltage clocks c
       </math>
    </component>
    <component name="i_Kr">
-      <variable name="i_Kr" units="picoA" public_interface="out"/>
-      <variable name="g_Kr" units="nanoS_per_picoF" initial_value="0.08113973"/>
+      <variable name="i_Kr" units="picoA" public_interface="out" cmeta:id="membrane_rapid_delayed_rectifier_potassium_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_rapid_delayed_rectifier_potassium_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_rapid_delayed_rectifier_potassium_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="g_Kr" units="nanoS_per_picoF" initial_value="0.08113973" cmeta:id="membrane_rapid_delayed_rectifier_potassium_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_rapid_delayed_rectifier_potassium_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_rapid_delayed_rectifier_potassium_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="Cm" units="picoF" public_interface="in"/>
       <variable name="time" units="millisecond" public_interface="in" private_interface="out"/>
       <variable name="Vm" units="millivolt" public_interface="in" private_interface="out"/>
@@ -3398,10 +3410,34 @@ Synergism of coupled subsarcolemmal Ca2+ clocks and sarcolemmal voltage clocks c
       </math>
    </component>
    <component name="calcium_dynamics">
-      <variable name="Cai" units="millimolar" initial_value="0.000150018670943" public_interface="out"/>
-      <variable name="Ca_nsr" units="millimolar" initial_value="1.49348117734" public_interface="out"/>
-      <variable name="Ca_jsr" units="millimolar" initial_value="0.316762674605" public_interface="out"/>
-      <variable name="Ca_sub" units="millimolar" initial_value="0.000138112560112" public_interface="out"/>
+      <variable name="Cai" units="millimolar" initial_value="0.000150018670943" public_interface="out" cmeta:id="cytosolic_calcium_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#cytosolic_calcium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_calcium_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="Ca_nsr" units="millimolar" initial_value="1.49348117734" public_interface="out" cmeta:id="NSR_calcium_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#NSR_calcium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#NSR_calcium_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="Ca_jsr" units="millimolar" initial_value="0.316762674605" public_interface="out" cmeta:id="JSR_calcium_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#JSR_calcium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#JSR_calcium_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="Ca_sub" units="millimolar" initial_value="0.000138112560112" public_interface="out" cmeta:id="diadicspace_calcium_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#diadicspace_calcium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#diadicspace_calcium_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="V_i" units="picolitre" public_interface="in"/>
       <variable name="V_jsr" units="picolitre" public_interface="in"/>
       <variable name="V_nsr" units="picolitre" public_interface="in"/>
@@ -3577,11 +3613,41 @@ Synergism of coupled subsarcolemmal Ca2+ clocks and sarcolemmal voltage clocks c
       </math>
    </component>
    <component name="model_parameters">
-      <variable name="Cao" units="millimolar" initial_value="2" public_interface="out"/>
-      <variable name="Nai" units="millimolar" initial_value="10" public_interface="out"/>
-      <variable name="Nao" units="millimolar" initial_value="140" public_interface="out"/>
-      <variable name="Ki" units="millimolar" initial_value="140" public_interface="out"/>
-      <variable name="Ko" units="millimolar" initial_value="5.4" public_interface="out"/>
+      <variable name="Cao" units="millimolar" initial_value="2" public_interface="out" cmeta:id="extracellular_calcium_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#extracellular_calcium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#extracellular_calcium_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="Nai" units="millimolar" initial_value="10" public_interface="out" cmeta:id="cytosolic_sodium_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#cytosolic_sodium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_sodium_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="Nao" units="millimolar" initial_value="140" public_interface="out" cmeta:id="extracellular_sodium_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#extracellular_sodium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#extracellular_sodium_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="Ki" units="millimolar" initial_value="140" public_interface="out" cmeta:id="cytosolic_potassium_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#cytosolic_potassium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_potassium_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="Ko" units="millimolar" initial_value="5.4" public_interface="out" cmeta:id="extracellular_potassium_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#extracellular_potassium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#extracellular_potassium_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="Mgi" units="millimolar" initial_value="2.5" public_interface="out"/>
       <variable name="R" units="joule_per_kilomole_kelvin" initial_value="8314.4" public_interface="out"/>
       <variable name="T" units="kelvin" initial_value="310.15" public_interface="out"/>

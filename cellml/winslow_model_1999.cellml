@@ -3705,8 +3705,14 @@ http://www.CellML.org/
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#JSR_calcium_concentration"/>
             </rdf:Description>
          </rdf:RDF>
-      </variable>		  
-      <variable name="Ca_NSR" units="millimolar" initial_value="0.257" public_interface="out"/>
+      </variable>
+      <variable name="Ca_NSR" units="millimolar" initial_value="0.257" public_interface="out" cmeta:id="NSR_calcium_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#NSR_calcium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#NSR_calcium_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
 	  <variable name="conc_clamp" units="dimensionless" initial_value="1" cmeta:id="concentration_clamp_onoff">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#concentration_clamp_onoff">
@@ -4136,7 +4142,7 @@ http://www.CellML.org/
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#extracellular_potassium_concentration"/>
             </rdf:Description>
          </rdf:RDF>
-      </variable>			  
+      </variable>
    </component>
    <group>
       <relationship_ref relationship="containment"/>

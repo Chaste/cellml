@@ -2039,10 +2039,34 @@ Mechanisms of transition from normal to reentrant electrical activity in a model
       </math>
    </component>
    <component name="delayed_rectifier_K_current">
-      <variable cmeta:id="delayed_rectifier_K_current_i_Ks" name="i_Ks" public_interface="out" units="picoA"/>
-      <variable cmeta:id="delayed_rectifier_K_current_i_Kr" name="i_Kr" public_interface="out" units="picoA"/>
-      <variable initial_value="0.0025" name="g_Ks" units="nanoS"/>
-      <variable initial_value="0.0035" name="g_Kr" units="nanoS"/>
+      <variable cmeta:id="delayed_rectifier_K_current_i_Ks" name="i_Ks" public_interface="out" units="picoA">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#delayed_rectifier_K_current_i_Ks">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_slow_delayed_rectifier_potassium_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable cmeta:id="delayed_rectifier_K_current_i_Kr" name="i_Kr" public_interface="out" units="picoA">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#delayed_rectifier_K_current_i_Kr">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_rapid_delayed_rectifier_potassium_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable initial_value="0.0025" name="g_Ks" units="nanoS" cmeta:id="membrane_slow_delayed_rectifier_potassium_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_slow_delayed_rectifier_potassium_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_slow_delayed_rectifier_potassium_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable initial_value="0.0035" name="g_Kr" units="nanoS" cmeta:id="membrane_rapid_delayed_rectifier_potassium_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_rapid_delayed_rectifier_potassium_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_rapid_delayed_rectifier_potassium_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="time" private_interface="out" public_interface="in" units="second"/>
       <variable name="V" private_interface="out" public_interface="in" units="millivolt"/>
       <variable name="E_K" public_interface="in" units="millivolt"/>
@@ -3019,9 +3043,27 @@ Mechanisms of transition from normal to reentrant electrical activity in a model
       </math>
    </component>
    <component name="intracellular_ion_concentrations">
-      <variable initial_value="8.4" name="Na_i" public_interface="out" units="millimolar"/>
-      <variable initial_value="0.000071" name="Ca_i" public_interface="out" units="millimolar"/>
-      <variable initial_value="100" name="K_i" public_interface="out" units="millimolar"/>
+      <variable initial_value="8.4" name="Na_i" public_interface="out" units="millimolar" cmeta:id="cytosolic_sodium_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#cytosolic_sodium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_sodium_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable initial_value="0.000071" name="Ca_i" public_interface="out" units="millimolar" cmeta:id="cytosolic_calcium_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#cytosolic_calcium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_calcium_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable initial_value="100" name="K_i" public_interface="out" units="millimolar" cmeta:id="cytosolic_potassium_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#cytosolic_potassium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_potassium_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable initial_value="1.26e-5" name="Vol_i" public_interface="out" units="nanolitre"/>
       <variable initial_value="5.884e-6" name="Vol_Ca" units="nanolitre"/>
       <variable name="time" public_interface="in" units="second"/>
@@ -3336,7 +3378,13 @@ Mechanisms of transition from normal to reentrant electrical activity in a model
       </math>
    </component>
    <component name="cleft_space_ion_concentrations">
-      <variable initial_value="140" name="Na_c" public_interface="out" units="millimolar"/>
+      <variable initial_value="140" name="Na_c" public_interface="out" units="millimolar" cmeta:id="extracellular_sodium_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#extracellular_sodium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#extracellular_sodium_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable initial_value="2.5" name="Ca_c" public_interface="out" units="millimolar" cmeta:id="extracellular_calcium_concentration">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#extracellular_calcium_concentration">
@@ -3344,7 +3392,13 @@ Mechanisms of transition from normal to reentrant electrical activity in a model
             </rdf:Description>
          </rdf:RDF>
       </variable>
-      <variable initial_value="5" name="K_c" public_interface="out" units="millimolar"/>
+      <variable initial_value="5" name="K_c" public_interface="out" units="millimolar" cmeta:id="extracellular_potassium_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#extracellular_potassium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#extracellular_potassium_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable initial_value="0.0000025" name="Vol_c" public_interface="out" units="nanolitre"/>
       <variable name="time" public_interface="in" units="second"/>
       <variable name="F" public_interface="in" units="coulomb_per_mole"/>
