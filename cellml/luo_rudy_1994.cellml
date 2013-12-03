@@ -2929,14 +2929,62 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
   </component>
   
    <component cmeta:id="ionic_concentrations" name="ionic_concentrations">
-    <variable initial_value="10.0" name="Nai" public_interface="out" units="mM"/>
-    <variable initial_value="140.0" name="Nao" public_interface="out" units="mM"/>
-    <variable initial_value="0.12e-3" name="Cai" public_interface="out" units="mM"/>
-    <variable initial_value="1.8" name="Cao" public_interface="out" units="mM"/>
-    <variable initial_value="145.0" name="Ki" public_interface="out" units="mM"/>
-    <variable initial_value="5.4" name="Ko" public_interface="out" units="mM"/>
-    <variable initial_value="1.8" name="Ca_JSR" public_interface="out" units="mM"/>
-    <variable initial_value="1.8" name="Ca_NSR" public_interface="out" units="mM"/>
+    <variable initial_value="10.0" name="Nai" public_interface="out" units="mM" cmeta:id="cytosolic_sodium_concentration">
+       <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+         <rdf:Description rdf:about="#cytosolic_sodium_concentration">
+           <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_sodium_concentration"/>
+         </rdf:Description>
+       </rdf:RDF>
+    </variable>
+    <variable initial_value="140.0" name="Nao" public_interface="out" units="mM" cmeta:id="extracellular_sodium_concentration">
+       <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+         <rdf:Description rdf:about="#extracellular_sodium_concentration">
+           <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#extracellular_sodium_concentration"/>
+         </rdf:Description>
+       </rdf:RDF>
+    </variable>
+     <variable initial_value="0.12e-3" name="Cai" public_interface="out" units="mM" cmeta:id="cytosolic_calcium_concentration">
+       <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+         <rdf:Description rdf:about="#cytosolic_calcium_concentration">
+           <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_calcium_concentration"/>
+         </rdf:Description>
+       </rdf:RDF>
+     </variable>
+    <variable initial_value="1.8" name="Cao" public_interface="out" units="mM" cmeta:id="extracellular_calcium_concentration">
+       <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+         <rdf:Description rdf:about="#extracellular_calcium_concentration">
+           <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#extracellular_calcium_concentration"/>
+         </rdf:Description>
+       </rdf:RDF>
+    </variable>
+    <variable initial_value="145.0" name="Ki" public_interface="out" units="mM" cmeta:id="cytosolic_potassium_concentration">
+       <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+         <rdf:Description rdf:about="#cytosolic_potassium_concentration">
+           <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_potassium_concentration"/>
+         </rdf:Description>
+       </rdf:RDF>
+    </variable>
+    <variable initial_value="5.4" name="Ko" public_interface="out" units="mM" cmeta:id="extracellular_potassium_concentration">
+       <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+         <rdf:Description rdf:about="#extracellular_potassium_concentration">
+           <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#extracellular_potassium_concentration"/>
+         </rdf:Description>
+       </rdf:RDF>
+    </variable>
+     <variable initial_value="1.8" name="Ca_JSR" public_interface="out" units="mM" cmeta:id="JSR_calcium_concentration">
+       <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+         <rdf:Description rdf:about="#JSR_calcium_concentration">
+           <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#JSR_calcium_concentration"/>
+         </rdf:Description>
+       </rdf:RDF>
+     </variable>
+     <variable initial_value="1.8" name="Ca_NSR" public_interface="out" units="mM" cmeta:id="NSR_calcium_concentration">
+       <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+         <rdf:Description rdf:about="#NSR_calcium_concentration">
+           <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#NSR_calcium_concentration"/>
+         </rdf:Description>
+       </rdf:RDF>
+     </variable>
     
     <variable initial_value="200" name="Am" units="per_mm"/>
     <variable initial_value="0.68" name="V_myo" units="dimensionless"/>
