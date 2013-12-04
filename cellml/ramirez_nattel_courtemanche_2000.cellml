@@ -1456,9 +1456,21 @@ Mathematical analysis of canine atrial action potentials: rate, regional factors
   </component>
   
   <component name="rapid_delayed_rectifier_K_current">
-    <variable units="picoA_per_picoF" public_interface="out" name="i_Kr"/>
+    <variable units="picoA_per_picoF" public_interface="out" name="i_Kr" cmeta:id="membrane_rapid_delayed_rectifier_potassium_current">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+        <rdf:Description rdf:about="#membrane_rapid_delayed_rectifier_potassium_current">
+          <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_rapid_delayed_rectifier_potassium_current"/>
+        </rdf:Description>
+      </rdf:RDF>
+    </variable>
    
-    <variable units="nanoS_per_picoF" name="g_Kr" initial_value="0.06984"/>
+    <variable units="nanoS_per_picoF" name="g_Kr" initial_value="0.06984" cmeta:id="membrane_rapid_delayed_rectifier_potassium_current_conductance">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+        <rdf:Description rdf:about="#membrane_rapid_delayed_rectifier_potassium_current_conductance">
+          <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_rapid_delayed_rectifier_potassium_current_conductance"/>
+        </rdf:Description>
+      </rdf:RDF>
+    </variable>
     
     <variable units="millisecond" public_interface="in" private_interface="out" name="time"/>
     <variable units="millivolt" public_interface="in" private_interface="out" name="V"/>
@@ -3233,7 +3245,13 @@ Mathematical analysis of canine atrial action potentials: rate, regional factors
         </rdf:Description>
       </rdf:RDF>
     </variable>
-    <variable units="millimolar" public_interface="out" name="Cl_i" initial_value="29.26"/>
+    <variable units="millimolar" public_interface="out" name="Cl_i" initial_value="29.26" cmeta:id="cytosolic_chloride_concentration">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+        <rdf:Description rdf:about="#cytosolic_chloride_concentration">
+          <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_chloride_concentration"/>
+        </rdf:Description>
+      </rdf:RDF>
+    </variable>
     <variable units="millimolar" public_interface="out" name="K_i" initial_value="138.4" cmeta:id="cytosolic_potassium_concentration">
       <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
         <rdf:Description rdf:about="#cytosolic_potassium_concentration">
