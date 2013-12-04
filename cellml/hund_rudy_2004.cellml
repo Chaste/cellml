@@ -95,7 +95,7 @@ http://www.CellML.org/
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#extracellular_potassium_concentration"/>
             </rdf:Description>
          </rdf:RDF>
-      </variable>		  
+      </variable>
       <variable name="Ca_o" units="mM" initial_value="1.8" public_interface="out" cmeta:id="extracellular_calcium_concentration">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#extracellular_calcium_concentration">
@@ -110,7 +110,13 @@ http://www.CellML.org/
             </rdf:Description>
          </rdf:RDF>
       </variable>
-      <variable name="Cl_o" units="mM" initial_value="100" public_interface="out"/>
+      <variable name="Cl_o" units="mM" initial_value="100" public_interface="out" cmeta:id="extracellular_chloride_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#extracellular_chloride_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#extracellular_chloride_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="FonRT" units="per_mV" initial_value="0.0374358835078" public_interface="out"/>
       <variable name="tissue" units="dimensionless" initial_value="0" public_interface="out"/>
    </component>
@@ -4308,8 +4314,14 @@ http://www.CellML.org/
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#JSR_calcium_concentration"/>
             </rdf:Description>
          </rdf:RDF>
-      </variable>	  	  
-      <variable name="Ca_nsr" units="mM" initial_value="1.832822335168" public_interface="out"/>
+      </variable>
+      <variable name="Ca_nsr" units="mM" initial_value="1.832822335168" public_interface="out" cmeta:id="NSR_calcium_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#NSR_calcium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#NSR_calcium_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
 	  <variable name="Ca_ss" units="mM" initial_value="0.00012271265" public_interface="out" cmeta:id="diadicspace_calcium_concentration">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#diadicspace_calcium_concentration">

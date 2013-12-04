@@ -1256,10 +1256,9 @@ A computationally efficient electrophysiological model of human ventricular cell
   </component>
   
   <component name="delayed_rectifier_potassium_current"> 
-    <variable units="picoA_per_picoF" public_interface="out" name="i_K"/>           <variable units="millivolt" public_interface="out" name="E_K"/> 
-    
+    <variable units="picoA_per_picoF" public_interface="out" name="i_K"/>           
+    <variable units="millivolt" public_interface="out" name="E_K"/> 
     <variable units="nanoS_per_picoF" name="g_K" initial_value="0.019"/>
-    
     <variable units="millimolar" public_interface="in" name="K_i"/>
     <variable units="millimolar" public_interface="in" name="K_e"/>
     <variable units="millijoule_per_mole_kelvin" public_interface="in" name="R"/>
