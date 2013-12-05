@@ -3029,7 +3029,13 @@ http://www.cellml.org/
       </math>
    </component>
    <component xmlns="http://www.cellml.org/cellml/1.0#" name="i_f_Xf_gate">
-      <variable name="Xf" units="dimensionless" initial_value="0.100615100568753" public_interface="out"/>
+      <variable name="Xf" units="dimensionless" initial_value="0.100615100568753" public_interface="out" cmeta:id="membrane_hyperpolarisation_activated_funny_current_single_gate">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_hyperpolarisation_activated_funny_current_single_gate">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_hyperpolarisation_activated_funny_current_single_gate"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="Xf_infinity" units="dimensionless"/>
       <variable name="tau_Xf" units="second"/>
       <variable name="Vm" units="volt" public_interface="in"/>
