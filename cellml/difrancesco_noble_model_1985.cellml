@@ -2153,7 +2153,13 @@ http://www.CellML.org/
       </math>
    </component>
    <component name="extracellular_sodium_concentration">
-      <variable name="Nao" units="millimolar" initial_value="140" public_interface="out"/>
+      <variable name="Nao" units="millimolar" initial_value="140" public_interface="out" cmeta:id="extracellular_sodium_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#extracellular_sodium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#extracellular_sodium_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
    </component>
    <component name="intracellular_sodium_concentration">
 	  <variable name="Nai" units="millimolar" initial_value="8" public_interface="out" cmeta:id="cytosolic_sodium_concentration">
