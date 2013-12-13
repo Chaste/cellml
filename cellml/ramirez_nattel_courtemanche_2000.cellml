@@ -248,10 +248,22 @@ Mathematical analysis of canine atrial action potentials: rate, regional factors
   </component>
   
   <component name="fast_sodium_current">
-    <variable units="picoA_per_picoF" public_interface="out" name="i_Na"/>
+    <variable units="picoA_per_picoF" public_interface="out" name="i_Na" cmeta:id="membrane_fast_sodium_current">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+        <rdf:Description rdf:about="#membrane_fast_sodium_current">
+          <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current"/>
+        </rdf:Description>
+      </rdf:RDF>
+    </variable>
     <variable units="millivolt" public_interface="out" name="E_Na"/>
     
-    <variable units="nanoS_per_picoF" name="g_Na" initial_value="7.8"/>
+    <variable units="nanoS_per_picoF" name="g_Na" initial_value="7.8" cmeta:id="membrane_fast_sodium_current_conductance">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+        <rdf:Description rdf:about="#membrane_fast_sodium_current_conductance">
+          <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current_conductance"/>
+        </rdf:Description>
+      </rdf:RDF>
+    </variable>
     
     <variable units="millisecond" public_interface="in" private_interface="out" name="time"/>
     <variable units="millivolt" public_interface="in" private_interface="out" name="V"/>

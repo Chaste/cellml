@@ -297,7 +297,13 @@ Mechanisms of transition from normal to reentrant electrical activity in a model
       </math>
    </component>
    <component name="sodium_current">
-      <variable cmeta:id="sodium_current_i_Na" name="i_Na" public_interface="out" units="picoA"/>
+      <variable cmeta:id="sodium_current_i_Na" name="i_Na" public_interface="out" units="picoA" cmeta:id="membrane_fast_sodium_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_fast_sodium_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="E_Na" public_interface="out" units="millivolt"/>
       <variable initial_value="0.0000014" name="P_Na" units="nanolitre_per_second"/>
       <variable name="time" private_interface="out" public_interface="in" units="second"/>

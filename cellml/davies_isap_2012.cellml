@@ -544,7 +544,13 @@ http://www.cellml.org/
       <variable name="bh" units="per_ms"/>
       <variable name="aj" units="per_ms"/>
       <variable name="bj" units="per_ms"/>
-      <variable name="INa" units="uA_per_uF" public_interface="out"/>
+      <variable name="INa" units="uA_per_uF" public_interface="out" cmeta:id="membrane_fast_sodium_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_fast_sodium_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <math xmlns="http://www.w3.org/1998/Math/MathML">
          <apply>
             <eq/>

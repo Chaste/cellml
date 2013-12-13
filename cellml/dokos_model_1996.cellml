@@ -72,7 +72,13 @@ http://www.CellML.org/
       <unit units="microlitre" exponent="-1"/>
    </units>
    <component name="environment">
-      <variable name="time" units="second" public_interface="out"/>
+      <variable name="time" units="second" public_interface="out" cmeta:id="time">        
+        <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+         <rdf:Description rdf:about="#time">
+            <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#time"/>
+         </rdf:Description>
+        </rdf:RDF>
+      </variable>
    </component>
    <component name="constants">
       <variable name="R" units="joule_per_kilomole_kelvin" initial_value="8314.472" public_interface="out"/>
@@ -634,8 +640,20 @@ http://www.CellML.org/
       </math>
    </component>
    <component name="fast_sodium_current">
-      <variable name="i_Na" units="picoA" public_interface="out"/>
-      <variable name="g_Na" units="nanoS" initial_value="0.25"/>
+      <variable name="i_Na" units="picoA" public_interface="out" cmeta:id="membrane_fast_sodium_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_fast_sodium_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="g_Na" units="nanoS" initial_value="0.25" cmeta:id="membrane_fast_sodium_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_fast_sodium_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="E_Na" units="millivolt" public_interface="in"/>
       <variable name="time" units="second" public_interface="in" private_interface="out"/>
       <variable name="E" units="millivolt" public_interface="in" private_interface="out"/>

@@ -110,14 +110,14 @@ http://www.CellML.org/
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current"/>
             </rdf:Description>
          </rdf:RDF>
-      </variable>	  
+      </variable>
       <variable name="g_Na_max" units="milliS_per_cm2" initial_value="400" cmeta:id="membrane_fast_sodium_current_conductance">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#membrane_fast_sodium_current_conductance">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current_conductance"/>
             </rdf:Description>
          </rdf:RDF>
-      </variable>	  
+      </variable>
       <variable name="g_Na" units="milliS_per_cm2"/>
       <variable name="shift_INa_inact" units="millivolt" initial_value="0" private_interface="out" cmeta:id="membrane_fast_sodium_current_shift_inactivation">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">

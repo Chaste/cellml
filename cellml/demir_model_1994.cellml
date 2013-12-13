@@ -154,8 +154,20 @@ http://www.CellML.org/
       </math>
    </component>
    <component name="sodium_current">
-      <variable name="i_Na" units="nanoA" public_interface="out"/>
-      <variable name="P_Na" units="mul_per_second" initial_value="0.00344"/>
+      <variable name="i_Na" units="nanoA" public_interface="out" cmeta:id="membrane_fast_sodium_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_fast_sodium_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="P_Na" units="mul_per_second" initial_value="0.00344" cmeta:id="membrane_fast_sodium_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_fast_sodium_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="E_Na" units="millivolt" public_interface="in"/>
       <variable name="Na_c" units="millimolar" public_interface="in"/>
       <variable name="R" units="joule_per_kilomole_kelvin" public_interface="in"/>
