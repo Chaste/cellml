@@ -241,10 +241,22 @@ A computationally efficient electrophysiological model of human ventricular cell
   </component>
   
   <component name="sodium_current">
-    <variable units="picoA_per_picoF" public_interface="out" name="i_Na"/>
+    <variable units="picoA_per_picoF" public_interface="out" name="i_Na" cmeta:id="membrane_fast_sodium_current">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+        <rdf:Description rdf:about="#membrane_fast_sodium_current">
+          <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current"/>
+        </rdf:Description>
+      </rdf:RDF>
+    </variable>
     <variable units="millivolt" public_interface="out" name="E_Na"/>
     
-    <variable units="nanoS_per_picoF" name="g_Na" initial_value="16.0"/>
+    <variable units="nanoS_per_picoF" name="g_Na" initial_value="16.0" cmeta:id="membrane_fast_sodium_current_conductance">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+        <rdf:Description rdf:about="#membrane_fast_sodium_current_conductance">
+          <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current_conductance"/>
+        </rdf:Description>
+      </rdf:RDF>
+    </variable>
     
     <variable units="millimolar" public_interface="in" name="Na_i"/>
     <variable units="millimolar" public_interface="in" name="Na_e"/>

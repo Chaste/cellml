@@ -171,14 +171,18 @@ Reconstruction of the Electrical Activity of Cardiac Purkinje Fibres, McAllister
       </math>
    </component>
    <component name="fast_sodium_current">
-      <variable units="microA_per_cm2" public_interface="out" name="i_Na"/>
+      <variable units="microA_per_cm2" public_interface="out" name="i_Na" cmeta:id="membrane_fast_sodium_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_fast_sodium_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable units="millivolt" public_interface="out" name="E_Na" initial_value="40"/>
       <variable units="milliS_per_cm2" name="g_Na" initial_value="150" cmeta:id="membrane_fast_sodium_current_conductance">
-         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-            xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#membrane_fast_sodium_current_conductance">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current_conductance"/>
-               <modifiable-parameter xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</modifiable-parameter>
             </rdf:Description>
          </rdf:RDF>
       </variable>
