@@ -138,7 +138,13 @@ http://www.CellML.org/
             </rdf:Description>
          </rdf:RDF>
       </variable>	  
-      <variable name="E_Na" units="mV" initial_value="50"/>
+      <variable name="E_Na" units="mV" initial_value="50" cmeta:id="sodium_reversal_potential">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#sodium_reversal_potential">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#sodium_reversal_potential"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>     
       <variable name="g_Nac" units="mS_per_mm2" initial_value="3e-5"/>
       <variable name="time" units="ms" public_interface="in" private_interface="out"/>
       <variable name="V" units="mV" public_interface="in" private_interface="out"/>
