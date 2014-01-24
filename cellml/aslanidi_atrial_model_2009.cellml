@@ -711,8 +711,20 @@ Mechanisms of transition from normal to reentrant electrical activity in a model
       </math>
    </component>
    <component name="L_type_Ca_channel">
-      <variable cmeta:id="L_type_Ca_channel_i_Ca_L" name="i_Ca_L" public_interface="out" units="picoA"/>
-      <variable initial_value="0.004" name="g_Ca_L" units="nanoS"/>
+      <variable cmeta:id="L_type_Ca_channel_i_Ca_L" name="i_Ca_L" public_interface="out" units="picoA">
+           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+               <rdf:Description rdf:about="#L_type_Ca_channel_i_Ca_L">
+                   <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_L_type_calcium_current"/>
+               </rdf:Description>
+           </rdf:RDF>
+      </variable>
+      <variable initial_value="0.004" name="g_Ca_L" units="nanoS" cmeta:id="membrane_L_type_calcium_current_conductance">
+           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+               <rdf:Description rdf:about="#membrane_L_type_calcium_current_conductance">
+                   <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_L_type_calcium_current_conductance"/>
+               </rdf:Description>
+           </rdf:RDF>
+      </variable>
       <variable initial_value="50" name="E_Ca_app" units="millivolt"/>
       <variable name="time" private_interface="out" public_interface="in" units="second"/>
       <variable name="V" private_interface="out" public_interface="in" units="millivolt"/>

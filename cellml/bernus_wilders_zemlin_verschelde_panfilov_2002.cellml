@@ -520,10 +520,22 @@ A computationally efficient electrophysiological model of human ventricular cell
   </component>
   
   <component name="calcium_current">
-    <variable units="picoA_per_picoF" public_interface="out" name="i_Ca"/>
+    <variable units="picoA_per_picoF" public_interface="out" name="i_Ca" cmeta:id="membrane_L_type_calcium_current">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+        <rdf:Description rdf:about="#membrane_L_type_calcium_current">
+          <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_L_type_calcium_current"/>
+        </rdf:Description>
+      </rdf:RDF>
+    </variable>
     <variable units="millivolt" public_interface="out" name="E_Ca"/>
     
-    <variable units="nanoS_per_picoF" name="g_Ca" initial_value="0.064"/>
+    <variable units="nanoS_per_picoF" name="g_Ca" initial_value="0.064" cmeta:id="membrane_L_type_calcium_current_conductance">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+        <rdf:Description rdf:about="#membrane_L_type_calcium_current_conductance">
+          <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_L_type_calcium_current_conductance"/>
+        </rdf:Description>
+      </rdf:RDF>
+    </variable>
     
     <variable units="millimolar" public_interface="in" name="Ca_e"/>
     <variable units="millijoule_per_mole_kelvin" public_interface="in" name="R"/>
