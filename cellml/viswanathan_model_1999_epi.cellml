@@ -2197,9 +2197,22 @@ http://www.CellML.org/
       </math>
    </component>
    <component name="time_independent_potassium_current">
-      <variable name="i_K1" units="microA_per_microF" public_interface="out"/>
+      <variable name="i_K1" units="microA_per_microF" public_interface="out" cmeta:id="membrane_inward_rectifier_potassium_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_inward_rectifier_potassium_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_inward_rectifier_potassium_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="E_K" units="millivolt" public_interface="out" private_interface="out"/>
-      <variable name="g_K1" units="milliS_per_cm2"/>
+      <variable name="g_K1" units="milliS_per_cm2"/>      
+      <variable name="g_K1_max" units="milliS_per_cm2" initial_value="0.75" cmeta:id="membrane_inward_rectifier_potassium_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_inward_rectifier_potassium_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_inward_rectifier_potassium_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="V" units="millivolt" public_interface="in" private_interface="out"/>
       <variable name="Ko" units="millimolar" public_interface="in"/>
       <variable name="Ki" units="millimolar" public_interface="in"/>
@@ -2213,7 +2226,7 @@ http://www.CellML.org/
             <ci>g_K1</ci>
             <apply>
                <times/>
-               <cn cellml:units="milliS_per_microF">0.75</cn>
+               <ci>g_K1_max</ci>
                <apply>
                   <root/>
                   <apply>
