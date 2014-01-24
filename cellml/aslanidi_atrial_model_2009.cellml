@@ -2428,8 +2428,20 @@ Mechanisms of transition from normal to reentrant electrical activity in a model
       </math>
    </component>
    <component name="inward_rectifier">
-      <variable cmeta:id="inward_rectifier_i_K1" name="i_K1" public_interface="out" units="picoA"/>
-      <variable initial_value="0.00508" name="g_K1" units="nanoS"/>
+      <variable cmeta:id="inward_rectifier_i_K1" name="i_K1" public_interface="out" units="picoA">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#inward_rectifier_i_K1">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_inward_rectifier_potassium_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>   
+      <variable initial_value="0.00508" name="g_K1" units="nanoS" cmeta:id="membrane_inward_rectifier_potassium_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_inward_rectifier_potassium_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_inward_rectifier_potassium_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>   
       <variable initial_value="0.59" name="KmK1" units="millimolar"/>
       <variable initial_value="1.393" name="steepK1" units="dimensionless"/>
       <variable initial_value="-3.6" name="shiftK1" units="millivolt"/>
