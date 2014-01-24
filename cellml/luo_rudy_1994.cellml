@@ -1747,10 +1747,21 @@ A dynamic model of the cardiac ventricular action potential. I. Simulations of i
   </component>
   
   <component cmeta:id="time_independent_potassium_current" name="time_independent_potassium_current">
-    <variable name="i_K1" public_interface="out" units="uA_per_mm2"/>
-    <variable name="E_K1" private_interface="out" public_interface="out" units="mV"/>
-    
-    <variable initial_value="7.5e-3" name="g_K1_max" units="mS_per_mm2"/>
+    <variable name="i_K1" public_interface="out" units="uA_per_mm2" cmeta:id="membrane_inward_rectifier_potassium_current">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+        <rdf:Description rdf:about="#membrane_inward_rectifier_potassium_current">
+          <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_inward_rectifier_potassium_current"/>
+        </rdf:Description>
+      </rdf:RDF>
+    </variable>
+    <variable name="E_K1" private_interface="out" public_interface="out" units="mV"/>    
+    <variable initial_value="7.5e-3" name="g_K1_max" units="mS_per_mm2" cmeta:id="membrane_inward_rectifier_potassium_current_conductance">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+        <rdf:Description rdf:about="#membrane_inward_rectifier_potassium_current_conductance">
+          <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_inward_rectifier_potassium_current_conductance"/>
+        </rdf:Description>
+      </rdf:RDF>
+    </variable>       
     <variable name="g_K1" units="mS_per_mm2"/>
     
     <variable name="time" private_interface="out" public_interface="in" units="ms"/>

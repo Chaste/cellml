@@ -447,7 +447,7 @@ http://www.CellML.org/
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_delayed_rectifier_potassium_current"/>
             </rdf:Description>
          </rdf:RDF>
-      </variable>	  
+      </variable>
       <variable name="g_K1" units="milliS_per_cm2"/>
       <variable name="g_K2" units="milliS_per_cm2"/>
       <variable name="G_K" units="milliS_per_cm2" initial_value="1.2" cmeta:id="membrane_delayed_rectifier_potassium_current_conductance">

@@ -1597,7 +1597,13 @@ http://www.cellml.org/
       </variable>
       <variable name="ak1" units="per_ms"/>
       <variable name="bk1" units="per_ms"/>
-      <variable name="IK1" units="uA_per_uF" public_interface="out"/>
+      <variable name="IK1" units="uA_per_uF" public_interface="out" cmeta:id="membrane_inward_rectifier_potassium_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_inward_rectifier_potassium_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_inward_rectifier_potassium_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <math xmlns="http://www.w3.org/1998/Math/MathML">
          <apply>
             <eq/>

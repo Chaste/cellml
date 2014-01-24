@@ -396,9 +396,21 @@ Synergism of coupled subsarcolemmal Ca2+ clocks and sarcolemmal voltage clocks c
       </math>
    </component>
    <component name="i_CaL">
-      <variable name="i_CaL" units="picoA" public_interface="out"/>
+      <variable name="i_CaL" units="picoA" public_interface="out" cmeta:id="membrane_L_type_calcium_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_L_type_calcium_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_L_type_calcium_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="E_CaL" units="millivolt" initial_value="45" public_interface="out"/>
-      <variable name="g_CaL" units="nanoS_per_picoF" initial_value="0.464"/>
+      <variable name="g_CaL" units="nanoS_per_picoF" initial_value="0.464" cmeta:id="membrane_L_type_calcium_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_L_type_calcium_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_L_type_calcium_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="Cm" units="picoF" public_interface="in"/>
       <variable name="time" units="millisecond" public_interface="in" private_interface="out"/>
       <variable name="Vm" units="millivolt" public_interface="in" private_interface="out"/>
