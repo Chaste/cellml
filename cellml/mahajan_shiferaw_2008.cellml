@@ -3250,7 +3250,14 @@ http://www.CellML.org/
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#SR_release_current"/>
             </rdf:Description>
          </rdf:RDF>
-      </variable>	
+      </variable>
+      <variable name="release_factor" units="dimensionless" initial_value="1" cmeta:id="SR_release_current_max">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#SR_release_current_max">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#SR_release_current_max"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>   
       <variable name="xir" units="uM_per_ms" initial_value="0.006679257264" public_interface="out"/>
       <math xmlns="http://www.w3.org/1998/Math/MathML">
          <apply>
@@ -3524,9 +3531,13 @@ http://www.CellML.org/
             <eq/>
             <ci>xiryr</ci>
             <apply>
-               <plus/>
-               <ci>xirp</ci>
-               <ci>xicap</ci>
+               <times/>
+               <ci>release_factor</ci>
+               <apply>
+                  <plus/>
+                  <ci>xirp</ci>
+                  <ci>xicap</ci>
+               </apply>
             </apply>
          </apply>
       </math>
