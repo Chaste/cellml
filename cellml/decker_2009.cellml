@@ -5289,14 +5289,26 @@ Properties and ionic mechanisms of action potential adaptation, restitution, and
       </math>
    </component>
    <component xmlns="http://www.cellml.org/cellml/1.0#" name="Irel">
-      <variable name="Irel" units="mM_per_ms" initial_value="0.000714227102027745" public_interface="out"/>
+      <variable name="Irel" units="mM_per_ms" initial_value="0.000714227102027745" public_interface="out" cmeta:id="SR_release_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#SR_release_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#SR_release_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="rel_infinity" units="mM_per_ms"/>
       <variable name="tau_rel" units="ms"/>
       <variable name="Krel_infinity" units="mM" initial_value="1"/>
       <variable name="alpha_rel" units="mM_per_uA_per_uF_per_ms"/>
       <variable name="beta_tau" units="ms"/>
       <variable name="beta_0" units="ms" initial_value="4.75"/>
-      <variable name="kappa" units="mM_per_uA_per_uF_per_ms_per_ms" initial_value="0.1125"/>
+      <variable name="kappa" units="mM_per_uA_per_uF_per_ms_per_ms" initial_value="0.1125" cmeta:id="SR_release_current_max">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#SR_release_current_max">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#SR_release_current_max"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="h_rel" units="dimensionless" initial_value="8"/>
       <variable name="h_beta" units="dimensionless" initial_value="10"/>
       <variable name="delta_beta_CaMK" units="dimensionless"/>
