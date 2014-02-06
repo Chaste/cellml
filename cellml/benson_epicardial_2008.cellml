@@ -3356,13 +3356,26 @@ The canine virtual ventricular wall: a platform for dissecting pharmacological e
     <variable name="ibarca" public_interface="in" units="uA_per_uF"/>
     <variable name="ICaL" public_interface="in" units="uA_per_uF"/>
     <variable name="Grel" units="per_ms"/>
+    <variable name="Grel_max" initial_value="3000" units="per_ms" cmeta:id="SR_release_current_max">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+        <rdf:Description rdf:about="#SR_release_current_max">
+          <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#SR_release_current_max"/>
+        </rdf:Description>
+      </rdf:RDF>
+    </variable>
     <variable name="dro_inf" units="dimensionless"/>
     <variable initial_value="10" name="dtau_rel_max" units="ms"/>
     <variable name="dtau_rel" units="ms"/>
     <variable name="ross" units="dimensionless"/>
     <variable name="riss" units="dimensionless"/>
     <variable name="tauri" units="ms"/>
-    <variable cmeta:id="Irel_irelcicr" name="irelcicr" public_interface="out" units="mM_per_ms"/>
+    <variable cmeta:id="Irel_irelcicr" name="irelcicr" public_interface="out" units="mM_per_ms">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+        <rdf:Description rdf:about="#Irel_irelcicr">
+          <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#SR_release_current"/>
+        </rdf:Description>
+      </rdf:RDF>
+    </variable>
     <variable initial_value="0.05" name="CaMK0" units="dimensionless"/>
     <variable initial_value="0.0015" name="Km" units="mM"/>
     <variable initial_value="0.15" name="KmCaMK" public_interface="out" units="dimensionless"/>
@@ -3413,7 +3426,7 @@ The canine virtual ventricular wall: a platform for dissecting pharmacological e
         <ci>Grel</ci>
         <apply>
           <times/>
-          <cn xmlns:cellml="http://www.cellml.org/cellml/1.0#" cellml:units="per_ms">3000</cn>
+          <ci>Grel_max</ci>
           <ci>vg</ci>
         </apply>
       </apply>

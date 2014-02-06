@@ -187,7 +187,7 @@ http://www.CellML.org/
          </rdf:RDF>
       </variable>
       <variable name="past" units="millisecond"/>
-      <variable name="prepulses_number" units="dimensionless" initial_value="1e6" public_interface="out"/>
+      <variable name="prepulses_number" units="dimensionless" initial_value="1e10" public_interface="out"/>
       <math xmlns="http://www.w3.org/1998/Math/MathML">
          <apply>
             <eq/>
@@ -667,12 +667,24 @@ http://www.CellML.org/
    </component>
    <component name="calcium_fluxes">
       <variable name="J_leak" units="micromolar_per_millisecond" public_interface="out"/>
-      <variable name="J_rel" units="micromolar_per_millisecond" public_interface="out"/>
+      <variable name="J_rel" units="micromolar_per_millisecond" public_interface="out" cmeta:id="SR_release_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#SR_release_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#SR_release_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="J_serca" units="micromolar_per_millisecond" public_interface="out"/>
       <variable name="J_tr" units="micromolar_per_millisecond" public_interface="out"/>
       <variable name="J_xfer" units="micromolar_per_millisecond" public_interface="out"/>
       <variable name="P_RyR" units="dimensionless" initial_value="0.000280539508743811"/>
-      <variable name="v1" units="per_millisecond" initial_value="4.5"/>
+      <variable name="v1" units="per_millisecond" initial_value="4.5" cmeta:id="SR_release_current_max">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#SR_release_current_max">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#SR_release_current_max"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="tau_tr" units="millisecond" initial_value="20"/>
       <variable name="v2" units="per_millisecond" initial_value="3e-5"/>
       <variable name="tau_xfer" units="millisecond" initial_value="8"/>

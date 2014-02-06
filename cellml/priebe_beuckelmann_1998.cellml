@@ -2638,7 +2638,13 @@ http://www.CellML.org/
          </rdf:RDF>
       </variable>
       <variable name="G_rel" units="per_ms"/>
-      <variable name="G_rel_max" units="per_ms" initial_value="22"/>
+      <variable name="G_rel_max" units="per_ms" initial_value="22" cmeta:id="SR_release_current_max">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#SR_release_current_max">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#SR_release_current_max"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="G_rel_overload" units="per_ms" initial_value="3"/>
       <variable name="K_mrel" units="mM" initial_value="0.0008"/>
       <variable name="delta_Ca_ith" units="mM" initial_value="5e-6"/>

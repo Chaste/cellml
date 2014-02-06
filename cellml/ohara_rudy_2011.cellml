@@ -6959,7 +6959,20 @@ http://www.cellml.org/
       <variable name="CaMKa" units="millimolar" public_interface="in"/>
       <variable name="Jrel_inf_temp" units="dimensionless"/>
       <variable name="fJrelp" units="dimensionless"/>
-      <variable name="Jrel" units="millimolar_per_millisecond" public_interface="out"/>
+      <variable name="Jrel" units="millimolar_per_millisecond" public_interface="out" cmeta:id="SR_release_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#SR_release_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#SR_release_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="Jrel_scaling_factor" units="dimensionless" initial_value="1.0" cmeta:id="SR_release_current_max">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#SR_release_current_max">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#SR_release_current_max"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="tau_rel_temp" units="millisecond"/>
       <variable name="tau_relp_temp" units="millisecond"/>
       <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -7219,20 +7232,24 @@ http://www.cellml.org/
             <eq/>
             <ci>Jrel</ci>
             <apply>
-               <plus/>
+               <times/>
+               <ci>Jrel_scaling_factor</ci>
                <apply>
-                  <times/>
+                  <plus/>
                   <apply>
-                     <minus/>
-                     <cn cellml:units="dimensionless">1</cn>
-                     <ci>fJrelp</ci>
+                     <times/>
+                     <apply>
+                        <minus/>
+                        <cn cellml:units="dimensionless">1</cn>
+                        <ci>fJrelp</ci>
+                     </apply>
+                     <ci>Jrelnp</ci>
                   </apply>
-                  <ci>Jrelnp</ci>
-               </apply>
-               <apply>
-                  <times/>
-                  <ci>fJrelp</ci>
-                  <ci>Jrelp</ci>
+                  <apply>
+                     <times/>
+                     <ci>fJrelp</ci>
+                     <ci>Jrelp</ci>
+                  </apply>
                </apply>
             </apply>
          </apply>

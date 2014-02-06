@@ -3476,14 +3476,26 @@ Mechanisms of transition from normal to reentrant electrical activity in a model
       </math>
    </component>
    <component name="Ca_handling_by_the_SR">
-      <variable cmeta:id="Ca_handling_by_the_SR_i_rel" name="i_rel" public_interface="out" units="picoA"/>
+      <variable cmeta:id="Ca_handling_by_the_SR_i_rel" name="i_rel" public_interface="out" units="picoA">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#Ca_handling_by_the_SR_i_rel">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#SR_release_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable cmeta:id="Ca_handling_by_the_SR_i_up" name="i_up" public_interface="out" units="picoA"/>
       <variable name="i_tr" units="picoA"/>
       <variable initial_value="2.8" name="I_up_max" units="picoA"/>
       <variable initial_value="0.0003" name="k_cyca" units="millimolar"/>
       <variable initial_value="0.5" name="k_srca" units="millimolar"/>
       <variable initial_value="0.4" name="k_xcs" units="dimensionless"/>
-      <variable initial_value="200" name="alpha_rel" units="picoA_per_millimolar"/>
+      <variable initial_value="200" name="alpha_rel" units="picoA_per_millimolar" cmeta:id="SR_release_current_max">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#SR_release_current_max">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#SR_release_current_max"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable initial_value="0.726776" name="Ca_rel" units="millimolar"/>
       <variable initial_value="0.730866" name="Ca_up" units="millimolar"/>
       <variable initial_value="3.969e-7" name="Vol_up" units="nanolitre"/>
