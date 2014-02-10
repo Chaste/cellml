@@ -499,6 +499,13 @@ The canine virtual ventricular wall: a platform for dissecting pharmacological e
     <variable name="tissue" public_interface="in" units="dimensionless"/>
     <variable name="GNa" units="mS_per_uF"/>
     <variable name="gNa" units="mS_per_uF"/>
+    <variable name="GNa_max" units="mS_per_uF" initial_value="11.5" cmeta:id="membrane_fast_sodium_current_conductance">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+        <rdf:Description rdf:about="#membrane_fast_sodium_current_conductance">
+          <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current_conductance"/>
+        </rdf:Description>
+      </rdf:RDF>
+    </variable>   
     <variable initial_value="0.987317750543" name="H" units="dimensionless"/>
     <variable initial_value="0.001356538159" name="m" units="dimensionless"/>
     <variable initial_value="0.991924983076" name="J" units="dimensionless"/>
@@ -521,7 +528,7 @@ The canine virtual ventricular wall: a platform for dissecting pharmacological e
         <ci>GNa</ci>
         <piecewise>
           <piece>
-            <cn xmlns:cellml="http://www.cellml.org/cellml/1.0#" cellml:units="mS_per_uF">11.5</cn>
+            <ci>GNa_max</ci>
             <apply>
               <eq/>
               <ci>tissue</ci>
@@ -532,7 +539,7 @@ The canine virtual ventricular wall: a platform for dissecting pharmacological e
             <apply>
               <times/>
               <cn xmlns:cellml="http://www.cellml.org/cellml/1.0#" cellml:units="dimensionless">4</cn>
-              <cn xmlns:cellml="http://www.cellml.org/cellml/1.0#" cellml:units="mS_per_uF">11.5</cn>
+              <ci>GNa_max</ci>                
             </apply>
           </otherwise>
         </piecewise>
@@ -997,7 +1004,13 @@ The canine virtual ventricular wall: a platform for dissecting pharmacological e
     <variable initial_value="0.97836624923" name="fca" units="dimensionless"/>
     <variable initial_value="0.893052931249" name="fca2" units="dimensionless"/>
     <variable initial_value="0.992234519148" name="f2" units="dimensionless"/>
-    <variable initial_value="2.43e-4" name="pca" units="L_per_F_ms"/>
+    <variable initial_value="2.43e-4" name="pca" units="L_per_F_ms" cmeta:id="membrane_L_type_calcium_current_conductance">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+        <rdf:Description rdf:about="#membrane_L_type_calcium_current_conductance">
+          <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_L_type_calcium_current_conductance"/>
+        </rdf:Description>
+      </rdf:RDF>
+    </variable>
     <variable initial_value="1" name="gacai" units="dimensionless"/>
     <variable initial_value="0.341" name="gacao" units="dimensionless"/>
     <variable name="CaMKactive" public_interface="in" units="dimensionless"/>
