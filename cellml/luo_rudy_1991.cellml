@@ -1623,7 +1623,8 @@ The breakdown of the model into components and the definition of encapsulation a
          </rdf:RDF>
       </variable>
       <variable units="millivolt" public_interface="out" private_interface="out" name="E_K1"/>
-      <variable name="g_K1" units="milliS_per_cm2" cmeta:id="membrane_inward_rectifier_potassium_current_conductance">
+      <variable name="g_K1" units="milliS_per_cm2"/>
+      <variable name="g_K1_max" units="milliS_per_cm2" initial_value="0.6047" cmeta:id="membrane_inward_rectifier_potassium_current_conductance">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#membrane_inward_rectifier_potassium_current_conductance">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_inward_rectifier_potassium_current_conductance"/>
@@ -1643,7 +1644,7 @@ The breakdown of the model into components and the definition of encapsulation a
             <ci>g_K1</ci>
             <apply>
                <times/>
-               <cn cellml:units="milliS_per_cm2">0.6047</cn>
+               <ci>g_K1_max</ci>
                <apply>
                   <root/>
                   <apply>
