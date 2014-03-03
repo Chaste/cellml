@@ -1154,7 +1154,14 @@ http://www.CellML.org/
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_inward_rectifier_potassium_current"/>
             </rdf:Description>
          </rdf:RDF>
-      </variable>	   	  	  
+      </variable>
+      <variable name="G_K1" units="uA_per_mm2" initial_value="0.0035" cmeta:id="membrane_inward_rectifier_potassium_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_inward_rectifier_potassium_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_inward_rectifier_potassium_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="time" units="ms" public_interface="in"/>
       <variable name="V" units="mV" public_interface="in"/>
       <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1163,7 +1170,7 @@ http://www.CellML.org/
             <ci>i_K1</ci>
             <apply>
                <times/>
-               <cn cellml:units="uA_per_mm2">0.0035</cn>
+               <ci>G_K1</ci>
                <apply>
                   <plus/>
                   <apply>
