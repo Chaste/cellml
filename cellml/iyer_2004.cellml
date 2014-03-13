@@ -681,7 +681,13 @@ http://www.cellml.org/
       <variable name="CaNSR" units="mM" public_interface="in"/>
       <variable name="Krb" units="mM" initial_value="3.29"/>
       <variable name="Nrb" units="dimensionless" initial_value="1"/>
-      <variable name="Jup" units="mM_per_ms" public_interface="out"/>
+      <variable name="Jup" units="mM_per_ms" public_interface="out" cmeta:id="SR_uptake_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#SR_uptake_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#SR_uptake_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>         
 	  <variable name="KSR" units="mM" initial_value="1.2" cmeta:id="SR_uptake_current_max">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#SR_uptake_current_max">

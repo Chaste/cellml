@@ -675,12 +675,36 @@ http://www.cellml.org/
       <variable name="CaNSR" units="mM" public_interface="in"/>
       <variable name="Krb" units="mM" initial_value="3.29"/>
       <variable name="Nrb" units="dimensionless" initial_value="1"/>
-      <variable name="Jup" units="mM_per_ms" public_interface="out"/>
-      <variable name="KSR" units="mM" initial_value="1.2"/>
+      <variable name="Jup" units="mM_per_ms" public_interface="out" cmeta:id="SR_uptake_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#SR_uptake_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#SR_uptake_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>         
+      <variable name="KSR" units="mM" initial_value="1.2" cmeta:id="SR_uptake_current_max">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#SR_uptake_current_max">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#SR_uptake_current_max"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>         
       <variable name="vmaxf" units="per_ms" initial_value="7.48e-5"/>
       <variable name="vmaxr" units="per_ms" initial_value="0.000318"/>
-      <variable name="Jrel" units="mM_per_ms" public_interface="out"/>
-      <variable name="v1" units="per_ms" initial_value="1.8"/>
+      <variable name="Jrel" units="mM_per_ms" public_interface="out" cmeta:id="SR_release_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#SR_release_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#SR_release_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>     
+      <variable name="v1" units="per_ms" initial_value="1.8" cmeta:id="SR_release_current_max">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#SR_release_current_max">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#SR_release_current_max"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>     
       <variable name="O1_RyR" units="dimensionless" public_interface="in"/>
       <variable name="O2_RyR" units="dimensionless" public_interface="in"/>
       <variable name="CaJSR" units="mM" public_interface="in"/>
@@ -4964,6 +4988,13 @@ http://www.cellml.org/
       <variable name="ICamax" units="uA_per_uF"/>
       <variable name="Icabar" units="uA_per_uF"/>
       <variable name="PCa" units="litre_per_farad_second"/>
+      <variable name="PCa_max" units="litre_per_farad_second" initial_value="0.0002469" cmeta:id="membrane_L_type_calcium_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_L_type_calcium_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_L_type_calcium_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>     
       <variable name="PK" units="litre_per_farad_second"/>
       <variable name="ICahalf" units="uA_per_uF" initial_value="-0.265"/>
       <variable name="Pscale" units="dimensionless" initial_value="7"/>
@@ -4987,8 +5018,7 @@ http://www.cellml.org/
                   <apply>
                      <times/>
                      <ci>Pscale</ci>
-                     <cn type="e-notation" cellml:units="litre_per_farad_second">2.469   <sep/>
-                     -4</cn>
+                     <ci>PCa_max</ci>
                   </apply>
                   <apply>
                      <eq/>
@@ -5001,8 +5031,7 @@ http://www.cellml.org/
                      <times/>
                      <cn cellml:units="dimensionless">1.5</cn>
                      <ci>Pscale</ci>
-                     <cn type="e-notation" cellml:units="litre_per_farad_second">2.469   <sep/>
-                     -4</cn>
+                     <ci>PCa_max</ci>
                   </apply>
                </otherwise>
             </piecewise>
