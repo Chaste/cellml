@@ -2066,13 +2066,14 @@ http://www.CellML.org/
          </rdf:RDF>
       </variable>	  
       <variable name="E_K1" units="mV" private_interface="out"/>
-      <variable name="g_K1_max" units="mS_per_uF" cmeta:id="membrane_inward_rectifier_potassium_current_conductance">
+      <variable name="g_K1_max" units="mS_per_uF"/>
+      <variable name="g_K1_scale" units="dimensionless" initial_value="1.0" cmeta:id="membrane_inward_rectifier_potassium_current_conductance">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#membrane_inward_rectifier_potassium_current_conductance">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_inward_rectifier_potassium_current_conductance"/>
             </rdf:Description>
          </rdf:RDF>
-      </variable>	 	
+      </variable>
       <variable name="Ki" units="mM" public_interface="in"/>
       <variable name="Ko" units="mM" public_interface="in"/>
       <variable name="FonRT" units="per_mV" public_interface="in"/>
@@ -2104,6 +2105,7 @@ http://www.CellML.org/
             <apply>
                <times/>
                <ci>g_K1_max</ci>
+               <ci>g_K1_scale</ci>
                <ci>K1_infinity</ci>
                <apply>
                   <minus/>
