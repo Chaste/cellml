@@ -1666,8 +1666,20 @@ http://www.CellML.org/
    </component>
    <component name="sodium_calcium_exchange_current">
       <variable name="J_ncx" units="micromolar_per_millisecond"/>
-      <variable name="i_NCX" units="picoA_per_picoF" public_interface="out"/>
-      <variable name="V_max_NCX" units="picoA_per_picoF" initial_value="3.939"/>
+      <variable name="i_NCX" units="picoA_per_picoF" public_interface="out" cmeta:id="membrane_sodium_calcium_exchanger_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_sodium_calcium_exchanger_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_sodium_calcium_exchanger_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="V_max_NCX" units="picoA_per_picoF" initial_value="3.939" cmeta:id="membrane_sodium_calcium_exchanger_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_sodium_calcium_exchanger_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_sodium_calcium_exchanger_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="K_mCao" units="micromolar" initial_value="1400"/>
       <variable name="K_mNai" units="micromolar" initial_value="12000"/>
       <variable name="K_mCai" units="micromolar" initial_value="3.6"/>

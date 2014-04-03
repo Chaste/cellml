@@ -2634,7 +2634,13 @@ The canine virtual ventricular wall: a platform for dissecting pharmacological e
     <variable name="ca_i_NaCa" units="mM"/>
     <variable initial_value="1.25e-4" name="KmCa" units="mM"/>
     <variable name="allo" units="dimensionless"/>
-    <variable initial_value="4.5" name="NCXmax" units="uA_per_uF"/>
+    <variable initial_value="4.5" name="NCXmax" units="uA_per_uF" cmeta:id="membrane_sodium_calcium_exchanger_current_conductance">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+        <rdf:Description rdf:about="#membrane_sodium_calcium_exchanger_current_conductance">
+          <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_sodium_calcium_exchanger_current_conductance"/>
+        </rdf:Description>
+      </rdf:RDF>
+    </variable>
     <variable initial_value="0.27" name="ksat" units="dimensionless"/>
     <variable initial_value="0.35" name="eta" units="dimensionless"/>
     <variable initial_value="12.3" name="KmNai" units="mM"/>
@@ -2645,7 +2651,13 @@ The canine virtual ventricular wall: a platform for dissecting pharmacological e
     <variable name="denom1" units="dimensionless"/>
     <variable name="denom2" units="mM4"/>
     <variable name="denom3" units="mM4"/>
-    <variable cmeta:id="INaCa_INaCa" name="INaCa" public_interface="out" units="uA_per_uF"/>
+    <variable cmeta:id="INaCa_INaCa" name="INaCa" public_interface="out" units="uA_per_uF">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+        <rdf:Description rdf:about="#INaCa_INaCa">
+          <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_sodium_calcium_exchanger_current"/>
+        </rdf:Description>
+      </rdf:RDF>
+    </variable>
     <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply>
         <eq/>

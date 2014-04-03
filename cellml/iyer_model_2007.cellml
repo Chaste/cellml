@@ -4655,12 +4655,24 @@ http://www.cellml.org/
       <variable name="Ko" units="mM" public_interface="in"/>
       <variable name="Cai" units="mM" public_interface="in"/>
       <variable name="Cao" units="mM" public_interface="in"/>
-      <variable name="kNaCa" units="uA_per_uF" initial_value="0.44"/>
+      <variable name="kNaCa" units="uA_per_uF" initial_value="0.44" cmeta:id="membrane_sodium_calcium_exchanger_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_sodium_calcium_exchanger_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_sodium_calcium_exchanger_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="KmNa" units="mM" initial_value="87.5"/>
       <variable name="KmCa" units="mM" initial_value="1.38"/>
       <variable name="ksat" units="dimensionless" initial_value="0.2"/>
       <variable name="eta" units="dimensionless" initial_value="0.35"/>
-      <variable name="INaKmax" units="uA_per_uF" initial_value="2.387"/>
+      <variable name="INaKmax" units="uA_per_uF" initial_value="2.387" cmeta:id="membrane_sodium_potassium_pump_current_permeability">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_sodium_potassium_pump_current_permeability">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_sodium_potassium_pump_current_permeability"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="KmNai" units="mM" initial_value="20"/>
       <variable name="KmKo" units="mM" initial_value="1.5"/>
       <variable name="IpCamax" units="uA_per_uF" initial_value="0.05"/>
@@ -4679,7 +4691,13 @@ http://www.cellml.org/
       <variable name="a3_ncx" units="dimensionless"/>
       <variable name="a4_ncx" units="mM"/>
       <variable name="a5_ncx" units="mM3"/>
-      <variable name="INaCa" units="uA_per_uF" public_interface="out"/>
+      <variable name="INaCa" units="uA_per_uF" public_interface="out" cmeta:id="membrane_sodium_calcium_exchanger_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_sodium_calcium_exchanger_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_sodium_calcium_exchanger_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="ICab" units="uA_per_uF" public_interface="out"/>
       <variable name="IpCa" units="uA_per_uF" public_interface="out"/>
       <math xmlns="http://www.w3.org/1998/Math/MathML">
