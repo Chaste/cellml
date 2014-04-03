@@ -2963,8 +2963,20 @@ Mechanisms of transition from normal to reentrant electrical activity in a model
       </math>
    </component>
    <component name="Na_Ca_ion_exchanger_current">
-      <variable cmeta:id="Na_Ca_ion_exchanger_current_i_NaCa" name="i_NaCa" public_interface="out" units="picoA"/>
-      <variable initial_value="2e-5" name="k_NaCa" units="picoA_per_millimolar_4"/>
+      <variable cmeta:id="Na_Ca_ion_exchanger_current_i_NaCa" name="i_NaCa" public_interface="out" units="picoA">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#Na_Ca_ion_exchanger_current_i_NaCa">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_sodium_calcium_exchanger_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable initial_value="2e-5" name="k_NaCa" units="picoA_per_millimolar_4" cmeta:id="membrane_sodium_calcium_exchanger_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_sodium_calcium_exchanger_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_sodium_calcium_exchanger_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable initial_value="3e-4" name="d_NaCa" units="per_millimolar_4"/>
       <variable initial_value="0.45" name="gamma" units="dimensionless"/>
       <variable name="Na_i" public_interface="in" units="millimolar"/>
