@@ -1066,7 +1066,13 @@ Na<superscript>+</superscript> Channel Mutation That Causes Both Brugada and Lon
       </math>
    </component>
    <component name="L_type_Ca_channel">
-      <variable name="i_Ca_L" units="microA_per_microF" public_interface="out"/>
+      <variable name="i_Ca_L" units="microA_per_microF" public_interface="out" cmeta:id="membrane_L_type_calcium_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_L_type_calcium_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_L_type_calcium_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="i_CaCa" units="microA_per_microF" public_interface="out"/>
       <variable name="i_CaK" units="microA_per_microF" public_interface="out"/>
       <variable name="i_CaNa" units="microA_per_microF" public_interface="out"/>
@@ -1080,6 +1086,13 @@ Na<superscript>+</superscript> Channel Mutation That Causes Both Brugada and Lon
       <variable name="P_Ca" units="cm_per_second" initial_value="0.00054"/>
       <variable name="P_Na" units="cm_per_second" initial_value="6.75e-7"/>
       <variable name="P_K" units="cm_per_second" initial_value="1.93e-7"/>
+      <variable name="P_scale" units="dimensionless" initial_value="1.0" cmeta:id="membrane_L_type_calcium_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_L_type_calcium_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_L_type_calcium_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="gamma_Cai" units="dimensionless" initial_value="1"/>
       <variable name="gamma_Cao" units="dimensionless" initial_value="0.341"/>
       <variable name="time" units="second" public_interface="in" private_interface="out"/>
@@ -1108,6 +1121,7 @@ Na<superscript>+</superscript> Channel Mutation That Causes Both Brugada and Lon
                      <divide/>
                      <apply>
                         <times/>
+                        <ci>P_scale</ci>
                         <ci>P_Ca</ci>
                         <apply>
                            <power/>
@@ -1192,6 +1206,7 @@ Na<superscript>+</superscript> Channel Mutation That Causes Both Brugada and Lon
                      <divide/>
                      <apply>
                         <times/>
+                        <ci>P_scale</ci>
                         <ci>P_Na</ci>
                         <apply>
                            <power/>
@@ -1276,6 +1291,7 @@ Na<superscript>+</superscript> Channel Mutation That Causes Both Brugada and Lon
                      <divide/>
                      <apply>
                         <times/>
+                        <ci>P_scale</ci>
                         <ci>P_K</ci>
                         <apply>
                            <power/>
@@ -2323,7 +2339,20 @@ Na<superscript>+</superscript> Channel Mutation That Causes Both Brugada and Lon
       </math>
    </component>
    <component name="slow_delayed_rectifier_potassium_current">
-      <variable name="i_Ks" units="microA_per_microF" public_interface="out"/>
+      <variable name="i_Ks" units="microA_per_microF" public_interface="out" cmeta:id="membrane_slow_delayed_rectifier_potassium_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_slow_delayed_rectifier_potassium_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_slow_delayed_rectifier_potassium_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="g_Ks_max" units="dimensionless" initial_value="1.17" public_interface="out" cmeta:id="membrane_slow_delayed_rectifier_potassium_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_slow_delayed_rectifier_potassium_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_slow_delayed_rectifier_potassium_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="g_Ks" units="milliS_per_microF"/>
       <variable name="E_Ks" units="millivolt"/>
       <variable name="PNaK" units="dimensionless" initial_value="0.01833"/>
@@ -2385,7 +2414,7 @@ Na<superscript>+</superscript> Channel Mutation That Causes Both Brugada and Lon
             <ci>g_Ks</ci>
             <apply>
                <times/>
-               <cn cellml:units="dimensionless">1.17</cn>
+               <ci>g_Ks_max</ci>
                <cn cellml:units="milliS_per_cm2">0.433</cn>
                <apply>
                   <plus/>
@@ -3106,7 +3135,20 @@ Na<superscript>+</superscript> Channel Mutation That Causes Both Brugada and Lon
       </math>
    </component>
    <component name="transient_outward_current">
-      <variable name="i_to" units="microA_per_microF" public_interface="out"/>
+      <variable name="i_to" units="microA_per_microF" public_interface="out" cmeta:id="membrane_transient_outward_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_transient_outward_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_transient_outward_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="g_to_max" units="dimensionless" initial_value="1.0" public_interface="out" cmeta:id="membrane_transient_outward_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_transient_outward_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_transient_outward_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="g_to" units="milliS_per_microF"/>
       <variable name="E_K" units="millivolt" public_interface="in"/>
       <variable name="V" units="millivolt" public_interface="in" private_interface="out"/>
@@ -3138,6 +3180,7 @@ Na<superscript>+</superscript> Channel Mutation That Causes Both Brugada and Lon
             <apply>
                <times/>
                <ci>g_to</ci>
+               <ci>g_to_max</ci>
                <apply>
                   <power/>
                   <ci>zdv</ci>
@@ -3919,8 +3962,20 @@ Na<superscript>+</superscript> Channel Mutation That Causes Both Brugada and Lon
       </math>
    </component>
    <component name="Na_Ca_exchanger">
-      <variable name="i_NaCa" units="microA_per_microF" public_interface="out"/>
-      <variable name="c1" units="microA_per_microF" initial_value="0.00025"/>
+      <variable name="i_NaCa" units="microA_per_microF" public_interface="out" cmeta:id="membrane_sodium_calcium_exchanger_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_sodium_calcium_exchanger_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_sodium_calcium_exchanger_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="c1" units="microA_per_microF" initial_value="0.00025" cmeta:id="membrane_sodium_calcium_exchanger_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_sodium_calcium_exchanger_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_sodium_calcium_exchanger_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="c2" units="millimolar" initial_value="0.0001"/>
       <variable name="gamma" units="dimensionless" initial_value="0.15"/>
       <variable name="time" units="second" public_interface="in"/>
@@ -4071,12 +4126,24 @@ Na<superscript>+</superscript> Channel Mutation That Causes Both Brugada and Lon
       </math>
    </component>
    <component name="calcium_dynamics">
-      <variable name="i_rel" units="millimolar_per_second" public_interface="out"/>
+      <variable name="i_rel" units="millimolar_per_second" public_interface="out" cmeta:id="SR_release_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#SR_release_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#SR_release_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="i_up" units="millimolar_per_second" public_interface="out"/>
       <variable name="i_leak" units="millimolar_per_second" public_interface="out"/>
       <variable name="i_tr" units="millimolar_per_second" public_interface="out"/>
       <variable name="G_rel" units="per_second"/>
-      <variable name="G_rel_max" units="per_second" initial_value="60000"/>
+      <variable name="G_rel_max" units="per_second" initial_value="60000" cmeta:id="SR_release_current_max">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#SR_release_current_max">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#SR_release_current_max"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="G_rel_overload" units="per_second" initial_value="4000"/>
       <variable name="tau_tr" units="second" initial_value="0.18"/>
       <variable name="K_mrel" units="millimolar" initial_value="0.0008"/>
