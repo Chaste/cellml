@@ -3489,17 +3489,26 @@ The original paper reference is cited below:
    </component>
    
    <component name="non_inactivating_steady_state_potassium_current">
-      <variable cmeta:id="non_inactivating_steady_state_potassium_current_i_Kss" name="i_Kss" public_interface="out" units="picoA_per_picoF"/>
-      
-	  <variable initial_value="0.015" name="g_Kss" units="milliS_per_microF"/>
+      <variable cmeta:id="non_inactivating_steady_state_potassium_current_i_Kss" name="i_Kss" public_interface="out" units="picoA_per_picoF">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#non_inactivating_steady_state_potassium_current_i_Kss">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_non_inactivating_steady_state_potassium_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>      
+      <variable initial_value="0.015" name="g_Kss" units="milliS_per_microF" cmeta:id="membrane_non_inactivating_steady_state_potassium_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_non_inactivating_steady_state_potassium_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_non_inactivating_steady_state_potassium_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable initial_value="0.8500" name="aKss" units="dimensionless"/>
-      <variable name="tau_Kss" units="millisecond"/>
-      
+      <variable name="tau_Kss" units="millisecond"/>      
 	  <variable name="E_K" public_interface="in" units="millivolt"/>
       <variable name="V" public_interface="in" units="millivolt"/>
       <variable name="time" public_interface="in" units="millisecond"/>
-      <variable name="ass" public_interface="in" units="dimensionless"/>
-      
+      <variable name="ass" public_interface="in" units="dimensionless"/>      
 	  <math xmlns="http://www.w3.org/1998/Math/MathML">
          <apply>
             <eq/>
