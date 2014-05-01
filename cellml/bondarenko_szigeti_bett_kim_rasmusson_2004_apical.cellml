@@ -3747,8 +3747,20 @@ The original paper reference is cited below:
       </math>
    </component>
    <component name="non_inactivating_steady_state_potassium_current">
-      <variable units="picoA_per_picoF" public_interface="out" cmeta:id="non_inactivating_steady_state_potassium_current_i_Kss" name="i_Kss"/>
-      <variable units="milliS_per_microF" name="g_Kss" initial_value="0.05"/>
+      <variable units="picoA_per_picoF" public_interface="out" cmeta:id="non_inactivating_steady_state_potassium_current_i_Kss" name="i_Kss">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#non_inactivating_steady_state_potassium_current_i_Kss">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_non_inactivating_steady_state_potassium_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable units="milliS_per_microF" name="g_Kss" initial_value="0.05" cmeta:id="membrane_non_inactivating_steady_state_potassium_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_non_inactivating_steady_state_potassium_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_non_inactivating_steady_state_potassium_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable units="dimensionless" name="aKss" initial_value="0.417069e-3"/>
       <variable units="dimensionless" name="iKss" initial_value="1"/>
       <variable units="millisecond" name="tau_Kss"/>
