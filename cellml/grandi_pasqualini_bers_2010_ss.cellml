@@ -2674,25 +2674,44 @@ A novel computational model of the human ventricular action potential and Ca tra
    <component name="I_to">
       <variable name="GtoSlow" units="mS_per_uF" public_interface="out"/>
       <variable name="GtoFast" units="mS_per_uF" public_interface="out"/> 
-      <variable name="GtoFast_factor" units="dimensionless" initial_value="1" cmeta:id="membrane_transient_outward_current_conductance">
+      <variable name="GtoFast_factor" units="dimensionless" initial_value="1" cmeta:id="membrane_fast_transient_outward_current_conductance">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-            <rdf:Description rdf:about="#membrane_transient_outward_current_conductance">
-               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_transient_outward_current_conductance"/>
+            <rdf:Description rdf:about="#membrane_fast_transient_outward_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_transient_outward_current_conductance"/>
             </rdf:Description>
          </rdf:RDF>
       </variable>	  
+      <variable name="GtoSlow_factor" units="dimensionless" initial_value="1" cmeta:id="membrane_slow_transient_outward_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_slow_transient_outward_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_slow_transient_outward_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>   
       <variable name="xtoss" units="dimensionless" public_interface="out"/>
       <variable name="ytoss" units="dimensionless" public_interface="out"/>
       <variable name="tauxtos" units="msec" public_interface="out"/>
       <variable name="tauytos" units="msec" public_interface="out"/>
       <variable name="x_to_s" units="dimensionless" initial_value="0.000441539203559411" public_interface="out"/>
       <variable name="y_to_s" units="dimensionless" initial_value="0.784875334693892" public_interface="out"/>
-      <variable name="I_tos" units="uA_per_uF" public_interface="out"/>
+      <variable name="I_tos" units="uA_per_uF" public_interface="out" cmeta:id="membrane_slow_transient_outward_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_slow_transient_outward_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_slow_transient_outward_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>   
       <variable name="tauxtof" units="msec" public_interface="out"/>
       <variable name="tauytof" units="msec" public_interface="out"/>
       <variable name="x_to_f" units="dimensionless" initial_value="0.000441531250866821" public_interface="out"/>
       <variable name="y_to_f" units="dimensionless" initial_value="0.999995817153572" public_interface="out"/>
-      <variable name="I_tof" units="uA_per_uF" public_interface="out"/>
+      <variable name="I_tof" units="uA_per_uF" public_interface="out" cmeta:id="membrane_fast_transient_outward_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_fast_transient_outward_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_transient_outward_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>         
 	  <variable name="I_to" units="uA_per_uF" public_interface="out" cmeta:id="membrane_transient_outward_current">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#membrane_transient_outward_current">
@@ -2712,6 +2731,7 @@ A novel computational model of the human ventricular action potential and Ca tra
                <piece>
                   <apply>
                      <times/>
+                     <ci>GtoSlow_factor</ci>
                      <cn cellml:units="mS_per_uF">1</cn>
                      <cn cellml:units="dimensionless">0.13</cn>
                      <cn cellml:units="dimensionless">0.12</cn>
@@ -2725,6 +2745,7 @@ A novel computational model of the human ventricular action potential and Ca tra
                <otherwise>
                   <apply>
                      <times/>
+                     <ci>GtoSlow_factor</ci>
                      <cn cellml:units="mS_per_uF">0.13</cn>
                      <cn cellml:units="dimensionless">0.3</cn>
                      <cn cellml:units="dimensionless">0.964</cn>
