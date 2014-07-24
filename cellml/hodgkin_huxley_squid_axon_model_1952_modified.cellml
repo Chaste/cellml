@@ -360,8 +360,20 @@ http://www.CellML.org/
       </math>
    </component>
    <component name="potassium_channel">
-      <variable name="i_K" units="microA_per_cm2" public_interface="out"/>
-      <variable name="g_K" units="milliS_per_cm2" initial_value="36"/>
+      <variable name="i_K" units="microA_per_cm2" public_interface="out" cmeta:id="membrane_potassium_current">
+        <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_potassium_current">
+                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_potassium_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="g_K" units="milliS_per_cm2" initial_value="36" cmeta:id="membrane_potassium_current_conductance">
+        <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_potassium_current_conductance">
+                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_potassium_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="E_K" units="millivolt"/>
       <variable name="time" units="millisecond" public_interface="in" private_interface="out"/>
       <variable name="V" units="millivolt" public_interface="in" private_interface="out"/>
@@ -492,8 +504,20 @@ http://www.CellML.org/
       </math>
    </component>
    <component name="leakage_current">
-      <variable name="i_L" units="microA_per_cm2" public_interface="out"/>
-      <variable name="g_L" units="milliS_per_cm2" initial_value="0.3"/>
+      <variable name="i_L" units="microA_per_cm2" public_interface="out" cmeta:id="leakage_current">
+        <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#leakage_current">
+                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#leakage_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="g_L" units="milliS_per_cm2" initial_value="0.3" cmeta:id="leakage_current_conductance">
+        <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#leakage_current_conductance">
+                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#leakage_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="E_L" units="millivolt"/>
       <variable name="time" units="millisecond" public_interface="in"/>
       <variable name="V" units="millivolt" public_interface="in"/>
