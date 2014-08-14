@@ -59,7 +59,7 @@ http://www.CellML.org/
       </variable>	  
    </component>
    <component name="membrane">
-	  <variable name="V" units="millivolt" initial_value="-87" public_interface="out" cmeta:id="membrane_voltage">
+	  <variable name="V" units="millivolt" initial_value="-8.14147357e+01" public_interface="out" cmeta:id="membrane_voltage">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#membrane_voltage">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_voltage"/>
@@ -173,7 +173,7 @@ http://www.CellML.org/
       </math>
    </component>
    <component name="sodium_channel_m_gate">
-	  <variable name="m" units="dimensionless" initial_value="0.01" public_interface="out" cmeta:id="membrane_fast_sodium_current_m_gate">
+	  <variable name="m" units="dimensionless" initial_value="4.38066719e-02" public_interface="out" cmeta:id="membrane_fast_sodium_current_m_gate">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#membrane_fast_sodium_current_m_gate">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current_m_gate"/>
@@ -285,7 +285,7 @@ http://www.CellML.org/
       </math>
    </component>
    <component name="sodium_channel_h_gate">
-	  <variable name="h" units="dimensionless" initial_value="0.8" public_interface="out" cmeta:id="membrane_fast_sodium_current_h_gate">
+	  <variable name="h" units="dimensionless" initial_value="8.54216896e-01" public_interface="out" cmeta:id="membrane_fast_sodium_current_h_gate">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#membrane_fast_sodium_current_h_gate">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current_h_gate"/>
@@ -543,7 +543,7 @@ http://www.CellML.org/
       </math>
    </component>
    <component name="potassium_channel_n_gate">
-      <variable name="n" units="dimensionless" initial_value="0.01" public_interface="out"/>
+      <variable name="n" units="dimensionless" initial_value="5.93071543e-01" public_interface="out"/>
       <variable name="alpha_n" units="per_millisecond"/>
       <variable name="beta_n" units="per_millisecond"/>
       <variable name="V" units="millivolt" public_interface="in"/>
