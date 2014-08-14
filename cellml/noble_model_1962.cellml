@@ -450,13 +450,20 @@ http://www.CellML.org/
       </variable>
       <variable name="g_K1" units="milliS_per_cm2"/>
       <variable name="g_K2" units="milliS_per_cm2"/>
-      <variable name="G_K" units="milliS_per_cm2" initial_value="1.2" cmeta:id="membrane_delayed_rectifier_potassium_current_conductance">
+      <variable name="G_K_max" units="milliS_per_cm2" initial_value="1.2" cmeta:id="membrane_delayed_rectifier_potassium_current_conductance">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#membrane_delayed_rectifier_potassium_current_conductance">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_delayed_rectifier_potassium_current_conductance"/>
             </rdf:Description>
          </rdf:RDF>
       </variable>	  
+      <variable name="G_K1_max" units="milliS_per_cm2" initial_value="0.015" cmeta:id="membrane_inward_rectifier_potassium_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_inward_rectifier_potassium_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_inward_rectifier_potassium_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>   
       <variable name="time" units="millisecond" public_interface="in" private_interface="out"/>
       <variable name="V" units="millivolt" public_interface="in" private_interface="out"/>
       <variable name="n" units="dimensionless" private_interface="in"/>
@@ -485,7 +492,7 @@ http://www.CellML.org/
                <plus/>
                <apply>
                   <times/>
-                  <ci>G_K</ci>
+                  <ci>G_K_max</ci>
                   <apply>
                      <exp/>
                      <apply>
@@ -504,7 +511,7 @@ http://www.CellML.org/
                </apply>
                <apply>
                   <times/>
-                  <cn cellml:units="milliS_per_cm2">0.015</cn>
+                  <ci>G_K1_max</ci>
                   <apply>
                      <exp/>
                      <apply>
@@ -525,7 +532,7 @@ http://www.CellML.org/
             <ci>g_K2</ci>
             <apply>
                <times/>
-               <ci>G_K</ci>
+               <ci>G_K_max</ci>
                <apply>
                   <power/>
                   <ci>n</ci>
@@ -633,8 +640,20 @@ http://www.CellML.org/
       </math>
    </component>
    <component name="leakage_current">
-      <variable name="i_Leak" units="microA_per_cm2" public_interface="out"/>
-      <variable name="g_L" units="milliS_per_cm2" initial_value="0.075"/>
+      <variable name="i_Leak" units="microA_per_cm2" public_interface="out" cmeta:id="leakage_current">
+        <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#leakage_current">
+                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#leakage_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="g_L" units="milliS_per_cm2" initial_value="0.075" cmeta:id="leakage_current_conductance">
+        <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#leakage_current_conductance">
+                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#leakage_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="E_L" units="millivolt" initial_value="-60"/>
       <variable name="time" units="millisecond" public_interface="in"/>
       <variable name="V" units="millivolt" public_interface="in"/>
