@@ -72,24 +72,81 @@ http://www.CellML.org/
             </rdf:Description>
          </rdf:RDF>
       </variable>
+      <variable name="stim_start" units="millisecond" initial_value="10" cmeta:id="membrane_stimulus_current_offset">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_stimulus_current_offset">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current_offset"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="stim_end" units="millisecond" initial_value="10000"/>
+      <variable name="stim_period" units="millisecond" initial_value="1000" cmeta:id="membrane_stimulus_current_period">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_stimulus_current_period">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current_period"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="stim_duration" units="millisecond" initial_value="0.5" cmeta:id="membrane_stimulus_current_duration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_stimulus_current_duration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current_duration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="stim_amplitude" units="microA_per_cm2" initial_value="-20" cmeta:id="membrane_stimulus_current_amplitude">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_stimulus_current_amplitude">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current_amplitude"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <math xmlns="http://www.w3.org/1998/Math/MathML">
          <apply>
             <eq/>
             <ci>i_Stim</ci>
             <piecewise>
                <piece>
-                  <cn cellml:units="microA_per_cm2">-20</cn>
+                  <ci>stim_amplitude</ci>
                   <apply>
                      <and/>
                      <apply>
                         <geq/>
                         <ci>time</ci>
-                        <cn cellml:units="millisecond">10</cn>
+                        <ci>stim_start</ci>
                      </apply>
                      <apply>
                         <leq/>
                         <ci>time</ci>
-                        <cn cellml:units="millisecond">10.5</cn>
+                        <ci>stim_end</ci>
+                     </apply>
+                     <apply>
+                        <leq/>
+                        <apply>
+                           <minus/>
+                           <apply>
+                              <minus/>
+                              <ci>time</ci>
+                              <ci>stim_start</ci>
+                           </apply>
+                           <apply>
+                              <times/>
+                              <apply>
+                                 <floor/>
+                                 <apply>
+                                    <divide/>
+                                    <apply>
+                                       <minus/>
+                                       <ci>time</ci>
+                                       <ci>stim_start</ci>
+                                    </apply>
+                                    <ci>stim_period</ci>
+                                 </apply>
+                              </apply>
+                              <ci>stim_period</ci>
+                           </apply>
+                        </apply>
+                        <ci>stim_duration</ci>
                      </apply>
                   </apply>
                </piece>
