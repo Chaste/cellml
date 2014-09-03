@@ -113,7 +113,7 @@ http://www.CellML.org/
             </rdf:Description>
          </rdf:RDF>
       </variable>
-      <variable name="i_pulse" units="nanoA" initial_value="0"/>
+      <variable name="i_pulse" units="nanoA" public_interface="in"/>
       <variable name="time" units="second" public_interface="in"/>
       <variable name="i_f" units="nanoA" public_interface="in"/>
       <variable name="i_K" units="nanoA" public_interface="in"/>
@@ -169,6 +169,53 @@ http://www.CellML.org/
                </apply>
                <ci>C</ci>
             </apply>
+         </apply>
+      </math>
+   </component>
+   <component name="stimulus">
+      <variable name="i_pulse" units="nanoA" public_interface="out" cmeta:id="iStim"/>
+      <variable name="amplitude" units="nanoA" initial_value="-500" cmeta:id="stim_amp"/>
+      <variable name="duration" units="second" initial_value="0.005" cmeta:id="stim_dur"/>
+      <variable name="time" units="second" public_interface="in"/>
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+         <rdf:Description rdf:about="#iStim">
+            <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current"/>
+         </rdf:Description>
+         <rdf:Description rdf:about="#stim_amp">
+            <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current_amplitude"/>
+         </rdf:Description>
+         <rdf:Description rdf:about="#stim_dur">
+            <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current_duration"/>
+         </rdf:Description>
+      </rdf:RDF>
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+         <apply>
+            <eq/>
+            <ci>i_pulse</ci>
+            <piecewise>
+               <piece>
+                  <ci>amplitude</ci>
+                  <apply>
+                     <and/>
+                     <apply>
+                        <geq/>
+                        <ci>time</ci>
+                        <cn cellml:units="second">0.1</cn>
+                     </apply>
+                     <apply>
+                        <leq/>
+                        <ci>time</ci>
+                        <apply><plus/>
+                           <cn cellml:units="second">0.1</cn>
+                           <ci>duration</ci>
+                        </apply>
+                     </apply>
+                  </apply>
+               </piece>
+               <otherwise>
+                  <cn cellml:units="nanoA">0</cn>
+               </otherwise>
+            </piecewise>
          </apply>
       </math>
    </component>
@@ -3215,5 +3262,13 @@ http://www.CellML.org/
    <connection>
       <map_components component_1="extracellular_potassium_concentration" component_2="intracellular_potassium_concentration"/>
       <map_variables variable_1="i_mK" variable_2="i_mK"/>
+   </connection>
+   <connection>
+      <map_components component_1="stimulus" component_2="membrane"/>
+      <map_variables variable_1="i_pulse" variable_2="i_pulse"/>
+   </connection>
+   <connection>
+      <map_components component_1="stimulus" component_2="environment"/>
+      <map_variables variable_1="time" variable_2="time"/>
    </connection>
 </model>
