@@ -7,12 +7,18 @@
 "FULL JACOBIAN"
 var_membrane__RTONF := var_membrane__R*var_membrane__T/var_membrane__F
 var_stimulus__time := var_environment__time
-var_stimulus__i_pulse := PIECEWISE([var_stimulus__amplitude, .10000000000000001
-<= var_environment__time and var_environment__time <= .10000000000000001+
-var_stimulus__duration],[0, otherwise])
-var_membrane__i_pulse := PIECEWISE([var_stimulus__amplitude, .10000000000000001
-<= var_environment__time and var_environment__time <= .10000000000000001+
-var_stimulus__duration],[0, otherwise])
+var_stimulus__i_pulse := PIECEWISE([var_stimulus__stim_amplitude, 
+var_stimulus__stim_start <= var_environment__time-floor(var_environment__time/
+var_stimulus__stim_period)*var_stimulus__stim_period and var_environment__time-
+floor(var_environment__time/var_stimulus__stim_period)*
+var_stimulus__stim_period <= var_stimulus__stim_start+
+var_stimulus__stim_duration],[0, otherwise])
+var_membrane__i_pulse := PIECEWISE([var_stimulus__stim_amplitude, 
+var_stimulus__stim_start <= var_environment__time-floor(var_environment__time/
+var_stimulus__stim_period)*var_stimulus__stim_period and var_environment__time-
+floor(var_environment__time/var_stimulus__stim_period)*
+var_stimulus__stim_period <= var_stimulus__stim_start+
+var_stimulus__stim_duration],[0, otherwise])
 var_membrane__time := var_environment__time
 var_hyperpolarising_activated_current__y := 
 var_hyperpolarising_activated_current_y_gate__y
@@ -424,6 +430,7 @@ var_second_inward_current_d_gate__beta_d := PIECEWISE([120, abs(var_membrane__V
 var_second_inward_current_d_gate__time := var_environment__time
 var_second_inward_current_f_gate__V := var_membrane__V
 var_second_inward_current_f_gate__E0_f := var_membrane__V+34
+memory used=3.0MB, alloc=32.3MB, time=0.10
 var_second_inward_current_f_gate__alpha_f := PIECEWISE([25, abs(var_membrane__V
 +34) < var_second_inward_current_f_gate__delta_f],[6.25*(var_membrane__V+34)/(
 exp(1/4*var_membrane__V+17/2)-1), otherwise])
@@ -824,9 +831,12 @@ var_intracellular_sodium_concentration__Nai*exp(50/var_membrane__R/
 var_membrane__T*var_membrane__F)-var_extracellular_sodium_concentration__Nao*
 exp(-(var_membrane__V-50)/var_membrane__R/var_membrane__T*var_membrane__F))*
 var_second_inward_current_d_gate__d*var_second_inward_current_f_gate__f*
-var_second_inward_current_f2_gate__f2-PIECEWISE([var_stimulus__amplitude, .1000\
-0000000000001 <= var_environment__time and var_environment__time <= .1000000000\
-0000001+var_stimulus__duration],[0, otherwise]))/var_membrane__C
+var_second_inward_current_f2_gate__f2-PIECEWISE([var_stimulus__stim_amplitude,
+var_stimulus__stim_start <= var_environment__time-floor(var_environment__time/
+var_stimulus__stim_period)*var_stimulus__stim_period and var_environment__time-
+floor(var_environment__time/var_stimulus__stim_period)*
+var_stimulus__stim_period <= var_stimulus__stim_start+
+var_stimulus__stim_duration],[0, otherwise]))/var_membrane__C
 d_dt_hyperpolarising_activated_current_y_gate__y := .50000000000000003e-1*exp(-
 .67000000000000004e-1*var_membrane__V-2.814000000)*(1-
 var_hyperpolarising_activated_current_y_gate__y)-PIECEWISE([2.5, abs(
@@ -3323,4 +3333,4 @@ jacobian[16,8] = -.3183098861e-2*t742*t291*t743, jacobian[16,9] = -.3183098861e\
 jacobian[16,14] = 0, jacobian[16,15] = -.3183098861*
 var_intracellular_sodium_concentration__conc_clamp*t979*t710*t716, jacobian[16,
 16] = -.3183098861*t985*t710*t716
-memory used=11.6MB, alloc=32.3MB, time=0.44
+memory used=11.9MB, alloc=32.3MB, time=0.35

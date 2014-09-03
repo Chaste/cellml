@@ -12,7 +12,6 @@ http://www.CellML.org/
 <model name="difrancesco_noble_model_1985" cmeta:id="difrancesco_noble_model_1985" xmlns="http://www.cellml.org/cellml/1.0#" xmlns:cellml="http://www.cellml.org/cellml/1.0#" xmlns:cmeta="http://www.cellml.org/metadata/1.0#">
    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
       <rdf:Description rdf:about="#difrancesco_noble_model_1985">
-         <is-self-excitatory xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</is-self-excitatory>
          <named-attribute xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">
             <rdf:Description>
                <name rdf:datatype="http://www.w3.org/2000/10/XMLSchema#string">SuggestedCycleLength</name>
@@ -173,41 +172,93 @@ http://www.CellML.org/
       </math>
    </component>
    <component name="stimulus">
-      <variable name="i_pulse" units="nanoA" public_interface="out" cmeta:id="iStim"/>
-      <variable name="amplitude" units="nanoA" initial_value="-500" cmeta:id="stim_amp"/>
-      <variable name="duration" units="second" initial_value="0.005" cmeta:id="stim_dur"/>
       <variable name="time" units="second" public_interface="in"/>
-      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-         <rdf:Description rdf:about="#iStim">
-            <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current"/>
-         </rdf:Description>
-         <rdf:Description rdf:about="#stim_amp">
-            <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current_amplitude"/>
-         </rdf:Description>
-         <rdf:Description rdf:about="#stim_dur">
-            <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current_duration"/>
-         </rdf:Description>
-      </rdf:RDF>
+      <variable name="i_pulse" units="nanoA" public_interface="out" cmeta:id="membrane_stimulus_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_stimulus_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="stim_start" units="second" initial_value="0.1" cmeta:id="membrane_stimulus_current_offset">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_stimulus_current_offset">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current_offset"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="stim_period" units="second" initial_value="1" cmeta:id="membrane_stimulus_current_period">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_stimulus_current_period">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current_period"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="stim_duration" units="second" initial_value="0.005" cmeta:id="membrane_stimulus_current_duration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_stimulus_current_duration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current_duration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="stim_amplitude" units="nanoA" initial_value="-500" cmeta:id="membrane_stimulus_current_amplitude">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_stimulus_current_amplitude">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current_amplitude"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <math xmlns="http://www.w3.org/1998/Math/MathML">
          <apply>
             <eq/>
             <ci>i_pulse</ci>
             <piecewise>
                <piece>
-                  <ci>amplitude</ci>
+                  <ci>stim_amplitude</ci>
                   <apply>
                      <and/>
                      <apply>
                         <geq/>
-                        <ci>time</ci>
-                        <cn cellml:units="second">0.1</cn>
+                        <apply>
+                           <minus/>
+                           <ci>time</ci>
+                           <apply>
+                              <times/>
+                              <apply>
+                                 <floor/>
+                                 <apply>
+                                    <divide/>
+                                    <ci>time</ci>
+                                    <ci>stim_period</ci>
+                                 </apply>
+                              </apply>
+                              <ci>stim_period</ci>
+                           </apply>
+                        </apply>
+                        <ci>stim_start</ci>
                      </apply>
                      <apply>
                         <leq/>
-                        <ci>time</ci>
-                        <apply><plus/>
-                           <cn cellml:units="second">0.1</cn>
-                           <ci>duration</ci>
+                        <apply>
+                           <minus/>
+                           <ci>time</ci>
+                           <apply>
+                              <times/>
+                              <apply>
+                                 <floor/>
+                                 <apply>
+                                    <divide/>
+                                    <ci>time</ci>
+                                    <ci>stim_period</ci>
+                                 </apply>
+                              </apply>
+                              <ci>stim_period</ci>
+                           </apply>
+                        </apply>
+                        <apply>
+                           <plus/>
+                           <ci>stim_start</ci>
+                           <ci>stim_duration</ci>
                         </apply>
                      </apply>
                   </apply>
