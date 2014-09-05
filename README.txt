@@ -5,6 +5,14 @@ https://chaste.cs.ox.ac.uk/trac/wiki/FunctionalCuration).
 However, since they are of more general utility they have now been collected
 into their own location.
 
+We have included most of the cardiac electrophysiology models that are available
+at http://models.cellml.org/electrophysiology
+
+these are then categorised into three categories.
+ 1. Working models are in the subfolder 'cellml' (not all reproduce original paper, but they don't crash solvers!)
+ 2. Models that convert to C++ but tend to crash solvers are in 'dont_solve'.
+ 3. Models that fail the conversion process are in 'dont_convert'.
+
 To use these files within your code, you may just check out the project. 
 However, you can also make use of the Subversion svn:externals functionality
 (see http://svnbook.red-bean.com/en/1.7/svn.advanced.externals.html) to make
