@@ -289,7 +289,7 @@
       <variable name="periphery_fraction" units="dimensionless" initial_value="0.2" private_interface="out"/>
       <variable name="sr_fraction" units="dimensionless" initial_value="0.06" private_interface="out"/>
       
-      <variable initial_value="700" name="stim_start" units="time_units" cmeta:id="membrane_stimulus_current_offset">
+      <variable initial_value="10" name="stim_start" units="time_units" cmeta:id="membrane_stimulus_current_offset">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#membrane_stimulus_current_offset">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current_offset"/>
