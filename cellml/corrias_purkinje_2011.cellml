@@ -1,4 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This CellML file was generated on 16/09/2014 at 13:01:34 using:
 
+COR (0.9.31.1409)
+Copyright 2002-2014 Dr Alan Garny
+http://cor.physiol.ox.ac.uk/ - cor@physiol.ox.ac.uk
+
+CellML 1.0 was used to generate this model
+http://www.cellml.org/
+-->
 <model 
       name="Corrias_rabbit_purkinje_model"
       xmlns="http://www.cellml.org/cellml/1.0#"
@@ -194,7 +204,7 @@
             <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_capacitance"/>
          </rdf:Description>
       </rdf:RDF>
-      <variable cmeta:id="membrane_V" name="Vm" units="voltage_units" initial_value="-88.34" private_interface="out"/>
+      <variable cmeta:id="membrane_V" name="Vm" units="voltage_units" initial_value="-88.744" private_interface="out"/>
       <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
          <rdf:Description rdf:about="#membrane_V">
             <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_voltage"/>
@@ -202,7 +212,7 @@
       </rdf:RDF>
       <variable name="time" units="time_units" public_interface="in" private_interface="out"/>
       
-	  <variable name="Ca_i_peripheral" units="millimolar" initial_value="0.00001" public_interface="out" private_interface="out" cmeta:id="diadicspace_calcium_concentration">
+	  <variable name="Ca_i_peripheral" units="millimolar" initial_value="8.37523918148654e-6" public_interface="out" private_interface="out" cmeta:id="diadicspace_calcium_concentration">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#diadicspace_calcium_concentration">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#diadicspace_calcium_concentration"/>
@@ -210,7 +220,7 @@
          </rdf:RDF>
       </variable>	  
 
-	  <variable name="Ca_i_bulk" units="millimolar" initial_value="0.000032" public_interface="out" private_interface="out" cmeta:id="cytosolic_calcium_concentration">
+	  <variable name="Ca_i_bulk" units="millimolar" initial_value="3.09001620863236e-5" public_interface="out" private_interface="out" cmeta:id="cytosolic_calcium_concentration">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#cytosolic_calcium_concentration">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_calcium_concentration"/>
@@ -218,7 +228,7 @@
          </rdf:RDF>
       </variable>	  
 
-	  <variable name="Ca_sr" units="millimolar" initial_value="0.17" public_interface="out" private_interface="out" cmeta:id="JSR_calcium_concentration">
+	  <variable name="Ca_sr" units="millimolar" initial_value="0.1607" public_interface="out" private_interface="out" cmeta:id="JSR_calcium_concentration">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#JSR_calcium_concentration">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#JSR_calcium_concentration"/>
@@ -226,7 +236,7 @@
          </rdf:RDF>
       </variable>		  
 
-	  <variable name="Na_i" units="millimolar" initial_value="6.7" public_interface="out" private_interface="out" cmeta:id="cytosolic_sodium_concentration">
+	  <variable name="Na_i" units="millimolar" initial_value="6.75814832463522" public_interface="out" private_interface="out" cmeta:id="cytosolic_sodium_concentration">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#cytosolic_sodium_concentration">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_sodium_concentration"/>
@@ -234,7 +244,7 @@
          </rdf:RDF>
       </variable>	  
 
-	  <variable name="K_i" units="millimolar" initial_value="140" public_interface="out" private_interface="out" cmeta:id="cytosolic_potassium_concentration">
+	  <variable name="K_i" units="millimolar" initial_value="139.943221899032" public_interface="out" private_interface="out" cmeta:id="cytosolic_potassium_concentration">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#cytosolic_potassium_concentration">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_potassium_concentration"/>
@@ -720,7 +730,7 @@
       <variable name="Vm" units="voltage_units" public_interface="in"/>
       <variable name="x_inf_Ttype" units="dimensionless"/>
       <variable name="tau_x_Ttype" initial_value="1.0" units="time_units"/>
-      <variable name="x_Ttype" units="dimensionless" initial_value="0.001337" public_interface="out"/>
+      <variable name="x_Ttype" units="dimensionless" initial_value="0.00058439023999374" public_interface="out"/>
       <variable name="time" units="time_units" public_interface="in"/>
 
       <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -775,7 +785,7 @@
       <variable name="Vm" units="voltage_units" public_interface="in"/>
       <variable name="y_inf_Ttype" units="dimensionless"/>
       <variable name="tau_y_Ttype" units="time_units"/>
-      <variable name="y_Ttype" units="dimensionless" initial_value="0.01" public_interface="out"/>
+      <variable name="y_Ttype" units="dimensionless" initial_value="0.900843399895183" public_interface="out"/>
       <variable name="time" units="time_units" public_interface="in"/>
       <math xmlns="http://www.w3.org/1998/Math/MathML">
          <apply>
@@ -894,7 +904,7 @@
       <variable name="Vm" units="voltage_units" public_interface="in"/>
       <variable name="x_inf_Ltype" units="dimensionless"/>
       <variable name="tau_x_Ltype" initial_value="0.7" units="time_units"/>
-	  <variable name="x_Ltype" units="dimensionless" initial_value="0.000003" public_interface="out" cmeta:id="membrane_L_type_calcium_current_d_gate">
+	  <variable name="x_Ltype" units="dimensionless" initial_value="1.39762741967807e-6" public_interface="out" cmeta:id="membrane_L_type_calcium_current_d_gate">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#membrane_L_type_calcium_current_d_gate">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_L_type_calcium_current_d_gate"/>
@@ -955,7 +965,7 @@
       <variable name="Vm" units="voltage_units" public_interface="in"/>
       <variable name="y_inf_Ltype" units="dimensionless"/>
       <variable name="tau_y_Ltype" units="time_units"/>
-	  <variable name="y_Ltype" units="dimensionless" initial_value="0.1" public_interface="out" cmeta:id="membrane_L_type_calcium_current_f_gate">
+	  <variable name="y_Ltype" units="dimensionless" initial_value="0.762933565557978" public_interface="out" cmeta:id="membrane_L_type_calcium_current_f_gate">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#membrane_L_type_calcium_current_f_gate">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_L_type_calcium_current_f_gate"/>
@@ -1050,7 +1060,7 @@
       <variable name="Ca_i_peripheral" units="millimolar" public_interface="in"/>
       <variable name="y_ca_inf_Ltype" units="dimensionless"/>
       <variable name="tau_y_ca_Ltype" units="time_units"/>
-	  <variable name="y_ca_Ltype" units="dimensionless" initial_value="0.7" public_interface="out" cmeta:id="membrane_L_type_calcium_current_fCa_gate">
+	  <variable name="y_ca_Ltype" units="dimensionless" initial_value="0.990616705407034" public_interface="out" cmeta:id="membrane_L_type_calcium_current_fCa_gate">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#membrane_L_type_calcium_current_fCa_gate">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_L_type_calcium_current_fCa_gate"/>
@@ -1200,7 +1210,7 @@
       <variable name="Vm" units="voltage_units" public_interface="in"/>
       <variable name="x_inf_to_fast" units="dimensionless"/>
       <variable name="tau_x_to_fast" initial_value="5.0" units="time_units"/>
-      <variable name="x_to_fast" units="dimensionless" initial_value="0.0" public_interface="out"/>
+      <variable name="x_to_fast" units="dimensionless" initial_value="2.39836311045441e-5" public_interface="out"/>
       <variable name="time" units="time_units" public_interface="in"/>
 
       <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1255,7 +1265,7 @@
       <variable name="Vm" units="voltage_units" public_interface="in"/>
       <variable name="y_inf_to_fast" units="dimensionless"/>
       <variable name="tau_y_to_fast" initial_value="350.0" units="time_units"/>
-      <variable name="y_to_fast" units="dimensionless" initial_value="0.7" public_interface="out"/>
+      <variable name="y_to_fast" units="dimensionless" initial_value="0.865769351306921" public_interface="out"/>
       <variable name="time" units="time_units" public_interface="in"/>
       <math xmlns="http://www.w3.org/1998/Math/MathML">
          <apply>
@@ -1444,7 +1454,7 @@
       <variable name="Vm" units="voltage_units" public_interface="in"/>
       <variable name="x_inf_na_fast" units="dimensionless"/>
       <variable name="tau_x_na_fast" initial_value="0.005" units="time_units"/>
-	  <variable name="x_na_fast" units="dimensionless" initial_value="0.000007" public_interface="out" cmeta:id="membrane_fast_sodium_current_m_gate">
+	  <variable name="x_na_fast" units="dimensionless" initial_value="2.90568689212866e-6" public_interface="out" cmeta:id="membrane_fast_sodium_current_m_gate">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#membrane_fast_sodium_current_m_gate">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current_m_gate"/>
@@ -1505,7 +1515,7 @@
       <variable name="Vm" units="voltage_units" public_interface="in"/>
       <variable name="y_inf_na_fast" units="dimensionless"/>
       <variable name="tau_y_na_fast" initial_value="2.0" units="time_units"/>
-	  <variable name="y_na_fast" units="dimensionless" initial_value="0.978861" public_interface="out" cmeta:id="membrane_fast_sodium_current_h_gate">
+	  <variable name="y_na_fast" units="dimensionless" initial_value="0.993212025695132" public_interface="out" cmeta:id="membrane_fast_sodium_current_h_gate">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#membrane_fast_sodium_current_h_gate">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current_h_gate"/>
@@ -1635,7 +1645,7 @@
       <variable name="Vm" units="voltage_units" public_interface="in"/>
       <variable name="x_inf_na_late" units="dimensionless"/>
       <variable name="tau_x_na_late" initial_value="15.0" units="time_units"/>
-      <variable name="x_na_late" units="dimensionless" initial_value="0.000012" public_interface="out"/>
+      <variable name="x_na_late" units="dimensionless" initial_value="7.9043398966996e-6" public_interface="out"/>
       <variable name="time" units="time_units" public_interface="in"/>
 
       <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1690,7 +1700,7 @@
       <variable name="Vm" units="voltage_units" public_interface="in"/>
       <variable name="y_inf_na_late" units="dimensionless"/>
       <variable name="tau_y_na_late" units="time_units"/>
-      <variable name="y_na_late" units="dimensionless" initial_value="0.864489" public_interface="out"/>
+      <variable name="y_na_late" units="dimensionless" initial_value="0.839555875175682" public_interface="out"/>
       <variable name="time" units="time_units" public_interface="in"/>
       <math xmlns="http://www.w3.org/1998/Math/MathML">
          <apply>
@@ -1937,7 +1947,7 @@
       <variable name="Vm" units="voltage_units" public_interface="in"/>
       <variable name="y_inf_kr" units="dimensionless"/>
       <variable name="tau_y_kr" units="time_units"/>
-      <variable name="y_kr" units="dimensionless" initial_value="0.25" public_interface="out"/>
+      <variable name="y_kr" units="dimensionless" initial_value="0.202112622607795" public_interface="out"/>
       <variable name="ykrv1" units="rate_constants_units"/>
       <variable name="ykrv2" units="rate_constants_units"/>
       <variable name="time" units="time_units" public_interface="in"/>
@@ -2185,7 +2195,7 @@
       <variable name="Vm" units="voltage_units" public_interface="in"/>
       <variable name="x_inf_ks" units="dimensionless" public_interface="out"/>
       <variable name="tau_x_ks" units="time_units" public_interface="out"/>
-      <variable name="x_ks" units="dimensionless" initial_value="1.0" public_interface="out"/>
+      <variable name="x_ks" units="dimensionless" initial_value="0.0147603344538846" public_interface="out"/>
       <variable name="time" units="time_units" public_interface="in"/>
 
       <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -2326,7 +2336,7 @@
       <variable name="Vm" units="voltage_units" public_interface="in"/>
       <variable name="y_inf_ks" units="dimensionless"/>
       <variable name="tau_y_ks" units="time_units"/>
-      <variable name="y_ks" units="dimensionless" initial_value="0.0" public_interface="out"/>
+      <variable name="y_ks" units="dimensionless" initial_value="0.0385082219915004" public_interface="out"/>
       <variable name="x_inf_ks" units="dimensionless" public_interface="in"/>
       <variable name="tau_x_ks" units="time_units" public_interface="in"/>
       <variable name="time" units="time_units" public_interface="in"/>
