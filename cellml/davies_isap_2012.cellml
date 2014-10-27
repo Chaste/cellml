@@ -2133,7 +2133,7 @@ http://www.cellml.org/
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_transient_outward_current_conductance"/>
             </rdf:Description>
          </rdf:RDF>
-      </variable>   
+      </variable>
       <variable name="EK" units="mV" public_interface="in"/>
       <variable name="rv" units="dimensionless"/>
       <variable name="ay" units="per_ms"/>
@@ -2153,7 +2153,13 @@ http://www.cellml.org/
             </rdf:Description>
          </rdf:RDF>
       </variable>
-      <variable name="Ito" units="uA_per_uF" public_interface="out"/>
+      <variable name="Ito" units="uA_per_uF" public_interface="out" cmeta:id="membrane_transient_outward_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_transient_outward_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_transient_outward_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <math xmlns="http://www.w3.org/1998/Math/MathML">
          <apply>
             <eq/>
