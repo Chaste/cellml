@@ -1078,12 +1078,42 @@ http://www.CellML.org/
       </math>
    </component>
    <component name="hyperpolarising_activated_current">
-      <variable name="i_f" units="picoA" public_interface="out"/>
-      <variable name="i_fNa" units="picoA" public_interface="out"/>
-      <variable name="i_fK" units="picoA" public_interface="out"/>
+      <variable name="i_f" units="picoA" public_interface="out" cmeta:id="membrane_hyperpolarisation_activated_funny_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_hyperpolarisation_activated_funny_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_hyperpolarisation_activated_funny_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="i_fNa" units="picoA" public_interface="out" cmeta:id="membrane_hyperpolarisation_activated_funny_current_sodium_component">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_hyperpolarisation_activated_funny_current_sodium_component">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_hyperpolarisation_activated_funny_current_sodium_component"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="i_fK" units="picoA" public_interface="out" cmeta:id="membrane_hyperpolarisation_activated_funny_current_potassium_component">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_hyperpolarisation_activated_funny_current_potassium_component">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_hyperpolarisation_activated_funny_current_potassium_component"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="Kmf" units="millimolar" initial_value="10.3"/>
-      <variable name="g_fNa" units="nanoS" initial_value="0.0081"/>
-      <variable name="g_fK" units="nanoS" initial_value="0.0135"/>
+      <variable name="g_fNa" units="nanoS" initial_value="0.0081" cmeta:id="membrane_hyperpolarisation_activated_funny_current_sodium_component_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_hyperpolarisation_activated_funny_current_sodium_component_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_hyperpolarisation_activated_funny_current_sodium_component_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="g_fK" units="nanoS" initial_value="0.0135" cmeta:id="membrane_hyperpolarisation_activated_funny_current_potassium_component_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_hyperpolarisation_activated_funny_current_potassium_component_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_hyperpolarisation_activated_funny_current_potassium_component_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="E_Na" units="millivolt" public_interface="in"/>
       <variable name="E_K" units="millivolt" public_interface="in"/>
       <variable name="Ko" units="millimolar" public_interface="in"/>
