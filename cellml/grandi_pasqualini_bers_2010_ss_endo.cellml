@@ -279,7 +279,7 @@ A novel computational model of the human ventricular action potential and Ca tra
             </rdf:Description>
          </rdf:RDF>
       </variable>		  
-      <variable name="Nao" units="mM" public_interface="out" initial_value="140" cmeta:id="extracellular_sodium_concentration">
+      <variable name="Nao" units="mM" initial_value="140" public_interface="out" cmeta:id="extracellular_sodium_concentration">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#extracellular_sodium_concentration">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#extracellular_sodium_concentration"/>
@@ -2676,7 +2676,7 @@ A novel computational model of the human ventricular action potential and Ca tra
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_slow_transient_outward_current_conductance"/>
             </rdf:Description>
          </rdf:RDF>
-      </variable>     
+      </variable>
       <variable name="GtoFast" units="mS_per_uF" public_interface="out"/> 
       <variable name="GtoFast_factor" units="dimensionless" initial_value="1" cmeta:id="membrane_fast_transient_outward_current_conductance">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
@@ -2684,7 +2684,7 @@ A novel computational model of the human ventricular action potential and Ca tra
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_transient_outward_current_conductance"/>
             </rdf:Description>
          </rdf:RDF>
-      </variable>	  
+      </variable>
       <variable name="xtoss" units="dimensionless" public_interface="out"/>
       <variable name="ytoss" units="dimensionless" public_interface="out"/>
       <variable name="tauxtos" units="msec" public_interface="out"/>
