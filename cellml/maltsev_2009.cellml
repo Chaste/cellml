@@ -1697,10 +1697,42 @@ Synergism of coupled subsarcolemmal Ca2+ clocks and sarcolemmal voltage clocks c
       </math>
    </component>
    <component name="i_f">
-      <variable name="i_f" units="picoA" public_interface="out"/>
-      <variable name="i_f_Na" units="picoA" public_interface="out"/>
-      <variable name="i_f_K" units="picoA" public_interface="out"/>
+      <variable name="i_f" units="picoA" public_interface="out" cmeta:id="membrane_hyperpolarisation_activated_funny_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_hyperpolarisation_activated_funny_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_hyperpolarisation_activated_funny_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="i_f_Na" units="picoA" public_interface="out" cmeta:id="membrane_hyperpolarisation_activated_funny_current_sodium_component">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_hyperpolarisation_activated_funny_current_sodium_component">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_hyperpolarisation_activated_funny_current_sodium_component"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="i_f_K" units="picoA" public_interface="out" cmeta:id="membrane_hyperpolarisation_activated_funny_current_potassium_component">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_hyperpolarisation_activated_funny_current_potassium_component">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_hyperpolarisation_activated_funny_current_potassium_component"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="g_if" units="nanoS_per_picoF" initial_value="0.15"/>
+      <variable name="g_if_Na" units="dimensionless" initial_value="0.3833" cmeta:id="membrane_hyperpolarisation_activated_funny_current_sodium_component_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_hyperpolarisation_activated_funny_current_sodium_component_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_hyperpolarisation_activated_funny_current_sodium_component_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="g_if_K" units="dimensionless" initial_value="0.6167" cmeta:id="membrane_hyperpolarisation_activated_funny_current_potassium_component_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_hyperpolarisation_activated_funny_current_potassium_component_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_hyperpolarisation_activated_funny_current_potassium_component_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="Cm" units="picoF" public_interface="in"/>
       <variable name="E_K" units="millivolt" public_interface="in"/>
       <variable name="E_Na" units="millivolt" public_interface="in"/>
@@ -1714,7 +1746,7 @@ Synergism of coupled subsarcolemmal Ca2+ clocks and sarcolemmal voltage clocks c
             <apply>
                <times/>
                <ci>Cm</ci>
-               <cn cellml:units="dimensionless">0.3833</cn>
+               <ci>g_if_Na</ci>
                <ci>g_if</ci>
                <apply>
                   <minus/>
@@ -1734,7 +1766,7 @@ Synergism of coupled subsarcolemmal Ca2+ clocks and sarcolemmal voltage clocks c
             <apply>
                <times/>
                <ci>Cm</ci>
-               <cn cellml:units="dimensionless">0.6167</cn>
+               <ci>g_if_K</ci>
                <ci>g_if</ci>
                <apply>
                   <minus/>
