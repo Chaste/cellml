@@ -308,7 +308,13 @@ A novel computational model of the human ventricular action potential and Ca tra
          </rdf:RDF>
       </variable>
       <variable name="GNaB" units="mS_per_uF" public_interface="out"/>
-      <variable name="IbarNaK" units="uA_per_uF" public_interface="out"/>
+      <variable name="IbarNaK" units="uA_per_uF" initial_value="1.8" public_interface="out" cmeta:id="membrane_sodium_potassium_pump_current_permeability">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_sodium_potassium_pump_current_permeability">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_sodium_potassium_pump_current_permeability"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="KmNaip" units="mM" public_interface="out"/>
       <variable name="KmKo" units="mM" public_interface="out"/>
       <variable name="Q10NaK" units="dimensionless" public_interface="out"/>
@@ -795,15 +801,6 @@ A novel computational model of the human ventricular action potential and Ca tra
             <ci>GNaB</ci>
             <cn type="e-notation" cellml:units="mS_per_uF">0.597   <sep/>
             -3</cn>
-         </apply>
-         <apply>
-            <eq/>
-            <ci>IbarNaK</ci>
-            <apply>
-               <times/>
-               <cn cellml:units="uA_per_uF">1</cn>
-               <cn cellml:units="dimensionless">1.8</cn>
-            </apply>
          </apply>
          <apply>
             <eq/>
@@ -2673,6 +2670,13 @@ A novel computational model of the human ventricular action potential and Ca tra
    </component>
    <component name="I_to">
       <variable name="GtoSlow" units="mS_per_uF" public_interface="out"/>
+      <variable name="GtoSlow_factor" units="dimensionless" initial_value="1" cmeta:id="membrane_slow_transient_outward_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_slow_transient_outward_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_slow_transient_outward_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="GtoFast" units="mS_per_uF" public_interface="out"/> 
       <variable name="GtoFast_factor" units="dimensionless" initial_value="1" cmeta:id="membrane_fast_transient_outward_current_conductance">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
@@ -2680,14 +2684,7 @@ A novel computational model of the human ventricular action potential and Ca tra
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_transient_outward_current_conductance"/>
             </rdf:Description>
          </rdf:RDF>
-      </variable>	  
-      <variable name="GtoSlow_factor" units="dimensionless" initial_value="1" cmeta:id="membrane_slow_transient_outward_current_conductance">
-         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-            <rdf:Description rdf:about="#membrane_slow_transient_outward_current_conductance">
-               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_slow_transient_outward_current_conductance"/>
-            </rdf:Description>
-         </rdf:RDF>
-      </variable>   
+      </variable>
       <variable name="xtoss" units="dimensionless" public_interface="out"/>
       <variable name="ytoss" units="dimensionless" public_interface="out"/>
       <variable name="tauxtos" units="msec" public_interface="out"/>
@@ -2700,7 +2697,7 @@ A novel computational model of the human ventricular action potential and Ca tra
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_slow_transient_outward_current"/>
             </rdf:Description>
          </rdf:RDF>
-      </variable>   
+      </variable>
       <variable name="tauxtof" units="msec" public_interface="out"/>
       <variable name="tauytof" units="msec" public_interface="out"/>
       <variable name="x_to_f" units="dimensionless" initial_value="0.000441531250866821" public_interface="out"/>
@@ -2711,7 +2708,7 @@ A novel computational model of the human ventricular action potential and Ca tra
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_transient_outward_current"/>
             </rdf:Description>
          </rdf:RDF>
-      </variable>         
+      </variable>
 	  <variable name="I_to" units="uA_per_uF" public_interface="out" cmeta:id="membrane_transient_outward_current">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#membrane_transient_outward_current">
