@@ -2160,7 +2160,13 @@ The canine virtual ventricular wall: a platform for dissecting pharmacological e
   </component>
   <component name="Ito">
     <variable name="V" public_interface="in" units="mV"/>
-    <variable initial_value="0.19" name="gitodv" units="mS_per_uF"/>
+    <variable initial_value="0.19" name="gitodv" units="mS_per_uF" cmeta:id="membrane_transient_outward_current_conductance">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+        <rdf:Description rdf:about="#membrane_transient_outward_current_conductance">
+          <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_transient_outward_current_conductance"/>
+        </rdf:Description>
+      </rdf:RDF>
+    </variable>
     <variable name="EK" public_interface="in" units="mV"/>
     <variable name="rv" units="dimensionless"/>
     <variable name="ay" units="per_ms"/>
