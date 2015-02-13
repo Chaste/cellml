@@ -4317,6 +4317,7 @@ http://www.cellml.org/
       <variable name="Faraday" units="coulomb_per_millimole" public_interface="in"/>
       <variable name="Ki" units="mM" public_interface="in"/>
       <variable name="EK" units="mV" public_interface="in"/>
+      <variable name="EKs" units="mV" public_interface="in"/>
       <variable name="fKo" units="dimensionless"/>
       <variable name="VF_over_RT" units="dimensionless"/>
       <variable name="VFsq_over_RT" units="coulomb_per_millimole"/>
@@ -4451,7 +4452,7 @@ http://www.cellml.org/
                <apply>
                   <minus/>
                   <ci>V</ci>
-                  <ci>EK</ci>
+                  <ci>EKs</ci>
                </apply>
             </apply>
          </apply>
@@ -7465,6 +7466,7 @@ http://www.cellml.org/
       <map_components component_1="COMPUTE_INa_IKr_IKs_Ito1_IK1_INab_IKp" component_2="COMPUTE_REVERSAL_POTENTIALS"/>
       <map_variables variable_1="ENa" variable_2="ENa"/>
       <map_variables variable_1="EK" variable_2="EK"/>
+      <map_variables variable_1="EKs" variable_2="EKs"/>
    </connection>
    <connection>
       <map_components component_1="COMPUTE_INa_IKr_IKs_Ito1_IK1_INab_IKp" component_2="IKr"/>
