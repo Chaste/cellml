@@ -2413,8 +2413,8 @@ http://www.cellml.org/
       </variable>
       <variable name="g_Ks" units="S_per_F" initial_value="2.041" cmeta:id="membrane_slow_delayed_rectifier_potassium_current_conductance">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-            <rdf:Description rdf:about="#membrane_slow_delayed_rectifier_potassium_current">
-               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_slow_delayed_rectifier_potassium_current"/>
+            <rdf:Description rdf:about="#membrane_slow_delayed_rectifier_potassium_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_slow_delayed_rectifier_potassium_current_conductance"/>
             </rdf:Description>
          </rdf:RDF>
       </variable>
