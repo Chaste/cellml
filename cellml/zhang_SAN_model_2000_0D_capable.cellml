@@ -704,10 +704,23 @@ http://www.CellML.org/
    </component>
    <component name="L_type_Ca_channel">
       <variable name="FCell" units="dimensionless" public_interface="in" private_interface="out"/>
-      <variable name="i_Ca_L" units="nanoA" public_interface="out"/>
+      <variable name="i_Ca_L" units="nanoA" public_interface="out" cmeta:id="membrane_L_type_calcium_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_L_type_calcium_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_L_type_calcium_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="g_Ca_L_Centre" units="microS" initial_value="0.0057938"/>
       <variable name="g_Ca_L_Periphery" units="microS" initial_value="0.06588648"/>
       <variable name="g_Ca_L" units="microS"/>
+      <variable name="g_Ca_L_scaling" units="dimensionless" initial_value="1.0" cmeta:id="membrane_L_type_calcium_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_L_type_calcium_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_L_type_calcium_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="E_Ca_L" units="millivolt" initial_value="46.4"/>
       <variable name="time" units="second" public_interface="in" private_interface="out"/>
       <variable name="V" units="millivolt" public_interface="in" private_interface="out"/>
@@ -737,6 +750,7 @@ http://www.CellML.org/
             <apply>
                <times/>
                <ci>g_Ca_L</ci>
+               <ci>g_Ca_L_scaling</ci>
                <apply>
                   <plus/>
                   <apply>
@@ -1688,6 +1702,13 @@ http://www.CellML.org/
             </rdf:Description>
          </rdf:RDF>
       </variable>
+      <variable name="g_K_r_Scaling" units="dimensionless" initial_value="1.0" cmeta:id="membrane_rapid_delayed_rectifier_potassium_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_rapid_delayed_rectifier_potassium_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_rapid_delayed_rectifier_potassium_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="g_K_r_Centre" units="microS" initial_value="0.00079704"/>
       <variable name="g_K_r_Periphery" units="microS" initial_value="0.016"/>
       <variable name="g_K_r" units="microS"/>
@@ -1722,6 +1743,7 @@ http://www.CellML.org/
             <apply>
                <times/>
                <ci>g_K_r</ci>
+               <ci>g_K_r_Scaling</ci>
                <ci>P_a</ci>
                <ci>P_i</ci>
                <apply>
