@@ -1,5 +1,5 @@
-    |\^/|     Maple 15 (X86 64 LINUX)
-._|\|   |/|_. Copyright (c) Maplesoft, a division of Waterloo Maple Inc. 2011
+    |\^/|     Maple 18 (X86 64 LINUX)
+._|\|   |/|_. Copyright (c) Maplesoft, a division of Waterloo Maple Inc. 2014
  \  MAPLE  /  All rights reserved. Maple is a trademark of
  <____ ____>  Waterloo Maple Inc.
       |       Type ? for help.
@@ -883,6 +883,7 @@ var_intracellular_sodium_concentration__V_e_ratio)/var_membrane__F
 "--12--var_intracellular_calcium_concentration__Ca_rel--"
 "--13--var_intracellular_calcium_concentration__p--"
 "--14--var_intracellular_potassium_concentration__Ki--"
+memory used=3.2MB, alloc=8.3MB, time=0.12
 jacobian := matrix([[(-var_hyperpolarising_activated_current_y_gate__y^2*
 var_extracellular_potassium_concentration__Kc/(
 var_extracellular_potassium_concentration__Kc+
@@ -1942,16 +1943,16 @@ var_Na_Ca_exchanger__n_NaCa, t60 = var_extracellular_calcium_concentration__Cao
 *t59, t64 = (var_Na_Ca_exchanger__gamma-1)*t51, t68 = exp(t64*var_membrane__V*
 t55), t70 = var_extracellular_sodium_concentration__Nao^
 var_Na_Ca_exchanger__n_NaCa, t71 = var_intracellular_calcium_concentration__Cai
-*t70, t75 = var_Na_Ca_exchanger__K_NaCa*(t52*t13*var_membrane__F*t57*t60-t64*
-t13*var_membrane__F*t68*t71), t78 = 1+var_Na_Ca_exchanger__d_NaCa*(t71+t60), 
+*t70, t75 = var_Na_Ca_exchanger__K_NaCa*(t13*t52*t57*t60*var_membrane__F-t13*
+t64*t68*t71*var_membrane__F), t78 = 1+var_Na_Ca_exchanger__d_NaCa*(t71+t60), 
 t79 = 1/t78, t81 = 1+144.9275362*var_intracellular_calcium_concentration__Cai,
 t82 = 1/t81, t83 = t79*t82, t85 = var_fast_sodium_current_m_gate__m^2, t87 = 
 var_fast_sodium_current__g_Na*t85*var_fast_sodium_current_m_gate__m, t88 = t87*
 var_fast_sodium_current_h_gate__h, t90 = var_second_inward_current__P_si*t11*
 t15, t91 = var_membrane__V-50, t93 = t91*t11*t15, t95 = exp(-2*t93), t96 = 1-
-t95, t97 = 1/t96, t99 = exp(100*t55), t102 = 
-var_intracellular_calcium_concentration__Cai*t99-
-var_extracellular_calcium_concentration__Cao*t95, t105 = 
+t95, t97 = 1/t96, t99 = exp(100*t55), t102 = -t95*
+var_extracellular_calcium_concentration__Cao+t99*
+var_intracellular_calcium_concentration__Cai, t105 = 
 var_second_inward_current_d_gate__d*var_second_inward_current_f_gate__f*
 var_second_inward_current_f2_gate__f2, t108 = 4*t90*t97*t102*t105, t109 = 
 var_second_inward_current__P_si*t91, t110 = var_membrane__R^2, t112 = 
@@ -1960,33 +1961,33 @@ t96^2, t122 = var_second_inward_current_f_gate__f*
 var_second_inward_current_f2_gate__f2, t126 = 8*t117/t118*t102*
 var_second_inward_current_d_gate__d*t122*t95, t131 = 8*t117*t97*
 var_extracellular_calcium_concentration__Cao*t95*t105, t132 = exp(-t93), t133 =
-1-t132, t134 = 1/t133, t136 = exp(50*t55), t139 = 
-var_intracellular_potassium_concentration__Ki*t136-
-var_extracellular_potassium_concentration__Kc*t132, t143 = .1e-1*t90*t134*t139*
-t105, t144 = t133^2, t145 = 1/t144, t148 = t122*t132, t151 = .1e-1*t117*t145*
-t139*var_second_inward_current_d_gate__d*t148, t156 = .1e-1*t117*t134*
-var_extracellular_potassium_concentration__Kc*t132*t105, t159 = 
-var_intracellular_sodium_concentration__Nai*t136-
-var_extracellular_sodium_concentration__Nao*t132, t163 = .1e-1*t90*t134*t159*
-t105, t168 = .1e-1*t117*t145*t159*var_second_inward_current_d_gate__d*t148, 
-t173 = .1e-1*t117*t134*var_extracellular_sodium_concentration__Nao*t132*t105, 
-t174 = -t6-t8-t21-t40+t50-var_sodium_background_current__g_Nab-
-var_calcium_background_current__g_Cab-t75*t83-t88-t108+t126-t131-t143+t151-t156
--t163+t168-t173, t175 = 1/var_membrane__C, t177 = 
+1-t132, t134 = 1/t133, t136 = exp(50*t55), t139 = -t132*
+var_extracellular_potassium_concentration__Kc+t136*
+var_intracellular_potassium_concentration__Ki, t143 = .1e-1*t90*t134*t139*t105,
+t144 = t133^2, t145 = 1/t144, t148 = t122*t132, t151 = .1e-1*t117*t145*t139*
+var_second_inward_current_d_gate__d*t148, t156 = .1e-1*t117*t134*
+var_extracellular_potassium_concentration__Kc*t132*t105, t159 = -t132*
+var_extracellular_sodium_concentration__Nao+t136*
+var_intracellular_sodium_concentration__Nai, t163 = .1e-1*t90*t134*t159*t105, 
+t168 = .1e-1*t117*t145*t159*var_second_inward_current_d_gate__d*t148, t173 = .1\
+e-1*t117*t134*var_extracellular_sodium_concentration__Nao*t132*t105, t174 = -
+t75*t83-t108+t126-t131-t143+t151-t156-t163+t168-t173-t21-t40+t50-t6-t8-t88-
+var_calcium_background_current__g_Cab-var_sodium_background_current__g_Nab, 
+t175 = 1/var_membrane__C, t177 = 
 var_hyperpolarising_activated_current_y_gate__y*
 var_extracellular_potassium_concentration__Kc, t178 = 1/
 var_intracellular_sodium_concentration__Nai, t180 = ln(
-var_extracellular_sodium_concentration__Nao*t178), t183 = var_membrane__V-t25*
-t26*t180, t192 = var_time_dependent_potassium_current__i_K_max*(
-var_intracellular_potassium_concentration__Ki-
-var_extracellular_potassium_concentration__Kc*t17), t195 = 
+var_extracellular_sodium_concentration__Nao*t178), t183 = -t180*t25*t26+
+var_membrane__V, t192 = var_time_dependent_potassium_current__i_K_max*(-t17*
+var_extracellular_potassium_concentration__Kc+
+var_intracellular_potassium_concentration__Ki), t195 = 
 var_fast_sodium_current__g_Na*t85, t200 = 1/(
 var_intracellular_sodium_concentration__Nai+.12*
 var_intracellular_potassium_concentration__Ki), t202 = ln((
 var_extracellular_sodium_concentration__Nao+.12*
-var_extracellular_potassium_concentration__Kc)*t200), t205 = var_membrane__V-
-t25*t26*t202, t206 = var_fast_sodium_current_h_gate__h*t205, t212 = t109*t13, 
-t213 = var_membrane__F*t97, t215 = t102*var_second_inward_current_f_gate__f*
+var_extracellular_potassium_concentration__Kc)*t200), t205 = -t202*t25*t26+
+var_membrane__V, t206 = var_fast_sodium_current_h_gate__h*t205, t212 = t109*t13
+, t213 = var_membrane__F*t97, t215 = t102*var_second_inward_current_f_gate__f*
 var_second_inward_current_f2_gate__f2, t219 = var_membrane__F*t134, t221 = t139
 *var_second_inward_current_f_gate__f*var_second_inward_current_f2_gate__f2, 
 t226 = t159*var_second_inward_current_f_gate__f*
@@ -2072,13 +2073,13 @@ var_intracellular_calcium_concentration__Ca_rel), t704 = t434+16, t705 = exp(
 t704), t706 = t705-1, t707 = 1/t706, t708 = 1-
 var_intracellular_calcium_concentration__p, t711 = var_membrane__V+64, t712 = 
 t706^2, t718 = exp(-t704), t719 = 1+t718, t720 = t719^2, jacobian[1,1] = t174*
-t175, jacobian[1,2] = 2*(-t177*t5*t183-t177*t7*t41)*t175, jacobian[1,3] = -1/
+t175, jacobian[1,2] = 2*(-t177*t183*t5-t177*t41*t7)*t175, jacobian[1,3] = -1/
 140*t192*t175, jacobian[1,4] = -3*t195*t206*t175, jacobian[1,5] = -t87*t205*
 t175, jacobian[1,6] = (-4*t212*t213*t215-.1e-1*t212*t219*t221-.1e-1*t212*t219*
 t226)*t175, jacobian[1,7] = (-4*t212*t213*t233-.1e-1*t212*t219*t238-.1e-1*t212*
 t219*t243)*t175, jacobian[1,8] = (-4*t212*t213*t249-.1e-1*t212*t219*t253-.1e-1*
-t212*t219*t257)*t175, jacobian[1,9] = (-t265-t269-t276+t281-t284*t285*t83+t297*
-t300-t304-t309)*t175, jacobian[1,10] = (-t316+t317*t70*t79*t82+t321*t82*
+t212*t219*t257)*t175, jacobian[1,9] = (-t284*t285*t83+t297*t300-t265-t269-t276+
+t281-t304-t309)*t175, jacobian[1,10] = (-t316+t317*t70*t79*t82+t321*t82*
 var_Na_Ca_exchanger__d_NaCa*t70+144.9275362*t293*t327-t333)*t175, jacobian[1,11
 ] = 0, jacobian[1,12] = 0, jacobian[1,13] = 0, jacobian[1,14] = (-t338-t339-
 t344+t350-.12*t304-t309)*t175, jacobian[2,1] = 
@@ -2116,33 +2117,33 @@ jacobian[7,4] = 0, jacobian[7,5] = 0, jacobian[7,6] = 0, jacobian[7,7] = -t498-\
 50/t489, jacobian[7,8] = 0, jacobian[7,9] = 0, jacobian[7,10] = 0, jacobian[7,
 11] = 0, jacobian[7,12] = 0, jacobian[7,13] = 0, jacobian[7,14] = 0, jacobian[8
 ,1] = 0, jacobian[8,2] = 0, jacobian[8,3] = 0, jacobian[8,4] = 0, jacobian[8,5]
-= 0, jacobian[8,6] = 0, jacobian[8,7] = 0, jacobian[8,8] = -
-var_second_inward_current_f2_gate__alpha_f2-
+= 0, jacobian[8,6] = 0, jacobian[8,7] = 0, jacobian[8,8] = -t503*
 var_intracellular_calcium_concentration__Cai*
-var_second_inward_current_f2_gate__alpha_f2*t503, jacobian[8,9] = 0, jacobian[8
-,10] = -var_second_inward_current_f2_gate__f2*
+var_second_inward_current_f2_gate__alpha_f2-
+var_second_inward_current_f2_gate__alpha_f2, jacobian[8,9] = 0, jacobian[8,10]
+= -var_second_inward_current_f2_gate__f2*
 var_second_inward_current_f2_gate__alpha_f2*t503, jacobian[8,11] = 0, jacobian[
 8,12] = 0, jacobian[8,13] = 0, jacobian[8,14] = 0, jacobian[9,1] = -.3183098861
-*(t88+var_sodium_background_current__g_Nab+t6+t163-t168+t173+t75*t79*t82*
-var_Na_Ca_exchanger__n_NaCa*t510)*t515*t521, jacobian[9,2] = -.6366197722*t177*
-t5*t183*t515*t521, jacobian[9,3] = 0, jacobian[9,4] = -.9549296583*t195*t206*
-t532, jacobian[9,5] = -.3183098861*t87*t205*t532, jacobian[9,6] = -.3183098861e\
--2*t539*t226*t540, jacobian[9,7] = -.3183098861e-2*t539*t243*t540, jacobian[9,8
-] = -.3183098861e-2*t539*t257*t540, jacobian[9,9] = -.3183098861*(t304+t269+
-t265+t309+3*t276-3*t281+t282*t59*t552*t556-t293*t296*t552*t510*
-var_Na_Ca_exchanger__d_NaCa*t60*t178)*t515*t521, jacobian[9,10] = -.3183098861*
-(-t568*t83*t569-t297*t569*t572-144.9275362*t293*t79*t326*
+*(t510*t75*t79*t82*var_Na_Ca_exchanger__n_NaCa+t163-t168+t173+t6+t88+
+var_sodium_background_current__g_Nab)*t515*t521, jacobian[9,2] = -.6366197722*
+t177*t5*t183*t515*t521, jacobian[9,3] = 0, jacobian[9,4] = -.9549296583*t195*
+t206*t532, jacobian[9,5] = -.3183098861*t87*t205*t532, jacobian[9,6] = -.\
+3183098861e-2*t539*t226*t540, jacobian[9,7] = -.3183098861e-2*t539*t243*t540, 
+jacobian[9,8] = -.3183098861e-2*t539*t257*t540, jacobian[9,9] = -.3183098861*(-
+t178*t293*t296*t510*t552*t60*var_Na_Ca_exchanger__d_NaCa+t282*t552*t556*t59+
+t265+t269+3*t276-3*t281+t304+t309)*t515*t521, jacobian[9,10] = -.3183098861*(-
+t568*t83*t569-t297*t569*t572-144.9275362*t293*t79*t326*
 var_Na_Ca_exchanger__n_NaCa*t510)*t515*t521, jacobian[9,11] = 0, jacobian[9,12]
 = 0, jacobian[9,13] = 0, jacobian[9,14] = -.3819718633e-1*t87*
 var_fast_sodium_current_h_gate__h*var_membrane__R*var_membrane__T/t115*t200*
-t540, jacobian[10,1] = -.1591549430*(t108-t126+t131+
-var_calcium_background_current__g_Cab-2*t75*t555)*t515*t521, jacobian[10,2] = 0
-, jacobian[10,3] = 0, jacobian[10,4] = 0, jacobian[10,5] = 0, jacobian[10,6] =
--.6366197720*t599*t215*t540, jacobian[10,7] = -.6366197720*t599*t233*t540, 
-jacobian[10,8] = -.6366197720*t599*t249*t540, jacobian[10,9] = -.3183098860*(-
-t284*t556+t293*t296*t510*t300)*t515*t521, jacobian[10,10] = -.1591549430*(t333+
-t316+2*t568*t555+2*t321*t82*t510*t572+289.8550724*t293*t327*t510-t640+t649+6.28\
-3185308*t650*t652*t653*t654)*t515*t521, jacobian[10,11] = .9999999996*t663*
+t540, jacobian[10,1] = -.1591549430*(-2*t555*t75+t108-t126+t131+
+var_calcium_background_current__g_Cab)*t515*t521, jacobian[10,2] = 0, jacobian[
+10,3] = 0, jacobian[10,4] = 0, jacobian[10,5] = 0, jacobian[10,6] = -.636619772\
+0*t599*t215*t540, jacobian[10,7] = -.6366197720*t599*t233*t540, jacobian[10,8]
+= -.6366197720*t599*t249*t540, jacobian[10,9] = -.3183098860*(t293*t296*t300*
+t510-t284*t556)*t515*t521, jacobian[10,10] = -.1591549430*(t333+t316+2*t568*
+t555+2*t321*t82*t510*t572+289.8550724*t293*t327*t510-t640+t649+6.283185308*t650
+*t652*t653*t654)*t515*t521, jacobian[10,11] = .9999999996*t663*
 var_intracellular_calcium_concentration__Cai, jacobian[10,12] = .2000000000e-1*
 t628*t631*t636, jacobian[10,13] = 0, jacobian[10,14] = 0, jacobian[11,1] = 0, 
 jacobian[11,2] = 0, jacobian[11,3] = 0, jacobian[11,4] = 0, jacobian[11,5] = 0,
@@ -2169,4 +2170,4 @@ jacobian[14,3] = -.2273642044e-2*t192*t515*t521, jacobian[14,4] = 0, jacobian[
 jacobian[14,9] = -.6366197722*(-t276+t281)*t515*t521, jacobian[14,10] = 0, 
 jacobian[14,11] = 0, jacobian[14,12] = 0, jacobian[14,13] = 0, jacobian[14,14]
 = -.3183098861*(t344-t350+t339+t338+t309)*t515*t521
-memory used=9.5MB, alloc=7.9MB, time=0.22
+memory used=9.4MB, alloc=40.3MB, time=0.65

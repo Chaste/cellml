@@ -416,8 +416,20 @@ http://www.CellML.org/
       </math>
    </component>
    <component name="time_dependent_potassium_current">
-      <variable name="i_K" units="nanoA" public_interface="out"/>
-      <variable name="i_K_max" units="nanoA" initial_value="20"/>
+      <variable name="i_K" units="nanoA" public_interface="out" cmeta:id="membrane_delayed_rectifier_potassium_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_delayed_rectifier_potassium_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_delayed_rectifier_potassium_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="i_K_max" units="nanoA" initial_value="20" cmeta:id="membrane_delayed_rectifier_potassium_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_delayed_rectifier_potassium_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_delayed_rectifier_potassium_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="time" units="second" public_interface="in" private_interface="out"/>
       <variable name="V" units="millivolt" public_interface="in" private_interface="out"/>
       <variable name="RTONF" units="millivolt" public_interface="in"/>
@@ -1177,11 +1189,23 @@ http://www.CellML.org/
       </math>
    </component>
    <component name="second_inward_current">
-      <variable name="i_si" units="nanoA" public_interface="out"/>
+      <variable name="i_si" units="nanoA" public_interface="out" cmeta:id="membrane_L_type_calcium_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_L_type_calcium_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_L_type_calcium_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="i_siCa" units="nanoA" public_interface="out"/>
       <variable name="i_siK" units="nanoA" public_interface="out"/>
       <variable name="i_siNa" units="nanoA" public_interface="out"/>
-      <variable name="P_si" units="nanoA_per_millimolar" initial_value="7.5"/>
+      <variable name="P_si" units="nanoA_per_millimolar" initial_value="7.5" cmeta:id="membrane_L_type_calcium_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_L_type_calcium_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_L_type_calcium_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="time" units="second" public_interface="in" private_interface="out"/>
       <variable name="V" units="millivolt" public_interface="in" private_interface="out"/>
       <variable name="RTONF" units="millivolt" public_interface="in"/>
