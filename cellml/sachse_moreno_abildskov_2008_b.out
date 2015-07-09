@@ -1,0 +1,294 @@
+    |\^/|     Maple 18 (X86 64 LINUX)
+._|\|   |/|_. Copyright (c) Maplesoft, a division of Waterloo Maple Inc. 2014
+ \  MAPLE  /  All rights reserved. Maple is a trademark of
+ <____ ____>  Waterloo Maple Inc.
+      |       Type ? for help.
+1
+"FULL JACOBIAN"
+var_I_b__Vm := var_membrane__Vm
+var_I_b__I_b := var_I_b__Gb*(var_membrane__Vm-var_I_b__Eb)
+var_membrane__I_b := var_I_b__Gb*(var_membrane__Vm-var_I_b__Eb)
+var_I_Kir__T := var_model_parameters__T
+var_I_Kir__Ki := var_model_parameters__Ki
+var_I_Kir__R := var_model_parameters__R
+var_I_Kir__F := var_model_parameters__F
+var_I_Kir__Ko := var_model_parameters__Ko
+var_I_Kir__EK := var_model_parameters__R*var_model_parameters__T/
+var_model_parameters__F*ln(var_model_parameters__Ko/var_model_parameters__Ki)
+var_I_Kir__Vm := var_membrane__Vm
+var_I_Kir__OKir := 1/(var_I_Kir__aKir+exp(var_I_Kir__bKir*(var_membrane__Vm-
+var_model_parameters__R*var_model_parameters__T/var_model_parameters__F*ln(
+var_model_parameters__Ko/var_model_parameters__Ki))*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T))
+var_I_Kir__I_Kir := .3162277660e-1*var_I_Kir__GKir/(var_I_Kir__aKir+exp(
+var_I_Kir__bKir*(var_membrane__Vm-var_model_parameters__R*
+var_model_parameters__T/var_model_parameters__F*ln(var_model_parameters__Ko/
+var_model_parameters__Ki))*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T))*var_model_parameters__Ko^(1/2)*(var_membrane__Vm-
+var_model_parameters__R*var_model_parameters__T/var_model_parameters__F*ln(
+var_model_parameters__Ko/var_model_parameters__Ki))
+var_membrane__I_Kir := .3162277660e-1*var_I_Kir__GKir/(var_I_Kir__aKir+exp(
+var_I_Kir__bKir*(var_membrane__Vm-var_model_parameters__R*
+var_model_parameters__T/var_model_parameters__F*ln(var_model_parameters__Ko/
+var_model_parameters__Ki))*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T))*var_model_parameters__Ko^(1/2)*(var_membrane__Vm-
+var_model_parameters__R*var_model_parameters__T/var_model_parameters__F*ln(
+var_model_parameters__Ko/var_model_parameters__Ki))
+var_I_Shkr__Ki := var_model_parameters__Ki
+var_I_Shkr__Ko := var_model_parameters__Ko
+var_I_Shkr__Vm := var_membrane__Vm
+var_I_Shkr__F := var_model_parameters__F
+var_I_Shkr__R := var_model_parameters__R
+var_I_Shkr__T := var_model_parameters__T
+var_I_Shkr__I_Shkr := var_I_Shkr__PShkr*var_I_Shkr__OShkr*var_membrane__Vm*
+var_model_parameters__F^2/var_model_parameters__R/var_model_parameters__T*(
+var_model_parameters__Ki-var_model_parameters__Ko*exp(-var_membrane__Vm*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T))/(1-
+exp(-var_membrane__Vm*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T))
+var_membrane__I_Shkr := var_I_Shkr__PShkr*var_I_Shkr__OShkr*var_membrane__Vm*
+var_model_parameters__F^2/var_model_parameters__R/var_model_parameters__T*(
+var_model_parameters__Ki-var_model_parameters__Ko*exp(-var_membrane__Vm*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T))/(1-
+exp(-var_membrane__Vm*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T))
+var_I_stim__time := var_environment__time
+var_I_stim__I_stim := PIECEWISE([var_I_stim__stim_amplitude, 
+var_I_stim__stim_start <= var_environment__time-floor(var_environment__time/
+var_I_stim__stim_period)*var_I_stim__stim_period and var_environment__time-
+floor(var_environment__time/var_I_stim__stim_period)*var_I_stim__stim_period <=
+var_I_stim__stim_start+var_I_stim__stim_duration],[0, otherwise])
+var_membrane__I_stim := PIECEWISE([var_I_stim__stim_amplitude, 
+var_I_stim__stim_start <= var_environment__time-floor(var_environment__time/
+var_I_stim__stim_period)*var_I_stim__stim_period and var_environment__time-
+floor(var_environment__time/var_I_stim__stim_period)*var_I_stim__stim_period <=
+var_I_stim__stim_start+var_I_stim__stim_duration],[0, otherwise])
+var_membrane__time := var_environment__time
+var_I_Shkr__kv := var_I_Shkr__kv0*exp(var_membrane__Vm*var_I_Shkr__zv*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T)
+var_I_Shkr__k_v := var_I_Shkr__k_v0*exp(var_membrane__Vm*var_I_Shkr__z_v*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T)
+var_I_Shkr__time := var_environment__time
+d_dt_membrane__Vm := (-.3162277660e-1*var_I_Kir__GKir/(var_I_Kir__aKir+exp(
+var_I_Kir__bKir*(var_membrane__Vm-var_model_parameters__R*
+var_model_parameters__T/var_model_parameters__F*ln(var_model_parameters__Ko/
+var_model_parameters__Ki))*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T))*var_model_parameters__Ko^(1/2)*(var_membrane__Vm-
+var_model_parameters__R*var_model_parameters__T/var_model_parameters__F*ln(
+var_model_parameters__Ko/var_model_parameters__Ki))-var_I_Shkr__PShkr*
+var_I_Shkr__OShkr*var_membrane__Vm*var_model_parameters__F^2/
+var_model_parameters__R/var_model_parameters__T*(var_model_parameters__Ki-
+var_model_parameters__Ko*exp(-var_membrane__Vm*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T))/(1-exp(-var_membrane__Vm*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T))-
+var_I_b__Gb*(var_membrane__Vm-var_I_b__Eb)+PIECEWISE([
+var_I_stim__stim_amplitude, var_I_stim__stim_start <= var_environment__time-
+floor(var_environment__time/var_I_stim__stim_period)*var_I_stim__stim_period 
+and var_environment__time-floor(var_environment__time/var_I_stim__stim_period)*
+var_I_stim__stim_period <= var_I_stim__stim_start+var_I_stim__stim_duration],[0
+, otherwise]))/var_membrane__Cm
+d_dt_I_Shkr__C0Shkr := var_I_Shkr__k_v0*exp(var_membrane__Vm*var_I_Shkr__z_v*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T)*
+var_I_Shkr__C1Shkr-4*var_I_Shkr__kv0*exp(var_membrane__Vm*var_I_Shkr__zv*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T)*
+var_I_Shkr__C0Shkr
+d_dt_I_Shkr__C1Shkr := 2*var_I_Shkr__k_v0*exp(var_membrane__Vm*var_I_Shkr__z_v*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T)*
+var_I_Shkr__C2Shkr+4*var_I_Shkr__kv0*exp(var_membrane__Vm*var_I_Shkr__zv*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T)*
+var_I_Shkr__C0Shkr-(3*var_I_Shkr__kv0*exp(var_membrane__Vm*var_I_Shkr__zv*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T)+
+var_I_Shkr__k_v0*exp(var_membrane__Vm*var_I_Shkr__z_v*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T))*var_I_Shkr__C1Shkr
+d_dt_I_Shkr__C2Shkr := 3*var_I_Shkr__k_v0*exp(var_membrane__Vm*var_I_Shkr__z_v*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T)*
+var_I_Shkr__C3Shkr+3*var_I_Shkr__kv0*exp(var_membrane__Vm*var_I_Shkr__zv*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T)*
+var_I_Shkr__C1Shkr-(2*var_I_Shkr__kv0*exp(var_membrane__Vm*var_I_Shkr__zv*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T)+2*
+var_I_Shkr__k_v0*exp(var_membrane__Vm*var_I_Shkr__z_v*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T))*var_I_Shkr__C2Shkr
+d_dt_I_Shkr__C3Shkr := 4*var_I_Shkr__k_v0*exp(var_membrane__Vm*var_I_Shkr__z_v*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T)*
+var_I_Shkr__C4Shkr+2*var_I_Shkr__kv0*exp(var_membrane__Vm*var_I_Shkr__zv*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T)*
+var_I_Shkr__C2Shkr-(var_I_Shkr__kv0*exp(var_membrane__Vm*var_I_Shkr__zv*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T)+3*
+var_I_Shkr__k_v0*exp(var_membrane__Vm*var_I_Shkr__z_v*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T))*var_I_Shkr__C3Shkr
+d_dt_I_Shkr__C4Shkr := var_I_Shkr__k_o*var_I_Shkr__OShkr+var_I_Shkr__kv0*exp(
+var_membrane__Vm*var_I_Shkr__zv*var_model_parameters__F/var_model_parameters__R
+/var_model_parameters__T)*var_I_Shkr__C3Shkr-(var_I_Shkr__ko+4*var_I_Shkr__k_v0
+*exp(var_membrane__Vm*var_I_Shkr__z_v*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T))*var_I_Shkr__C4Shkr
+d_dt_I_Shkr__OShkr := -var_I_Shkr__k_o*var_I_Shkr__OShkr+var_I_Shkr__ko*
+var_I_Shkr__C4Shkr
+"--1--var_membrane__Vm--"
+"--2--var_I_Shkr__C0Shkr--"
+"--3--var_I_Shkr__C1Shkr--"
+"--4--var_I_Shkr__C2Shkr--"
+"--5--var_I_Shkr__C3Shkr--"
+"--6--var_I_Shkr__C4Shkr--"
+"--7--var_I_Shkr__OShkr--"
+jacobian := matrix([[(.3162277660e-1*var_I_Kir__GKir/(var_I_Kir__aKir+exp(
+var_I_Kir__bKir*(var_membrane__Vm-var_model_parameters__R*
+var_model_parameters__T/var_model_parameters__F*ln(var_model_parameters__Ko/
+var_model_parameters__Ki))*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T))^2*var_model_parameters__Ko^(1/2)*(var_membrane__Vm-
+var_model_parameters__R*var_model_parameters__T/var_model_parameters__F*ln(
+var_model_parameters__Ko/var_model_parameters__Ki))*var_I_Kir__bKir*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T*exp(
+var_I_Kir__bKir*(var_membrane__Vm-var_model_parameters__R*
+var_model_parameters__T/var_model_parameters__F*ln(var_model_parameters__Ko/
+var_model_parameters__Ki))*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T)-.3162277660e-1*var_I_Kir__GKir/(var_I_Kir__aKir+exp(
+var_I_Kir__bKir*(var_membrane__Vm-var_model_parameters__R*
+var_model_parameters__T/var_model_parameters__F*ln(var_model_parameters__Ko/
+var_model_parameters__Ki))*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T))*var_model_parameters__Ko^(1/2)-var_I_Shkr__PShkr*
+var_I_Shkr__OShkr*var_model_parameters__F^2/var_model_parameters__R/
+var_model_parameters__T*(var_model_parameters__Ki-var_model_parameters__Ko*exp(
+-var_membrane__Vm*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T))/(1-exp(-var_membrane__Vm*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T))-var_I_Shkr__PShkr*
+var_I_Shkr__OShkr*var_membrane__Vm*var_model_parameters__F^3/
+var_model_parameters__R^2/var_model_parameters__T^2*var_model_parameters__Ko*
+exp(-var_membrane__Vm*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T)/(1-exp(-var_membrane__Vm*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T))+var_I_Shkr__PShkr*
+var_I_Shkr__OShkr*var_membrane__Vm*var_model_parameters__F^3/
+var_model_parameters__R^2/var_model_parameters__T^2*(var_model_parameters__Ki-
+var_model_parameters__Ko*exp(-var_membrane__Vm*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T))/(1-exp(-var_membrane__Vm*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T))^2*exp
+(-var_membrane__Vm*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T)-var_I_b__Gb)/var_membrane__Cm, 0, 0, 0, 0, 0, -
+var_I_Shkr__PShkr*var_membrane__Vm*var_model_parameters__F^2/
+var_model_parameters__R/var_model_parameters__T*(var_model_parameters__Ki-
+var_model_parameters__Ko*exp(-var_membrane__Vm*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T))/(1-exp(-var_membrane__Vm*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T))/
+var_membrane__Cm], [var_I_Shkr__k_v0*var_I_Shkr__z_v*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T*exp(var_membrane__Vm*
+var_I_Shkr__z_v*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T)*var_I_Shkr__C1Shkr-4*var_I_Shkr__kv0*var_I_Shkr__zv*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T*exp(
+var_membrane__Vm*var_I_Shkr__zv*var_model_parameters__F/var_model_parameters__R
+/var_model_parameters__T)*var_I_Shkr__C0Shkr, -4*var_I_Shkr__kv0*exp(
+var_membrane__Vm*var_I_Shkr__zv*var_model_parameters__F/var_model_parameters__R
+/var_model_parameters__T), var_I_Shkr__k_v0*exp(var_membrane__Vm*
+var_I_Shkr__z_v*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T), 0, 0, 0, 0], [2*var_I_Shkr__k_v0*var_I_Shkr__z_v*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T*exp(
+var_membrane__Vm*var_I_Shkr__z_v*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T)*var_I_Shkr__C2Shkr+4*
+var_I_Shkr__kv0*var_I_Shkr__zv*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T*exp(var_membrane__Vm*var_I_Shkr__zv*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T)*
+var_I_Shkr__C0Shkr-(3*var_I_Shkr__kv0*var_I_Shkr__zv*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T*exp(var_membrane__Vm*
+var_I_Shkr__zv*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T)+var_I_Shkr__k_v0*var_I_Shkr__z_v*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T*exp(
+var_membrane__Vm*var_I_Shkr__z_v*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T))*var_I_Shkr__C1Shkr, 4*
+var_I_Shkr__kv0*exp(var_membrane__Vm*var_I_Shkr__zv*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T), -3*var_I_Shkr__kv0*exp(
+var_membrane__Vm*var_I_Shkr__zv*var_model_parameters__F/var_model_parameters__R
+/var_model_parameters__T)-var_I_Shkr__k_v0*exp(var_membrane__Vm*var_I_Shkr__z_v
+*var_model_parameters__F/var_model_parameters__R/var_model_parameters__T), 2*
+var_I_Shkr__k_v0*exp(var_membrane__Vm*var_I_Shkr__z_v*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T), 0, 0, 0], [3*var_I_Shkr__k_v0
+*var_I_Shkr__z_v*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T*exp(var_membrane__Vm*var_I_Shkr__z_v*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T)*
+var_I_Shkr__C3Shkr+3*var_I_Shkr__kv0*var_I_Shkr__zv*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T*exp(var_membrane__Vm*
+var_I_Shkr__zv*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T)*var_I_Shkr__C1Shkr-(2*var_I_Shkr__kv0*var_I_Shkr__zv*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T*exp(
+var_membrane__Vm*var_I_Shkr__zv*var_model_parameters__F/var_model_parameters__R
+/var_model_parameters__T)+2*var_I_Shkr__k_v0*var_I_Shkr__z_v*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T*exp(
+var_membrane__Vm*var_I_Shkr__z_v*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T))*var_I_Shkr__C2Shkr, 0, 3*
+var_I_Shkr__kv0*exp(var_membrane__Vm*var_I_Shkr__zv*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T), -2*var_I_Shkr__kv0*exp(
+var_membrane__Vm*var_I_Shkr__zv*var_model_parameters__F/var_model_parameters__R
+/var_model_parameters__T)-2*var_I_Shkr__k_v0*exp(var_membrane__Vm*
+var_I_Shkr__z_v*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T), 3*var_I_Shkr__k_v0*exp(var_membrane__Vm*
+var_I_Shkr__z_v*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T), 0, 0], [4*var_I_Shkr__k_v0*var_I_Shkr__z_v*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T*exp(
+var_membrane__Vm*var_I_Shkr__z_v*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T)*var_I_Shkr__C4Shkr+2*
+var_I_Shkr__kv0*var_I_Shkr__zv*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T*exp(var_membrane__Vm*var_I_Shkr__zv*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T)*
+var_I_Shkr__C2Shkr-(var_I_Shkr__kv0*var_I_Shkr__zv*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T*exp(var_membrane__Vm*
+var_I_Shkr__zv*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T)+3*var_I_Shkr__k_v0*var_I_Shkr__z_v*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T*exp(
+var_membrane__Vm*var_I_Shkr__z_v*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T))*var_I_Shkr__C3Shkr, 0, 0, 2*
+var_I_Shkr__kv0*exp(var_membrane__Vm*var_I_Shkr__zv*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T), -var_I_Shkr__kv0*exp(
+var_membrane__Vm*var_I_Shkr__zv*var_model_parameters__F/var_model_parameters__R
+/var_model_parameters__T)-3*var_I_Shkr__k_v0*exp(var_membrane__Vm*
+var_I_Shkr__z_v*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T), 4*var_I_Shkr__k_v0*exp(var_membrane__Vm*
+var_I_Shkr__z_v*var_model_parameters__F/var_model_parameters__R/
+var_model_parameters__T), 0], [var_I_Shkr__kv0*var_I_Shkr__zv*
+var_model_parameters__F/var_model_parameters__R/var_model_parameters__T*exp(
+var_membrane__Vm*var_I_Shkr__zv*var_model_parameters__F/var_model_parameters__R
+/var_model_parameters__T)*var_I_Shkr__C3Shkr-4*var_I_Shkr__k_v0*var_I_Shkr__z_v
+*var_model_parameters__F/var_model_parameters__R/var_model_parameters__T*exp(
+var_membrane__Vm*var_I_Shkr__z_v*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T)*var_I_Shkr__C4Shkr, 0, 0, 0, 
+var_I_Shkr__kv0*exp(var_membrane__Vm*var_I_Shkr__zv*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T), -var_I_Shkr__ko-4*
+var_I_Shkr__k_v0*exp(var_membrane__Vm*var_I_Shkr__z_v*var_model_parameters__F/
+var_model_parameters__R/var_model_parameters__T), var_I_Shkr__k_o], [0, 0, 0, 0
+, 0, var_I_Shkr__ko, -var_I_Shkr__k_o]])
+J := t5 = ln(var_model_parameters__Ko/var_model_parameters__Ki), t8 = 
+var_membrane__Vm-var_model_parameters__R*var_model_parameters__T/
+var_model_parameters__F*t5, t10 = 1/var_model_parameters__R, t12 = 1/
+var_model_parameters__T, t13 = var_model_parameters__F*t10*t12, t15 = exp(
+var_I_Kir__bKir*t8*t13), t16 = var_I_Kir__aKir+t15, t17 = t16^2, t20 = 
+var_model_parameters__Ko^(1/2), t24 = t10*t12, t33 = var_I_Shkr__PShkr*
+var_I_Shkr__OShkr, t34 = var_model_parameters__F^2, t38 = exp(-var_membrane__Vm
+*var_model_parameters__F*t24), t39 = var_model_parameters__Ko*t38, t40 = 
+var_model_parameters__Ki-t39, t41 = 1-t38, t42 = 1/t41, t48 = t33*
+var_membrane__Vm*t34*var_model_parameters__F, t49 = var_model_parameters__R^2,
+t51 = var_model_parameters__T^2, t53 = 1/t49/t51, t57 = t41^2, t64 = 1/
+var_membrane__Cm, t74 = var_I_Shkr__k_v0*var_I_Shkr__z_v*
+var_model_parameters__F, t77 = exp(var_membrane__Vm*var_I_Shkr__z_v*t13), t82 =
+var_I_Shkr__kv0*var_I_Shkr__zv*var_model_parameters__F, t85 = exp(
+var_membrane__Vm*var_I_Shkr__zv*t13), t89 = 4*t82*t24*t85*var_I_Shkr__C0Shkr, 
+t91 = var_I_Shkr__kv0*t85, t92 = 4*t91, t93 = var_I_Shkr__k_v0*t77, t99 = t82*
+t24*t85, t102 = t74*t24*t77, t106 = 3*t91, t121 = 3*t93, t125 = 4*t74*t24*t77*
+var_I_Shkr__C4Shkr, t136 = 4*t93, jacobian[1,1] = (.3162277660e-1*
+var_I_Kir__GKir/t17*t20*t8*var_I_Kir__bKir*var_model_parameters__F*t24*t15-.\
+3162277660e-1*var_I_Kir__GKir/t16*t20-t33*t34*t24*t40*t42-t48*t53*t39*t42+t48*
+t53*t40/t57*t38-var_I_b__Gb)*t64, jacobian[1,2] = 0, jacobian[1,3] = 0, 
+jacobian[1,4] = 0, jacobian[1,5] = 0, jacobian[1,6] = 0, jacobian[1,7] = -
+var_I_Shkr__PShkr*var_membrane__Vm*t34*t10*t12*t40*t42*t64, jacobian[2,1] = t24
+*t74*t77*var_I_Shkr__C1Shkr-t89, jacobian[2,2] = -t92, jacobian[2,3] = t93, 
+jacobian[2,4] = 0, jacobian[2,5] = 0, jacobian[2,6] = 0, jacobian[2,7] = 0, 
+jacobian[3,1] = 2*t74*t24*t77*var_I_Shkr__C2Shkr+t89-(3*t99+t102)*
+var_I_Shkr__C1Shkr, jacobian[3,2] = t92, jacobian[3,3] = -t106-t93, jacobian[3,
+4] = 2*t93, jacobian[3,5] = 0, jacobian[3,6] = 0, jacobian[3,7] = 0, jacobian[4
+,1] = 3*t74*t24*t77*var_I_Shkr__C3Shkr+3*t82*t24*t85*var_I_Shkr__C1Shkr-2*(t99+
+t102)*var_I_Shkr__C2Shkr, jacobian[4,2] = 0, jacobian[4,3] = t106, jacobian[4,4
+] = -2*t91-2*t93, jacobian[4,5] = t121, jacobian[4,6] = 0, jacobian[4,7] = 0, 
+jacobian[5,1] = t125+2*t82*t24*t85*var_I_Shkr__C2Shkr-(t99+3*t102)*
+var_I_Shkr__C3Shkr, jacobian[5,2] = 0, jacobian[5,3] = 0, jacobian[5,4] = 2*t91
+, jacobian[5,5] = -t91-t121, jacobian[5,6] = t136, jacobian[5,7] = 0, jacobian[
+6,1] = t24*t82*t85*var_I_Shkr__C3Shkr-t125, jacobian[6,2] = 0, jacobian[6,3] =
+0, jacobian[6,4] = 0, jacobian[6,5] = t91, jacobian[6,6] = -var_I_Shkr__ko-t136
+, jacobian[6,7] = var_I_Shkr__k_o, jacobian[7,1] = 0, jacobian[7,2] = 0, 
+jacobian[7,3] = 0, jacobian[7,4] = 0, jacobian[7,5] = 0, jacobian[7,6] = 
+var_I_Shkr__ko, jacobian[7,7] = -var_I_Shkr__k_o
+memory used=2.6MB, alloc=8.3MB, time=0.17
