@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<pycml_config>
+   
+   <command_line_args>
+      <!-- Don't generate as many variants of this class, Backward Euler doesn't work -->
+      <arg>--cvode</arg>
+      <arg>--normal</arg>
+      <arg>--opt</arg>
+   </command_line_args>
+   
+</pycml_config>
