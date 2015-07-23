@@ -1887,15 +1887,15 @@ The breakdown of the model into components and the definition of encapsulation a
       <variable units="microA_per_cm2" public_interface="out" cmeta:id="background_current_i_b" name="i_b">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#background_current_i_b">
-               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#leakage_current"/>
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_leakage_current"/>
             </rdf:Description>
          </rdf:RDF>
       </variable>
       <variable units="millivolt" name="E_b" initial_value="-59.87"/>
-      <variable units="milliS_per_cm2" name="g_b" initial_value="0.03921" cmeta:id="leakage_current_conductance">
+      <variable units="milliS_per_cm2" name="g_b" initial_value="0.03921" cmeta:id="membrane_leakage_current_conductance">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-            <rdf:Description rdf:about="#leakage_current_conductance">
-               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#leakage_current_conductance"/>
+            <rdf:Description rdf:about="#membrane_leakage_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_leakage_current_conductance"/>
             </rdf:Description>
          </rdf:RDF>
       </variable>
