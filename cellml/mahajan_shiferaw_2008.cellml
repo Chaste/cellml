@@ -3257,7 +3257,7 @@ http://www.CellML.org/
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#SR_release_current_max"/>
             </rdf:Description>
          </rdf:RDF>
-      </variable>   
+      </variable>
       <variable name="xir" units="uM_per_ms" initial_value="0.006679257264" public_interface="out"/>
       <math xmlns="http://www.w3.org/1998/Math/MathML">
          <apply>
