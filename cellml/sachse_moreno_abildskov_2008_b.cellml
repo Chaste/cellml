@@ -272,8 +272,20 @@ Electrophysiological Modeling of Fibroblasts and Their Interaction with Myocytes
       </math>
    </component>
    <component xmlns="http://www.cellml.org/cellml/1.0#" name="I_Kir">
-      <variable name="I_Kir" units="nanoampere" public_interface="out"/>
-      <variable name="GKir" units="microsiemens" initial_value="1e-3"/>
+      <variable name="I_Kir" units="nanoampere" public_interface="out" cmeta:id="membrane_inward_rectifier_potassium_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_inward_rectifier_potassium_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_inward_rectifier_potassium_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="GKir" units="microsiemens" initial_value="1e-3" cmeta:id="membrane_inward_rectifier_potassium_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_inward_rectifier_potassium_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_inward_rectifier_potassium_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="aKir" units="dimensionless" initial_value="0.94"/>
       <variable name="bKir" units="dimensionless" initial_value="1.26"/>
       <variable name="EK" units="millivolt"/>
@@ -368,8 +380,20 @@ Electrophysiological Modeling of Fibroblasts and Their Interaction with Myocytes
       </math>
    </component>
    <component xmlns="http://www.cellml.org/cellml/1.0#" name="I_Shkr">
-      <variable name="I_Shkr" units="nanoampere" public_interface="out"/>
-      <variable name="PShkr" units="microlitre_per_second" initial_value="5.4e-9"/>
+      <variable name="I_Shkr" units="nanoampere" public_interface="out" cmeta:id="membrane_delayed_rectifier_potassium_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_delayed_rectifier_potassium_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_delayed_rectifier_potassium_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="PShkr" units="microlitre_per_second" initial_value="5.4e-9" cmeta:id="membrane_delayed_rectifier_potassium_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_delayed_rectifier_potassium_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_delayed_rectifier_potassium_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="C0Shkr" units="dimensionless" initial_value="9.11e-1"/>
       <variable name="C1Shkr" units="dimensionless" initial_value="8.57e-2"/>
       <variable name="C2Shkr" units="dimensionless" initial_value="3.02e-3"/>
@@ -737,8 +761,20 @@ Electrophysiological Modeling of Fibroblasts and Their Interaction with Myocytes
       </math>
    </component>
    <component xmlns="http://www.cellml.org/cellml/1.0#" name="I_b">
-      <variable name="I_b" units="nanoampere" public_interface="out"/>
-      <variable name="Gb" units="microsiemens" initial_value="6.9e-6"/>
+      <variable name="I_b" units="nanoampere" public_interface="out" cmeta:id="membrane_leakage_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_leakage_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_leakage_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="Gb" units="microsiemens" initial_value="6.9e-6" cmeta:id="membrane_leakage_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_leakage_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_leakage_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="Eb" units="millivolt" initial_value="0"/>
       <variable name="time" units="second" public_interface="in"/>
       <variable name="Vm" units="millivolt" public_interface="in"/>
@@ -860,10 +896,28 @@ Electrophysiological Modeling of Fibroblasts and Their Interaction with Myocytes
    </component>
    <component xmlns="http://www.cellml.org/cellml/1.0#" name="model_parameters">
       <variable name="R" units="millijoule_per_kelvin_mole" initial_value="8310" public_interface="out"/>
-      <variable name="T" units="kelvin" initial_value="295" public_interface="out"/>
+      <variable name="T" units="kelvin" initial_value="295" public_interface="out"  cmeta:id="temperature">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#temperature">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#temperature"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="F" units="coulomb_per_mole" initial_value="9.65e4" public_interface="out"/>
-      <variable name="Ki" units="millimolar" initial_value="140" public_interface="out"/>
-      <variable name="Ko" units="millimolar" initial_value="5" public_interface="out"/>
+      <variable name="Ki" units="millimolar" initial_value="140" public_interface="out" cmeta:id="cytosolic_potassium_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#cytosolic_potassium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_potassium_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="Ko" units="millimolar" initial_value="5" public_interface="out" cmeta:id="extracellular_potassium_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#extracellular_potassium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#extracellular_potassium_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
    </component>
    <group xmlns="http://www.cellml.org/cellml/1.0#">
       <relationship_ref relationship="containment"/>
