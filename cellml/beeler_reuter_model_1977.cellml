@@ -613,14 +613,14 @@ http://www.CellML.org/
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_L_type_calcium_current"/>
             </rdf:Description>
          </rdf:RDF>
-      </variable>	  	  
+      </variable>
       <variable name="g_s" units="mS_per_mm2" initial_value="9e-4" cmeta:id="membrane_L_type_calcium_current_conductance">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#membrane_L_type_calcium_current_conductance">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_L_type_calcium_current_conductance"/>
             </rdf:Description>
          </rdf:RDF>
-      </variable>		  
+      </variable>
       <variable name="E_s" units="mV"/>
       <variable name="Cai" units="concentration_units" initial_value="1e-4" public_interface="out" cmeta:id="cytosolic_calcium_concentration">
         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
