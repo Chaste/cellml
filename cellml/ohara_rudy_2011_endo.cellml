@@ -2015,7 +2015,13 @@ http://www.cellml.org/
       <variable name="ip" units="dimensionless"/>
       <variable name="Gto" units="milliS_per_microF"/>
       <variable name="fItop" units="dimensionless"/>
-      <variable name="Ito" units="microA_per_microF" public_interface="out"/>
+      <variable name="Ito" units="microA_per_microF" public_interface="out" cmeta:id="membrane_transient_outward_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_transient_outward_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_transient_outward_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="celltype" units="dimensionless" public_interface="in"/>
       <variable name="KmCaMK" units="millimolar" public_interface="in"/>
       <variable name="CaMKa" units="millimolar" public_interface="in"/>
@@ -4722,10 +4728,10 @@ http://www.cellml.org/
             </rdf:Description>
          </rdf:RDF>
       </variable>
-      <variable name="INaCa_ss" units="microA_per_microF" public_interface="out" cmeta:id="SR_sodium_calcium_exchanger_current">
+      <variable name="INaCa_ss" units="microA_per_microF" public_interface="out" cmeta:id="membrane_sodium_calcium_exchanger_dyadic_space_current">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-            <rdf:Description rdf:about="#SR_sodium_calcium_exchanger_current">
-               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#SR_sodium_calcium_exchanger_current"/>
+            <rdf:Description rdf:about="#membrane_sodium_calcium_exchanger_dyadic_space_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_sodium_calcium_exchanger_dyadic_space_current"/>
             </rdf:Description>
          </rdf:RDF>
       </variable>
