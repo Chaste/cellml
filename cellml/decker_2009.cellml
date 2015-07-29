@@ -3061,10 +3061,22 @@ Properties and ionic mechanisms of action potential adaptation, restitution, and
       </math>
    </component>
    <component xmlns="http://www.cellml.org/cellml/1.0#" name="INaK">
-      <variable name="INaK" units="uA_per_uF" public_interface="out"/>
+      <variable name="INaK" units="uA_per_uF" public_interface="out" cmeta:id="membrane_sodium_potassium_pump_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_sodium_potassium_pump_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_sodium_potassium_pump_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="kmnai" units="mM" initial_value="2.6"/>
       <variable name="kmko" units="mM" initial_value="1.5"/>
-      <variable name="ibarnak" units="uA_per_uF" initial_value="1.4"/>
+      <variable name="ibarnak" units="uA_per_uF" initial_value="1.4" cmeta:id="membrane_sodium_potassium_pump_current_permeability">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_sodium_potassium_pump_current_permeability">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_sodium_potassium_pump_current_permeability"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="sigma" units="dimensionless" initial_value="1"/>
       <variable name="V_half" units="mV" initial_value="-92"/>
       <variable name="phi" units="dimensionless"/>
@@ -3172,7 +3184,13 @@ Properties and ionic mechanisms of action potential adaptation, restitution, and
          </rdf:RDF>
       </variable>
       <variable name="INaCa_cai" units="uA_per_uF"/>
-      <variable name="INaCa_ss_sr" units="uA_per_uF" public_interface="out"/>
+      <variable name="INaCa_ss_sr" units="uA_per_uF" public_interface="out" cmeta:id="membrane_sodium_calcium_exchanger_dyadic_space_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_sodium_calcium_exchanger_dyadic_space_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_sodium_calcium_exchanger_dyadic_space_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="KmCa_act" units="mM" initial_value="0.000125"/>
       <variable name="Vmax" units="uA_per_uF" initial_value="4.5" cmeta:id="membrane_sodium_calcium_exchanger_current_conductance">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
@@ -3672,8 +3690,20 @@ Properties and ionic mechanisms of action potential adaptation, restitution, and
       </math>
    </component>
    <component xmlns="http://www.cellml.org/cellml/1.0#" name="IKp">
-      <variable name="IKp" units="uA_per_uF" public_interface="out"/>
-      <variable name="gKp" units="mS_per_uF" initial_value="0.00276"/>
+      <variable name="IKp" units="uA_per_uF" public_interface="out" cmeta:id="membrane_potassium_pump_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_potassium_pump_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_potassium_pump_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="gKp" units="mS_per_uF" initial_value="0.00276" cmeta:id="membrane_potassium_pump_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_potassium_pump_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_potassium_pump_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="Kp" units="dimensionless"/>
       <variable name="Vm" units="mV" public_interface="in"/>
       <variable name="EK" units="mV" public_interface="in"/>
@@ -3719,8 +3749,20 @@ Properties and ionic mechanisms of action potential adaptation, restitution, and
       </math>
    </component>
    <component xmlns="http://www.cellml.org/cellml/1.0#" name="IpCa">
-      <variable name="IpCa" units="uA_per_uF" public_interface="out"/>
-      <variable name="gpCa" units="uA_per_uF" initial_value="0.0575"/>
+      <variable name="IpCa" units="uA_per_uF" public_interface="out" cmeta:id="membrane_calcium_pump_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_calcium_pump_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_calcium_pump_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="gpCa" units="uA_per_uF" initial_value="0.0575" cmeta:id="membrane_calcium_pump_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_calcium_pump_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_calcium_pump_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="KmpCa" units="mM" initial_value="0.0005"/>
       <variable name="Ca_i" units="mM" public_interface="in"/>
       <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -3744,8 +3786,20 @@ Properties and ionic mechanisms of action potential adaptation, restitution, and
       </math>
    </component>
    <component xmlns="http://www.cellml.org/cellml/1.0#" name="ICab">
-      <variable name="ICab" units="uA_per_uF" public_interface="out"/>
-      <variable name="PCab" units="L_per_F_ms" initial_value="1.99508e-7"/>
+      <variable name="ICab" units="uA_per_uF" public_interface="out" cmeta:id="membrane_background_calcium_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_background_calcium_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_background_calcium_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="PCab" units="L_per_F_ms" initial_value="1.99508e-7" cmeta:id="membrane_background_calcium_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_background_calcium_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_background_calcium_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="gamma_Ca_i" units="dimensionless" initial_value="1"/>
       <variable name="gamma_Ca_o" units="dimensionless" initial_value="0.341"/>
       <variable name="Vm" units="mV" public_interface="in"/>
@@ -3838,8 +3892,20 @@ Properties and ionic mechanisms of action potential adaptation, restitution, and
       </math>
    </component>
    <component xmlns="http://www.cellml.org/cellml/1.0#" name="INab">
-      <variable name="INab" units="uA_per_uF" public_interface="out"/>
-      <variable name="PNab" units="L_per_F_ms" initial_value="3.2e-9"/>
+      <variable name="INab" units="uA_per_uF" public_interface="out" cmeta:id="membrane_background_sodium_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_background_sodium_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_background_sodium_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="PNab" units="L_per_F_ms" initial_value="3.2e-9" cmeta:id="membrane_background_sodium_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_background_sodium_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_background_sodium_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="phi" units="dimensionless"/>
       <variable name="Vm" units="mV" public_interface="in"/>
       <variable name="F" units="C_per_mole" public_interface="in"/>
@@ -3901,8 +3967,20 @@ Properties and ionic mechanisms of action potential adaptation, restitution, and
       </math>
    </component>
    <component xmlns="http://www.cellml.org/cellml/1.0#" name="IClb">
-      <variable name="IClb" units="uA_per_uF" public_interface="out"/>
-      <variable name="gClb" units="mS_per_uF" initial_value="0.000225"/>
+      <variable name="IClb" units="uA_per_uF" public_interface="out" cmeta:id="membrane_background_chloride_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_background_chloride_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_background_chloride_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="gClb" units="mS_per_uF" initial_value="0.000225" cmeta:id="membrane_background_chloride_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_background_chloride_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_background_chloride_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="Vm" units="mV" public_interface="in"/>
       <variable name="ECl" units="mV" public_interface="in"/>
       <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -3922,8 +4000,20 @@ Properties and ionic mechanisms of action potential adaptation, restitution, and
       </math>
    </component>
    <component xmlns="http://www.cellml.org/cellml/1.0#" name="INaL">
-      <variable name="INaL" units="uA_per_uF" public_interface="out"/>
-      <variable name="gNaL" units="mS_per_uF" initial_value="0.0065"/>
+      <variable name="INaL" units="uA_per_uF" public_interface="out" cmeta:id="membrane_persistent_sodium_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_persistent_sodium_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_persistent_sodium_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="gNaL" units="mS_per_uF" initial_value="0.0065" cmeta:id="membrane_persistent_sodium_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_persistent_sodium_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_persistent_sodium_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="time" units="ms" public_interface="in" private_interface="out"/>
       <variable name="Vm" units="mV" public_interface="in" private_interface="out"/>
       <variable name="ENa" units="mV" public_interface="in"/>
@@ -5058,8 +5148,20 @@ Properties and ionic mechanisms of action potential adaptation, restitution, and
       </math>
    </component>
    <component xmlns="http://www.cellml.org/cellml/1.0#" name="Ito2">
-      <variable name="Ito2" units="uA_per_uF" public_interface="out"/>
-      <variable name="PCl" units="L_per_F_ms" initial_value="9e-7"/>
+      <variable name="Ito2" units="uA_per_uF" public_interface="out" cmeta:id="membrane_transient_outward_chloride_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_transient_outward_chloride_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_transient_outward_chloride_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="PCl" units="L_per_F_ms" initial_value="9e-7" cmeta:id="membrane_transient_outward_chloride_current_conductance">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_transient_outward_chloride_current_conductance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_transient_outward_chloride_current_conductance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="zCl" units="dimensionless" initial_value="-1"/>
       <variable name="Ito2_max" units="uA_per_uF"/>
       <variable name="Ito2_max_scaling_factor" units="dimensionless" initial_value="1"/>
@@ -5434,11 +5536,23 @@ Properties and ionic mechanisms of action potential adaptation, restitution, and
       </math>
    </component>
    <component xmlns="http://www.cellml.org/cellml/1.0#" name="Iup">
-      <variable name="Iup" units="mM_per_ms" public_interface="out"/>
+      <variable name="Iup" units="mM_per_ms" public_interface="out" cmeta:id="SR_uptake_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#SR_uptake_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#SR_uptake_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="kmup" units="mM" initial_value="0.00092"/>
       <variable name="delta_kmPLB" units="mM"/>
       <variable name="delta_kmPLB_bar" units="mM" initial_value="0.00017"/>
-      <variable name="iupbar" units="mM_per_ms" initial_value="0.004375"/>
+      <variable name="iupbar" units="mM_per_ms" initial_value="0.004375" cmeta:id="SR_uptake_current_max">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#SR_uptake_current_max">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#SR_uptake_current_max"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="delta_iupCaMK" units="dimensionless"/>
       <variable name="delta_iupCaMK_bar" units="dimensionless" initial_value="0.75"/>
       <variable name="kmCaMK" units="mM" initial_value="0.15"/>
@@ -5518,7 +5632,20 @@ Properties and ionic mechanisms of action potential adaptation, restitution, and
       </math>
    </component>
    <component xmlns="http://www.cellml.org/cellml/1.0#" name="Ileak">
-      <variable name="Ileak" units="mM_per_ms" public_interface="out"/>
+      <variable name="Ileak" units="mM_per_ms" public_interface="out" cmeta:id="SR_leak_current">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#SR_leak_current">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#SR_leak_current"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="Ileak_max" units="mM_per_ms" initial_value="0.004375" cmeta:id="SR_leak_current_max">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#SR_leak_current_max">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#SR_leak_current_max"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="nsrbar" units="mM" initial_value="15"/>
       <variable name="Ca_NSR" units="mM" public_interface="in"/>
       <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -5529,7 +5656,7 @@ Properties and ionic mechanisms of action potential adaptation, restitution, and
                <times/>
                <apply>
                   <divide/>
-                  <cn cellml:units="mM_per_ms">0.004375</cn>
+                  <ci>Ileak_max</ci>
                   <ci>nsrbar</ci>
                </apply>
                <ci>Ca_NSR</ci>
@@ -6014,7 +6141,13 @@ Properties and ionic mechanisms of action potential adaptation, restitution, and
             </rdf:Description>
          </rdf:RDF>
       </variable>
-      <variable name="Na_ss_sr" units="mM" initial_value="8.01033434859049" public_interface="out"/>
+      <variable name="Na_ss_sr" units="mM" initial_value="8.01033434859049" public_interface="out" cmeta:id="dyadic_space_sodium_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#dyadic_space_sodium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#dyadic_space_sodium_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="Idiff_Na" units="mM_per_ms"/>
       <variable name="tau_diff" units="ms" public_interface="in"/>
       <variable name="time" units="ms" public_interface="in"/>
@@ -6125,8 +6258,20 @@ Properties and ionic mechanisms of action potential adaptation, restitution, and
       </math>
    </component>
    <component xmlns="http://www.cellml.org/cellml/1.0#" name="Cl">
-      <variable name="Cl_i" units="mM" initial_value="20.6683603724432" public_interface="out"/>
-      <variable name="Cl_ss" units="mM" initial_value="20.6683605553303" public_interface="out"/>
+      <variable name="Cl_i" units="mM" initial_value="20.6683603724432" public_interface="out" cmeta:id="cytosolic_chloride_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#cytosolic_chloride_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_chloride_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
+      <variable name="Cl_ss" units="mM" initial_value="20.6683605553303" public_interface="out" cmeta:id="dyadic_space_chloride_concentration">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#dyadic_space_chloride_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#dyadic_space_chloride_concentration"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="Idiff_Cl" units="mM_per_ms"/>
       <variable name="tau_diff" units="ms" public_interface="in"/>
       <variable name="time" units="ms" public_interface="in"/>

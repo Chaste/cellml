@@ -6136,10 +6136,10 @@ A novel computational model of the human ventricular action potential and Ca tra
       <variable name="I_Ca_tot_junc" units="uA_per_uF" public_interface="out"/>
       <variable name="I_Ca_tot_sl" units="uA_per_uF" public_interface="out"/>
       <variable name="Ca_j" units="mM" initial_value="0.000175415190830688" public_interface="out"/>
-	  <variable name="Ca_sl" units="mM" initial_value="0.000106544589194246" public_interface="out" cmeta:id="diadicspace_calcium_concentration">
+	  <variable name="Ca_sl" units="mM" initial_value="0.000106544589194246" public_interface="out" cmeta:id="dyadic_space_calcium_concentration">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-            <rdf:Description rdf:about="#diadicspace_calcium_concentration">
-               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#diadicspace_calcium_concentration"/>
+            <rdf:Description rdf:about="#dyadic_space_calcium_concentration">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#dyadic_space_calcium_concentration"/>
             </rdf:Description>
          </rdf:RDF>
       </variable>	  
