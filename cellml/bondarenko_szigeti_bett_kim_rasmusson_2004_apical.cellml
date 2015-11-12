@@ -2105,7 +2105,7 @@ The original paper reference is cited below:
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current_shift_inactivation"/>
             </rdf:Description>
          </rdf:RDF>
-      </variable>	  
+      </variable>
       <variable units="dimensionless" name="O_Na" initial_value="0.713483e-6"/>
       <variable units="dimensionless" name="C_Na1" initial_value="0.279132e-3"/>
       <variable units="dimensionless" name="C_Na2" initial_value="0.020752"/>

@@ -508,7 +508,13 @@ The canine virtual ventricular wall: a platform for dissecting pharmacological e
     </variable>   
     <variable initial_value="0.987317750543" name="H" units="dimensionless"/>
     <variable initial_value="0.001356538159" name="m" units="dimensionless"/>
-    <variable initial_value="0.991924983076" name="J" units="dimensionless"/>
+    <variable initial_value="0.991924983076" name="J" units="dimensionless"  cmeta:id="membrane_fast_sodium_current_j_gate">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+        <rdf:Description rdf:about="#membrane_fast_sodium_current_j_gate">
+          <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current_j_gate"/>
+        </rdf:Description>
+      </rdf:RDF>
+    </variable>
     <variable name="am" units="per_ms"/>
     <variable name="bm" units="per_ms"/>
     <variable name="ah" units="per_ms"/>
