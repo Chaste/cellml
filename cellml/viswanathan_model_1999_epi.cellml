@@ -586,7 +586,13 @@ http://www.CellML.org/
       </math>
    </component>
    <component name="fast_sodium_current_j_gate">
-      <variable name="j" units="dimensionless" initial_value="0.99573" public_interface="out"/>
+      <variable name="j" units="dimensionless" initial_value="0.99573" public_interface="out" cmeta:id="membrane_fast_sodium_current_j_gate">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_fast_sodium_current_j_gate">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current_j_gate"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="alpha_j" units="per_second"/>
       <variable name="beta_j" units="per_second"/>
       <variable name="V" units="millivolt" public_interface="in"/>

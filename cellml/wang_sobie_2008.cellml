@@ -2618,7 +2618,13 @@ The original paper reference is cited below:
    </component>
    
    <component name="fast_sodium_current_j_gate">
-      <variable initial_value="0.9744" name="j" public_interface="out" units="dimensionless"/>
+      <variable initial_value="0.9744" name="j" public_interface="out" units="dimensionless" cmeta:id="membrane_fast_sodium_current_j_gate">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_fast_sodium_current_j_gate">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current_j_gate"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
       <variable name="alpha_j" units="per_millisecond"/>
       <variable name="beta_j" units="per_millisecond"/>
       <variable name="V" public_interface="in" units="millivolt"/>
