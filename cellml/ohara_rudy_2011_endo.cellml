@@ -231,7 +231,7 @@ http://www.cellml.org/
       </math>
    </component>
    <component name="membrane">
-      <variable name="v" units="millivolt" initial_value="-87" public_interface="out" cmeta:id="membrane_voltage">
+      <variable name="v" units="millivolt" initial_value="-88.00190465" public_interface="out" cmeta:id="membrane_voltage">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#membrane_voltage">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_voltage"/>
@@ -428,7 +428,7 @@ http://www.cellml.org/
       <variable name="KmCaM" units="millimolar" initial_value="0.0015"/>
       <variable name="CaMKb" units="millimolar" public_interface="out"/>
       <variable name="CaMKa" units="millimolar" public_interface="out"/>
-      <variable name="CaMKt" units="millimolar" initial_value="0"/>
+      <variable name="CaMKt" units="millimolar" initial_value="0.0125840447"/>
       <variable name="cass" units="millimolar" public_interface="in"/>
       <variable name="time" units="millisecond" public_interface="in"/>
       <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -508,26 +508,26 @@ http://www.cellml.org/
       <variable name="KmBSL" units="millimolar" initial_value="0.0087"/>
       <variable name="csqnmax" units="millimolar" initial_value="10"/>
       <variable name="kmcsqn" units="millimolar" initial_value="0.8"/>
-      <variable name="nai" units="millimolar" initial_value="7" public_interface="out" cmeta:id="cytosolic_sodium_concentration">
+      <variable name="nai" units="millimolar" initial_value="7.268004498" public_interface="out" cmeta:id="cytosolic_sodium_concentration">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#cytosolic_sodium_concentration">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_sodium_concentration"/>
             </rdf:Description>
          </rdf:RDF>
       </variable>     
-      <variable name="nass" units="millimolar" initial_value="7" public_interface="out"/>
-      <variable name="ki" units="millimolar" initial_value="145" public_interface="out" cmeta:id="cytosolic_potassium_concentration">
+      <variable name="nass" units="millimolar" initial_value="7.268089977" public_interface="out"/>
+      <variable name="ki" units="millimolar" initial_value="144.6555918" public_interface="out" cmeta:id="cytosolic_potassium_concentration">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#cytosolic_potassium_concentration">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_potassium_concentration"/>
             </rdf:Description>
          </rdf:RDF>
       </variable>     
-      <variable name="kss" units="millimolar" initial_value="145" public_interface="out"/>
-      <variable name="cass" units="millimolar" initial_value="1e-4" public_interface="out"/>
-      <variable name="cansr" units="millimolar" initial_value="1.2" public_interface="out"/>
-      <variable name="cajsr" units="millimolar" initial_value="1.2" public_interface="out"/>
-      <variable name="cai" units="millimolar" initial_value="1e-4" public_interface="out" cmeta:id="cytosolic_calcium_concentration">
+      <variable name="kss" units="millimolar" initial_value="144.6555651" public_interface="out"/>
+      <variable name="cass" units="millimolar" initial_value="8.49e-05" public_interface="out"/>
+      <variable name="cansr" units="millimolar" initial_value="1.619574538" public_interface="out"/>
+      <variable name="cajsr" units="millimolar" initial_value="1.571234014" public_interface="out"/>
+      <variable name="cai" units="millimolar" initial_value="8.6e-05" public_interface="out" cmeta:id="cytosolic_calcium_concentration">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#cytosolic_calcium_concentration">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_calcium_concentration"/>
@@ -1175,7 +1175,7 @@ http://www.cellml.org/
       <variable name="mtD2" units="dimensionless" initial_value="8.552"/>
       <variable name="mtV3" units="millivolt" initial_value="77.42"/>
       <variable name="mtV4" units="millivolt" initial_value="5.955"/>
-      <variable name="m" units="dimensionless" initial_value="0"/>
+      <variable name="m" units="dimensionless" initial_value="0.007344121102"/>
       <variable name="time" units="millisecond" public_interface="in"/>
       <variable name="hss" units="dimensionless"/>
       <variable name="thf" units="millisecond"/>
@@ -1184,8 +1184,8 @@ http://www.cellml.org/
       <variable name="hssV2" units="millivolt" initial_value="6.086"/>
       <variable name="Ahs" units="dimensionless"/>
       <variable name="Ahf" units="dimensionless" initial_value="0.99"/>
-      <variable name="hf" units="dimensionless" initial_value="1"/>
-      <variable name="hs" units="dimensionless" initial_value="1"/>
+      <variable name="hf" units="dimensionless" initial_value="0.6981071913"/>
+      <variable name="hs" units="dimensionless" initial_value="0.6980895801"/>
       <variable name="h" units="dimensionless" cmeta:id="membrane_fast_sodium_current_h_gate">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#membrane_fast_sodium_current_h_gate">
@@ -1202,7 +1202,7 @@ http://www.cellml.org/
       </variable>
       <variable name="jss" units="dimensionless"/>
       <variable name="tj" units="millisecond"/>
-      <variable name="j" units="dimensionless" initial_value="1" cmeta:id="membrane_fast_sodium_current_j_gate">
+      <variable name="j" units="dimensionless" initial_value="0.6979908432" cmeta:id="membrane_fast_sodium_current_j_gate">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#membrane_fast_sodium_current_j_gate">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current_j_gate"/>
@@ -1211,10 +1211,10 @@ http://www.cellml.org/
       </variable>
       <variable name="hssp" units="dimensionless"/>
       <variable name="thsp" units="millisecond"/>
-      <variable name="hsp" units="dimensionless" initial_value="1"/>
+      <variable name="hsp" units="dimensionless" initial_value="0.4549485525"/>
       <variable name="hp" units="dimensionless"/>
       <variable name="tjp" units="millisecond"/>
-      <variable name="jp" units="dimensionless" initial_value="1"/>
+      <variable name="jp" units="dimensionless" initial_value="0.6979245865"/>
       <variable name="fINap" units="dimensionless"/>
       <variable name="INa" units="microA_per_microF" public_interface="out" cmeta:id="membrane_fast_sodium_current">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
@@ -1732,14 +1732,14 @@ http://www.cellml.org/
       <variable name="mLss" units="dimensionless"/>
       <variable name="tm" units="millisecond" public_interface="in"/>
       <variable name="tmL" units="millisecond"/>
-      <variable name="mL" units="dimensionless" initial_value="0"/>
+      <variable name="mL" units="dimensionless" initial_value="0.0001882617273"/>
       <variable name="thL" units="millisecond" initial_value="200"/>
       <variable name="hLss" units="dimensionless"/>
       <variable name="v" units="millivolt" public_interface="in"/>
-      <variable name="hL" units="dimensionless" initial_value="1"/>
+      <variable name="hL" units="dimensionless" initial_value="0.5008548855"/>
       <variable name="hLssp" units="dimensionless"/>
       <variable name="thLp" units="millisecond"/>
-      <variable name="hLp" units="dimensionless" initial_value="1"/>
+      <variable name="hLp" units="dimensionless" initial_value="0.2693065357"/>
       <variable name="GNaL_b" units="milliS_per_microF" initial_value="0.0075" cmeta:id="membrane_persistent_sodium_current_conductance">
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#membrane_persistent_sodium_current_conductance">
@@ -1989,7 +1989,7 @@ http://www.cellml.org/
       </variable>  
       <variable name="ass" units="dimensionless"/>
       <variable name="ta" units="millisecond"/>
-      <variable name="a" units="dimensionless" initial_value="0"/>
+      <variable name="a" units="dimensionless" initial_value="0.001001097687"/>
       <variable name="time" units="millisecond" public_interface="in"/>
       <variable name="v" units="millivolt" public_interface="in"/>
       <variable name="EK" units="millivolt" public_interface="in"/>
@@ -2001,17 +2001,17 @@ http://www.cellml.org/
       <variable name="tiS" units="millisecond"/>
       <variable name="AiF" units="dimensionless"/>
       <variable name="AiS" units="dimensionless"/>
-      <variable name="iF" units="dimensionless" initial_value="1"/>
-      <variable name="iS" units="dimensionless" initial_value="1"/>
+      <variable name="iF" units="dimensionless" initial_value="0.9995541745"/>
+      <variable name="iS" units="dimensionless" initial_value="0.5865061736"/>
       <variable name="i" units="dimensionless"/>
       <variable name="assp" units="dimensionless"/>
-      <variable name="ap" units="dimensionless" initial_value="0"/>
+      <variable name="ap" units="dimensionless" initial_value="0.0005100862934"/>
       <variable name="dti_develop" units="dimensionless"/>
       <variable name="dti_recover" units="dimensionless"/>
       <variable name="tiFp" units="millisecond"/>
       <variable name="tiSp" units="millisecond"/>
-      <variable name="iFp" units="dimensionless" initial_value="1"/>
-      <variable name="iSp" units="dimensionless" initial_value="1"/>
+      <variable name="iFp" units="dimensionless" initial_value="0.9995541823"/>
+      <variable name="iSp" units="dimensionless" initial_value="0.6393399482"/>
       <variable name="ip" units="dimensionless"/>
       <variable name="Gto" units="milliS_per_microF"/>
       <variable name="fItop" units="dimensionless"/>
@@ -2689,27 +2689,27 @@ http://www.cellml.org/
          </rdf:RDF>
       </variable>
       <variable name="dss" units="dimensionless"/>
-      <variable name="d" units="dimensionless" initial_value="0"/>
+      <variable name="d" units="dimensionless" initial_value="2.34e-9"/>
       <variable name="fss" units="dimensionless"/>
       <variable name="Aff" units="dimensionless"/>
       <variable name="Afs" units="dimensionless"/>
-      <variable name="ff" units="dimensionless" initial_value="1"/>
-      <variable name="fs" units="dimensionless" initial_value="1"/>
+      <variable name="ff" units="dimensionless" initial_value="0.9999999909"/>
+      <variable name="fs" units="dimensionless" initial_value="0.9102412777"/>
       <variable name="f" units="dimensionless"/>
       <variable name="fcass" units="dimensionless"/>
       <variable name="Afcaf" units="dimensionless"/>
       <variable name="Afcas" units="dimensionless"/>
-      <variable name="fcaf" units="dimensionless" initial_value="1"/>
-      <variable name="fcas" units="dimensionless" initial_value="1"/>
+      <variable name="fcaf" units="dimensionless" initial_value="0.9999999909"/>
+      <variable name="fcas" units="dimensionless" initial_value="0.9998046777"/>
       <variable name="fca" units="dimensionless"/>
-      <variable name="jca" units="dimensionless" initial_value="1"/>
-      <variable name="ffp" units="dimensionless" initial_value="1"/>
+      <variable name="jca" units="dimensionless" initial_value="0.9999738312"/>
+      <variable name="ffp" units="dimensionless" initial_value="0.9999999909"/>
       <variable name="fp" units="dimensionless"/>
-      <variable name="fcafp" units="dimensionless" initial_value="1"/>
+      <variable name="fcafp" units="dimensionless" initial_value="0.9999999909"/>
       <variable name="fcap" units="dimensionless"/>
       <variable name="km2n" units="per_millisecond"/>
       <variable name="anca" units="dimensionless"/>
-      <variable name="nca" units="dimensionless" initial_value="0"/>
+      <variable name="nca" units="dimensionless" initial_value="0.002749414044"/>
       <variable name="PhiCaL" units="dimensionless"/>
       <variable name="PhiCaNa" units="dimensionless"/>
       <variable name="PhiCaK" units="dimensionless"/>
@@ -3841,8 +3841,8 @@ http://www.cellml.org/
       <variable name="txrs" units="millisecond"/>
       <variable name="Axrf" units="dimensionless"/>
       <variable name="Axrs" units="dimensionless"/>
-      <variable name="xrf" units="dimensionless" initial_value="0"/>
-      <variable name="xrs" units="dimensionless" initial_value="0"/>
+      <variable name="xrf" units="dimensionless" initial_value="8.08e-6"/>
+      <variable name="xrs" units="dimensionless" initial_value="0.4550704887"/>
       <variable name="xr" units="dimensionless"/>
       <variable name="rkr" units="dimensionless"/>
       <variable name="v" units="millivolt" public_interface="in"/>
@@ -4193,8 +4193,8 @@ http://www.cellml.org/
       <variable name="xs2ss" units="dimensionless"/>
       <variable name="txs1" units="millisecond"/>
       <variable name="txs1_max" units="millisecond" initial_value="817.3"/>
-      <variable name="xs1" units="dimensionless" initial_value="0"/>
-      <variable name="xs2" units="dimensionless" initial_value="0"/>
+      <variable name="xs1" units="dimensionless" initial_value="0.2707758025"/>
+      <variable name="xs2" units="dimensionless" initial_value="0.0001928503426"/>
       <variable name="KsCa" units="dimensionless"/>
       <variable name="v" units="millivolt" public_interface="in"/>
       <variable name="time" units="millisecond" public_interface="in"/>
@@ -4452,7 +4452,7 @@ http://www.cellml.org/
       </variable>     
       <variable name="xk1ss" units="dimensionless"/>
       <variable name="txk1" units="millisecond"/>
-      <variable name="xk1" units="dimensionless" initial_value="1"/>
+      <variable name="xk1" units="dimensionless" initial_value="0.9967597594"/>
       <variable name="rk1" units="millisecond"/>
       <variable name="v" units="millivolt" public_interface="in"/>
       <variable name="time" units="millisecond" public_interface="in"/>
@@ -7010,8 +7010,8 @@ http://www.cellml.org/
       <variable name="Jrel_infp" units="dimensionless"/>
       <variable name="Jrel_temp" units="dimensionless"/>
       <variable name="tau_relp" units="millisecond"/>
-      <variable name="Jrelnp" units="dimensionless" initial_value="0"/>
-      <variable name="Jrelp" units="dimensionless" initial_value="0"/>
+      <variable name="Jrelnp" units="dimensionless" initial_value="2.5e-7"/>
+      <variable name="Jrelp" units="dimensionless" initial_value="3.12e-7"/>
       <variable name="time" units="millisecond" public_interface="in"/>
       <variable name="btp" units="millisecond"/>
       <variable name="a_relp" units="millisecond"/>
