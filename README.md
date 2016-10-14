@@ -48,9 +48,22 @@ $ git pull
 ```
 
 ## USEFUL NOTE:
-If you want to add options to the ConvertCellModels.py script (for example to
+If you are using these in a [Chaste user project] and want to add options to the ConvertCellModels.py script (for example to
 provide access to all of the metadata tagged variables in all the models) 
-then you can now (as of r15865) include lines like this in your project
+then follow the relevant instructions below depending on whether it is a cmake or scons project:
+
+### CMake
+
+Add this to your project's ```CMakeLists.txt``` file:
+
+```cmake
+# Here we add extra arguments to force PyCML to use this extra argument (make Get and Set methods for 
+# all metadata annotated variables).  
+set(Chaste_PYCML_EXTRA_ARGS "--expose-annotated-variables") 
+```
+
+### Scons
+For older ```scons``` rather than ```cmake``` projects, include lines like this in your project
 'SConscript' file:
 
 ```python
@@ -72,3 +85,4 @@ for more details of working with CellML.
 
 [Code Generation From CellML]: <https://chaste.cs.ox.ac.uk/trac/wiki/ChasteGuides/CodeGenerationFromCellML>
 [Functional Curation]: <https://chaste.cs.ox.ac.uk/trac/wiki/FunctionalCuration>
+[Chaste user project]: <https://chaste.cs.ox.ac.uk/trac/wiki/InstallGuides/CheckoutUserProject>
