@@ -20,6 +20,9 @@ http://www.CellML.org/
    <units name="millivolt">
       <unit units="volt" prefix="milli"/>
    </units>
+   <units name="per_millivolt">
+      <unit units="volt" prefix="milli" exponent="-1"/>
+   </units>
    <units name="per_millivolt_millisecond">
       <unit units="millivolt" exponent="-1"/>
       <unit units="second" prefix="milli" exponent="-1"/>
