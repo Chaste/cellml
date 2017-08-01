@@ -83,6 +83,6 @@ A couple of python scripts are in this folder that may help with this process.
 See [Code Generation From CellML]
 for more details of working with CellML.
 
-[Code Generation From CellML]: <https://chaste.cs.ox.ac.uk/trac/wiki/ChasteGuides/CodeGenerationFromCellML>
+[Code Generation From CellML]: <https://chaste.cs.ox.ac.uk/trac/wiki/ChasteGuides/CodeGenerationFromCellML#GeneratingAnalyticJacobiansforBackwardEulerandCVODEsolvers>
 [Functional Curation]: <https://chaste.cs.ox.ac.uk/trac/wiki/FunctionalCuration>
 [Chaste user project]: <https://chaste.cs.ox.ac.uk/trac/wiki/InstallGuides/CheckoutUserProject>
