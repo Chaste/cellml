@@ -1616,22 +1616,22 @@ The breakdown of the model into components and the definition of encapsulation a
         <variable name="V" public_interface="in" units="millivolt"/>
         <variable name="time" public_interface="in" units="millisecond"/>
         <variable name="A" units="dimensionless"/>
-        <variable name="B" units="per_mV"/>
-        <variable name="v0" units="mV"/>
+        <variable name="B" units="per_millivolt"/>
+        <variable name="v0" units="millivolt"/>
         <variable name="U" units="dimensionless"/>
         <variable name="temp_Xi" units="dimensionless"/>
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
                 <eq/>
                 <ci>B</ci>
-                <cn cellml:units="per_mV">0.04</cn>
+                <cn cellml:units="per_millivolt">0.04</cn>
             </apply>
             <apply>
                 <eq/>
                 <ci>v0</ci>
                 <apply>
                     <minus/>
-                    <cn cellml:units="mV">77</cn>
+                    <cn cellml:units="millivolt">77</cn>
                 </apply>
             </apply>
             <apply>
