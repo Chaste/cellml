@@ -1761,19 +1761,16 @@ http://www.cellml.org/
                 <eq/>
                 <ci>B</ci>
                 <apply>
-                    <exp/>
+                    <divide/>
                     <apply>
-                        <divide/>
-                        <apply>
-                            <times/>
-                            <cn cellml:units="dimensionless">2</cn>
-                            <ci>F</ci>
-                        </apply>
-                        <apply>
-                            <times/>
-                            <ci>R</ci>
-                            <ci>T</ci>
-                        </apply>
+                        <times/>
+                        <cn cellml:units="dimensionless">2</cn>
+                        <ci>F</ci>
+                    </apply>
+                    <apply>
+                        <times/>
+                        <ci>R</ci>
+                        <ci>T</ci>
                     </apply>
                 </apply>
             </apply>
