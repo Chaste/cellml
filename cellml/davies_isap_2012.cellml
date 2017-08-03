@@ -1881,11 +1881,11 @@ http://www.cellml.org/
         <variable initial_value="0.0147449166757808" name="xs1" units="dimensionless"/>
         <variable initial_value="0.0147504787196957" name="xs2" units="dimensionless"/>
         <variable cmeta:id="membrane_slow_delayed_rectifier_potassium_current" name="IKs" public_interface="out" units="uA_per_uF"/>
-        <variable name="A_1" units="per_ms"/>
+        <variable name="A_1" units="dimensionless"/>
         <variable name="B_1" units="per_mV"/>
         <variable name="v0_1" units="mV"/>
         <variable name="U_1" units="dimensionless"/>
-        <variable name="temp_part_1" units="per_ms"/>
+        <variable name="temp_part_1" units="dimensionless"/>
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
                 <eq/>
@@ -1984,11 +1984,11 @@ http://www.cellml.org/
                 </piecewise>
             </apply>
         </math>
-        <variable name="A_2" units="per_ms"/>
+        <variable name="A_2" units="dimensionless"/>
         <variable name="B_2" units="per_mV"/>
         <variable name="v0_2" units="mV"/>
         <variable name="U_2" units="dimensionless"/>
-        <variable name="temp_part_2" units="per_ms"/>
+        <variable name="temp_part_2" units="dimensionless"/>
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
                 <eq/>
@@ -2082,7 +2082,7 @@ http://www.cellml.org/
                 <ci>tauxs</ci>
                 <apply>
                     <divide/>
-                    <cn cellml:units="dimensionless">1</cn>
+                    <cn cellml:units="ms">1</cn>
                     <apply>
                         <plus/>
                         <ci>temp_part_1</ci>
