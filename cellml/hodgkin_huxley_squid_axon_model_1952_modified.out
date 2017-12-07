@@ -1,5 +1,5 @@
-    |\^/|     Maple 17 (X86 64 LINUX)
-._|\|   |/|_. Copyright (c) Maplesoft, a division of Waterloo Maple Inc. 2013
+    |\^/|     Maple 18 (X86 64 LINUX)
+._|\|   |/|_. Copyright (c) Maplesoft, a division of Waterloo Maple Inc. 2014
  \  MAPLE  /  All rights reserved. Maple is a trademark of
  <____ ____>  Waterloo Maple Inc.
       |       Type ? for help.
@@ -37,9 +37,16 @@ var_membrane__stim_end and var_environment__time-var_membrane__stim_start-floor
 ((var_environment__time-var_membrane__stim_start)/var_membrane__stim_period)*
 var_membrane__stim_period <= var_membrane__stim_duration],[0, otherwise])
 var_sodium_channel__time := var_environment__time
+var_sodium_channel_m_gate__v0 := -50
 var_sodium_channel_m_gate__V := var_membrane__V
-var_sodium_channel_m_gate__alpha_m := -.10000000000000001*(var_membrane__V+50)/
-(exp(-1/10*var_membrane__V-5)-1)
+var_sodium_channel_m_gate__B := -.10000000000000001
+var_sodium_channel_m_gate__U := -.10000000000000001*var_membrane__V-5.000000000
+var_sodium_channel_m_gate__A := 1.000000000
+var_sodium_channel_m_gate__alpha_m := PIECEWISE([3.500000000+.5000000000e-1*
+var_membrane__V, 0. <= -.10000000000000001*var_membrane__V-4.999999900 and -.10\
+000000000000001*var_membrane__V <= 5.000000100],[1.000000000*(-.100000000000000\
+01*var_membrane__V-5.000000000)/(exp(-.10000000000000001*var_membrane__V-5.0000\
+00000)-1), otherwise])
 var_sodium_channel_m_gate__beta_m := 4*exp(-1/18*var_membrane__V-25/6)
 var_sodium_channel_m_gate__time := var_environment__time
 var_sodium_channel_h_gate__V := var_membrane__V
@@ -48,9 +55,17 @@ var_membrane__V-15/4)
 var_sodium_channel_h_gate__beta_h := 1/(exp(-1/10*var_membrane__V-9/2)+1)
 var_sodium_channel_h_gate__time := var_environment__time
 var_potassium_channel__time := var_environment__time
+var_potassium_channel_n_gate__B := -.10000000000000001
+var_potassium_channel_n_gate__A := .1000000000
 var_potassium_channel_n_gate__V := var_membrane__V
-var_potassium_channel_n_gate__alpha_n := -.1e-1*(var_membrane__V+65)/(exp(-1/10
-*var_membrane__V-13/2)-1)
+var_potassium_channel_n_gate__v0 := -65
+var_potassium_channel_n_gate__U := -.10000000000000001*var_membrane__V-6.500000\
+000
+var_potassium_channel_n_gate__alpha_n := PIECEWISE([.4250000000+.5000000000e-2*
+var_membrane__V, 0. <= -.10000000000000001*var_membrane__V-6.499999900 and -.10\
+000000000000001*var_membrane__V <= 6.500000100],[.1000000000*(-.100000000000000\
+01*var_membrane__V-6.500000000)/(exp(-.10000000000000001*var_membrane__V-6.5000\
+00000)-1), otherwise])
 var_potassium_channel_n_gate__beta_n := .125*exp(1/80*var_membrane__V+15/16)
 var_potassium_channel_n_gate__time := var_environment__time
 d_dt_membrane__V := (-PIECEWISE([var_membrane__stim_amplitude, 
@@ -63,19 +78,26 @@ var_sodium_channel_h_gate__h*(var_membrane__V-var_membrane__E_R-115)-
 var_potassium_channel__g_K*var_potassium_channel_n_gate__n^4*(var_membrane__V-
 var_membrane__E_R+12)-var_leakage_current__g_L*(var_membrane__V-
 var_membrane__E_R-10.613))/var_membrane__Cm
-d_dt_sodium_channel_m_gate__m := -.10000000000000001*(var_membrane__V+50)/(exp(
--1/10*var_membrane__V-5)-1)*(1-var_sodium_channel_m_gate__m)-4*exp(-1/18*
+d_dt_sodium_channel_m_gate__m := PIECEWISE([3.500000000+.5000000000e-1*
+var_membrane__V, 0. <= -.10000000000000001*var_membrane__V-4.999999900 and -.10\
+000000000000001*var_membrane__V <= 5.000000100],[1.000000000*(-.100000000000000\
+01*var_membrane__V-5.000000000)/(exp(-.10000000000000001*var_membrane__V-5.0000\
+00000)-1), otherwise])*(1-var_sodium_channel_m_gate__m)-4*exp(-1/18*
 var_membrane__V-25/6)*var_sodium_channel_m_gate__m
 d_dt_sodium_channel_h_gate__h := .70000000000000007e-1*exp(-1/20*
 var_membrane__V-15/4)*(1-var_sodium_channel_h_gate__h)-1/(exp(-1/10*
 var_membrane__V-9/2)+1)*var_sodium_channel_h_gate__h
-d_dt_potassium_channel_n_gate__n := -.1e-1*(var_membrane__V+65)/(exp(-1/10*
-var_membrane__V-13/2)-1)*(1-var_potassium_channel_n_gate__n)-.125*exp(1/80*
+d_dt_potassium_channel_n_gate__n := PIECEWISE([.4250000000+.5000000000e-2*
+var_membrane__V, 0. <= -.10000000000000001*var_membrane__V-6.499999900 and -.10\
+000000000000001*var_membrane__V <= 6.500000100],[.1000000000*(-.100000000000000\
+01*var_membrane__V-6.500000000)/(exp(-.10000000000000001*var_membrane__V-6.5000\
+00000)-1), otherwise])*(1-var_potassium_channel_n_gate__n)-.125*exp(1/80*
 var_membrane__V+15/16)*var_potassium_channel_n_gate__n
 "--1--var_membrane__V--"
 "--2--var_sodium_channel_m_gate__m--"
 "--3--var_sodium_channel_h_gate__h--"
 "--4--var_potassium_channel_n_gate__n--"
+memory used=3.6MB, alloc=40.3MB, time=0.24
 jacobian := matrix([[(-var_potassium_channel__g_K*
 var_potassium_channel_n_gate__n^4-var_sodium_channel__g_Na*
 var_sodium_channel_h_gate__h*var_sodium_channel_m_gate__m^3-
@@ -84,42 +106,71 @@ var_sodium_channel_m_gate__m^2*var_sodium_channel_h_gate__h*(var_membrane__V-
 var_membrane__E_R-115)/var_membrane__Cm, -var_sodium_channel__g_Na*
 var_sodium_channel_m_gate__m^3*(var_membrane__V-var_membrane__E_R-115)/
 var_membrane__Cm, -4*var_potassium_channel__g_K*var_potassium_channel_n_gate__n
-^3*(var_membrane__V-var_membrane__E_R+12)/var_membrane__Cm], [-.100000000000000\
-01/(exp(-1/10*var_membrane__V-5)-1)*(1-var_sodium_channel_m_gate__m)-.\
-1000000000e-1*(var_membrane__V+50)/(exp(-1/10*var_membrane__V-5)-1)^2*(1-
-var_sodium_channel_m_gate__m)*exp(-1/10*var_membrane__V-5)+2/9*exp(-1/18*
-var_membrane__V-25/6)*var_sodium_channel_m_gate__m, .10000000000000001*(
-var_membrane__V+50)/(exp(-1/10*var_membrane__V-5)-1)-4*exp(-1/18*
-var_membrane__V-25/6), 0, 0], [-.3500000000e-2*exp(-1/20*var_membrane__V-15/4)*
-(1-var_sodium_channel_h_gate__h)-1/10/(exp(-1/10*var_membrane__V-9/2)+1)^2*
+^3*(var_membrane__V-var_membrane__E_R+12)/var_membrane__Cm], [PIECEWISE([-.1000\
+000000/(exp(-.1000000000*var_membrane__V-5.)-1.)+.1000000000*(-.1000000000*
+var_membrane__V-5.)/(exp(-.1000000000*var_membrane__V-5.)-1.)^2*exp(-.100000000\
+0*var_membrane__V-5.), var_membrane__V < -50.00000100],[Float(undefined), 
+var_membrane__V = -50.00000100],[.5000000000e-1, var_membrane__V < -49.99999900
+],[Float(undefined), var_membrane__V = -49.99999900],[-.1000000000/(exp(-.10000\
+00000*var_membrane__V-5.)-1.)+.1000000000*(-.1000000000*var_membrane__V-5.)/(
+exp(-.1000000000*var_membrane__V-5.)-1.)^2*exp(-.1000000000*var_membrane__V-5.)
+, -49.99999900 < var_membrane__V])*(1-var_sodium_channel_m_gate__m)+2/9*exp(-1/
+18*var_membrane__V-25/6)*var_sodium_channel_m_gate__m, -PIECEWISE([3.500000000+
+.5000000000e-1*var_membrane__V, 0. <= -.10000000000000001*var_membrane__V-4.999\
+999900 and -.10000000000000001*var_membrane__V <= 5.000000100],[1.000000000*(-.\
+10000000000000001*var_membrane__V-5.000000000)/(exp(-.10000000000000001*
+var_membrane__V-5.000000000)-1), otherwise])-4*exp(-1/18*var_membrane__V-25/6),
+0, 0], [-.3500000000e-2*exp(-1/20*var_membrane__V-15/4)*(1-
+var_sodium_channel_h_gate__h)-1/10/(exp(-1/10*var_membrane__V-9/2)+1)^2*
 var_sodium_channel_h_gate__h*exp(-1/10*var_membrane__V-9/2), 0, -.\
 70000000000000007e-1*exp(-1/20*var_membrane__V-15/4)-1/(exp(-1/10*
-var_membrane__V-9/2)+1), 0], [-.1e-1/(exp(-1/10*var_membrane__V-13/2)-1)*(1-
-var_potassium_channel_n_gate__n)-.1000000000e-2*(var_membrane__V+65)/(exp(-1/10
-*var_membrane__V-13/2)-1)^2*(1-var_potassium_channel_n_gate__n)*exp(-1/10*
-var_membrane__V-13/2)-.1562500000e-2*exp(1/80*var_membrane__V+15/16)*
-var_potassium_channel_n_gate__n, 0, 0, .1e-1*(var_membrane__V+65)/(exp(-1/10*
-var_membrane__V-13/2)-1)-.125*exp(1/80*var_membrane__V+15/16)]])
+var_membrane__V-9/2)+1), 0], [PIECEWISE([-.1000000000e-1/(exp(-.1000000000*
+var_membrane__V-6.500000000)-1.)+.1000000000e-1*(-.1000000000*var_membrane__V-6\
+.500000000)/(exp(-.1000000000*var_membrane__V-6.500000000)-1.)^2*exp(-.10000000\
+00*var_membrane__V-6.500000000), var_membrane__V < -65.00000100],[Float(
+undefined), var_membrane__V = -65.00000100],[.5000000000e-2, var_membrane__V <
+-64.99999900],[Float(undefined), var_membrane__V = -64.99999900],[-.1000000000e\
+-1/(exp(-.1000000000*var_membrane__V-6.500000000)-1.)+.1000000000e-1*(-.1000000\
+000*var_membrane__V-6.500000000)/(exp(-.1000000000*var_membrane__V-6.500000000)
+-1.)^2*exp(-.1000000000*var_membrane__V-6.500000000), -64.99999900 < 
+var_membrane__V])*(1-var_potassium_channel_n_gate__n)-.1562500000e-2*exp(1/80*
+var_membrane__V+15/16)*var_potassium_channel_n_gate__n, 0, 0, -PIECEWISE([.4250\
+000000+.5000000000e-2*var_membrane__V, 0. <= -.10000000000000001*
+var_membrane__V-6.499999900 and -.10000000000000001*var_membrane__V <= 6.500000\
+100],[.1000000000*(-.10000000000000001*var_membrane__V-6.500000000)/(exp(-.1000\
+0000000000001*var_membrane__V-6.500000000)-1), otherwise])-.125*exp(1/80*
+var_membrane__V+15/16)]])
 J := t1 = var_potassium_channel_n_gate__n^2, t2 = t1^2, t4 = 
 var_sodium_channel_m_gate__m^2, t6 = var_sodium_channel__g_Na*t4*
 var_sodium_channel_m_gate__m, t9 = 1/var_membrane__Cm, t12 = var_membrane__V-
-var_membrane__E_R-115, t25 = 1/10*var_membrane__V, t27 = exp(-t25-5), t28 = t27
--1, t29 = 1/t28, t30 = 1-var_sodium_channel_m_gate__m, t33 = var_membrane__V+50
-, t34 = t28^2, t42 = exp(-1/18*var_membrane__V-25/6), t52 = exp(-1/20*
-var_membrane__V-15/4), t57 = exp(-t25-9/2), t58 = t57+1, t59 = t58^2, t69 = exp
-(-t25-13/2), t70 = t69-1, t71 = 1/t70, t72 = 1-var_potassium_channel_n_gate__n,
-t75 = var_membrane__V+65, t76 = t70^2, t84 = exp(1/80*var_membrane__V+15/16), 
-jacobian[1,1] = (-t2*var_potassium_channel__g_K-t6*var_sodium_channel_h_gate__h
--var_leakage_current__g_L)*t9, jacobian[1,2] = -3*var_sodium_channel__g_Na*t4*
+var_membrane__E_R-115, t26 = .1000000000*var_membrane__V, t27 = -t26-5., t28 =
+exp(t27), t29 = t28-1., t32 = t29^2, t37 = -.1000000000/t29+.1000000000*t27/t32
+*t28, t42 = PIECEWISE([t37, var_membrane__V < -50.00000100],[Float(undefined),
+var_membrane__V = -50.00000100],[.5000000000e-1, var_membrane__V < -49.99999900
+],[Float(undefined), var_membrane__V = -49.99999900],[t37, -49.99999900 < 
+var_membrane__V]), t47 = exp(-1/18*var_membrane__V-25/6), t57 = -t26-5.00000000\
+0, t58 = exp(t57), t63 = PIECEWISE([3.500000000+.5000000000e-1*var_membrane__V,
+0. <= -t26-4.999999900 and -t26 <= 5.000000100],[1.000000000*t57/(t58-1), 
+otherwise]), t68 = exp(-1/20*var_membrane__V-15/4), t74 = exp(-1/10*
+var_membrane__V-9/2), t75 = t74+1, t76 = t75^2, t86 = -t26-6.500000000, t87 = 
+exp(t86), t88 = t87-1., t91 = t88^2, t96 = -.1000000000e-1/t88+.1000000000e-1*
+t86/t91*t87, t101 = PIECEWISE([t96, var_membrane__V < -65.00000100],[Float(
+undefined), var_membrane__V = -65.00000100],[.5000000000e-2, var_membrane__V <
+-64.99999900],[Float(undefined), var_membrane__V = -64.99999900],[t96, -64.9999\
+9900 < var_membrane__V]), t106 = exp(1/80*var_membrane__V+15/16), t120 = 
+PIECEWISE([.4250000000+.5000000000e-2*var_membrane__V, 0. <= -t26-6.499999900 
+and -t26 <= 6.500000100],[.1000000000*t86/(t87-1), otherwise]), jacobian[1,1] =
+(-t2*var_potassium_channel__g_K-t6*var_sodium_channel_h_gate__h-
+var_leakage_current__g_L)*t9, jacobian[1,2] = -3*var_sodium_channel__g_Na*t4*
 var_sodium_channel_h_gate__h*t12*t9, jacobian[1,3] = -t6*t12*t9, jacobian[1,4]
 = -4*var_potassium_channel__g_K*t1*var_potassium_channel_n_gate__n*(
-var_membrane__V-var_membrane__E_R+12)*t9, jacobian[2,1] = -.1000000000*t29*t30-
-.1000000000e-1*t33/t34*t30*t27+2/9*t42*var_sodium_channel_m_gate__m, jacobian[2
-,2] = .10000000000000001*t33*t29-4*t42, jacobian[2,3] = 0, jacobian[2,4] = 0, 
-jacobian[3,1] = -.3500000000e-2*t52*(1-var_sodium_channel_h_gate__h)-1/10/t59*
-var_sodium_channel_h_gate__h*t57, jacobian[3,2] = 0, jacobian[3,3] = -.\
-7000000000e-1*t52-1/t58, jacobian[3,4] = 0, jacobian[4,1] = -.1e-1*t71*t72-.\
-1000000000e-2*t75/t76*t72*t69-.1562500000e-2*t84*
+var_membrane__V-var_membrane__E_R+12)*t9, jacobian[2,1] = t42*(1-
+var_sodium_channel_m_gate__m)+2/9*t47*var_sodium_channel_m_gate__m, jacobian[2,
+2] = -t63-4*t47, jacobian[2,3] = 0, jacobian[2,4] = 0, jacobian[3,1] = -.\
+3500000000e-2*t68*(1-var_sodium_channel_h_gate__h)-1/10/t76*
+var_sodium_channel_h_gate__h*t74, jacobian[3,2] = 0, jacobian[3,3] = -.\
+7000000000e-1*t68-1/t75, jacobian[3,4] = 0, jacobian[4,1] = t101*(1-
+var_potassium_channel_n_gate__n)-.1562500000e-2*t106*
 var_potassium_channel_n_gate__n, jacobian[4,2] = 0, jacobian[4,3] = 0, jacobian
-[4,4] = .1e-1*t75*t71-.125*t84
-memory used=2.4MB, alloc=8.3MB, time=0.10
+[4,4] = -t120-.125*t106
+memory used=12.0MB, alloc=40.3MB, time=0.47
