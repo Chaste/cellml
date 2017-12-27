@@ -203,6 +203,13 @@
     </component>
     <component name="membrane">
         <variable cmeta:id="membrane_voltage" initial_value="-88.00190465" name="v" public_interface="out" units="millivolt"/>
+        <variable cmeta:id="membrane_capacitance" initial_value="1" name="cm" public_interface="out" units="microF_per_centimeter_squared">
+         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#membrane_capacitance">
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_capacitance"/>
+            </rdf:Description>
+         </rdf:RDF>
+      </variable>
         <variable name="time" public_interface="in" units="millisecond"/>
         <variable name="R" public_interface="in" units="joule_per_kilomole_kelvin"/>
         <variable name="T" public_interface="in" units="kelvin"/>
@@ -486,7 +493,7 @@
         <variable name="Bcai" units="dimensionless"/>
         <variable name="Bcajsr" units="dimensionless"/>
         <variable name="Bcass" units="dimensionless"/>
-        <variable initial_value="1" name="cm" public_interface="out" units="microF_per_centimeter_squared"/>
+        <variable name="cm" public_interface="in" units="microF_per_centimeter_squared"/>
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
                 <eq/>
@@ -7571,6 +7578,7 @@ PhiCaK = 1{dimensionless}*vffrt*(0.75{dimensionless}*kss*exp(1{dimensionless}*vf
     <connection>
         <map_components component_1="intracellular_ions" component_2="membrane"/>
         <map_variables variable_1="Istim" variable_2="Istim"/>
+        <map_variables variable_1="cm" variable_2="cm"/>
     </connection>
     <connection>
         <map_components component_1="intracellular_ions" component_2="trans_flux"/>
