@@ -1,5 +1,5 @@
 <?xml version='1.0'?>
-<model cmeta:id="ohara_rudy_cipa_v1_2017" name="ohara_rudy_cipa_v1_2017" xmlns="http://www.cellml.org/cellml/1.0#" xmlns:cellml="http://www.cellml.org/cellml/1.0#" xmlns:cmeta="http://www.cellml.org/metadata/1.0#">
+<model cmeta:id="ohara_rudy_2011_dyHerg" name="ohara_rudy_2011_dyHerg" xmlns="http://www.cellml.org/cellml/1.0#" xmlns:cellml="http://www.cellml.org/cellml/1.0#" xmlns:cmeta="http://www.cellml.org/metadata/1.0#">
     <units name="millisecond">
         <unit prefix="milli" units="second"/>
     </units>
@@ -3926,7 +3926,7 @@ PhiCaK = 1{dimensionless}*vffrt*(0.75{dimensionless}*kss*exp(1{dimensionless}*vf
         <!-- y[46];-->
         <variable initial_value="0" name="Cbound" units="dimensionless"/>
         <!-- y[47];-->
-        <variable initial_value="0" name="D" units="dimensionless"/>
+        <variable cmeta:id="Dynamic_hERG_D" initial_value="0" name="D" units="dimensionless"/>
         <!-- y[48];
  A lot of constants/variables-->
         <variable name="GKr" units="milliS_per_microF"/>
@@ -4881,29 +4881,17 @@ PhiCaK = 1{dimensionless}*vffrt*(0.75{dimensionless}*kss*exp(1{dimensionless}*vf
                                     <ci>Kmax</ci>
                                     <ci>Ku</ci>
                                     <apply>
-                                        <exp/>
-                                        <apply>
-                                            <times/>
-                                            <ci>n</ci>
-                                            <apply>
-                                                <ln/>
-                                                <ci>D</ci>
-                                            </apply>
-                                        </apply>
+                                        <power/>
+                                        <ci>D</ci>
+                                        <ci>n</ci>
                                     </apply>
                                 </apply>
                                 <apply>
                                     <plus/>
                                     <apply>
-                                        <exp/>
-                                        <apply>
-                                            <times/>
-                                            <ci>n</ci>
-                                            <apply>
-                                                <ln/>
-                                                <ci>D</ci>
-                                            </apply>
-                                        </apply>
+                                        <power/>
+                                        <ci>D</ci>
+                                        <ci>n</ci>
                                     </apply>
                                     <ci>halfmax</ci>
                                 </apply>
@@ -5077,29 +5065,17 @@ PhiCaK = 1{dimensionless}*vffrt*(0.75{dimensionless}*kss*exp(1{dimensionless}*vf
                                     <ci>Kmax</ci>
                                     <ci>Ku</ci>
                                     <apply>
-                                        <exp/>
-                                        <apply>
-                                            <times/>
-                                            <ci>n</ci>
-                                            <apply>
-                                                <ln/>
-                                                <ci>D</ci>
-                                            </apply>
-                                        </apply>
+                                        <power/>
+                                        <ci>D</ci>
+                                        <ci>n</ci>
                                     </apply>
                                 </apply>
                                 <apply>
                                     <plus/>
                                     <apply>
-                                        <exp/>
-                                        <apply>
-                                            <times/>
-                                            <ci>n</ci>
-                                            <apply>
-                                                <ln/>
-                                                <ci>D</ci>
-                                            </apply>
-                                        </apply>
+                                        <power/>
+                                        <ci>D</ci>
+                                        <ci>n</ci>
                                     </apply>
                                     <ci>halfmax</ci>
                                 </apply>
@@ -5203,29 +5179,17 @@ PhiCaK = 1{dimensionless}*vffrt*(0.75{dimensionless}*kss*exp(1{dimensionless}*vf
                                         <ci>Kmax</ci>
                                         <ci>Ku</ci>
                                         <apply>
-                                            <exp/>
-                                            <apply>
-                                                <times/>
-                                                <ci>n</ci>
-                                                <apply>
-                                                    <ln/>
-                                                    <ci>D</ci>
-                                                </apply>
-                                            </apply>
+                                            <power/>
+                                            <ci>D</ci>
+                                            <ci>n</ci>
                                         </apply>
                                     </apply>
                                     <apply>
                                         <plus/>
                                         <apply>
-                                            <exp/>
-                                            <apply>
-                                                <times/>
-                                                <ci>n</ci>
-                                                <apply>
-                                                    <ln/>
-                                                    <ci>D</ci>
-                                                </apply>
-                                            </apply>
+                                            <power/>
+                                            <ci>D</ci>
+                                            <ci>n</ci>
                                         </apply>
                                         <ci>halfmax</ci>
                                     </apply>
@@ -5362,29 +5326,17 @@ PhiCaK = 1{dimensionless}*vffrt*(0.75{dimensionless}*kss*exp(1{dimensionless}*vf
                                         <ci>Kmax</ci>
                                         <ci>Ku</ci>
                                         <apply>
-                                            <exp/>
-                                            <apply>
-                                                <times/>
-                                                <ci>n</ci>
-                                                <apply>
-                                                    <ln/>
-                                                    <ci>D</ci>
-                                                </apply>
-                                            </apply>
+                                            <power/>
+                                            <ci>D</ci>
+                                            <ci>n</ci>
                                         </apply>
                                     </apply>
                                     <apply>
                                         <plus/>
                                         <apply>
-                                            <exp/>
-                                            <apply>
-                                                <times/>
-                                                <ci>n</ci>
-                                                <apply>
-                                                    <ln/>
-                                                    <ci>D</ci>
-                                                </apply>
-                                            </apply>
+                                            <power/>
+                                            <ci>D</ci>
+                                            <ci>n</ci>
                                         </apply>
                                         <ci>halfmax</ci>
                                     </apply>
@@ -5518,17 +5470,7 @@ PhiCaK = 1{dimensionless}*vffrt*(0.75{dimensionless}*kss*exp(1{dimensionless}*vf
                     </apply>
                 </apply>
             </apply>
-            <apply>
-                <eq/>
-                <apply>
-                    <diff/>
-                    <bvar>
-                        <ci>time</ci>
-                    </bvar>
-                    <ci>D</ci>
-                </apply>
-                <cn cellml:units="dimensionless">0</cn>
-            </apply>
+            <!--ode(D, time) = 0{dimensionless};-->
             <!-- Conductance-->
             <apply>
                 <eq/>
@@ -9474,7 +9416,7 @@ PhiCaK = 1{dimensionless}*vffrt*(0.75{dimensionless}*kss*exp(1{dimensionless}*vf
         <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#cytosolic_sodium_concentration">
             <_4:is xmlns:_4="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_sodium_concentration" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
         </rdf:Description>
-         <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#Dynamic_hERG_Kmax">
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#Dynamic_hERG_Kmax">
             <_4:is xmlns:_4="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#Dynamic_hERG_Kmax" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
         </rdf:Description>
         <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#Dynamic_hERG_Ku">
@@ -9492,5 +9434,9 @@ PhiCaK = 1{dimensionless}*vffrt*(0.75{dimensionless}*kss*exp(1{dimensionless}*vf
         <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#Dynamic_hERG_Vhalf">
             <_4:is xmlns:_4="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#Dynamic_hERG_Vhalf" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
         </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#Dynamic_hERG_D">
+            <_4:is xmlns:_4="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#Dynamic_hERG_D" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        
     </rdf:RDF>
 </model>
