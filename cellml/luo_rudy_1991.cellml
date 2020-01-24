@@ -389,6 +389,8 @@ The breakdown of the model into components and the definition of encapsulation a
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#membrane_fast_sodium_current_m_gate">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current_m_gate"/>
+		<range-low xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">0</range-low>
+		<range-high xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">1</range-high>
             </rdf:Description>
          </rdf:RDF>
       </variable>
