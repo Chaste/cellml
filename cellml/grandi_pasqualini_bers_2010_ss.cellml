@@ -2384,10 +2384,10 @@
         </math>
     </component>
     <component name="I_to">
-        <variable name="GtoSlow" public_interface="out" units="mS_per_uF"/>
-        <variable cmeta:id="membrane_slow_transient_outward_current_conductance" initial_value="1" name="GtoSlow_factor" units="dimensionless"/>
-        <variable name="GtoFast" public_interface="out" units="mS_per_uF"/>
-        <variable cmeta:id="membrane_fast_transient_outward_current_conductance" initial_value="1" name="GtoFast_factor" units="dimensionless"/>
+        <variable cmeta:id="membrane_slow_transient_outward_current_conductance" name="GtoSlow" public_interface="out" units="mS_per_uF"/>
+        <variable cmeta:id="membrane_slow_transient_outward_current_conductance_scaling_factor" initial_value="1" name="GtoSlow_factor" units="dimensionless"/>
+        <variable cmeta:id="membrane_fast_transient_outward_current_conductance" name="GtoFast" public_interface="out" units="mS_per_uF"/>
+        <variable cmeta:id="membrane_fast_transient_outward_current_conductance_scaling_factor" initial_value="1" name="GtoFast_factor" units="dimensionless"/>
         <variable name="xtoss" public_interface="out" units="dimensionless"/>
         <variable name="ytoss" public_interface="out" units="dimensionless"/>
         <variable name="tauxtos" public_interface="out" units="msec"/>
@@ -2755,7 +2755,8 @@
         <variable name="bki" public_interface="out" units="dimensionless"/>
         <variable name="kiss" public_interface="out" units="dimensionless"/>
         <variable cmeta:id="membrane_inward_rectifier_potassium_current" name="I_ki" public_interface="out" units="uA_per_uF"/>
-        <variable cmeta:id="membrane_inward_rectifier_potassium_current_conductance" initial_value="0.35" name="g_ki" units="mS_per_uF"/>
+        <variable cmeta:id="membrane_inward_rectifier_potassium_current_conductance" name="g_k1" units="mS_per_uF"/>
+        <variable cmeta:id="membrane_inward_rectifier_potassium_current_conductance_scaling_factor" initial_value="0.35" name="g_ki_factor" units="mS_per_uF"/>
         <variable name="V_m" public_interface="in" units="mV"/>
         <variable name="ek" public_interface="in" units="mV"/>
         <variable name="Ko" public_interface="in" units="mM"/>
@@ -2872,11 +2873,10 @@
             </apply>
             <apply>
                 <eq/>
-                <ci>I_ki</ci>
+                <ci>g_K1</ci>
                 <apply>
                     <times/>
-                    <cn cellml:units="dimensionless">1</cn>
-                    <ci>g_ki</ci>
+                    <ci>g_ki_factor</ci>
                     <apply>
                         <root/>
                         <apply>
@@ -2885,6 +2885,14 @@
                             <cn cellml:units="mM">5.4</cn>
                         </apply>
                     </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>I_ki</ci>
+                <apply>
+                    <times/>
+                    <ci>g_K1</ci>
                     <ci>kiss</ci>
                     <apply>
                         <minus/>
@@ -6816,8 +6824,14 @@ A novel computational model of the human ventricular action potential and Ca tra
         <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_slow_transient_outward_current_conductance">
             <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_slow_transient_outward_current_conductance" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
         </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_slow_transient_outward_current_conductance_scaling_factor">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_slow_transient_outward_current_conductance_scaling_factor" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
         <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_fast_transient_outward_current_conductance">
             <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_transient_outward_current_conductance" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_fast_transient_outward_current_conductance_scaling_factor">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_transient_outward_current_conductance_scaling_factor" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
         </rdf:Description>
         <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_slow_transient_outward_current">
             <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_slow_transient_outward_current" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
@@ -6833,6 +6847,9 @@ A novel computational model of the human ventricular action potential and Ca tra
         </rdf:Description>
         <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_inward_rectifier_potassium_current_conductance">
             <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_inward_rectifier_potassium_current_conductance" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_inward_rectifier_potassium_current_conductance_scaling_factor">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_inward_rectifier_potassium_current_conductance_scaling_factor" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
         </rdf:Description>
         <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_L_type_calcium_current_f_gate_tau">
             <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_L_type_calcium_current_f_gate_tau" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
