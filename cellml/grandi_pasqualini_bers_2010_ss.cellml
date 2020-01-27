@@ -2755,7 +2755,7 @@
         <variable name="bki" public_interface="out" units="dimensionless"/>
         <variable name="kiss" public_interface="out" units="dimensionless"/>
         <variable cmeta:id="membrane_inward_rectifier_potassium_current" name="I_ki" public_interface="out" units="uA_per_uF"/>
-        <variable cmeta:id="membrane_inward_rectifier_potassium_current_conductance" name="g_k1" units="mS_per_uF"/>
+        <variable cmeta:id="membrane_inward_rectifier_potassium_current_conductance" name="g_K1" units="mS_per_uF"/>
         <variable cmeta:id="membrane_inward_rectifier_potassium_current_conductance_scaling_factor" initial_value="0.35" name="g_ki_factor" units="mS_per_uF"/>
         <variable name="V_m" public_interface="in" units="mV"/>
         <variable name="ek" public_interface="in" units="mV"/>
