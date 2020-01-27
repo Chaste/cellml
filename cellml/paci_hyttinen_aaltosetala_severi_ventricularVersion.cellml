@@ -1943,7 +1943,7 @@
             </apply>
             <apply>
                 <eq/>
-                <ci>g_kr_total</ci>
+                <ci>g_Kr_total</ci>
                 <apply>
                     <times/>
                     <ci>g_Kr</ci>
