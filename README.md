@@ -6,11 +6,11 @@ They were originally incorporated in the [Functional Curation] project.
 However, since they are of more general utility they have now been collected
 into their own location.
 
-We have included most of the cardiac electrophysiology models that are available
-at <http://models.cellml.org/electrophysiology> as of around January 2011.
+We have included most of the cardiac electrophysiology models that were available
+at <http://models.cellml.org/electrophysiology> as of around January 2011, and added a few others as they have been released.
 
-these are then categorised into three categories:
- 1. Working models are in the subfolder 'cellml' (not all reproduce original paper, but they don't crash solvers!)
+The models were then categorised into three categories:
+ 1. Working models are in the subfolder 'cellml' (not all reproduce original papers, but they don't crash solvers!)
 
 These are included in the `master` branch. To use these files within your code, you may just clone this repository. 
 
@@ -37,8 +37,7 @@ This will import all of the CellML files into your source tree, and all of them 
 
 If you pull in files as above, then whatever version of your repository 
 you load, it will contain the revision of the cellml files in this repository when you typed ```git submodule update```. 
-We tend to just add metadata to existing models, and perhaps add tweaks to prevent hitting divide by zeros, we try to leave the maths unchanged.
-So it may be a good idea to keep it up to date, which you can do with:
+We tend to just add metadata to existing models, and perhaps add tweaks to prevent hitting divide by zeros, we try to leave the maths unchanged. So it may be a good idea to keep it up to date, which you can do with:
 
 ```sh
 $ git submodule update
@@ -48,9 +47,20 @@ $ git pull
 ```
 
 ## USEFUL NOTE:
-If you want to add options to the ConvertCellModels.py script (for example to
-provide access to all of the metadata tagged variables in all the models) 
-then you can now (as of r15865) include lines like this in your project
+If you are using these in a [Chaste user project] and want to add options to the ConvertCellModels.py script (for example to provide access to all of the metadata tagged variables in all the models) then follow the relevant instructions below depending on whether it is a cmake or scons project:
+
+### CMake
+
+Add this to your project's ```CMakeLists.txt``` file:
+
+```cmake
+# Here we add extra arguments to force PyCML to use this extra argument (make Get and Set methods for 
+# all metadata annotated variables).  
+set(Chaste_PYCML_EXTRA_ARGS "--expose-annotated-variables") 
+```
+
+### Scons
+For older ```scons``` rather than ```cmake``` projects, include lines like this in your project
 'SConscript' file:
 
 ```python
@@ -61,14 +71,11 @@ env['PYCML_EXTRA_ARGS'] = ['--expose-annotated-variables']
 
 This must come before the ```DoProjectSConscript()``` call. 
 
-## Analytic Jacobian ```.out``` files:
-If for any reason the mathematics of the CellML file changes, you will need to
-regenerate the .out file if one is associated with the model, to update
-the analytic jacobian to match the new mathematics.
-A couple of python scripts are in this folder that may help with this process.
+## Analytic Jacobians:
+We used to require the third-party software Maple to generate Jacobian matricies analytically, but we now automatically do this using SymPy.
 
-See [Code Generation From CellML]
-for more details of working with CellML.
+See [Code Generation From CellML] for more details of working with these CellML files.
 
 [Code Generation From CellML]: <https://chaste.cs.ox.ac.uk/trac/wiki/ChasteGuides/CodeGenerationFromCellML>
 [Functional Curation]: <https://chaste.cs.ox.ac.uk/trac/wiki/FunctionalCuration>
+[Chaste user project]: <https://chaste.cs.ox.ac.uk/trac/wiki/InstallGuides/CheckoutUserProject>
