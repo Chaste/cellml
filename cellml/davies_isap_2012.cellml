@@ -1,4 +1,4 @@
-<?xml version='1.0'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!--
 This CellML file was generated on 07/09/2012 at 6:00:05 at PM using:
 
@@ -718,109 +718,42 @@ http://www.cellml.org/
                     </otherwise>
                 </piecewise>
             </apply>
-        </math>
-        <variable name="A" units="per_ms"/>
-        <variable name="B" units="per_mV"/>
-        <variable name="v0" units="mV"/>
-        <variable name="U" units="dimensionless"/>
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-                <eq/>
-                <ci>B</ci>
-                <apply>
-                    <minus/>
-                    <cn cellml:units="per_mV">0.1</cn>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>v0</ci>
-                <apply>
-                    <minus/>
-                    <cn cellml:units="mV">47.13</cn>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>A</ci>
-                <apply>
-                    <divide/>
-                    <apply>
-                        <minus/>
-                        <cn cellml:units="per_mV_ms">0.32</cn>
-                    </apply>
-                    <ci>B</ci>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>U</ci>
-                <apply>
-                    <times/>
-                    <ci>B</ci>
-                    <apply>
-                        <minus/>
-                        <ci>V</ci>
-                        <ci>v0</ci>
-                    </apply>
-                </apply>
-            </apply>
             <apply>
                 <eq/>
                 <ci>am</ci>
-                <piecewise>
-                    <piece>
+                <apply>
+                    <divide/>
+                    <apply>
+                        <times/>
+                        <cn cellml:units="per_ms">0.32</cn>
+                        <cn cellml:units="per_mV">1</cn>
                         <apply>
-                            <times/>
-                            <ci>A</ci>
-                            <apply>
-                                <minus/>
-                                <cn cellml:units="dimensionless">1</cn>
-                                <apply>
-                                    <times/>
-                                    <cn cellml:units="dimensionless">0.5</cn>
-                                    <ci>U</ci>
-                                </apply>
-                            </apply>
+                            <plus/>
+                            <ci>V</ci>
+                            <cn cellml:units="mV">47.13</cn>
                         </apply>
+                    </apply>
+                    <apply>
+                        <minus/>
+                        <cn cellml:units="dimensionless">1</cn>
                         <apply>
-                            <and/>
-                            <apply>
-                                <leq/>
-                                <apply>
-                                    <minus/>
-                                    <cn cellml:units="dimensionless" type="e-notation">1<sep/>-7</cn>
-                                </apply>
-                                <ci>U</ci>
-                            </apply>
-                            <apply>
-                                <leq/>
-                                <ci>U</ci>
-                                <cn cellml:units="dimensionless" type="e-notation">1<sep/>-7</cn>
-                            </apply>
-                        </apply>
-                    </piece>
-                    <otherwise>
-                        <apply>
-                            <divide/>
+                            <exp/>
                             <apply>
                                 <times/>
-                                <ci>A</ci>
-                                <ci>U</ci>
-                            </apply>
-                            <apply>
-                                <minus/>
                                 <apply>
-                                    <exp/>
-                                    <ci>U</ci>
+                                    <minus/>
+                                    <cn cellml:units="per_mV">0.1</cn>
                                 </apply>
-                                <cn cellml:units="dimensionless">1</cn>
+                                <apply>
+                                    <plus/>
+                                    <ci>V</ci>
+                                    <cn cellml:units="mV">47.13</cn>
+                                </apply>
                             </apply>
                         </apply>
-                    </otherwise>
-                </piecewise>
+                    </apply>
+                </apply>
             </apply>
-            <!--am = 0.32{per_ms}*1{per_mV}*(V+47.13{mV})/(1{dimensionless}-exp(-0.1{per_mV}*(V+47.13{mV})));-->
             <apply>
                 <eq/>
                 <ci>bm</ci>
@@ -954,34 +887,21 @@ http://www.cellml.org/
         <variable name="taufca2" units="ms"/>
         <variable cmeta:id="membrane_L_type_calcium_current_d_gate_power_tau" initial_value="10" name="tau_pow_calcium" units="ms"/>
         <variable name="ICaL" public_interface="out" units="uA_per_uF"/>
-        <variable name="A" units="uA_per_uF"/>
-        <variable name="B" units="per_mV"/>
-        <variable name="v0" units="mV"/>
-        <variable name="U" units="dimensionless"/>
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
                 <eq/>
-                <ci>B</ci>
-                <apply>
-                    <times/>
-                    <cn cellml:units="dimensionless">2</cn>
-                    <ci>FonRT</ci>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>v0</ci>
-                <cn cellml:units="mV">15</cn>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>A</ci>
+                <ci>ibarca</ci>
                 <apply>
                     <divide/>
                     <apply>
                         <times/>
                         <ci>pca</ci>
                         <cn cellml:units="dimensionless">4</cn>
+                        <apply>
+                            <minus/>
+                            <ci>V</ci>
+                            <cn cellml:units="mV">15</cn>
+                        </apply>
                         <ci>F</ci>
                         <ci>FonRT</ci>
                         <apply>
@@ -1011,78 +931,25 @@ http://www.cellml.org/
                             </apply>
                         </apply>
                     </apply>
-                    <ci>B</ci>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>U</ci>
-                <apply>
-                    <times/>
-                    <ci>B</ci>
                     <apply>
                         <minus/>
-                        <ci>V</ci>
-                        <ci>v0</ci>
+                        <apply>
+                            <exp/>
+                            <apply>
+                                <times/>
+                                <cn cellml:units="dimensionless">2</cn>
+                                <apply>
+                                    <minus/>
+                                    <ci>V</ci>
+                                    <cn cellml:units="mV">15</cn>
+                                </apply>
+                                <ci>FonRT</ci>
+                            </apply>
+                        </apply>
+                        <cn cellml:units="dimensionless">1</cn>
                     </apply>
                 </apply>
             </apply>
-            <apply>
-                <eq/>
-                <ci>ibarca</ci>
-                <piecewise>
-                    <piece>
-                        <apply>
-                            <times/>
-                            <ci>A</ci>
-                            <apply>
-                                <minus/>
-                                <cn cellml:units="dimensionless">1</cn>
-                                <apply>
-                                    <times/>
-                                    <cn cellml:units="dimensionless">0.5</cn>
-                                    <ci>U</ci>
-                                </apply>
-                            </apply>
-                        </apply>
-                        <apply>
-                            <and/>
-                            <apply>
-                                <leq/>
-                                <apply>
-                                    <minus/>
-                                    <cn cellml:units="dimensionless" type="e-notation">1<sep/>-7</cn>
-                                </apply>
-                                <ci>U</ci>
-                            </apply>
-                            <apply>
-                                <leq/>
-                                <ci>U</ci>
-                                <cn cellml:units="dimensionless" type="e-notation">1<sep/>-7</cn>
-                            </apply>
-                        </apply>
-                    </piece>
-                    <otherwise>
-                        <apply>
-                            <divide/>
-                            <apply>
-                                <times/>
-                                <ci>A</ci>
-                                <ci>U</ci>
-                            </apply>
-                            <apply>
-                                <minus/>
-                                <apply>
-                                    <exp/>
-                                    <ci>U</ci>
-                                </apply>
-                                <cn cellml:units="dimensionless">1</cn>
-                            </apply>
-                        </apply>
-                    </otherwise>
-                </piecewise>
-            </apply>
-            <!--ibarca = pca*4{dimensionless}*(V-15{mV})*F*FonRT*(gacai*Ca_ss*exp(2{dimensionless}*(V-15{mV})*FonRT)-gacao*Ca_o)/(exp(2{dimensionless}*(V-15{mV})*FonRT)-1{dimensionless});-->
             <apply>
                 <eq/>
                 <ci>ICaL</ci>
@@ -1881,215 +1748,7 @@ http://www.cellml.org/
         <variable initial_value="0.0147449166757808" name="xs1" units="dimensionless"/>
         <variable initial_value="0.0147504787196957" name="xs2" units="dimensionless"/>
         <variable cmeta:id="membrane_slow_delayed_rectifier_potassium_current" name="IKs" public_interface="out" units="uA_per_uF"/>
-        <variable name="A_1" units="dimensionless"/>
-        <variable name="B_1" units="per_mV"/>
-        <variable name="v0_1" units="mV"/>
-        <variable name="U_1" units="dimensionless"/>
-        <variable name="temp_part_1" units="dimensionless"/>
         <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-                <eq/>
-                <ci>B_1</ci>
-                <apply>
-                    <minus/>
-                    <cn cellml:units="per_mV">9.97</cn>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>v0_1</ci>
-                <apply>
-                    <minus/>
-                    <cn cellml:units="mV">44.6</cn>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>A_1</ci>
-                <apply>
-                    <divide/>
-                    <apply>
-                        <minus/>
-                        <cn cellml:units="per_mV" type="e-notation">7.61<sep/>-5</cn>
-                    </apply>
-                    <ci>B_1</ci>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>U_1</ci>
-                <apply>
-                    <times/>
-                    <ci>B_1</ci>
-                    <apply>
-                        <minus/>
-                        <ci>V</ci>
-                        <ci>v0_1</ci>
-                    </apply>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>temp_part_1</ci>
-                <piecewise>
-                    <piece>
-                        <apply>
-                            <times/>
-                            <ci>A_1</ci>
-                            <apply>
-                                <minus/>
-                                <cn cellml:units="dimensionless">1</cn>
-                                <apply>
-                                    <times/>
-                                    <cn cellml:units="dimensionless">0.5</cn>
-                                    <ci>U_1</ci>
-                                </apply>
-                            </apply>
-                        </apply>
-                        <apply>
-                            <and/>
-                            <apply>
-                                <leq/>
-                                <apply>
-                                    <minus/>
-                                    <cn cellml:units="dimensionless" type="e-notation">1<sep/>-7</cn>
-                                </apply>
-                                <ci>U_1</ci>
-                            </apply>
-                            <apply>
-                                <leq/>
-                                <ci>U_1</ci>
-                                <cn cellml:units="dimensionless" type="e-notation">1<sep/>-7</cn>
-                            </apply>
-                        </apply>
-                    </piece>
-                    <otherwise>
-                        <apply>
-                            <divide/>
-                            <apply>
-                                <times/>
-                                <ci>A_1</ci>
-                                <ci>U_1</ci>
-                            </apply>
-                            <apply>
-                                <minus/>
-                                <apply>
-                                    <exp/>
-                                    <ci>U_1</ci>
-                                </apply>
-                                <cn cellml:units="dimensionless">1</cn>
-                            </apply>
-                        </apply>
-                    </otherwise>
-                </piecewise>
-            </apply>
-        </math>
-        <variable name="A_2" units="dimensionless"/>
-        <variable name="B_2" units="per_mV"/>
-        <variable name="v0_2" units="mV"/>
-        <variable name="U_2" units="dimensionless"/>
-        <variable name="temp_part_2" units="dimensionless"/>
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-                <eq/>
-                <ci>B_2</ci>
-                <cn cellml:units="per_mV">0.128</cn>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>v0_2</ci>
-                <cn cellml:units="mV">0.55</cn>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>A_2</ci>
-                <apply>
-                    <divide/>
-                    <cn cellml:units="per_mV" type="e-notation">3.6<sep/>-4</cn>
-                    <ci>B_2</ci>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>U_2</ci>
-                <apply>
-                    <times/>
-                    <ci>B_2</ci>
-                    <apply>
-                        <minus/>
-                        <ci>V</ci>
-                        <ci>v0_2</ci>
-                    </apply>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>temp_part_2</ci>
-                <piecewise>
-                    <piece>
-                        <apply>
-                            <times/>
-                            <ci>A_2</ci>
-                            <apply>
-                                <minus/>
-                                <cn cellml:units="dimensionless">1</cn>
-                                <apply>
-                                    <times/>
-                                    <cn cellml:units="dimensionless">0.5</cn>
-                                    <ci>U_2</ci>
-                                </apply>
-                            </apply>
-                        </apply>
-                        <apply>
-                            <and/>
-                            <apply>
-                                <leq/>
-                                <apply>
-                                    <minus/>
-                                    <cn cellml:units="dimensionless" type="e-notation">1<sep/>-7</cn>
-                                </apply>
-                                <ci>U_2</ci>
-                            </apply>
-                            <apply>
-                                <leq/>
-                                <ci>U_2</ci>
-                                <cn cellml:units="dimensionless" type="e-notation">1<sep/>-7</cn>
-                            </apply>
-                        </apply>
-                    </piece>
-                    <otherwise>
-                        <apply>
-                            <divide/>
-                            <apply>
-                                <times/>
-                                <ci>A_2</ci>
-                                <ci>U_2</ci>
-                            </apply>
-                            <apply>
-                                <minus/>
-                                <apply>
-                                    <exp/>
-                                    <ci>U_2</ci>
-                                </apply>
-                                <cn cellml:units="dimensionless">1</cn>
-                            </apply>
-                        </apply>
-                    </otherwise>
-                </piecewise>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>tauxs</ci>
-                <apply>
-                    <divide/>
-                    <cn cellml:units="ms">1</cn>
-                    <apply>
-                        <plus/>
-                        <ci>temp_part_1</ci>
-                        <ci>temp_part_2</ci>
-                    </apply>
-                </apply>
-            </apply>
             <apply>
                 <eq/>
                 <ci>gks</ci>
@@ -2146,7 +1805,76 @@ http://www.cellml.org/
                     </apply>
                 </apply>
             </apply>
-            <!--tauxs = 1{ms}/(7.61e-5{per_mV}*(V+44.6{mV})/(1{dimensionless}-exp(-9.97{per_mV}*(V+44.6{mV})))+3.6e-4{per_mV}*(V-0.55{mV})/(exp(0.128{per_mV}*(V-0.55{mV}))-1{dimensionless}));-->
+            <apply>
+                <eq/>
+                <ci>tauxs</ci>
+                <apply>
+                    <divide/>
+                    <cn cellml:units="ms">1</cn>
+                    <apply>
+                        <plus/>
+                        <apply>
+                            <divide/>
+                            <apply>
+                                <times/>
+                                <cn cellml:units="per_mV" type="e-notation">7.61<sep/>-5</cn>
+                                <apply>
+                                    <plus/>
+                                    <ci>V</ci>
+                                    <cn cellml:units="mV">44.6</cn>
+                                </apply>
+                            </apply>
+                            <apply>
+                                <minus/>
+                                <cn cellml:units="dimensionless">1</cn>
+                                <apply>
+                                    <exp/>
+                                    <apply>
+                                        <times/>
+                                        <apply>
+                                            <minus/>
+                                            <cn cellml:units="per_mV">9.97</cn>
+                                        </apply>
+                                        <apply>
+                                            <plus/>
+                                            <ci>V</ci>
+                                            <cn cellml:units="mV">44.6</cn>
+                                        </apply>
+                                    </apply>
+                                </apply>
+                            </apply>
+                        </apply>
+                        <apply>
+                            <divide/>
+                            <apply>
+                                <times/>
+                                <cn cellml:units="per_mV" type="e-notation">3.6<sep/>-4</cn>
+                                <apply>
+                                    <minus/>
+                                    <ci>V</ci>
+                                    <cn cellml:units="mV">0.55</cn>
+                                </apply>
+                            </apply>
+                            <apply>
+                                <minus/>
+                                <apply>
+                                    <exp/>
+                                    <apply>
+                                        <times/>
+                                        <cn cellml:units="per_mV">0.128</cn>
+                                        <apply>
+                                            <minus/>
+                                            <ci>V</ci>
+                                            <cn cellml:units="mV">0.55</cn>
+                                        </apply>
+                                    </apply>
+                                </apply>
+                                <cn cellml:units="dimensionless">1</cn>
+                            </apply>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
             <apply>
                 <eq/>
                 <ci>IKs</ci>
@@ -2991,33 +2719,16 @@ http://www.cellml.org/
         <variable name="Ca_i" public_interface="in" units="mM"/>
         <variable name="Ca_o" public_interface="in" units="mM"/>
         <variable cmeta:id="membrane_background_calcium_current" name="ICab" public_interface="out" units="uA_per_uF"/>
-        <variable name="A" units="uA_per_uF"/>
-        <variable name="B" units="per_mV"/>
-        <variable name="v0" units="mV"/>
-        <variable name="U" units="dimensionless"/>
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
                 <eq/>
-                <ci>B</ci>
-                <apply>
-                    <times/>
-                    <cn cellml:units="dimensionless">2</cn>
-                    <ci>FonRT</ci>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>v0</ci>
-                <cn cellml:units="mV">0</cn>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>A</ci>
+                <ci>ICab</ci>
                 <apply>
                     <divide/>
                     <apply>
                         <times/>
                         <ci>GCab</ci>
+                        <ci>V</ci>
                         <ci>F</ci>
                         <ci>FonRT</ci>
                         <apply>
@@ -3042,79 +2753,22 @@ http://www.cellml.org/
                             </apply>
                         </apply>
                     </apply>
-                    <ci>B</ci>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>U</ci>
-                <apply>
-                    <times/>
-                    <ci>B</ci>
                     <apply>
                         <minus/>
-                        <ci>V</ci>
-                        <ci>v0</ci>
+                        <apply>
+                            <exp/>
+                            <apply>
+                                <times/>
+                                <cn cellml:units="dimensionless">2</cn>
+                                <ci>V</ci>
+                                <ci>FonRT</ci>
+                            </apply>
+                        </apply>
+                        <cn cellml:units="dimensionless">1</cn>
                     </apply>
                 </apply>
             </apply>
-            <apply>
-                <eq/>
-                <ci>ICab</ci>
-                <piecewise>
-                    <piece>
-                        <apply>
-                            <times/>
-                            <ci>A</ci>
-                            <apply>
-                                <minus/>
-                                <cn cellml:units="dimensionless">1</cn>
-                                <apply>
-                                    <times/>
-                                    <cn cellml:units="dimensionless">0.5</cn>
-                                    <ci>U</ci>
-                                </apply>
-                            </apply>
-                        </apply>
-                        <apply>
-                            <and/>
-                            <apply>
-                                <leq/>
-                                <apply>
-                                    <minus/>
-                                    <cn cellml:units="dimensionless" type="e-notation">1<sep/>-7</cn>
-                                </apply>
-                                <ci>U</ci>
-                            </apply>
-                            <apply>
-                                <leq/>
-                                <ci>U</ci>
-                                <cn cellml:units="dimensionless" type="e-notation">1<sep/>-7</cn>
-                            </apply>
-                        </apply>
-                    </piece>
-                    <otherwise>
-                        <apply>
-                            <divide/>
-                            <apply>
-                                <times/>
-                                <ci>A</ci>
-                                <ci>U</ci>
-                            </apply>
-                            <apply>
-                                <minus/>
-                                <apply>
-                                    <exp/>
-                                    <ci>U</ci>
-                                </apply>
-                                <cn cellml:units="dimensionless">1</cn>
-                            </apply>
-                        </apply>
-                    </otherwise>
-                </piecewise>
-            </apply>
         </math>
-        <!--ICab = GCab*V*F*FonRT*(Ca_i*exp(2{dimensionless}*V*FonRT)-0.341{dimensionless}*Ca_o)/(exp(2{dimensionless}*V*FonRT)-1{dimensionless});-->
     </component>
     <component name="Ito2">
         <variable name="time" public_interface="in" units="ms"/>
@@ -3130,32 +2784,16 @@ http://www.cellml.org/
         <variable name="AAss" units="dimensionless"/>
         <variable initial_value="0.1502" name="Kmto2" units="mM"/>
         <variable cmeta:id="membrane_transient_outward_chloride_current" name="Ito2" public_interface="out" units="uA_per_uF"/>
-        <variable name="A" units="uA_per_uF"/>
-        <variable name="B" units="per_mV"/>
-        <variable name="v0" units="mV"/>
-        <variable name="U" units="dimensionless"/>
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
                 <eq/>
-                <ci>B</ci>
-                <ci>FonRT</ci>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>v0</ci>
-                <cn cellml:units="mV">0</cn>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>A</ci>
+                <ci>Ito2_max</ci>
                 <apply>
                     <divide/>
                     <apply>
                         <times/>
-                        <apply>
-                            <minus/>
-                            <ci>PCl</ci>
-                        </apply>
+                        <ci>PCl</ci>
+                        <ci>V</ci>
                         <ci>F</ci>
                         <ci>FonRT</ci>
                         <apply>
@@ -3175,78 +2813,20 @@ http://www.cellml.org/
                             </apply>
                         </apply>
                     </apply>
-                    <ci>B</ci>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>U</ci>
-                <apply>
-                    <times/>
-                    <ci>B</ci>
                     <apply>
                         <minus/>
-                        <ci>V</ci>
-                        <ci>v0</ci>
+                        <cn cellml:units="dimensionless">1</cn>
+                        <apply>
+                            <exp/>
+                            <apply>
+                                <times/>
+                                <ci>V</ci>
+                                <ci>FonRT</ci>
+                            </apply>
+                        </apply>
                     </apply>
                 </apply>
             </apply>
-            <apply>
-                <eq/>
-                <ci>Ito2_max</ci>
-                <piecewise>
-                    <piece>
-                        <apply>
-                            <times/>
-                            <ci>A</ci>
-                            <apply>
-                                <minus/>
-                                <cn cellml:units="dimensionless">1</cn>
-                                <apply>
-                                    <times/>
-                                    <cn cellml:units="dimensionless">0.5</cn>
-                                    <ci>U</ci>
-                                </apply>
-                            </apply>
-                        </apply>
-                        <apply>
-                            <and/>
-                            <apply>
-                                <leq/>
-                                <apply>
-                                    <minus/>
-                                    <cn cellml:units="dimensionless" type="e-notation">1<sep/>-7</cn>
-                                </apply>
-                                <ci>U</ci>
-                            </apply>
-                            <apply>
-                                <leq/>
-                                <ci>U</ci>
-                                <cn cellml:units="dimensionless" type="e-notation">1<sep/>-7</cn>
-                            </apply>
-                        </apply>
-                    </piece>
-                    <otherwise>
-                        <apply>
-                            <divide/>
-                            <apply>
-                                <times/>
-                                <ci>A</ci>
-                                <ci>U</ci>
-                            </apply>
-                            <apply>
-                                <minus/>
-                                <apply>
-                                    <exp/>
-                                    <ci>U</ci>
-                                </apply>
-                                <cn cellml:units="dimensionless">1</cn>
-                            </apply>
-                        </apply>
-                    </otherwise>
-                </piecewise>
-            </apply>
-            <!--Ito2_max = PCl*V*F*FonRT*(Cl_i-Cl_o*exp(V*FonRT))/(1{dimensionless}-exp(V*FonRT));-->
             <apply>
                 <eq/>
                 <ci>AAss</ci>
@@ -3326,111 +2906,7 @@ http://www.cellml.org/
         <variable name="bmL" units="per_ms"/>
         <variable name="hLss" units="dimensionless"/>
         <variable cmeta:id="membrane_persistent_sodium_current" name="INal" public_interface="out" units="uA_per_uF"/>
-        <variable name="A" units="per_ms"/>
-        <variable name="B" units="per_mV"/>
-        <variable name="v0" units="mV"/>
-        <variable name="U" units="dimensionless"/>
         <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-                <eq/>
-                <ci>B</ci>
-                <apply>
-                    <minus/>
-                    <cn cellml:units="per_mV">0.1</cn>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>v0</ci>
-                <apply>
-                    <minus/>
-                    <cn cellml:units="mV">47.13</cn>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>A</ci>
-                <apply>
-                    <divide/>
-                    <apply>
-                        <times/>
-                        <apply>
-                            <minus/>
-                            <cn cellml:units="per_ms">0.32</cn>
-                        </apply>
-                        <cn cellml:units="per_mV">1</cn>
-                    </apply>
-                    <ci>B</ci>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>U</ci>
-                <apply>
-                    <times/>
-                    <ci>B</ci>
-                    <apply>
-                        <minus/>
-                        <ci>V</ci>
-                        <ci>v0</ci>
-                    </apply>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>amL</ci>
-                <piecewise>
-                    <piece>
-                        <apply>
-                            <times/>
-                            <ci>A</ci>
-                            <apply>
-                                <minus/>
-                                <cn cellml:units="dimensionless">1</cn>
-                                <apply>
-                                    <times/>
-                                    <cn cellml:units="dimensionless">0.5</cn>
-                                    <ci>U</ci>
-                                </apply>
-                            </apply>
-                        </apply>
-                        <apply>
-                            <and/>
-                            <apply>
-                                <leq/>
-                                <apply>
-                                    <minus/>
-                                    <cn cellml:units="dimensionless" type="e-notation">1<sep/>-7</cn>
-                                </apply>
-                                <ci>U</ci>
-                            </apply>
-                            <apply>
-                                <leq/>
-                                <ci>U</ci>
-                                <cn cellml:units="dimensionless" type="e-notation">1<sep/>-7</cn>
-                            </apply>
-                        </apply>
-                    </piece>
-                    <otherwise>
-                        <apply>
-                            <divide/>
-                            <apply>
-                                <times/>
-                                <ci>A</ci>
-                                <ci>U</ci>
-                            </apply>
-                            <apply>
-                                <minus/>
-                                <apply>
-                                    <exp/>
-                                    <ci>U</ci>
-                                </apply>
-                                <cn cellml:units="dimensionless">1</cn>
-                            </apply>
-                        </apply>
-                    </otherwise>
-                </piecewise>
-            </apply>
             <apply>
                 <eq/>
                 <ci>INal</ci>
@@ -3450,7 +2926,42 @@ http://www.cellml.org/
                     </apply>
                 </apply>
             </apply>
-            <!--amL = 0.32{per_ms}*1{per_mV}*(V+47.13{mV})/(1{dimensionless}-exp(-0.1{per_mV}*(V+47.13{mV})));-->
+            <apply>
+                <eq/>
+                <ci>amL</ci>
+                <apply>
+                    <divide/>
+                    <apply>
+                        <times/>
+                        <cn cellml:units="per_ms">0.32</cn>
+                        <cn cellml:units="per_mV">1</cn>
+                        <apply>
+                            <plus/>
+                            <ci>V</ci>
+                            <cn cellml:units="mV">47.13</cn>
+                        </apply>
+                    </apply>
+                    <apply>
+                        <minus/>
+                        <cn cellml:units="dimensionless">1</cn>
+                        <apply>
+                            <exp/>
+                            <apply>
+                                <times/>
+                                <apply>
+                                    <minus/>
+                                    <cn cellml:units="per_mV">0.1</cn>
+                                </apply>
+                                <apply>
+                                    <plus/>
+                                    <ci>V</ci>
+                                    <cn cellml:units="mV">47.13</cn>
+                                </apply>
+                            </apply>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
             <apply>
                 <eq/>
                 <ci>bmL</ci>
