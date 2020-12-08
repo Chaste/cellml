@@ -2627,7 +2627,7 @@
         <variable name="time" public_interface="in" units="millisecond"/>
         <variable name="cass" public_interface="in" units="millimolar"/>
         <variable name="cao" public_interface="in" units="millimolar"/>
-        <!--var vffrt: coulomb_per_mole {pub: in};-->
+        <variable name="vffrt" public_interface="in" units="coulomb_per_mole"/>
         <variable name="vfrt" public_interface="in" units="dimensionless"/>
         <variable name="nao" public_interface="in" units="millimolar"/>
         <variable name="nass" public_interface="in" units="millimolar"/>
@@ -7906,7 +7906,6 @@
         <variable name="nao" public_interface="in" units="millimolar"/>
         <variable name="vffrt" public_interface="in" units="coulomb_per_mole"/>
         <variable name="vfrt" public_interface="in" units="dimensionless"/>
-        <variable name="v" public_interface="in" units="millivolt"/>
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
                 <eq/>
@@ -8611,7 +8610,6 @@
     </connection>
     <connection>
         <map_components component_1="ICab" component_2="membrane"/>
-        <map_variables variable_1="v" variable_2="v"/>
         <map_variables variable_1="vffrt" variable_2="vffrt"/>
         <map_variables variable_1="vfrt" variable_2="vfrt"/>
         <map_variables variable_1="ICab" variable_2="ICab"/>
@@ -8627,7 +8625,6 @@
     </connection>
     <connection>
         <map_components component_1="INab" component_2="membrane"/>
-        <map_variables variable_1="v" variable_2="v"/>
         <map_variables variable_1="vffrt" variable_2="vffrt"/>
         <map_variables variable_1="vfrt" variable_2="vfrt"/>
         <map_variables variable_1="INab" variable_2="INab"/>
