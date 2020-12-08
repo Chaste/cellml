@@ -1290,7 +1290,11 @@
                                 <divide/>
                                 <apply>
                                     <minus/>
-                                    <ci>E0_d</ci>
+                                    <apply>
+                                        <plus/>
+                                        <ci>V</ci>
+                                        <cn cellml:units="millivolt">10</cn>
+                                    </apply>
                                 </apply>
                                 <cn cellml:units="millivolt">6.24</cn>
                             </apply>
