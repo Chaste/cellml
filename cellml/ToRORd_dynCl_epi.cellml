@@ -9732,16 +9732,16 @@
         <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_rapid_delayed_rectifier_potassium_current_conductance_scaling_factor">
             <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_rapid_delayed_rectifier_potassium_current_conductance_scaling_factor" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
         </rdf:Description>
-        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#IKr_GKrmax">
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_rapid_delayed_rectifier_potassium_current_conductance">
             <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_rapid_delayed_rectifier_potassium_current_conductance" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
         </rdf:Description>
         <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_slow_delayed_rectifier_potassium_current_conductance_scaling_factor">
             <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_slow_delayed_rectifier_potassium_current_conductance_scaling_factor" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
         </rdf:Description>
-        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#IKs_GKs">
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_slow_delayed_rectifier_potassium_current_conductance">
             <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_slow_delayed_rectifier_potassium_current_conductance" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
         </rdf:Description>
-        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#IK1_GK1max">
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_inward_rectifier_potassium_current_conductance">
             <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_inward_rectifier_potassium_current_conductance" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
         </rdf:Description>
         <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_inward_rectifier_potassium_current_conductance_scaling_factor">
