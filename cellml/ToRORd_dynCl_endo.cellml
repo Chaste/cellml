@@ -1,4 +1,5 @@
-<model cmeta:id="Tomek_model13epi" name="Tomek_model13epi" xmlns="http://www.cellml.org/cellml/1.0#" xmlns:cellml="http://www.cellml.org/cellml/1.0#" xmlns:cmeta="http://www.cellml.org/metadata/1.0#">
+<?xml version='1.0' encoding='UTF-8'?>
+<model cmeta:id="ToRORd_dyn_chloride_endo" name="Tomek2020endo" xmlns="http://www.cellml.org/cellml/1.0#" xmlns:cellml="http://www.cellml.org/cellml/1.0#" xmlns:cmeta="http://www.cellml.org/metadata/1.0#">
     <units name="millisecond">
         <unit prefix="milli" units="second"/>
     </units>
@@ -96,7 +97,7 @@
     </units>
     <component name="environment">
         <variable cmeta:id="time" name="time" public_interface="out" units="millisecond"/>
-        <variable initial_value="1" name="celltype" public_interface="out" units="dimensionless"/>
+        <variable initial_value="0" name="celltype" public_interface="out" units="dimensionless"/>
     </component>
     <component name="extracellular">
         <variable cmeta:id="extracellular_sodium_concentration" initial_value="140.0" name="nao" public_interface="out" units="millimolar"/>
@@ -105,9 +106,9 @@
         <variable cmeta:id="extracellular_chloride_concentration" initial_value="150.0" name="clo" public_interface="out" units="millimolar"/>
     </component>
     <component name="physical_constants">
-        <variable initial_value="8314" name="R" public_interface="out" units="joule_per_kilomole_kelvin" cmeta:id="physical_constants_R"/>
-        <variable initial_value="310" name="T" public_interface="out" units="kelvin" cmeta:id="physical_constants_T"/>
-        <variable initial_value="96485" name="F" public_interface="out" units="coulomb_per_mole" cmeta:id="physical_constants_F"/>
+        <variable cmeta:id="physical_constants_R" initial_value="8314" name="R" public_interface="out" units="joule_per_kilomole_kelvin"/>
+        <variable cmeta:id="physical_constants_T" initial_value="310" name="T" public_interface="out" units="kelvin"/>
+        <variable cmeta:id="physical_constants_F" initial_value="96485" name="F" public_interface="out" units="coulomb_per_mole"/>
         <variable initial_value="1" name="zna" public_interface="out" units="dimensionless"/>
         <variable initial_value="2" name="zca" public_interface="out" units="dimensionless"/>
         <variable initial_value="1" name="zk" public_interface="out" units="dimensionless"/>
@@ -205,7 +206,7 @@
         </math>
     </component>
     <component name="membrane">
-        <variable cmeta:id="membrane_voltage" initial_value="-89.1400" name="v" public_interface="out" units="millivolt"/>
+        <variable cmeta:id="membrane_voltage" initial_value="-9.074563e+01" name="v" public_interface="out" units="millivolt"/>
         <variable name="time" public_interface="in" units="millisecond"/>
         <variable name="R" public_interface="in" units="joule_per_kilomole_kelvin"/>
         <variable name="T" public_interface="in" units="kelvin"/>
@@ -250,11 +251,6 @@
                                 <geq/>
                                 <ci>time</ci>
                                 <ci>i_Stim_Start</ci>
-                            </apply>
-                            <apply>
-                                <leq/>
-                                <ci>time</ci>
-                                <ci>i_Stim_End</ci>
                             </apply>
                             <apply>
                                 <leq/>
@@ -372,7 +368,7 @@
         <variable initial_value="0.0015" name="KmCaM" units="millimolar"/>
         <variable name="CaMKb" public_interface="out" units="millimolar"/>
         <variable name="CaMKa" public_interface="out" units="millimolar"/>
-        <variable initial_value="0.0129" name="CaMKt" units="millimolar"/>
+        <variable initial_value="1.273541e-02" name="CaMKt" units="millimolar"/>
         <variable name="cass" public_interface="in" units="millimolar"/>
         <variable name="time" public_interface="in" units="millisecond"/>
         <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -452,15 +448,16 @@
         <variable initial_value="0.0087" name="KmBSL" units="millimolar"/>
         <variable initial_value="10" name="csqnmax" units="millimolar"/>
         <variable initial_value="0.8" name="kmcsqn" units="millimolar"/>
-        <variable cmeta:id="cytosolic_sodium_concentration" initial_value="12.8363" name="nai" public_interface="out" units="millimolar"/>
-        <variable initial_value="12.8366" name="nass" public_interface="out" units="millimolar" cmeta:id="intracellular_ions_nass"/>
-        <variable cmeta:id="cytosolic_potassium_concentration" initial_value="142.6951" name="ki" public_interface="out" units="millimolar"/>
-        <variable initial_value="142.6951" name="kss" public_interface="out" units="millimolar" cmeta:id="intracellular_ions_kss"/>
-        <variable initial_value="5.7672e-05" name="cass" public_interface="out" units="millimolar" cmeta:id="intracellular_ions_cass"/>
-        <variable initial_value="1.8119" name="cansr" public_interface="out" units="millimolar" cmeta:id="intracellular_ions_cansr"/>
-        <variable initial_value="1.8102" name="cajsr" public_interface="out" units="millimolar" cmeta:id="intracellular_ions_cajsr"/>
-        <variable cmeta:id="cytosolic_calcium_concentration" initial_value="6.6309e-05" name="cai" public_interface="out" units="millimolar"/>
-        <variable cmeta:id="cytosolic_chloride_concentration" initial_value="24.0" name="cli" public_interface="out" units="millimolar"/>
+        <variable cmeta:id="cytosolic_sodium_concentration" initial_value="1.340062e+01" name="nai" public_interface="out" units="millimolar"/>
+        <variable cmeta:id="intracellular_ions_nass" initial_value="1.340094e+01" name="nass" public_interface="out" units="millimolar"/>
+        <variable cmeta:id="cytosolic_potassium_concentration" initial_value="1.523639e+02" name="ki" public_interface="out" units="millimolar"/>
+        <variable cmeta:id="intracellular_ions_kss" initial_value="1.523638e+02" name="kss" public_interface="out" units="millimolar"/>
+        <variable cmeta:id="intracellular_ions_cass" initial_value="5.749921e-05" name="cass" public_interface="out" units="millimolar"/>
+        <variable cmeta:id="intracellular_ions_cansr" initial_value="1.806794e+00" name="cansr" public_interface="out" units="millimolar"/>
+        <variable cmeta:id="intracellular_ions_cajsr" initial_value="1.805047e+00" name="cajsr" public_interface="out" units="millimolar"/>
+        <variable cmeta:id="cytosolic_calcium_concentration" initial_value="6.621816e-05" name="cai" public_interface="out" units="millimolar"/>
+        <variable cmeta:id="cytosolic_chloride_concentration" initial_value="3.431721e+01" name="cli" public_interface="out" units="millimolar"/>
+        <variable cmeta:id="intracellular_ions_clss" initial_value="3.431719e+01" name="clss" public_interface="out" units="millimolar"/>
         <variable name="celltype" public_interface="in" units="dimensionless"/>
         <variable name="Acap" public_interface="in" units="centimeter_squared"/>
         <variable name="R" public_interface="in" units="joule_per_kilomole_kelvin"/>
@@ -494,6 +491,7 @@
         <variable name="Jdiff" public_interface="in" units="millimolar_per_millisecond"/>
         <variable name="Jup" public_interface="in" units="millimolar_per_millisecond"/>
         <variable name="JdiffK" public_interface="in" units="millimolar_per_millisecond"/>
+        <variable name="JdiffCl" public_interface="in" units="millimolar_per_millisecond"/>
         <variable name="Jrel" public_interface="in" units="millimolar_per_millisecond"/>
         <variable name="Jtr" public_interface="in" units="millimolar_per_millisecond"/>
         <variable name="time" public_interface="in" units="millisecond"/>
@@ -504,6 +502,10 @@
         <variable name="Bcai" units="dimensionless"/>
         <variable name="Bcajsr" units="dimensionless"/>
         <variable name="Bcass" units="dimensionless"/>
+        <variable name="IClCa" public_interface="in" units="microA_per_microF"/>
+        <variable name="IClCa_sl" public_interface="in" units="microA_per_microF"/>
+        <variable name="IClCa_junc" public_interface="in" units="microA_per_microF"/>
+        <variable name="IClb" public_interface="in" units="microA_per_microF"/>
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
                 <eq/>
@@ -705,6 +707,72 @@
                         </apply>
                     </apply>
                     <ci>JdiffK</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>time</ci>
+                    </bvar>
+                    <ci>cli</ci>
+                </apply>
+                <apply>
+                    <plus/>
+                    <apply>
+                        <divide/>
+                        <apply>
+                            <times/>
+                            <apply>
+                                <plus/>
+                                <ci>IClb</ci>
+                                <ci>IClCa_sl</ci>
+                            </apply>
+                            <ci>Acap</ci>
+                        </apply>
+                        <apply>
+                            <times/>
+                            <ci>F</ci>
+                            <ci>vmyo</ci>
+                        </apply>
+                    </apply>
+                    <apply>
+                        <divide/>
+                        <apply>
+                            <times/>
+                            <ci>JdiffCl</ci>
+                            <ci>vss</ci>
+                        </apply>
+                        <ci>vmyo</ci>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>time</ci>
+                    </bvar>
+                    <ci>clss</ci>
+                </apply>
+                <apply>
+                    <minus/>
+                    <apply>
+                        <divide/>
+                        <apply>
+                            <times/>
+                            <ci>IClCa_junc</ci>
+                            <ci>Acap</ci>
+                        </apply>
+                        <apply>
+                            <times/>
+                            <ci>F</ci>
+                            <ci>vss</ci>
+                        </apply>
+                    </apply>
+                    <ci>JdiffCl</ci>
                 </apply>
             </apply>
             <apply>
@@ -997,16 +1065,18 @@
     </component>
     <component name="reversal_potentials">
         <variable initial_value="0.01833" name="PKNa" units="dimensionless"/>
-        <variable name="ENa" public_interface="out" units="millivolt" cmeta:id="reversal_potentials_ENa"/>
-        <variable name="EK" public_interface="out" units="millivolt" cmeta:id="reversal_potentials_EK"/>
-        <variable name="EKs" public_interface="out" units="millivolt"/>
-        <variable name="ECl" public_interface="out" units="millivolt"/>
+        <variable cmeta:id="reversal_potentials_ENa" name="ENa" public_interface="out" units="millivolt"/>
+        <variable cmeta:id="reversal_potentials_EK" name="EK" public_interface="out" units="millivolt"/>
+        <variable cmeta:id="reversal_potentials_EKs" name="EKs" public_interface="out" units="millivolt"/>
+        <variable cmeta:id="reversal_potentials_ECl" name="ECl" public_interface="out" units="millivolt"/>
+        <variable name="EClss" public_interface="out" units="millivolt"/>
         <variable name="nao" public_interface="in" units="millimolar"/>
         <variable name="nai" public_interface="in" units="millimolar"/>
         <variable name="ko" public_interface="in" units="millimolar"/>
         <variable name="ki" public_interface="in" units="millimolar"/>
         <variable name="clo" public_interface="in" units="millimolar"/>
         <variable name="cli" public_interface="in" units="millimolar"/>
+        <variable name="clss" public_interface="in" units="millimolar"/>
         <variable name="zna" public_interface="in" units="dimensionless"/>
         <variable name="zk" public_interface="in" units="dimensionless"/>
         <variable name="zcl" public_interface="in" units="dimensionless"/>
@@ -1142,6 +1212,34 @@
                     </apply>
                 </apply>
             </apply>
+            <apply>
+                <eq/>
+                <ci>EClss</ci>
+                <apply>
+                    <times/>
+                    <apply>
+                        <divide/>
+                        <apply>
+                            <times/>
+                            <ci>R</ci>
+                            <ci>T</ci>
+                        </apply>
+                        <apply>
+                            <times/>
+                            <ci>zcl</ci>
+                            <ci>F</ci>
+                        </apply>
+                    </apply>
+                    <apply>
+                        <ln/>
+                        <apply>
+                            <divide/>
+                            <ci>clo</ci>
+                            <ci>clss</ci>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
         </math>
     </component>
     <component name="I_katp">
@@ -1212,21 +1310,21 @@
     <component name="INa">
         <variable name="mss" units="dimensionless"/>
         <variable name="tm" public_interface="out" units="millisecond"/>
-        <variable initial_value="0.00074303" name="m" units="dimensionless"/>
+        <variable initial_value="5.253231e-04" name="m" units="dimensionless"/>
         <variable name="hss" units="dimensionless"/>
         <variable name="ah" units="dimensionless"/>
         <variable name="bh" units="dimensionless"/>
         <variable name="th" units="millisecond"/>
-        <variable initial_value="0.8360" name="h" units="dimensionless"/>
+        <variable initial_value="8.645148e-01" name="h" units="dimensionless"/>
         <variable name="jss" units="dimensionless"/>
         <variable name="aj" units="dimensionless"/>
         <variable name="bj" units="dimensionless"/>
         <variable name="tj" units="millisecond"/>
-        <variable initial_value="0.8359" name="j" units="dimensionless"/>
+        <variable initial_value="8.644571e-01" name="j" units="dimensionless"/>
         <variable name="hssp" units="dimensionless"/>
-        <variable initial_value="0.6828" name="hp" units="dimensionless"/>
+        <variable initial_value="7.313656e-01" name="hp" units="dimensionless"/>
         <variable name="tjp" units="millisecond"/>
-        <variable initial_value="0.8357" name="jp" units="dimensionless"/>
+        <variable initial_value="8.643527e-01" name="jp" units="dimensionless"/>
         <variable name="fINap" units="dimensionless"/>
         <variable name="time" public_interface="in" units="millisecond"/>
         <variable name="v" public_interface="in" units="millivolt"/>
@@ -1848,14 +1946,14 @@
     <component name="INaL">
         <variable name="mLss" units="dimensionless"/>
         <variable name="tmL" units="millisecond"/>
-        <variable initial_value="0.00015166" name="mL" units="dimensionless"/>
+        <variable initial_value="1.117969e-04" name="mL" units="dimensionless"/>
         <variable initial_value="200" name="thL" units="millisecond"/>
         <variable name="hLss" units="dimensionless"/>
         <variable name="v" public_interface="in" units="millivolt"/>
-        <variable initial_value="0.5401" name="hL" units="dimensionless"/>
+        <variable initial_value="5.916536e-01" name="hL" units="dimensionless"/>
         <variable name="hLssp" units="dimensionless"/>
         <variable name="thLp" units="millisecond"/>
-        <variable initial_value="0.3034" name="hLp" units="dimensionless"/>
+        <variable initial_value="3.476812e-01" name="hLp" units="dimensionless"/>
         <variable cmeta:id="membrane_persistent_sodium_current_conductance" initial_value="0.0279" name="GNaL_b" units="milliS_per_microF"/>
         <variable name="GNaL" units="milliS_per_microF"/>
         <variable name="fINaLp" units="dimensionless"/>
@@ -2135,7 +2233,7 @@
         <variable cmeta:id="membrane_transient_outward_current_conductance" initial_value="0.16" name="Gto_b" units="milliS_per_microF"/>
         <variable name="ass" units="dimensionless"/>
         <variable name="ta" units="millisecond"/>
-        <variable initial_value="0.00092716" name="a" units="dimensionless"/>
+        <variable initial_value="8.320408e-04" name="a" units="dimensionless"/>
         <variable name="time" public_interface="in" units="millisecond"/>
         <variable name="v" public_interface="in" units="millivolt"/>
         <variable initial_value="0" name="EKshift" units="millivolt"/>
@@ -2148,19 +2246,19 @@
         <variable name="tiS" units="millisecond"/>
         <variable name="AiF" units="dimensionless"/>
         <variable name="AiS" units="dimensionless"/>
-        <variable initial_value="0.9996" name="iF" units="dimensionless"/>
-        <variable initial_value="0.9996" name="iS" units="dimensionless"/>
+        <variable initial_value="9.997242e-01" name="iF" units="dimensionless"/>
+        <variable initial_value="9.997235e-01" name="iS" units="dimensionless"/>
         <variable name="i" units="dimensionless"/>
         <variable name="assp" units="dimensionless"/>
-        <variable initial_value="0.0004724" name="ap" units="dimensionless"/>
+        <variable initial_value="4.239121e-04" name="ap" units="dimensionless"/>
         <variable name="dti_develop" units="dimensionless"/>
         <variable name="dti_recover" units="dimensionless"/>
         <variable name="tiFp" units="millisecond"/>
         <variable name="tiSp" units="millisecond"/>
-        <variable initial_value="0.9996" name="iFp" units="dimensionless"/>
-        <variable initial_value="0.9996" name="iSp" units="dimensionless"/>
+        <variable initial_value="9.997242e-01" name="iFp" units="dimensionless"/>
+        <variable initial_value="9.997241e-01" name="iSp" units="dimensionless"/>
         <variable name="ip" units="dimensionless"/>
-        <variable name="Gto" units="milliS_per_microF"/>
+        <variable cmeta:id="Ito_Gto" name="Gto" units="milliS_per_microF"/>
         <variable name="fItop" units="dimensionless"/>
         <variable cmeta:id="membrane_transient_outward_current" name="Ito" public_interface="out" units="microA_per_microF"/>
         <variable name="celltype" public_interface="in" units="dimensionless"/>
@@ -2853,30 +2951,30 @@
         <variable initial_value="500" name="k2n" units="per_millisecond"/>
         <variable cmeta:id="membrane_L_type_calcium_current_conductance" initial_value="8.3757e-05" name="PCa_b" units="dimensionless"/>
         <variable name="dss" units="dimensionless"/>
-        <variable initial_value="0" name="d" units="dimensionless"/>
+        <variable initial_value="-2.486527e-36" name="d" units="dimensionless"/>
         <variable name="fss" units="dimensionless"/>
         <variable initial_value="0.6" name="Aff" units="dimensionless"/>
         <variable name="Afs" units="dimensionless"/>
-        <variable initial_value="1.0" name="ff" units="dimensionless"/>
-        <variable initial_value="0.9485" name="fs" units="dimensionless"/>
+        <variable initial_value="1.000000e+00" name="ff" units="dimensionless"/>
+        <variable initial_value="9.510602e-01" name="fs" units="dimensionless"/>
         <variable name="f" units="dimensionless"/>
         <variable name="fcass" units="dimensionless"/>
         <variable name="jcass" units="dimensionless"/>
         <variable name="Afcaf" units="dimensionless"/>
         <variable name="Afcas" units="dimensionless"/>
-        <variable initial_value="1.0" name="fcaf" units="dimensionless"/>
-        <variable initial_value="0.9999" name="fcas" units="dimensionless"/>
+        <variable initial_value="1.000000e+00" name="fcaf" units="dimensionless"/>
+        <variable initial_value="9.999377e-01" name="fcas" units="dimensionless"/>
         <variable name="fca" units="dimensionless"/>
-        <variable initial_value="1.0" name="jca" units="dimensionless"/>
-        <variable initial_value="1.0" name="ffp" units="dimensionless"/>
+        <variable initial_value="9.999886e-01" name="jca" units="dimensionless"/>
+        <variable initial_value="1.000000e+00" name="ffp" units="dimensionless"/>
         <variable name="fp" units="dimensionless"/>
-        <variable initial_value="1.0" name="fcafp" units="dimensionless"/>
+        <variable initial_value="1.000000e+00" name="fcafp" units="dimensionless"/>
         <variable name="fcap" units="dimensionless"/>
         <variable name="km2n" units="per_millisecond"/>
         <variable name="anca_ss" units="dimensionless"/>
-        <variable initial_value="0.00030853" name="nca_ss" units="dimensionless"/>
+        <variable initial_value="3.049523e-04" name="nca_ss" units="dimensionless"/>
         <variable name="anca_i" units="dimensionless"/>
-        <variable initial_value="0.00053006" name="nca_i" units="dimensionless"/>
+        <variable initial_value="5.272668e-04" name="nca_i" units="dimensionless"/>
         <variable name="PhiCaL_ss" units="dimensionless"/>
         <variable name="PhiCaNa_ss" units="dimensionless"/>
         <variable name="PhiCaK_ss" units="dimensionless"/>
@@ -2896,7 +2994,7 @@
         <variable name="tfs" units="millisecond"/>
         <variable name="tfcaf" units="millisecond"/>
         <variable name="tfcas" units="millisecond"/>
-        <variable initial_value="75" name="tjca" units="millisecond"/>
+        <variable initial_value="72.5" name="tjca" units="millisecond"/>
         <variable name="tffp" units="millisecond"/>
         <variable name="tfcafp" units="millisecond"/>
         <variable name="ICaL_ss" public_interface="out" units="microA_per_microF"/>
@@ -2923,6 +3021,7 @@
         <variable name="ki" public_interface="in" units="millimolar"/>
         <variable name="clo" public_interface="in" units="millimolar"/>
         <variable name="cli" public_interface="in" units="millimolar"/>
+        <variable name="clss" public_interface="in" units="millimolar"/>
         <variable name="KmCaMK" public_interface="in" units="millimolar"/>
         <variable name="CaMKa" public_interface="in" units="millimolar"/>
         <variable name="T" public_interface="in" units="kelvin"/>
@@ -3655,7 +3754,7 @@
                             <plus/>
                             <ci>nass</ci>
                             <ci>kss</ci>
-                            <ci>cli</ci>
+                            <ci>clss</ci>
                             <apply>
                                 <times/>
                                 <cn cellml:units="dimensionless">4</cn>
@@ -4900,12 +4999,12 @@
         </math>
     </component>
     <component name="IKr">
-        <variable initial_value="0.0321" name="GKr_b" units="milliS_per_microF" cmeta:id="IKr_GKr_b"/>
-        <variable initial_value="0.00067941" name="C1" units="dimensionless"/>
-        <variable initial_value="0.00082869" name="C2" units="dimensionless"/>
-        <variable initial_value="0.9982" name="C3" units="dimensionless"/>
-        <variable initial_value="9.5416e-06" name="I" units="dimensionless"/>
-        <variable initial_value="0.00027561" name="O" units="dimensionless"/>
+        <variable cmeta:id="membrane_rapid_delayed_rectifier_potassium_current_conductance_scaling_factor" initial_value="0.0321" name="GKr_b" units="milliS_per_microF"/>
+        <variable initial_value="9.984733e-01" name="C1" units="dimensionless"/>
+        <variable initial_value="7.393045e-04" name="C2" units="dimensionless"/>
+        <variable initial_value="6.029079e-04" name="C3" units="dimensionless"/>
+        <variable initial_value="5.678255e-06" name="I" units="dimensionless"/>
+        <variable initial_value="1.787783e-04" name="O" units="dimensionless"/>
         <variable name="alpha" units="per_millisecond"/>
         <variable name="beta" units="per_millisecond"/>
         <variable initial_value="0.154375" name="alpha_1" units="per_millisecond"/>
@@ -4920,10 +5019,10 @@
         <variable name="vfrt" public_interface="in" units="dimensionless"/>
         <variable name="time" public_interface="in" units="millisecond"/>
         <variable name="celltype" public_interface="in" units="dimensionless"/>
-        <variable name="GKr" units="milliS_per_microF"/>
-        <variable cmeta:id="membrane_rapid_delayed_rectifier_potassium_current_conductance" name="GKrmax" units="milliS_per_microF"/>
+        <variable cmeta:id="IKr_GKr" name="GKr" units="milliS_per_microF"/>
         <variable name="EK" public_interface="in" units="millivolt"/>
         <variable name="ko" public_interface="in" units="millimolar"/>
+        <variable cmeta:id="IKr_GKrmax" name="GKrmax" units="milliS_per_microF"/>
         <variable cmeta:id="membrane_rapid_delayed_rectifier_potassium_current" name="IKr" public_interface="out" units="microA_per_microF"/>
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
@@ -5300,13 +5399,13 @@
         </math>
     </component>
     <component name="IKs">
-        <variable cmeta:id="membrane_slow_delayed_rectifier_potassium_current_conductance" initial_value="0.0011" name="GKs_b" units="milliS_per_microF"/>
-        <variable name="GKs" units="milliS_per_microF"/>
+        <variable cmeta:id="membrane_slow_delayed_rectifier_potassium_current_conductance_scaling_factor" initial_value="0.0011" name="GKs_b" units="milliS_per_microF"/>
+        <variable cmeta:id="IKs_GKs" name="GKs" units="milliS_per_microF"/>
         <variable name="xs1ss" units="dimensionless"/>
         <variable name="xs2ss" units="dimensionless"/>
         <variable name="txs1" units="millisecond"/>
-        <variable initial_value="0.2309" name="xs1" units="dimensionless"/>
-        <variable initial_value="0.00016975" name="xs2" units="dimensionless"/>
+        <variable initial_value="2.233584e-01" name="xs1" units="dimensionless"/>
+        <variable initial_value="1.418247e-04" name="xs2" units="dimensionless"/>
         <variable name="KsCa" units="dimensionless"/>
         <variable name="v" public_interface="in" units="millivolt"/>
         <variable name="time" public_interface="in" units="millisecond"/>
@@ -5548,7 +5647,8 @@
     </component>
     <component name="IK1">
         <variable name="GK1" units="milliS_per_microF"/>
-        <variable cmeta:id="membrane_inward_rectifier_potassium_current_conductance" initial_value="0.6992" name="GK1_b" units="milliS_per_microF"/>
+        <variable cmeta:id="IK1_GK1max" name="GK1max" units="milliS_per_microF"/>
+        <variable cmeta:id="membrane_inward_rectifier_potassium_current_conductance_scaling_factor" initial_value="0.6992" name="GK1_b" units="milliS_per_microF"/>
         <variable name="aK1" units="dimensionless"/>
         <variable name="bK1" units="dimensionless"/>
         <variable name="K1ss" units="dimensionless"/>
@@ -5703,7 +5803,7 @@
             </apply>
             <apply>
                 <eq/>
-                <ci>IK1</ci>
+                <ci>GK1max</ci>
                 <apply>
                     <times/>
                     <ci>GK1</ci>
@@ -5715,6 +5815,14 @@
                             <cn cellml:units="millimolar">5</cn>
                         </apply>
                     </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>IK1</ci>
+                <apply>
+                    <times/>
+                    <ci>GK1max</ci>
                     <ci>K1ss</ci>
                     <apply>
                         <minus/>
@@ -5790,8 +5898,8 @@
         <variable name="JncxCa_i" units="millimolar_per_millisecond"/>
         <variable name="celltype" public_interface="in" units="dimensionless"/>
         <!--
-        <variable cmeta:id="membrane_sodium_calcium_exchanger_current_i" name="INaCa_i" public_interface="out" units="microA_per_microF"/>
-        <variable cmeta:id="membrane_sodium_calcium_exchanger_current_ss" name="INaCa_ss" public_interface="out" units="microA_per_microF"/>
+<variable cmeta:id="membrane_sodium_calcium_exchanger_current_i" name="INaCa_i" public_interface="out" units="microA_per_microF"/>
+<variable cmeta:id="membrane_sodium_calcium_exchanger_current_ss" name="INaCa_ss" public_interface="out" units="microA_per_microF"/>
 -->
         <variable name="INaCa_i" public_interface="out" units="microA_per_microF"/>
         <variable name="INaCa_ss" public_interface="out" units="microA_per_microF"/>
@@ -7931,8 +8039,9 @@
         <variable name="cass" public_interface="in" units="millimolar"/>
         <variable name="v" public_interface="in" units="millivolt"/>
         <variable name="ECl" public_interface="in" units="millivolt"/>
-        <variable name="IClCa_junc" units="microA_per_microF"/>
-        <variable name="IClCa_sl" units="microA_per_microF"/>
+        <variable name="EClss" public_interface="in" units="millivolt"/>
+        <variable name="IClCa_junc" public_interface="out" units="microA_per_microF"/>
+        <variable name="IClCa_sl" public_interface="out" units="microA_per_microF"/>
         <variable name="IClCa" public_interface="out" units="microA_per_microF"/>
         <variable name="IClb" public_interface="out" units="microA_per_microF"/>
         <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -7961,7 +8070,7 @@
                     <apply>
                         <minus/>
                         <ci>v</ci>
-                        <ci>ECl</ci>
+                        <ci>EClss</ci>
                     </apply>
                 </apply>
             </apply>
@@ -8029,12 +8138,16 @@
         <variable name="nass" public_interface="in" units="millimolar"/>
         <variable name="ki" public_interface="in" units="millimolar"/>
         <variable name="kss" public_interface="in" units="millimolar"/>
+        <variable name="cli" public_interface="in" units="millimolar"/>
+        <variable name="clss" public_interface="in" units="millimolar"/>
         <variable initial_value="2.0" name="tauNa" units="millisecond"/>
         <variable initial_value="2.0" name="tauK" units="millisecond"/>
         <variable initial_value="0.2" name="tauCa" units="millisecond"/>
+        <variable initial_value="2.0" name="tauCl" units="millisecond"/>
         <variable name="JdiffNa" public_interface="out" units="millimolar_per_millisecond"/>
         <variable name="JdiffK" public_interface="out" units="millimolar_per_millisecond"/>
         <variable name="Jdiff" public_interface="out" units="millimolar_per_millisecond"/>
+        <variable name="JdiffCl" public_interface="out" units="millimolar_per_millisecond"/>
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
                 <eq/>
@@ -8075,6 +8188,19 @@
                     <ci>tauCa</ci>
                 </apply>
             </apply>
+            <apply>
+                <eq/>
+                <ci>JdiffCl</ci>
+                <apply>
+                    <divide/>
+                    <apply>
+                        <minus/>
+                        <ci>clss</ci>
+                        <ci>cli</ci>
+                    </apply>
+                    <ci>tauNa</ci>
+                </apply>
+            </apply>
         </math>
     </component>
     <component name="ryr">
@@ -8084,14 +8210,14 @@
         <variable name="Jrel_inf" units="millimolar_per_millisecond"/>
         <variable name="tau_rel_b" units="millisecond"/>
         <variable name="tau_rel" units="millisecond"/>
-        <variable initial_value="2.8189e-24" name="Jrel_np" units="millimolar_per_millisecond"/>
+        <variable initial_value="6.778827e-25" name="Jrel_np" units="millimolar_per_millisecond"/>
         <variable name="btp" units="millisecond"/>
         <variable name="a_relp" units="millimolar_per_millisecond"/>
         <variable name="Jrel_infp_b" units="millimolar_per_millisecond"/>
         <variable name="Jrel_infp" units="millimolar_per_millisecond"/>
         <variable name="tau_relp_b" units="millisecond"/>
         <variable name="tau_relp" units="millisecond"/>
-        <variable initial_value="0" name="Jrel_p" units="millimolar_per_millisecond"/>
+        <variable initial_value="-1.581941e-23" name="Jrel_p" units="millimolar_per_millisecond"/>
         <variable initial_value="1.7" name="cajsr_half" units="millimolar"/>
         <variable name="celltype" public_interface="in" units="dimensionless"/>
         <variable name="ICaL_ss" public_interface="in" units="microA_per_microF"/>
@@ -8603,9 +8729,12 @@
         <map_variables variable_1="nass" variable_2="nass"/>
         <map_variables variable_1="ki" variable_2="ki"/>
         <map_variables variable_1="kss" variable_2="kss"/>
+        <map_variables variable_1="cli" variable_2="cli"/>
+        <map_variables variable_1="clss" variable_2="clss"/>
         <map_variables variable_1="JdiffK" variable_2="JdiffK"/>
         <map_variables variable_1="Jdiff" variable_2="Jdiff"/>
         <map_variables variable_1="JdiffNa" variable_2="JdiffNa"/>
+        <map_variables variable_1="JdiffCl" variable_2="JdiffCl"/>
     </connection>
     <connection>
         <map_components component_1="IpCa" component_2="membrane"/>
@@ -8852,6 +8981,7 @@
         <map_variables variable_1="nai" variable_2="nai"/>
         <map_variables variable_1="ki" variable_2="ki"/>
         <map_variables variable_1="cli" variable_2="cli"/>
+        <map_variables variable_1="clss" variable_2="clss"/>
         <map_variables variable_1="ICaNa" variable_2="ICaNa"/>
         <map_variables variable_1="ICaK" variable_2="ICaK"/>
         <map_variables variable_1="ICaL" variable_2="ICaL"/>
@@ -8951,6 +9081,7 @@
         <map_variables variable_1="nai" variable_2="nai"/>
         <map_variables variable_1="ki" variable_2="ki"/>
         <map_variables variable_1="cli" variable_2="cli"/>
+        <map_variables variable_1="clss" variable_2="clss"/>
     </connection>
     <connection>
         <map_components component_1="extracellular" component_2="reversal_potentials"/>
@@ -8962,6 +9093,10 @@
         <map_components component_1="intracellular_ions" component_2="ICl"/>
         <map_variables variable_1="cai" variable_2="cai"/>
         <map_variables variable_1="cass" variable_2="cass"/>
+        <map_variables variable_1="IClCa" variable_2="IClCa"/>
+        <map_variables variable_1="IClCa_junc" variable_2="IClCa_junc"/>
+        <map_variables variable_1="IClCa_sl" variable_2="IClCa_sl"/>
+        <map_variables variable_1="IClb" variable_2="IClb"/>
     </connection>
     <connection>
         <map_components component_1="membrane" component_2="ICl"/>
@@ -8972,6 +9107,7 @@
     <connection>
         <map_components component_1="reversal_potentials" component_2="ICl"/>
         <map_variables variable_1="ECl" variable_2="ECl"/>
+        <map_variables variable_1="EClss" variable_2="EClss"/>
     </connection>
     <connection>
         <map_components component_1="I_katp" component_2="membrane"/>
@@ -8991,178 +9127,625 @@
         <map_variables variable_1="I_katp" variable_2="I_katp"/>
     </connection>
     <!--
-    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_fast_sodium_current_h_gate">
-            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current_h_gate" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
-        </rdf:Description>
-    </rdf:RDF>
+
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+
+<rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_fast_sodium_current_h_gate">
+
+
+<bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current_h_gate" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+
+
+</rdf:Description>
+
+
+</rdf:RDF>
 -->
     <!--
-    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_fast_sodium_current_j_gate">
-            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current_j_gate" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
-        </rdf:Description>
-    </rdf:RDF>
+
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+
+<rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_fast_sodium_current_j_gate">
+
+
+<bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current_j_gate" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+
+
+</rdf:Description>
+
+
+</rdf:RDF>
 -->
     <!--
-    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#INaL_inactTvar">
-            <modifiable-parameter xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</modifiable-parameter>
-        </rdf:Description>
-    </rdf:RDF>
+
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+
+<rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#INaL_inactTvar">
+<modifiable-parameter xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</modifiable-parameter>
+
+
+</rdf:Description>
+
+
+</rdf:RDF>
 -->
     <!--
+
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+
+<rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_persistent_sodium_current_conductance">
+
+
+<bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-		metadata#membrane_persistent_sodium_current_conductance" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+<modifiable-parameter xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</modifiable-parameter>
+
+
+</rdf:Description>
+
+
+</rdf:RDF>
+-->
+    <!--
+
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+
+<rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#INaL_actTvar">
+<modifiable-parameter xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</modifiable-parameter>
+
+
+</rdf:Description>
+
+
+</rdf:RDF>
+-->
+    <!--
+
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+
+<rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#Ito_actVvar">
+<modifiable-parameter xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</modifiable-parameter>
+
+
+</rdf:Description>
+
+
+</rdf:RDF>
+
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+
+<rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#Ito_actSvar">
+<modifiable-parameter xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</modifiable-parameter>
+
+
+</rdf:Description>
+
+
+</rdf:RDF>
+
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+
+<rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#Ito_actTvar">
+<modifiable-parameter xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</modifiable-parameter>
+
+
+</rdf:Description>
+
+
+</rdf:RDF>
+-->
+    <!--
+
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+
+<rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_L_type_calcium_current_drivingforce">
+
+
+<bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_L_type_calcium_current_drivingforce" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+
+
+</rdf:Description>
+
+
+</rdf:RDF>
+-->
+    <!--
+
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+
+<rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#ICaL_actVvar">
+<modifiable-parameter xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</modifiable-parameter>
+
+
+</rdf:Description>
+
+
+</rdf:RDF>
+
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+
+<rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#ICaL_actSvar">
+<modifiable-parameter xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</modifiable-parameter>
+
+
+</rdf:Description>
+
+
+</rdf:RDF>
+
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+
+<rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#ICaL_actTvar">
+<modifiable-parameter xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</modifiable-parameter>
+
+
+</rdf:Description>
+
+
+</rdf:RDF>
+
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+
+<rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#ICaL_inactVvar">
+<modifiable-parameter xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</modifiable-parameter>
+
+
+</rdf:Description>
+
+
+</rdf:RDF>
+
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+
+<rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#ICaL_inactSvar">
+<modifiable-parameter xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</modifiable-parameter>
+
+
+</rdf:Description>
+
+
+</rdf:RDF>
+
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+
+<rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#ICaL_inactTVfvar">
+<modifiable-parameter xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</modifiable-parameter>
+
+
+</rdf:Description>
+
+
+</rdf:RDF>
+
+
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+
+<rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#ICaL_inactTVsvar">
+<modifiable-parameter xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</modifiable-parameter>
+
+
+</rdf:Description>
+
+
+</rdf:RDF>
+
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+
+<rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#ICaL_inactTCfvar">
+<modifiable-parameter xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</modifiable-parameter>
+
+
+</rdf:Description>
+
+
+</rdf:RDF>
+
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+
+<rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#ICaL_inactTCsvar">
+<modifiable-parameter xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</modifiable-parameter>
+
+
+</rdf:Description>
+
+
+</rdf:RDF>
+-->
+    <!--
+
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+
+<rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_sodium_calcium_exchanger_current_i">
+
+
+<bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_sodium_calcium_exchanger_current_i" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+
+
+</rdf:Description>
+
+
+</rdf:RDF>
+
+
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+
+<rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_sodium_calcium_exchanger_current_ss">
+
+
+<bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_sodium_calcium_exchanger_current_ss" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+
+
+</rdf:Description>
+
+
+</rdf:RDF>
+-->
+    <!--
+
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+
+<rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_sodium_potassium_pump_conductance">
+<modifiable-parameter xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</modifiable-parameter>
+
+
+</rdf:Description>
+
+
+</rdf:RDF>
+-->
     <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="urn:fc:local#initial_voltage" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="urn:fc:local#initial_calcium_cass" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="urn:fc:local#initial_calcium_cad" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="urn:fc:local#initial_calcium_cai" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="urn:fc:local#initial_time" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="urn:fc:local#conductance_scale_factor" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="dummy:name#v1" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="dummy:name#v7" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="dummy:name#c4" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="dummy:name#c5" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="dummy:name#c0" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="dummy:name#tx2" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="dummy:name#tx1" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="dummy:name#t3" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="dummy:name#t0" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="dummy:name#t1" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="dummy:name#c3" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="dummy:name#vmax" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="dummy:name#c8" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="dummy:name#v4" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="dummy:name#v6" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="dummy:name#v8" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="dummy:name#c6" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="dummy:name#v2" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="dummy:name#t5" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="dummy:name#t2" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="dummy:name#t8" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="dummy:name#v3" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="dummy:name#t6" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="dummy:name#c7" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="dummy:name#c2" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="dummy:name#t4" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="dummy:name#c1" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="dummy:name#vmin" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="dummy:name#v0" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="dummy:name#t7" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="dummy:name#v5" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="dummy:name#holding" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <oxmeta:Annotation xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" rdf:about="urn:temp-names#membrane_total_sodium_current" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:type xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#CustomAnnotations"/>
+        </oxmeta:Annotation>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_atp_dependent_potassium_current_conductance">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_atp_dependent_potassium_current_conductance" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+            <a39:modifiable-parameter xmlns:a39="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</a39:modifiable-parameter>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_atp_dependent_potassium_current">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_atp_dependent_potassium_current" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_fast_sodium_current_conductance">
+            <a41:modifiable-parameter xmlns:a41="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</a41:modifiable-parameter>
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current_conductance" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
         <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_persistent_sodium_current_conductance">
-            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-		metadata#membrane_persistent_sodium_current_conductance" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
-            <modifiable-parameter xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</modifiable-parameter>
+            <a43:modifiable-parameter xmlns:a43="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</a43:modifiable-parameter>
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_persistent_sodium_current_conductance" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_transient_outward_current_conductance">
+            <a45:modifiable-parameter xmlns:a45="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</a45:modifiable-parameter>
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_transient_outward_current_conductance_scaling_factor" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_L_type_calcium_current_conductance">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_L_type_calcium_current_conductance" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+            <a47:modifiable-parameter xmlns:a47="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</a47:modifiable-parameter>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_rapid_delayed_rectifier_potassium_current_conductance">
+            <a49:modifiable-parameter xmlns:a49="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</a49:modifiable-parameter>
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_rapid_delayed_rectifier_potassium_current_conductance_scaling_factor" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_slow_delayed_rectifier_potassium_current_conductance">
+            <a51:modifiable-parameter xmlns:a51="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</a51:modifiable-parameter>
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_slow_delayed_rectifier_potassium_current_conductance_scaling_factor" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_inward_rectifier_potassium_current_conductance">
+            <a53:modifiable-parameter xmlns:a53="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</a53:modifiable-parameter>
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_inward_rectifier_potassium_current_conductance" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_sodium_calcium_exchanger_current_conductance">
+            <a55:modifiable-parameter xmlns:a55="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</a55:modifiable-parameter>
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_sodium_calcium_exchanger_current_conductance" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_sodium_potassium_pump_current_permeability">
+            <a57:modifiable-parameter xmlns:a57="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</a57:modifiable-parameter>
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_sodium_potassium_pump_current_permeability" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#SR_uptake_current_max">
+            <a59:modifiable-parameter xmlns:a59="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</a59:modifiable-parameter>
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#SR_uptake_current_max" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#time">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#time" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#extracellular_sodium_concentration">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#extracellular_sodium_concentration" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#extracellular_calcium_concentration">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#extracellular_calcium_concentration" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#extracellular_potassium_concentration">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#extracellular_potassium_concentration" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_voltage">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_voltage" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_stimulus_current">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_stimulus_current_offset">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current_offset" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_stimulus_current_amplitude">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current_amplitude" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_stimulus_current_period">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current_period" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_stimulus_current_duration">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current_duration" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#aCaMK_var">
+            <a61:modifiable-parameter xmlns:a61="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</a61:modifiable-parameter>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#CaMKo_var">
+            <a63:modifiable-parameter xmlns:a63="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</a63:modifiable-parameter>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#cytosolic_sodium_concentration">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_sodium_concentration" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#cytosolic_potassium_concentration">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_potassium_concentration" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#cytosolic_calcium_concentration">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_calcium_concentration" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_fast_sodium_current">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_persistent_sodium_current">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_persistent_sodium_current" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_transient_outward_current">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_transient_outward_current" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_L_type_calcium_current">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_L_type_calcium_current" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_rapid_delayed_rectifier_potassium_current">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_rapid_delayed_rectifier_potassium_current" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_slow_delayed_rectifier_potassium_current">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_slow_delayed_rectifier_potassium_current" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_inward_rectifier_potassium_current">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_inward_rectifier_potassium_current" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_sodium_potassium_pump_current">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_sodium_potassium_pump_current" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_calcium_pump_current">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_calcium_pump_current" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#SR_release_current">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#SR_release_current" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#SR_release_current_max">
+            <a65:modifiable-parameter xmlns:a65="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</a65:modifiable-parameter>
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#SR_release_current_max" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#SR_uptake_current">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#SR_uptake_current" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#extracellular_chloride_concentration">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#extracellular_chloride_concentration" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#physical_constants_F">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#faraday_constant" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#physical_constants_R">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#gas_constant" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#physical_constants_T">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#temperature" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#cytosolic_chloride_concentration">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_chloride_concentration" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#intracellular_ions_cass">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#dyadic_space_calcium_concentration" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#intracellular_ions_cajsr">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#JSR_calcium_concentration" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#intracellular_ions_cansr">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#NSR_calcium_concentration" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#intracellular_ions_kss">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#dyadic_space_potassium_concentration" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#intracellular_ions_nass">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#dyadic_space_sodium_concentration" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#intracellular_ions_clss">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#dyadic_space_chloride_concentration" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#reversal_potentials_ECl">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#chloride_reversal_potential" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#reversal_potentials_EK">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#potassium_reversal_potential" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#reversal_potentials_ENa">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#sodium_reversal_potential" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#reversal_potentials_EKs">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#slow_delayed_rectifier_potassium_reversal_potential" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#Ito_Gto">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_transient_outward_current_conductance" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_rapid_delayed_rectifier_potassium_current_conductance_scaling_factor">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_rapid_delayed_rectifier_potassium_current_conductance_scaling_factor" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#IKr_GKrmax">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_rapid_delayed_rectifier_potassium_current_conductance" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_slow_delayed_rectifier_potassium_current_conductance_scaling_factor">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_slow_delayed_rectifier_potassium_current_conductance_scaling_factor" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#IKs_GKs">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_slow_delayed_rectifier_potassium_current_conductance" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#IK1_GK1max">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_inward_rectifier_potassium_current_conductance" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_inward_rectifier_potassium_current_conductance_scaling_factor">
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_inward_rectifier_potassium_current_conductance_scaling_factor" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
         </rdf:Description>
     </rdf:RDF>
--->
-    <!--
-    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#INaL_actTvar">
-            <modifiable-parameter xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</modifiable-parameter>
-        </rdf:Description>
-    </rdf:RDF>
--->
-    <!--
-    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#Ito_actVvar">
-            <modifiable-parameter xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</modifiable-parameter>
-        </rdf:Description>
-    </rdf:RDF>
-    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#Ito_actSvar">
-            <modifiable-parameter xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</modifiable-parameter>
-        </rdf:Description>
-    </rdf:RDF>
-    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#Ito_actTvar">
-            <modifiable-parameter xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</modifiable-parameter>
-        </rdf:Description>
-    </rdf:RDF>
--->
-    <!--
-    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_L_type_calcium_current_drivingforce">
-            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_L_type_calcium_current_drivingforce" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
-        </rdf:Description>
-    </rdf:RDF>
--->
-    <!--
-    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#ICaL_actVvar">
-            <modifiable-parameter xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</modifiable-parameter>
-        </rdf:Description>
-    </rdf:RDF>
-    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#ICaL_actSvar">
-            <modifiable-parameter xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</modifiable-parameter>
-        </rdf:Description>
-    </rdf:RDF>
-    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#ICaL_actTvar">
-            <modifiable-parameter xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</modifiable-parameter>
-        </rdf:Description>
-    </rdf:RDF>
-    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#ICaL_inactVvar">
-            <modifiable-parameter xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</modifiable-parameter>
-        </rdf:Description>
-    </rdf:RDF>
-    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#ICaL_inactSvar">
-            <modifiable-parameter xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</modifiable-parameter>
-        </rdf:Description>
-    </rdf:RDF>
-    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#ICaL_inactTVfvar">
-            <modifiable-parameter xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</modifiable-parameter>
-        </rdf:Description>
-    </rdf:RDF>
-
-    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#ICaL_inactTVsvar">
-            <modifiable-parameter xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</modifiable-parameter>
-        </rdf:Description>
-    </rdf:RDF>
-    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#ICaL_inactTCfvar">
-            <modifiable-parameter xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</modifiable-parameter>
-        </rdf:Description>
-    </rdf:RDF>
-    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#ICaL_inactTCsvar">
-            <modifiable-parameter xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</modifiable-parameter>
-        </rdf:Description>
-    </rdf:RDF>
--->
-    <!--
-    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_sodium_calcium_exchanger_current_i">
-            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_sodium_calcium_exchanger_current_i" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
-        </rdf:Description>
-    </rdf:RDF>
-
-    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_sodium_calcium_exchanger_current_ss">
-            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_sodium_calcium_exchanger_current_ss" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
-        </rdf:Description>
-    </rdf:RDF>
--->
-    <!--
-    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_sodium_potassium_pump_conductance">
-            <modifiable-parameter xmlns="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</modifiable-parameter>
-        </rdf:Description>
-    </rdf:RDF>
--->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:oxmeta="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"><rdf:Description rdf:about="#membrane_atp_dependent_potassium_current_conductance"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_atp_dependent_potassium_current_conductance"/><a0:modifiable-parameter xmlns:a0="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</a0:modifiable-parameter></rdf:Description><rdf:Description rdf:about="#membrane_atp_dependent_potassium_current"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_atp_dependent_potassium_current"/></rdf:Description><rdf:Description rdf:about="#membrane_fast_sodium_current_conductance"><a2:modifiable-parameter xmlns:a2="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</a2:modifiable-parameter><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current_conductance"/></rdf:Description><rdf:Description rdf:about="#membrane_persistent_sodium_current_conductance"><a4:modifiable-parameter xmlns:a4="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</a4:modifiable-parameter><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_persistent_sodium_current_conductance"/></rdf:Description><rdf:Description rdf:about="#membrane_transient_outward_current_conductance"><a6:modifiable-parameter xmlns:a6="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</a6:modifiable-parameter><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_transient_outward_current_conductance"/></rdf:Description><rdf:Description rdf:about="#membrane_L_type_calcium_current_conductance"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_L_type_calcium_current_conductance"/><a8:modifiable-parameter xmlns:a8="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</a8:modifiable-parameter></rdf:Description><rdf:Description rdf:about="#membrane_rapid_delayed_rectifier_potassium_current_conductance"><a10:modifiable-parameter xmlns:a10="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</a10:modifiable-parameter><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_rapid_delayed_rectifier_potassium_current_conductance"/></rdf:Description><rdf:Description rdf:about="#membrane_slow_delayed_rectifier_potassium_current_conductance"><a12:modifiable-parameter xmlns:a12="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</a12:modifiable-parameter><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_slow_delayed_rectifier_potassium_current_conductance"/></rdf:Description><rdf:Description rdf:about="#membrane_inward_rectifier_potassium_current_conductance"><a14:modifiable-parameter xmlns:a14="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</a14:modifiable-parameter><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_inward_rectifier_potassium_current_conductance"/></rdf:Description><rdf:Description rdf:about="#membrane_sodium_calcium_exchanger_current_conductance"><a16:modifiable-parameter xmlns:a16="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</a16:modifiable-parameter><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_sodium_calcium_exchanger_current_conductance"/></rdf:Description><rdf:Description rdf:about="#membrane_sodium_potassium_pump_current_permeability"><a18:modifiable-parameter xmlns:a18="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</a18:modifiable-parameter><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_sodium_potassium_pump_current_permeability"/></rdf:Description><rdf:Description rdf:about="#SR_uptake_current_max"><a20:modifiable-parameter xmlns:a20="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</a20:modifiable-parameter><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#SR_uptake_current_max"/></rdf:Description><rdf:Description rdf:about="#time"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#time"/></rdf:Description><rdf:Description rdf:about="#extracellular_sodium_concentration"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#extracellular_sodium_concentration"/></rdf:Description><rdf:Description rdf:about="#extracellular_calcium_concentration"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#extracellular_calcium_concentration"/></rdf:Description><rdf:Description rdf:about="#extracellular_potassium_concentration"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#extracellular_potassium_concentration"/></rdf:Description><rdf:Description rdf:about="#membrane_voltage"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_voltage"/></rdf:Description><rdf:Description rdf:about="#membrane_stimulus_current"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current"/></rdf:Description><rdf:Description rdf:about="#membrane_stimulus_current_offset"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current_offset"/></rdf:Description><rdf:Description rdf:about="#membrane_stimulus_current_amplitude"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current_amplitude"/></rdf:Description><rdf:Description rdf:about="#membrane_stimulus_current_period"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current_period"/></rdf:Description><rdf:Description rdf:about="#membrane_stimulus_current_duration"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_stimulus_current_duration"/></rdf:Description><rdf:Description rdf:about="#aCaMK_var"><a22:modifiable-parameter xmlns:a22="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</a22:modifiable-parameter></rdf:Description><rdf:Description rdf:about="#CaMKo_var"><a24:modifiable-parameter xmlns:a24="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</a24:modifiable-parameter></rdf:Description><rdf:Description rdf:about="#cytosolic_sodium_concentration"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_sodium_concentration"/></rdf:Description><rdf:Description rdf:about="#cytosolic_potassium_concentration"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_potassium_concentration"/></rdf:Description><rdf:Description rdf:about="#cytosolic_calcium_concentration"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_calcium_concentration"/></rdf:Description><rdf:Description rdf:about="#membrane_fast_sodium_current"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current"/></rdf:Description><rdf:Description rdf:about="#membrane_persistent_sodium_current"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_persistent_sodium_current"/></rdf:Description><rdf:Description rdf:about="#membrane_transient_outward_current"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_transient_outward_current"/></rdf:Description><rdf:Description rdf:about="#membrane_L_type_calcium_current"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_L_type_calcium_current"/></rdf:Description><rdf:Description rdf:about="#membrane_rapid_delayed_rectifier_potassium_current"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_rapid_delayed_rectifier_potassium_current"/></rdf:Description><rdf:Description rdf:about="#membrane_slow_delayed_rectifier_potassium_current"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_slow_delayed_rectifier_potassium_current"/></rdf:Description><rdf:Description rdf:about="#membrane_inward_rectifier_potassium_current"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_inward_rectifier_potassium_current"/></rdf:Description><rdf:Description rdf:about="#membrane_sodium_potassium_pump_current"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_sodium_potassium_pump_current"/></rdf:Description><rdf:Description rdf:about="#membrane_calcium_pump_current"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_calcium_pump_current"/></rdf:Description><rdf:Description rdf:about="#SR_release_current"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#SR_release_current"/></rdf:Description><rdf:Description rdf:about="#SR_release_current_max"><a26:modifiable-parameter xmlns:a26="https://chaste.comlab.ox.ac.uk/cellml/ns/pycml#">yes</a26:modifiable-parameter><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#SR_release_current_max"/></rdf:Description><rdf:Description rdf:about="#SR_uptake_current"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#SR_uptake_current"/></rdf:Description><rdf:Description rdf:about="#extracellular_chloride_concentration"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#extracellular_chloride_concentration"/></rdf:Description><rdf:Description rdf:about="#physical_constants_F"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#faraday_constant"/></rdf:Description><rdf:Description rdf:about="#physical_constants_R"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#gas_constant"/></rdf:Description><rdf:Description rdf:about="#physical_constants_T"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#temperature"/></rdf:Description><rdf:Description rdf:about="#intracellular_ions_cajsr"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#JSR_calcium_concentration"/></rdf:Description><rdf:Description rdf:about="#intracellular_ions_cansr"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#NSR_calcium_concentration"/></rdf:Description><rdf:Description rdf:about="#intracellular_ions_cass"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#dyadic_space_calcium_concentration"/></rdf:Description><rdf:Description rdf:about="#intracellular_ions_kss"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#dyadic_space_potassium_concentration"/></rdf:Description><rdf:Description rdf:about="#intracellular_ions_nass"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#dyadic_space_sodium_concentration"/></rdf:Description><rdf:Description rdf:about="#cytosolic_chloride_concentration"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#cytosolic_chloride_concentration"/></rdf:Description><rdf:Description rdf:about="#reversal_potentials_EK"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#potassium_reversal_potential"/></rdf:Description><rdf:Description rdf:about="#reversal_potentials_ENa"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#sodium_reversal_potential"/></rdf:Description><rdf:Description rdf:about="#IKr_GKr_b"><bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_rapid_delayed_rectifier_potassium_current_conductance_scaling_factor"/></rdf:Description></rdf:RDF></model>
+</model>
