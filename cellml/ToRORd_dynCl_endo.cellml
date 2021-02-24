@@ -5400,7 +5400,7 @@
     </component>
     <component name="IKs">
         <variable cmeta:id="membrane_slow_delayed_rectifier_potassium_current_conductance_scaling_factor" initial_value="0.0011" name="GKs_b" units="milliS_per_microF"/>
-        <variable cmeta:id="IKs_GKs" name="GKs" units="milliS_per_microF"/>
+        <variable cmeta:id="membrane_slow_delayed_rectifier_potassium_current_conductance" name="GKs" units="milliS_per_microF"/>
         <variable name="xs1ss" units="dimensionless"/>
         <variable name="xs2ss" units="dimensionless"/>
         <variable name="txs1" units="millisecond"/>
