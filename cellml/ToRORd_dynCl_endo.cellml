@@ -5022,7 +5022,7 @@
         <variable cmeta:id="IKr_GKr" name="GKr" units="milliS_per_microF"/>
         <variable name="EK" public_interface="in" units="millivolt"/>
         <variable name="ko" public_interface="in" units="millimolar"/>
-        <variable cmeta:id="IKr_GKrmax" name="GKrmax" units="milliS_per_microF"/>
+        <variable cmeta:id="membrane_rapid_delayed_rectifier_potassium_current_conductance" name="GKrmax" units="milliS_per_microF"/>
         <variable cmeta:id="membrane_rapid_delayed_rectifier_potassium_current" name="IKr" public_interface="out" units="microA_per_microF"/>
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
@@ -5647,7 +5647,7 @@
     </component>
     <component name="IK1">
         <variable name="GK1" units="milliS_per_microF"/>
-        <variable cmeta:id="IK1_GK1max" name="GK1max" units="milliS_per_microF"/>
+        <variable cmeta:id="membrane_inward_rectifier_potassium_current_conductance" name="GK1max" units="milliS_per_microF"/>
         <variable cmeta:id="membrane_inward_rectifier_potassium_current_conductance_scaling_factor" initial_value="0.6992" name="GK1_b" units="milliS_per_microF"/>
         <variable name="aK1" units="dimensionless"/>
         <variable name="bK1" units="dimensionless"/>
