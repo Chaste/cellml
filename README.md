@@ -56,7 +56,11 @@ Add this to your project's ```CMakeLists.txt``` file:
 ```cmake
 # Here we add extra arguments to force PyCML to use this extra argument (make Get and Set methods for 
 # all metadata annotated variables).  
-set(Chaste_PYCML_EXTRA_ARGS "--expose-annotated-variables") 
+set(Chaste_CODEGEN_EXTRA_ARGS "--expose-annotated-variables")
+```
+Or for pre 2021 Releases (using PyCml)
+```
+set(Chaste_PYCML_EXTRA_ARGS "--expose-annotated-variables")
 ```
 
 ### Scons
@@ -66,6 +70,10 @@ For older ```scons``` rather than ```cmake``` projects, include lines like this 
 ```python
 # Change some flags just for this project
 env = SConsTools.CloneEnv(env)
+env['Chaste_PYCML_EXTRA_ARGS'] = ['--expose-annotated-variables']
+```
+Or for pre 2021 Releases (using PyCml)
+```
 env['PYCML_EXTRA_ARGS'] = ['--expose-annotated-variables']
 ```
 
