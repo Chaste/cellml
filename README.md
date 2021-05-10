@@ -70,7 +70,7 @@ For older ```scons``` rather than ```cmake``` projects, include lines like this 
 ```python
 # Change some flags just for this project
 env = SConsTools.CloneEnv(env)
-env['Chaste_PYCML_EXTRA_ARGS'] = ['--expose-annotated-variables']
+env['Chaste_CODEGEN_EXTRA_ARGS'] = ['--expose-annotated-variables']
 ```
 Or for pre 2021 Releases (using PyCml)
 ```
