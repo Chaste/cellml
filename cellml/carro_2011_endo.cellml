@@ -9,7 +9,7 @@ http://cor.physiol.ox.ac.uk/ - cor@physiol.ox.ac.uk
 CellML 1.0 was used to generate this model
 http://www.cellml.org/
 -->
-<model name="Carro_Rodriguez_Laguna_Pueyo_CinC2010_ENDO" cmeta:id="Carro_Rodriguez_Laguna_Pueyo_CinC2010_EPI" xmlns="http://www.cellml.org/cellml/1.0#" xmlns:cellml="http://www.cellml.org/cellml/1.0#" xmlns:cmeta="http://www.cellml.org/metadata/1.0#">
+<model name="Carro_Rodriguez_Laguna_Pueyo_CinC2010_ENDO" cmeta:id="Carro_Rodriguez_Laguna_Pueyo_CinC2010_ENDO" xmlns="http://www.cellml.org/cellml/1.0#" xmlns:cellml="http://www.cellml.org/cellml/1.0#" xmlns:cmeta="http://www.cellml.org/metadata/1.0#">
    <units name="millivolt">
       <unit units="volt" prefix="milli"/>
    </units>
