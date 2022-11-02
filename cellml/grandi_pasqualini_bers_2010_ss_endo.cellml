@@ -9,7 +9,7 @@ http://cor.physiol.ox.ac.uk/ - cor@physiol.ox.ac.uk
 CellML 1.0 was used to generate this model
 http://www.cellml.org/
 -->
-<model name="grandi_pasqualini_bers_2010" cmeta:id="grandi_pasqualini_bers_2010" xmlns="http://www.cellml.org/cellml/1.0#" xmlns:cellml="http://www.cellml.org/cellml/1.0#" xmlns:cmeta="http://www.cellml.org/metadata/1.0#">
+<model name="grandi_pasqualini_bers_2010_endo" cmeta:id="grandi_pasqualini_bers_2010_endo" xmlns="http://www.cellml.org/cellml/1.0#" xmlns:cellml="http://www.cellml.org/cellml/1.0#" xmlns:cmeta="http://www.cellml.org/metadata/1.0#">
 	<documentation xmlns="http://cellml.org/tmp-documentation">
 		<article>
 			<articleinfo>
@@ -66,7 +66,7 @@ A novel computational model of the human ventricular action potential and Ca tra
 				<dcterms:W3CDTF>2010-04-01</dcterms:W3CDTF>
 			</dcterms:created>
 		</rdf:Description>
-		<rdf:Description rdf:about="#grandi_pasqualini_bers_2010">
+		<rdf:Description rdf:about="#grandi_pasqualini_bers_2010_endo">
 			<dc:title>The Grandi et al. 2010 model of human ventricular action potential and calcium transient</dc:title>
 			<cmeta:comment xmlns:cmeta="http://www.cellml.org/metadata/1.0#" rdf:parseType="Resource">
 				<rdf:value>This is the CellML description of Grandi et al.'s mathematical model of the 2010 model of human ventricular action potential and calcium transient in human ventricular myocytes</rdf:value>

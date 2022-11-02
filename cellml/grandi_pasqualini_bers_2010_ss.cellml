@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<model cmeta:id="grandi_pasqualini_bers_2010" name="grandi_pasqualini_bers_2010" xmlns="http://www.cellml.org/cellml/1.0#" xmlns:cellml="http://www.cellml.org/cellml/1.0#" xmlns:cmeta="http://www.cellml.org/metadata/1.0#">
+<model cmeta:id="grandi_pasqualini_bers_2010_epi" name="grandi_pasqualini_bers_2010_epi" xmlns="http://www.cellml.org/cellml/1.0#" xmlns:cellml="http://www.cellml.org/cellml/1.0#" xmlns:cmeta="http://www.cellml.org/metadata/1.0#">
     <units name="msec">
         <unit prefix="milli" units="second"/>
     </units>
@@ -6667,7 +6667,7 @@ A novel computational model of the human ventricular action potential and Ca tra
         <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:nodeID="bbe">
             <undefined:W3CDTF xmlns:undefined="http://purl.org/dc/terms/">2010-04-01</undefined:W3CDTF>
         </rdf:Description>
-        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#grandi_pasqualini_bers_2010">
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#grandi_pasqualini_bers_2010_epi">
             <undefined:title xmlns:undefined="http://purl.org/dc/elements/1.1/">The Grandi et al. 2010 model of human ventricular action potential and calcium transient</undefined:title>
             <cmeta:comment xmlns:cmeta="http://www.cellml.org/metadata/1.0#" rdf:nodeID="bbf" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
             <cmeta:species xmlns:cmeta="http://www.cellml.org/metadata/1.0#">Human</cmeta:species>
