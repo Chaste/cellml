@@ -2188,6 +2188,7 @@ http://www.cellml.org/
          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
             <rdf:Description rdf:about="#membrane_L_type_calcium_current_fCa_gate">
                <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_L_type_calcium_current_fCa_gate"/>
+               <bqbiol:is rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#not_a_probability_even_though_it_should_be"/>
             </rdf:Description>
          </rdf:RDF>
       </variable>
