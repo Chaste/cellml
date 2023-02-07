@@ -6684,6 +6684,7 @@
         </rdf:Description>
         <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_fast_sodium_current_h_gate">
             <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current_h_gate" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+            <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#not_a_probability_even_though_it_should_be" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
         </rdf:Description>
         <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#membrane_fast_sodium_current_h_gate_tau">
             <bqbiol:is xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" rdf:resource="https://chaste.comlab.ox.ac.uk/cellml/ns/oxford-metadata#membrane_fast_sodium_current_h_gate_tau" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
