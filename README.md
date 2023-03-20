@@ -64,6 +64,7 @@ set(Chaste_PYCML_EXTRA_ARGS "--expose-annotated-variables")
 ```
 
 ### Scons
+Scons is no longer supported by Chaste, but can be used for older versions.
 For older ```scons``` rather than ```cmake``` projects, include lines like this in your project
 'SConscript' file:
 
