@@ -23,19 +23,6 @@ These are both included in the `notworking` branch.
 *Please note:* the CellMl files needed are (automatically) pulled in via cmake at cmake configure time (an internet connection is required). These are places in <ApPredict>/src/cellml *do not* place any other code or cellml files in this location as these will be removed.
 Additional CellML files can be places in src/extra_models 
 
-### Updating: 
-
-If you pull in files as above, then whatever version of your repository 
-you load, it will contain the revision of the cellml files in this repository when you typed ```git submodule update```. 
-We tend to just add metadata to existing models, and perhaps add tweaks to prevent hitting divide by zeros, we try to leave the maths unchanged. So it may be a good idea to keep it up to date, which you can do with:
-
-```sh
-$ git submodule update
-$ cd <my_project>/src/cellml
-$ git checkout master
-$ git pull
-```
-
 ## USEFUL NOTE:
 If you are using these in a [Chaste user project] and want to add options to the ConvertCellModels.py script (for example to provide access to all of the metadata tagged variables in all the models) then follow the relevant instructions below depending on whether it is a cmake or scons project:
 
