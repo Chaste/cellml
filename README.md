@@ -19,7 +19,13 @@ These are included in the `master` branch. To use these files within your code, 
 
 These are both included in the `notworking` branch.
 
-## Submodules
+=======
+## Pulling in cellml files
+Chaste and ApPredict pull in CellML files automatically via cmake at cmake configure time (an internet connection is required). It is also possible to pull in cellml files using git submodules, or to copy files manually
+These are places in `<ApPredict>/src/cellml` *do not* place any other code or cellml files in this location.
+Additional CellML files can be places in `<ApPredict>/src/extra_models`.
+
+### Submodules
 
 You can also make use of the git submodules functionality to make
 the cellml folder appear to be within your own project too, and to record which revision of this repository you are using.
@@ -33,7 +39,7 @@ $ git submodule update
 ```
 This will import all of the CellML files into your source tree, and all of them will be automatically converted to .hpp and .cpp files for use with Chaste. If you don't want this to happen, change the ```src/cellml``` to just ```cellml``` and then convert as you require, as per [Code Generation From CellML].
 
-### Updating: 
+#### Updating: 
 
 If you pull in files as above, then whatever version of your repository 
 you load, it will contain the revision of the cellml files in this repository when you typed ```git submodule update```. 
@@ -45,6 +51,7 @@ $ cd <my_project>/src/cellml
 $ git checkout master
 $ git pull
 ```
+
 
 ## USEFUL NOTE:
 If you are using these in a [Chaste user project] and want to add options to the ConvertCellModels.py script (for example to provide access to all of the metadata tagged variables in all the models) then follow the relevant instructions below depending on whether it is a cmake or scons project:
