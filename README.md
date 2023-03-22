@@ -20,8 +20,9 @@ These are included in the `master` branch. To use these files within your code, 
 These are both included in the `notworking` branch.
 
 ## Pulling in cellml files
-*Please note:* the CellMl files needed are (automatically) pulled in via cmake at cmake configure time (an internet connection is required). These are places in <ApPredict>/src/cellml *do not* place any other code or cellml files in this location as these will be removed.
-Additional CellML files can be places in src/extra_models 
+*Please note:* the CellMl files needed are (automatically) pulled in via cmake at cmake configure time (an internet connection is required). 
+These are places in `<ApPredict>/src/cellml` *do not* place any other code or cellml files in this location.
+Additional CellML files can be places in `<ApPredict>/src/extra_models`.
 
 ## USEFUL NOTE:
 If you are using these in a [Chaste user project] and want to add options to the ConvertCellModels.py script (for example to provide access to all of the metadata tagged variables in all the models) then follow the relevant instructions below depending on whether it is a cmake or scons project:
