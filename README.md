@@ -19,16 +19,15 @@ These are included in the `master` branch. To use these files within your code, 
 
 These are both included in the `notworking` branch.
 
-=======
 ## Pulling in cellml files
-Chaste and ApPredict pull in CellML files automatically via cmake at cmake configure time (an internet connection is required). It is also possible to pull in cellml files using git submodules, or to copy files manually
-These are places in `<ApPredict>/src/cellml` *do not* place any other code or cellml files in this location.
-Additional CellML files can be places in `<ApPredict>/src/extra_models`.
+Chaste and [ApPredict](www.github.com/Chaste/ApPredict) now pull in CellML files automatically via cmake at cmake configure time (an internet connection is required). 
+These are placed in `<ApPredict>/src/cellml`, *do not* place any other code or cellml files in this location.
+Additional CellML files can be placed in `<ApPredict>/src/extra_models`.
 
-### Submodules
+It is also possible to pull in cellml files using this repository as a git submodule, or to copy files manually.
 
-You can also make use of the git submodules functionality to make
-the cellml folder appear to be within your own project too, and to record which revision of this repository you are using.
+### Git Submodules
+Git submodules make this cellml folder appear to be within your own project, and record which revision of this repository you are using.
 From the command line, the relevant incantation will look something like:
 
 ```sh
@@ -37,7 +36,7 @@ $ git submodule add https://github.com/Chaste/cellml.git src/cellml
 $ git submodule init
 $ git submodule update
 ```
-This will import all of the CellML files into your source tree, and all of them will be automatically converted to .hpp and .cpp files for use with Chaste. If you don't want this to happen, change the ```src/cellml``` to just ```cellml``` and then convert as you require, as per [Code Generation From CellML].
+This will import all of the CellML files into your source (`src`) tree, and all of them will be automatically converted to .hpp and .cpp files for use with Chaste at compile time. If you don't want this to happen, change the ```src/cellml``` to just ```cellml``` and then convert as you require, as per [Code Generation From CellML].
 
 #### Updating: 
 
@@ -51,7 +50,6 @@ $ cd <my_project>/src/cellml
 $ git checkout master
 $ git pull
 ```
-
 
 ## USEFUL NOTE:
 If you are using these in a [Chaste user project] and want to add options to the ConvertCellModels.py script (for example to provide access to all of the metadata tagged variables in all the models) then follow the relevant instructions below depending on whether it is a cmake or scons project:
