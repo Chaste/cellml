@@ -1,6 +1,6 @@
 # Chaste CellML Project
 This project contains highly-annotated CellML versions of a large number of
-cardiac electrophysiology cell-level models, for use with Chaste.  
+cardiac electrophysiology cell-level models, for use with Chaste, [ApPredict](https://www.maths.nottingham.ac.uk/plp/pmzgm/ap_predict/) and [WebLab](https://chaste.cs.ox.ac.uk/WebLab).  
 
 They were originally incorporated in the [Functional Curation] project.
 However, since they are of more general utility they have now been collected
