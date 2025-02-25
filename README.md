@@ -64,7 +64,7 @@ Add this to your project's ```CMakeLists.txt``` file:
 set(Chaste_CODEGEN_EXTRA_ARGS "--expose-annotated-variables")
 ```
 Or for pre 2021 Releases (using PyCml)
-```
+```cmake
 set(Chaste_PYCML_EXTRA_ARGS "--expose-annotated-variables")
 ```
 
@@ -78,7 +78,7 @@ env = SConsTools.CloneEnv(env)
 env['Chaste_CODEGEN_EXTRA_ARGS'] = ['--expose-annotated-variables']
 ```
 Or for pre 2021 Releases (using PyCml)
-```
+```python
 env['PYCML_EXTRA_ARGS'] = ['--expose-annotated-variables']
 ```
 
@@ -89,6 +89,6 @@ We used to require the third-party software Maple to generate Jacobian matricies
 
 See [Code Generation From CellML] for more details of working with these CellML files.
 
-[Code Generation From CellML]: <https://chaste.cs.ox.ac.uk/trac/wiki/ChasteGuides/CodeGenerationFromCellML>
-[Functional Curation]: <https://chaste.cs.ox.ac.uk/trac/wiki/FunctionalCuration>
-[Chaste user project]: <https://chaste.cs.ox.ac.uk/trac/wiki/InstallGuides/CheckoutUserProject>
+[Code Generation From CellML]: <https://chaste.github.io/docs/user-guides/code-generation-from-cellml/>
+[Functional Curation]: <https://chaste.github.io/docs/paper-tutorials/functionalcuration/>
+[Chaste user project]: <https://chaste.github.io/docs/user-guides/user-projects/>
